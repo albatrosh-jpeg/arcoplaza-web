@@ -504,8 +504,7 @@ export default function ArcoplazaLanding() {
                 href={company.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#f8f6f1] border border-[#d7d0c4] rounded-2xl px-6 py-5 flex items-center justify-center text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-              >
+                className="group bg-[#f8f6f1] border border-[#d7d0c4] rounded-2xl px-6 py-5 flex items-center justify-center text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300"              >
                 <img
   src={company.logo}
   alt={company.name}

@@ -63,31 +63,107 @@ export default function ArcoplazaLanding() {
   ]
 
   const companies = [
-    { name: 'Acciona', url: 'https://www.acciona-energia.com' },
-    { name: 'AEQ', url: 'https://www.aeqenergia.com' },
-    { name: 'Agraria Energía', url: 'https://agrariaenergia.com' },
-    { name: 'Alda Energy', url: 'https://aldaenergy.com' },
-    { name: 'Candela Energía', url: 'https://candelaenergia.es' },
-    { name: 'Eleia', url: 'https://eleiaenergia.com' },
-    { name: 'Endesa', url: 'https://www.endesa.com' },
-    { name: 'Factor Energía', url: 'https://www.factorenergia.com' },
-    { name: 'Galp', url: 'https://www.galp.com' },
-    { name: 'Gana Energía', url: 'https://www.ganaenergia.com' },
-    { name: 'Iberdrola', url: 'https://www.iberdrola.es' },
-    { name: 'Ignis', url: 'https://ignis.es' },
-    { name: 'Imagina Energía', url: 'https://imaginaenergia.com' },
-    { name: 'Lidera Energía', url: 'https://lideraenergia.com' },
-    { name: 'Max Energía', url: 'https://maxenergia.es' },
-    { name: 'Naturgy', url: 'https://www.naturgy.es' },
-    { name: 'Niba', url: 'https://niba.es' },
-    { name: 'ODF Energía', url: 'https://odfenergia.es' },
-    { name: 'Nieves Energía', url: 'https://www.nievesenergia.com' },
-    { name: 'Plenitude', url: 'https://plenitude.es' },
-    { name: 'Reacciona', url: 'https://reaccionaenergia.com' },
-    { name: 'Repsol', url: 'https://www.repsol.es' },
-    { name: 'TotalEnergies', url: 'https://totalenergies.es' },
-    { name: 'Energya VM', url: 'https://energyavm.es' }
-  ]
+  {
+    name: 'Acciona',
+    url: 'https://www.acciona-energia.com',
+    logo: '/logos/acciona.png'
+  },
+  {
+    name: 'AEQ',
+    url: 'https://www.aeqenergia.com',
+    logo: '/logos/aeq.png'
+  },
+  {
+    name: 'Agraria Energía',
+    url: 'https://agrariaenergia.com',
+    logo: '/logos/agraria.png'
+  },
+  {
+    name: 'Candela Energía',
+    url: 'https://candelaenergia.es',
+    logo: '/logos/candela.webp'
+  },
+  {
+    name: 'Eleia',
+    url: 'https://eleiaenergia.com',
+    logo: '/logos/eleia.png'
+  },
+  {
+    name: 'Endesa',
+    url: 'https://www.endesa.com',
+    logo: '/logos/endesa.png'
+  },
+  {
+    name: 'Energya VM',
+    url: 'https://energyavm.es',
+    logo: '/logos/energyavm.png'
+  },
+  {
+    name: 'Factor Energía',
+    url: 'https://www.factorenergia.com',
+    logo: '/logos/factor-energia.png'
+  },
+  {
+    name: 'Galp',
+    url: 'https://www.galp.com',
+    logo: '/logos/galp.png'
+  },
+  {
+    name: 'Gana Energía',
+    url: 'https://www.ganaenergia.com',
+    logo: '/logos/gana-energia.png'
+  },
+  {
+    name: 'Iberdrola',
+    url: 'https://www.iberdrola.es',
+    logo: '/logos/iberdrola.png'
+  },
+  {
+    name: 'Ignis',
+    url: 'https://ignis.es',
+    logo: '/logos/ignis.png'
+  },
+  {
+    name: 'Imagina Energía',
+    url: 'https://imaginaenergia.com',
+    logo: '/logos/imagina-energia.png'
+  },
+  {
+    name: 'Max Energía',
+    url: 'https://maxenergia.es',
+    logo: '/logos/max-energia.png'
+  },
+  {
+    name: 'Naturgy',
+    url: 'https://www.naturgy.es',
+    logo: '/logos/naturgy.png'
+  },
+  {
+    name: 'Niba',
+    url: 'https://niba.es',
+    logo: '/logos/niba.webp'
+  },
+  {
+    name: 'Nieves Energía',
+    url: 'https://www.nievesenergia.com',
+    logo: '/logos/nieves.png'
+  },
+  {
+    name: 'Plenitude',
+    url: 'https://plenitude.es',
+    logo: '/logos/plenitude.png'
+  },
+  {
+    name: 'Repsol',
+    url: 'https://www.repsol.es',
+    logo: '/logos/repsol.png'
+  },
+  {
+    name: 'TotalEnergies',
+    url: 'https://totalenergies.es',
+    logo: '/logos/totalenergies.png'
+  }
+]
 
   return (
     <div className="min-h-screen bg-[#e8e4dc] text-slate-900 font-sans">
@@ -430,9 +506,21 @@ export default function ArcoplazaLanding() {
                 rel="noopener noreferrer"
                 className="bg-[#f8f6f1] border border-[#d7d0c4] rounded-2xl px-6 py-5 flex items-center justify-center text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
-                <span className="font-bold text-slate-700 text-sm lg:text-base leading-snug">
-                  {company.name}
-                </span>
+                <img
+  src={company.logo}
+  alt={company.name}
+  className="
+    h-10
+    w-auto
+    object-contain
+    grayscale
+    opacity-70
+    group-hover:grayscale-0
+    group-hover:opacity-100
+    transition-all
+    duration-300
+  "
+/>
               </a>
             ))}
           </div>

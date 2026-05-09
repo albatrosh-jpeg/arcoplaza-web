@@ -170,10 +170,13 @@ export default function ArcoplazaLanding() {
       {/* NAVBAR */}
       <header className="sticky top-0 z-50 backdrop-blur bg-[#e8e4dc]/95 border-b border-slate-300 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center px-2 py-1">
-            <div className="text-5xl lg:text-6xl font-extrabold tracking-[-0.04em] leading-none">
-              <span className="text-slate-900">arco</span>
-              <span className="text-[#1faa59]">plaza</span>
+         <div className="flex items-center">
+  <img
+    src="/logo-arcoplaza.png"
+    alt="Arcoplaza Asesores"
+    className="h-14 w-auto object-contain"
+  />
+</div>
             </div>
           </div>
 

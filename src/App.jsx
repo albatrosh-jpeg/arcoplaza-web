@@ -299,14 +299,7 @@ export default function ArcoplazaLanding() {
 
 </div>
              
-                    <a href="#contacto"
-  className="bg-[#ece7de] rounded-2xl p-5 border border-[#d7d0c4] hover:scale-[1.02] transition-all block cursor-pointer"
-></a>
-                    <div className="text-sm text-slate-500 mb-2">Gas</div>
-                    <div className="text-xl font-bold">Revisión</div>
-                  </div>
-                </div>
-<div className="flex gap-3 pt-2">
+  <div className="flex gap-3 pt-2">
   <a
     href="#contacto"
     className="bg-green-600 hover:bg-green-700 transition-colors text-white px-5 py-3 rounded-xl font-semibold text-sm"
@@ -327,15 +320,7 @@ export default function ArcoplazaLanding() {
 
   <div className="relative z-10">
 
-    <div className="bg-white rounded-2xl inline-flex items-center px-5 py-4 mb-6 shadow-xl">
-      <img
-        src="/logo-arcoplaza.png"
-        alt="Arcoplaza"
-        className="h-8 w-auto object-contain"
-      />
-    </div>
-
-    <div className="space-y-4">
+  <div className="space-y-4">
 
       <div>
         <div className="text-sm uppercase tracking-[0.2em] text-green-300 mb-2">

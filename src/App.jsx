@@ -282,17 +282,52 @@ export default function ArcoplazaLanding() {
                   </div>
                 </div>
 
-                <div className="rounded-2xl bg-gradient-to-r from-slate-900 to-slate-700 text-white p-6 overflow-hidden">
-                  <div className="bg-white rounded-2xl inline-flex items-center px-5 py-4 mb-5 shadow-lg">
-                    <div className="text-3xl font-black tracking-tight leading-none">
-                      <span className="text-slate-900">arco</span>
-                      <span className="text-green-500">plaza</span>
-                    </div>
-                  </div>
-                  <div className="text-2xl font-bold leading-snug">
-                    El trabajo bien hecho habla por sí solo.
-                  </div>
-                </div>
+                <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white p-7 border border-slate-700 shadow-2xl">
+
+  <div className="absolute top-0 right-0 w-40 h-40 bg-green-500/10 blur-3xl rounded-full" />
+
+  <div className="relative z-10">
+
+    <div className="bg-white rounded-2xl inline-flex items-center px-5 py-4 mb-6 shadow-xl">
+      <img
+        src="/logo-arcoplaza.png"
+        alt="Arcoplaza"
+        className="h-8 w-auto object-contain"
+      />
+    </div>
+
+    <div className="space-y-4">
+
+      <div>
+        <div className="text-sm uppercase tracking-[0.2em] text-green-300 mb-2">
+          Consultoría energética
+        </div>
+
+        <div className="text-3xl font-black leading-tight">
+          El trabajo bien hecho habla por sí solo.
+        </div>
+      </div>
+
+      <div className="flex items-center gap-6 pt-3">
+
+        <div>
+          <div className="text-2xl font-black text-green-400">+500</div>
+          <div className="text-xs text-slate-300">
+            Clientes asesorados
+          </div>
+        </div>
+
+        <div>
+          <div className="text-2xl font-black text-green-400">24h</div>
+          <div className="text-xs text-slate-300">
+            Respuesta habitual
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
               </div>
             </div>
           </div>

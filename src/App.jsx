@@ -168,35 +168,35 @@ export default function ArcoplazaLanding() {
   return (
     <div className="min-h-screen bg-[#e8e4dc] text-slate-900 font-sans">
       {/* NAVBAR */}
-      <header className="sticky top-0 z-50 backdrop-blur bg-[#e8e4dc]/95 border-b border-slate-300 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-         <div className="flex items-center">
-  <img
-    src="/logo-arcoplaza.png"
-    alt="Arcoplaza Asesores"
-    className="h-14 w-auto object-contain"
-  />
-</div>
-            </div>
-          </div>
+    <header className="sticky top-0 z-50 backdrop-blur bg-[#e8e4dc]/95 border-b border-slate-300 shadow-sm">
+  <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-          <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-700">
-            <a href="#inicio" className="hover:text-[#1faa59] transition-colors">Inicio</a>
-            <a href="#quienes" className="hover:text-[#1faa59] transition-colors">Quiénes somos</a>
-            <a href="#servicios" className="hover:text-[#1faa59] transition-colors">Servicios</a>
-            <a href="#ahorro" className="hover:text-[#1faa59] transition-colors">Ahorro energético</a>
-            <a href="#opiniones" className="hover:text-[#1faa59] transition-colors">Opiniones</a>
-            <a href="#contacto" className="hover:text-[#1faa59] transition-colors">Contacto</a>
-          </nav>
+    <div className="flex items-center">
+      <img
+        src="/logo-arcoplaza.png"
+        alt="Arcoplaza Asesores"
+        className="h-14 w-auto object-contain"
+      />
+    </div>
 
-          <a
-            href="https://wa.me/34669633694"
-            className="bg-green-600 hover:bg-green-700 transition-colors text-white px-5 py-3 rounded-2xl text-sm font-semibold"
-          >
-            WhatsApp directo
-          </a>
-        </div>
-      </header>
+    <nav className="hidden lg:flex items-center gap-10 text-[17px] font-semibold text-slate-700">
+      <a href="#inicio" className="hover:text-green-600 transition-colors">Inicio</a>
+      <a href="#quienes" className="hover:text-green-600 transition-colors">Quiénes somos</a>
+      <a href="#servicios" className="hover:text-green-600 transition-colors">Servicios</a>
+      <a href="#ahorro" className="hover:text-green-600 transition-colors">Ahorro energético</a>
+      <a href="#opiniones" className="hover:text-green-600 transition-colors">Opiniones</a>
+      <a href="#contacto" className="hover:text-green-600 transition-colors">Contacto</a>
+    </nav>
+
+    <a
+      href="https://wa.me/34669633694"
+      className="bg-green-600 hover:bg-green-700 transition-colors text-white px-5 py-3 rounded-2xl text-sm font-semibold"
+    >
+      WhatsApp directo
+    </a>
+
+  </div>
+</header>
 {/* HERO */}
 <section
   id="inicio"

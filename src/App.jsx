@@ -240,17 +240,17 @@ export default function ArcoplazaLanding() {
 
             <div className="mt-12 grid grid-cols-3 gap-6 max-w-lg">
               <div>
-                <div className="text-3xl font-black text-slate-900">+500</div>
+                <div className="text-3xl font-black text-[#102542]">+500</div>
                 <div className="text-slate-500 text-sm">Clientes asesorados</div>
               </div>
 
               <div>
-                <div className="text-3xl font-black text-slate-900">24h</div>
+                <div className="text-3xl font-black text-[#102542]">24h</div>
                 <div className="text-slate-500 text-sm">Respuesta habitual</div>
               </div>
 
               <div>
-                <div className="text-3xl font-black text-slate-900">100%</div>
+                <div className="text-3xl font-black text-[#102542]">100%</div>
                 <div className="text-slate-500 text-sm">Atención personalizada</div>
               </div>
             </div>
@@ -269,14 +269,37 @@ export default function ArcoplazaLanding() {
                   <div className="text-sm text-slate-500 mb-2">Optimización energética</div>
                   <div className="text-2xl font-bold">Ahorro inteligente</div>
                 </div>
+<div className="grid grid-cols-2 gap-4">
 
-                <div className="grid grid-cols-2 gap-4">
-                  <a   href="#contacto"   className="bg-[#ddebd7] rounded-2xl p-5 border border-[#bfd8b4] hover:scale-[1.02] transition-all block cursor-pointer" > </a>
-                    <div className="text-sm text-green-700 mb-2">Luz</div>
-                    <div className="text-xl font-bold">Tarifas</div>
-                  </div>
-                    <a
-  href="#contacto"
+  <a
+    href="#contacto"
+    className="bg-[#ddebd7] rounded-2xl p-5 border border-[#bfd8b4] hover:scale-[1.02] transition-all block cursor-pointer"
+  >
+    <div className="text-sm text-green-700 mb-2">
+      Luz
+    </div>
+
+    <div className="text-xl font-bold text-[#102542]">
+      Tarifas
+    </div>
+  </a>
+
+  <a
+    href="#contacto"
+    className="bg-[#ece7de] rounded-2xl p-5 border border-[#d7d0c4] hover:scale-[1.02] transition-all block cursor-pointer"
+  >
+    <div className="text-sm text-slate-500 mb-2">
+      Gas
+    </div>
+
+    <div className="text-xl font-bold text-[#102542]">
+      Revisión
+    </div>
+  </a>
+
+</div>
+             
+                    <a href="#contacto"
   className="bg-[#ece7de] rounded-2xl p-5 border border-[#d7d0c4] hover:scale-[1.02] transition-all block cursor-pointer"
 ></a>
                     <div className="text-sm text-slate-500 mb-2">Gas</div>
@@ -298,7 +321,7 @@ export default function ArcoplazaLanding() {
     WhatsApp
   </a>
 </div>
-                <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white p-7 border border-slate-700 shadow-2xl">
+                <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#102542] via-[#17365d] to-[#1b365d] text-white p-7 border border-slate-700 shadow-2xl">
 
   <div className="absolute top-0 right-0 w-40 h-40 bg-green-500/10 blur-3xl rounded-full" />
 
@@ -493,7 +516,7 @@ export default function ArcoplazaLanding() {
       </section>
 
       {/* CONTACTO */}
-      <section id="contacto" className="bg-slate-950 text-white">
+      <section id="contacto" className="bg-[#102542] text-white">
         <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <div className="text-green-400 uppercase tracking-wider text-sm font-semibold mb-4">

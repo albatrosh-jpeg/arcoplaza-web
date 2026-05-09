@@ -130,7 +130,7 @@ export default function ArcoplazaLanding() {
   },
   {
     name: 'Max Energía',
-    url: 'https://maxenergia.es',
+    url: 'https://maxenergia.com',
     logo: '/logos/max-energia.png'
   },
   {

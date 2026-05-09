@@ -254,7 +254,7 @@ export default function ArcoplazaLanding() {
                 <div className="text-slate-500 text-sm">Atención personalizada</div>
               </div>
             </div>
-          </div>
+             </div>
 
           <div className="relative">
             <div className="bg-[#f8f6f1] rounded-[2rem] shadow-2xl border border-[#d8d2c8] p-8 lg:p-10">
@@ -271,17 +271,33 @@ export default function ArcoplazaLanding() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-[#ddebd7] rounded-2xl p-5 border border-[#bfd8b4]">
+                  <a   href="#contacto"   className="bg-[#ddebd7] rounded-2xl p-5 border border-[#bfd8b4] hover:scale-[1.02] transition-all block cursor-pointer" > </a>
                     <div className="text-sm text-green-700 mb-2">Luz</div>
                     <div className="text-xl font-bold">Tarifas</div>
                   </div>
-
-                  <div className="bg-[#ece7de] rounded-2xl p-5 border border-[#d7d0c4]">
+                    <a
+  href="#contacto"
+  className="bg-[#ece7de] rounded-2xl p-5 border border-[#d7d0c4] hover:scale-[1.02] transition-all block cursor-pointer"
+></a>
                     <div className="text-sm text-slate-500 mb-2">Gas</div>
                     <div className="text-xl font-bold">Revisión</div>
                   </div>
                 </div>
+<div className="flex gap-3 pt-2">
+  <a
+    href="#contacto"
+    className="bg-green-600 hover:bg-green-700 transition-colors text-white px-5 py-3 rounded-xl font-semibold text-sm"
+  >
+    Subir factura
+  </a>
 
+  <a
+    href="https://wa.me/34669633694"
+    className="border border-slate-300 hover:border-slate-500 transition-colors px-5 py-3 rounded-xl font-semibold text-sm"
+  >
+    WhatsApp
+  </a>
+</div>
                 <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white p-7 border border-slate-700 shadow-2xl">
 
   <div className="absolute top-0 right-0 w-40 h-40 bg-green-500/10 blur-3xl rounded-full" />

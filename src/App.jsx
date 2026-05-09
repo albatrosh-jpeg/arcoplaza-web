@@ -171,19 +171,19 @@ export default function ArcoplazaLanding() {
       <header className="sticky top-0 z-50 backdrop-blur bg-[#e8e4dc]/95 border-b border-slate-300 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center px-2 py-1">
-            <div className="text-4xl lg:text-5xl font-black tracking-tight leading-none">
+            <div className="text-5xl lg:text-6xl font-extrabold tracking-[-0.04em] leading-none">
               <span className="text-slate-900">arco</span>
-              <span className="text-green-600">plaza</span>
+              <span className="text-[#1faa59]">plaza</span>
             </div>
           </div>
 
           <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-700">
-            <a href="#inicio" className="hover:text-green-600 transition-colors">Inicio</a>
-            <a href="#quienes" className="hover:text-green-600 transition-colors">Quiénes somos</a>
-            <a href="#servicios" className="hover:text-green-600 transition-colors">Servicios</a>
-            <a href="#ahorro" className="hover:text-green-600 transition-colors">Ahorro energético</a>
-            <a href="#opiniones" className="hover:text-green-600 transition-colors">Opiniones</a>
-            <a href="#contacto" className="hover:text-green-600 transition-colors">Contacto</a>
+            <a href="#inicio" className="hover:text-[#1faa59] transition-colors">Inicio</a>
+            <a href="#quienes" className="hover:text-[#1faa59] transition-colors">Quiénes somos</a>
+            <a href="#servicios" className="hover:text-[#1faa59] transition-colors">Servicios</a>
+            <a href="#ahorro" className="hover:text-[#1faa59] transition-colors">Ahorro energético</a>
+            <a href="#opiniones" className="hover:text-[#1faa59] transition-colors">Opiniones</a>
+            <a href="#contacto" className="hover:text-[#1faa59] transition-colors">Contacto</a>
           </nav>
 
           <a
@@ -211,7 +211,7 @@ export default function ArcoplazaLanding() {
 
             <h1 className="text-5xl lg:text-7xl font-black leading-tight tracking-tight mb-6">
               Paga lo justo.
-              <span className="block text-green-600">Sin letra pequeña.</span>
+              <span className="block text-[#1faa59]">Sin letra pequeña.</span>
             </h1>
 
             <p className="text-xl text-slate-600 leading-relaxed max-w-xl mb-10">
@@ -300,7 +300,7 @@ export default function ArcoplazaLanding() {
       <section id="quienes" className="bg-[#f3f0ea] border-y border-[#d7d0c4]">
         <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="text-green-600 font-semibold uppercase tracking-wider text-sm mb-4">
+            <div className="text-[#1faa59] font-semibold uppercase tracking-wider text-sm mb-4">
               Quiénes somos
             </div>
 
@@ -320,7 +320,7 @@ export default function ArcoplazaLanding() {
           <div className="bg-[#f8f6f1] rounded-[2rem] border border-[#d7d0c4] p-10 shadow-xl">
             <div className="space-y-8">
               <div>
-                <div className="text-5xl font-black text-green-600 mb-2">+500</div>
+                <div className="text-5xl font-black text-[#1faa59] mb-2">+500</div>
                 <div className="text-slate-600">Clientes asesorados</div>
               </div>
 
@@ -341,7 +341,7 @@ export default function ArcoplazaLanding() {
       {/* SERVICIOS */}
       <section id="servicios" className="max-w-7xl mx-auto px-6 py-24">
         <div className="max-w-2xl mb-14">
-          <div className="text-green-600 font-semibold mb-4 uppercase tracking-wider text-sm">
+          <div className="text-[#1faa59] font-semibold mb-4 uppercase tracking-wider text-sm">
             Servicios
           </div>
 
@@ -411,7 +411,7 @@ export default function ArcoplazaLanding() {
       {/* OPINIONES */}
       <section id="opiniones" className="max-w-7xl mx-auto px-6 py-24 bg-[#e8e4dc]">
         <div className="max-w-2xl mb-14">
-          <div className="text-green-600 font-semibold uppercase tracking-wider text-sm mb-4">
+          <div className="text-[#1faa59] font-semibold uppercase tracking-wider text-sm mb-4">
             Opiniones reales
           </div>
 
@@ -426,7 +426,7 @@ export default function ArcoplazaLanding() {
               key={review.name}
               className="bg-[#f8f6f1] border border-[#d7d0c4] rounded-3xl p-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:border-green-300 transition-all duration-300 group"
             >
-              <div className="text-5xl text-green-600 mb-4">“</div>
+              <div className="text-5xl text-[#1faa59] mb-4">“</div>
               <p className="text-slate-600 leading-relaxed mb-6">
                 {review.text}
               </p>
@@ -484,7 +484,7 @@ export default function ArcoplazaLanding() {
       <section className="bg-[#ece7de] border-t border-[#d7d0c4]">
         <div className="max-w-7xl mx-auto px-6 py-20">
           <div className="text-center mb-12">
-            <div className="text-green-600 font-semibold uppercase tracking-wider text-sm mb-4">
+            <div className="text-[#1faa59] font-semibold uppercase tracking-wider text-sm mb-4">
               Compañías con las que trabajamos
             </div>
 

@@ -298,7 +298,7 @@ export default function ArcoplazaLanding() {
   </a>
 
 </div>
-             
+
   <div className="flex gap-3 pt-2">
   <a
     href="#contacto"

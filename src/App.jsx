@@ -166,10 +166,10 @@ export default function ArcoplazaLanding() {
 ]
 
   return (
-    <div className="min-h-screen bg-[#e8e4dc] text-slate-900 font-sans">
+    <div className="min-h-screen bg-[#e8e4dc] text-corporate font-sans">
       {/* NAVBAR */}
     <header className="sticky top-0 z-50 backdrop-blur bg-[#e8e4dc]/95 border-b border-slate-300 shadow-sm">
-  <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+  <div className="max-w-7xl mx-auto px-6 py-4 flex items-center">
 
     <div className="flex items-center">
       <img
@@ -178,21 +178,24 @@ export default function ArcoplazaLanding() {
         className="h-14 w-auto object-contain"
       />
     </div>
+<nav className="hidden lg:flex items-center gap-10 text-[17px] font-semibold text-corporate ml-auto mr-8">
+  <a href="#quienes" className="hover:text-green-600 transition-colors">
+    Quiénes somos
+  </a>
 
-    <nav className="hidden lg:flex items-center gap-10 text-[17px] font-semibold text-slate-700">
-      <a href="#inicio" className="hover:text-green-600 transition-colors">Inicio</a>
-      <a href="#quienes" className="hover:text-green-600 transition-colors">Quiénes somos</a>
-      <a href="#servicios" className="hover:text-green-600 transition-colors">Servicios</a>
-      <a href="#ahorro" className="hover:text-green-600 transition-colors">Ahorro energético</a>
-      <a href="#opiniones" className="hover:text-green-600 transition-colors">Opiniones</a>
-      <a href="#contacto" className="hover:text-green-600 transition-colors">Contacto</a>
-    </nav>
+  <a href="#servicios" className="hover:text-green-600 transition-colors">
+    Servicios
+  </a>
 
+  <a href="#contacto" className="hover:text-green-600 transition-colors">
+    Contacto
+  </a>
+</nav>
     <a
       href="https://wa.me/34669633694"
-      className="bg-green-600 hover:bg-green-700 transition-colors text-white px-5 py-3 rounded-2xl text-sm font-semibold"
+      className="bg-green-600 hover:bg-green-700 transition-colors text-white px-5 py-3 rounded-xl text-sm font-semibold"
     >
-      WhatsApp directo
+      Consulta gratuita
     </a>
 
   </div>
@@ -202,22 +205,19 @@ export default function ArcoplazaLanding() {
   id="inicio"
   className="relative overflow-hidden border-b border-slate-200"
 >
-  <div className="absolute top-[-200px] right-[-120px] w-[500px] h-[500px] bg-green-400/20 blur-3xl rounded-full" />
+  <div className="absolute inset-0 bg-[#f5f3ee]" />
 
-  <div className="absolute inset-0 bg-gradient-to-br from-[#e8e4dc] via-[#f3f0ea] to-[#dde6d8]" />
-
-  <div className="relative max-w-7xl mx-auto px-6 py-16 lg:py-24 grid lg:grid-cols-2 gap-14 items-center">
+  <div className="relative max-w-7xl mx-auto px-6 py-16 lg:py-24 grid lg:grid-cols-2 gap-14 items-start">
           <div>
             <div className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
               Asesoría energética profesional
             </div>
 
-            <h1 className="text-5xl lg:text-7xl font-black leading-tight tracking-tight mb-6">
-              Paga lo justo.
-              <span className="block text-[#1faa59]">Sin letra pequeña.</span>
-            </h1>
-
-            <p className="text-xl text-slate-600 leading-relaxed max-w-xl mb-10">
+<h1 className="text-5xl lg:text-6xl font-black text-corporate leading-tight mb-6">
+  Analizamos tu factura y detectamos dónde estás pagando de más.
+</h1>
+              
+            <p className="text-xl text-slate-500 leading-relaxed max-w-xl mb-10">
               En Arcoplaza Asesores optimizamos contratos de luz y gas para hogares,
               negocios y comunidades. Transparencia, análisis real y atención cercana.
             </p>
@@ -225,14 +225,14 @@ export default function ArcoplazaLanding() {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="https://wa.me/34669633694"
-                className="bg-green-600 hover:bg-green-700 transition-colors text-white px-8 py-4 rounded-2xl font-semibold shadow-lg shadow-green-200"
+                className="bg-green-600 hover:bg-green-700 transition-colors text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-green-200"
               >
                 Hablar por WhatsApp
               </a>
 
               <a
                 href="#servicios"
-                className="border border-slate-300 hover:border-slate-500 transition-colors px-8 py-4 rounded-2xl font-semibold"
+                className="border border-slate-300 hover:border-slate-500 transition-colors px-6 py-3 rounded-xl font-semibold"
               >
                 Ver servicios
               </a>
@@ -240,123 +240,139 @@ export default function ArcoplazaLanding() {
 
             <div className="mt-12 grid grid-cols-3 gap-6 max-w-lg">
               <div>
-                <div className="text-3xl font-black text-[#102542]">+500</div>
+                <div className="text-3xl font-black text-corporate">+500</div>
                 <div className="text-slate-500 text-sm">Clientes asesorados</div>
               </div>
 
               <div>
-                <div className="text-3xl font-black text-[#102542]">24h</div>
+                <div className="text-3xl font-black text-corporate">24h</div>
                 <div className="text-slate-500 text-sm">Respuesta habitual</div>
               </div>
 
               <div>
-                <div className="text-3xl font-black text-[#102542]">100%</div>
+                <div className="text-3xl font-black text-corporate">100%</div>
                 <div className="text-slate-500 text-sm">Atención personalizada</div>
               </div>
             </div>
              </div>
 
-          <div className="relative">
-            <div className="bg-[#f8f6f1] rounded-[2rem] shadow-2xl border border-[#d8d2c8] p-8 lg:p-10">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-4 h-4 rounded-full bg-green-500" />
-                <div className="w-4 h-4 rounded-full bg-slate-300" />
-                <div className="w-4 h-4 rounded-full bg-slate-300" />
-              </div>
+          <div className="bg-[#f8f6f1] rounded-3xl border border-[#d7d0c4] p-8 lg:p-10 shadow-lg">
 
-              <div className="space-y-6">
-                <div className="bg-[#ece7de] rounded-2xl p-6 border border-[#d7d0c4]">
-                  <div className="text-sm text-slate-500 mb-2">Optimización energética</div>
-                  <div className="text-2xl font-bold">Ahorro inteligente</div>
-                </div>
-<div className="grid grid-cols-2 gap-4">
-
-  <a
-    href="#contacto"
-    className="bg-[#ddebd7] rounded-2xl p-5 border border-[#bfd8b4] hover:scale-[1.02] transition-all block cursor-pointer"
-  >
-    <div className="text-sm text-green-700 mb-2">
-      Luz
+  <div className="mb-8">
+    <div className="text-3xl font-black text-corporate mb-3">
+      ¿Revisamos tu factura?
     </div>
 
-    <div className="text-xl font-bold text-[#102542]">
-      Tarifas
-    </div>
-  </a>
-
-  <a
-    href="#contacto"
-    className="bg-[#ece7de] rounded-2xl p-5 border border-[#d7d0c4] hover:scale-[1.02] transition-all block cursor-pointer"
-  >
-    <div className="text-sm text-slate-500 mb-2">
-      Gas
-    </div>
-
-    <div className="text-xl font-bold text-[#102542]">
-      Revisión
-    </div>
-  </a>
-
-</div>
-
-  <div className="flex gap-3 pt-2">
-  <a
-    href="#contacto"
-    className="bg-green-600 hover:bg-green-700 transition-colors text-white px-5 py-3 rounded-xl font-semibold text-sm"
-  >
-    Subir factura
-  </a>
-
-  <a
-    href="https://wa.me/34669633694"
-    className="border border-slate-300 hover:border-slate-500 transition-colors px-5 py-3 rounded-xl font-semibold text-sm"
-  >
-    WhatsApp
-  </a>
-</div>
-                <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#102542] via-[#17365d] to-[#1b365d] text-white p-7 border border-slate-700 shadow-2xl">
-
-  <div className="absolute top-0 right-0 w-40 h-40 bg-green-500/10 blur-3xl rounded-full" />
-
-  <div className="relative z-10">
-
-  <div className="space-y-4">
-
-      <div>
-        <div className="text-sm uppercase tracking-[0.2em] text-green-300 mb-2">
-          Consultoría energética
-        </div>
-
-        <div className="text-3xl font-black leading-tight">
-          El trabajo bien hecho habla por sí solo.
-        </div>
-      </div>
-
-      <div className="flex items-center gap-6 pt-3">
-
-        <div>
-          <div className="text-2xl font-black text-green-400">+500</div>
-          <div className="text-xs text-slate-300">
-            Clientes asesorados
-          </div>
-        </div>
-
-        <div>
-          <div className="text-2xl font-black text-green-400">24h</div>
-          <div className="text-xs text-slate-300">
-            Respuesta habitual
-          </div>
-        </div>
-
-      </div>
-    </div>
+    <p className="text-slate-500 leading-relaxed">
+      Te indicamos si estás pagando de más y qué opciones tienes para optimizar tu suministro.
+    </p>
   </div>
+
+  <form
+  action="/api/contact"
+  method="POST"
+  encType="multipart/form-data"
+  className="space-y-5"
+>
+
+    <div>
+      <label className="block text-sm font-medium mb-2 text-slate-700">
+        Nombre
+      </label>
+
+      <input
+  name="telefono"
+  type="text"
+        placeholder="Escribe tu nombre"
+        className="w-full bg-[#f3f0ea] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-green-500 transition-colors"
+      />
+    </div>
+
+    <div>
+      <label className="block text-sm font-medium mb-2 text-slate-700">
+        Teléfono
+      </label>
+
+      <input
+  name="telefono"
+  type="text"
+        placeholder="Tu teléfono"
+        className="w-full bg-[#f3f0ea] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-green-500 transition-colors"
+      />
+    </div>
+
+    <div>
+      <label className="block text-sm font-medium mb-2 text-slate-700">
+        Email
+      </label>
+
+      <input
+  name="email"
+  type="email"
+        placeholder="correo@ejemplo.com"
+        className="w-full bg-[#f3f0ea] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-green-500 transition-colors"
+      />
+    </div>
+<div>
+  <label className="block text-sm font-medium mb-2 text-slate-700">
+    Factura de luz o gas
+  </label>
+
+  <div className="relative">
+    <input
+      type="file"
+      accept=".pdf,.jpg,.jpeg,.png"
+      className="
+        w-full
+        bg-[#f3f0ea]
+        border
+        border-[#d7d0c4]
+        rounded-xl
+        px-4
+        py-4
+        text-slate-500
+        file:mr-4
+        file:px-4
+        file:py-2
+        file:border-0
+        file:rounded-lg
+        file:bg-green-600
+        file:text-white
+        file:font-medium
+        hover:file:bg-green-700
+      "
+    />
+  </div>
+
+  <p className="text-xs text-slate-400 mt-2">
+    PDF, JPG o PNG
+  </p>
 </div>
-              </div>
-            </div>
-          </div>
+    <div>
+      <label className="block text-sm font-medium mb-2 text-slate-700">
+        Comentario
+      </label>
+
+      <textarea
+  name="comentario"
+        rows="4"
+        placeholder="Cuéntanos brevemente tu caso"
+        className="w-full bg-[#f3f0ea] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-green-500 transition-colors resize-none"
+      />
+    </div>
+
+    <button
+      type="submit"
+      className="w-full bg-green-600 hover:bg-green-700 transition-colors text-white py-4 rounded-xl font-semibold"
+    >
+      Solicitar revisión gratuita
+    </button>
+  </form>
+
+</div>
+
         </div>
-      </section>
+      </section> 
 
       {/* QUIÉNES SOMOS */}
       <section id="quienes" className="bg-[#f3f0ea] border-y border-[#d7d0c4]">
@@ -379,7 +395,7 @@ export default function ArcoplazaLanding() {
             </p>
           </div>
 
-          <div className="bg-[#f8f6f1] rounded-[2rem] border border-[#d7d0c4] p-10 shadow-xl">
+          <div className="bg-[#f8f6f1] rounded-3xl border border-[#d7d0c4] p-10 shadow-lg">
             <div className="space-y-8">
               <div>
                 <div className="text-5xl font-black text-[#1faa59] mb-2">+500</div>
@@ -387,12 +403,12 @@ export default function ArcoplazaLanding() {
               </div>
 
               <div>
-                <div className="text-5xl font-black text-slate-900 mb-2">Ahorro</div>
+                <div className="text-5xl font-black text-corporate mb-2">Ahorro</div>
                 <div className="text-slate-600">Optimización basada en consumo real</div>
               </div>
 
               <div>
-                <div className="text-5xl font-black text-slate-900 mb-2">Cercanía</div>
+                <div className="text-5xl font-black text-corporate mb-2">Cercanía</div>
                 <div className="text-slate-600">Atención directa y acompañamiento continuo</div>
               </div>
             </div>
@@ -412,7 +428,7 @@ export default function ArcoplazaLanding() {
           </h2>
 
           <p className="text-slate-600 text-lg leading-relaxed">
-            Analizamos tu situación actual y buscamos la solución más rentable según tu consumo real.
+            Optimización energética basada en consumo real.
           </p>
         </div>
 
@@ -420,13 +436,13 @@ export default function ArcoplazaLanding() {
           {services.map((item) => (
             <div
               key={item.title}
-              className="group bg-[#f8f6f1] border border-[#d7d0c4] hover:border-green-400 transition-all rounded-3xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 duration-300"
+              className="group bg-[#f8f6f1] border border-[#d7d0c4] hover:border-green-400 transition-all rounded-3xl p-8 shadow-sm hover:shadow-md   duration-300"
             >
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#dcefd4] to-white border border-[#bfd8b4] mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#dcefd4] to-white border border-[#bfd8b4] mb-6 shadow-sm transition-transform duration-300 flex items-center justify-center">
               <item.icon className="w-7 h-7 text-green-700" strokeWidth={2.2} />
              </div>
 
-              <h3 className="text-xl font-bold mb-4">{item.title}</h3>
+              <h3 className="text-xl font-bold text-corporate mb-4">{item.title}</h3>
               <p className="text-slate-600 leading-relaxed">{item.text}</p>
             </div>
           ))}
@@ -452,7 +468,7 @@ export default function ArcoplazaLanding() {
 
           <div className="grid sm:grid-cols-2 gap-6">
             <div className="bg-white/10 backdrop-blur rounded-3xl p-8 border border-white/10">
-              <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-5">   <Zap className="w-7 h-7 text-white" strokeWidth={2.2} /> </div>
+              <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mb-5">   <Zap className="w-7 h-7 text-white" strokeWidth={2.2} /> </div>
               <div className="text-2xl font-bold mb-3">Electricidad</div>
               <p className="text-green-50 leading-relaxed">
                 Ajuste de potencia y tarifas adaptadas al uso real.
@@ -460,7 +476,7 @@ export default function ArcoplazaLanding() {
             </div>
 
             <div className="bg-white/10 backdrop-blur rounded-3xl p-8 border border-white/10">
-              <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-5">   <Flame className="w-7 h-7 text-white" strokeWidth={2.2} /> </div>
+              <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mb-5">   <Flame className="w-7 h-7 text-white" strokeWidth={2.2} /> </div>
               <div className="text-2xl font-bold mb-3">Gas</div>
               <p className="text-green-50 leading-relaxed">
                 Revisión de costes y optimización de suministro.
@@ -469,7 +485,44 @@ export default function ArcoplazaLanding() {
           </div>
         </div>
       </section>
+<section className="bg-[#f3f0ea] border-y border-[#d7d0c4]">
+  <div className="max-w-7xl mx-auto px-6 py-24">
 
+    <div className="max-w-2xl mb-14">
+      <div className="text-[#1faa59] font-semibold uppercase tracking-wider text-sm mb-4">
+        Cómo trabajamos
+      </div>
+
+      <h2 className="text-4xl lg:text-5xl font-black leading-tight mb-6">
+        Un proceso claro y sin complicaciones.
+      </h2>
+    </div>
+
+    <div className="grid md:grid-cols-4 gap-6">
+
+      {[
+        'Envío de factura',
+        'Análisis gratuito',
+        'Propuesta optimizada',
+        'Gestión del cambio'
+      ].map((step, index) => (
+        <div
+          key={step}
+          className="bg-[#f8f6f1] border border-[#d7d0c4] rounded-3xl p-8"
+        >
+          <div className="text-5xl font-black text-[#1faa59] mb-6">
+            {index + 1}
+          </div>
+
+          <div className="text-xl font-bold text-corporate">
+            {step}
+          </div>
+        </div>
+      ))}
+
+    </div>
+  </div>
+</section>
       {/* OPINIONES */}
       <section id="opiniones" className="max-w-7xl mx-auto px-6 py-24 bg-[#e8e4dc]">
         <div className="max-w-2xl mb-14">
@@ -486,13 +539,13 @@ export default function ArcoplazaLanding() {
           {reviews.map((review) => (
             <div
               key={review.name}
-              className="bg-[#f8f6f1] border border-[#d7d0c4] rounded-3xl p-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:border-green-300 transition-all duration-300 group"
+              className="bg-[#f8f6f1] border border-[#d7d0c4] rounded-3xl p-8 shadow-sm hover:shadow-md hover:border-green-300 transition-all duration-300 group"
             >
               <div className="text-5xl text-[#1faa59] mb-4">“</div>
               <p className="text-slate-600 leading-relaxed mb-6">
                 {review.text}
               </p>
-              <div className="font-bold text-slate-900">
+              <div className="font-bold text-corporate">
                 {review.name}
               </div>
             </div>
@@ -517,7 +570,7 @@ export default function ArcoplazaLanding() {
             </p>
           </div>
 
-          <div className="bg-white text-slate-900 rounded-[2rem] p-10 shadow-2xl">
+          <div className="bg-white text-corporate rounded-3xl p-10 shadow-lg">
             <div className="space-y-8">
               <div>
                 <div className="text-sm text-slate-500 mb-1">Álvaro del Arco</div>
@@ -532,7 +585,7 @@ export default function ArcoplazaLanding() {
               <div className="pt-4">
                 <a
                   href="mailto:info@arcoplazaasesores.es"
-                  className="inline-flex bg-green-600 hover:bg-green-700 transition-colors text-white px-8 py-4 rounded-2xl font-semibold"
+                  className="inline-flex bg-green-600 hover:bg-green-700 transition-colors text-white px-6 py-3 rounded-xl font-semibold"
                 >
                   Solicitar asesoramiento
                 </a>
@@ -550,7 +603,7 @@ export default function ArcoplazaLanding() {
               Compañías con las que trabajamos
             </div>
 
-            <h2 className="text-3xl lg:text-4xl font-black leading-tight">
+            <h2 className="text-3xl lg:text-4xl font-black text-corporate leading-tight">
               Empresas colaboradoras que hacen posible soluciones adaptadas para cada cliente.
             </h2>
 
@@ -566,7 +619,7 @@ export default function ArcoplazaLanding() {
                 href={company.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-[#f8f6f1] border border-[#d7d0c4] rounded-2xl px-6 py-5 flex items-center justify-center text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300"              >
+                className="group bg-[#f8f6f1] border border-[#d7d0c4] rounded-xl px-6 py-5 flex items-center justify-center text-center hover:shadow-md transition-all duration-300 duration-300"              >
                 <img
   src={company.logo}
   alt={company.name}

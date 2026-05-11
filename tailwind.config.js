@@ -4,8 +4,16 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        corporate: {
+          DEFAULT: "#18375D", // azul corporativo
+        },
+      },
+    },
   },
+
   plugins: [],
 }

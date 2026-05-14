@@ -12,36 +12,7 @@ import {
   Upload
 } from 'lucide-react'
 export default function ArcoplazaLanding() {
-try {
-
-    const response = await fetch('/api/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-
-    if (response.ok) {
-
-      setSuccess(true)
-      e.target.reset()
-
-    } else {
-
-      setError(true)
-
-    }
-
-  } catch {
-
-    setError(true)
-
-  }
-
-  setLoading(false)
-}
-
+  const [fileName, setFileName] = useState('')
    const services = [
   {
     title: 'Autoconsumo solar',
@@ -352,6 +323,13 @@ className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text
   className="space-y-5"
 >
 
+  <input type="hidden" name="_captcha" value="false" />
+  <input
+  type="hidden"
+  name="_next"
+  value="https://www.arcoplazaasesores.com"
+/>
+
     <div>
       <label className="block text-sm font-medium mb-2 text-slate-700">
         Nombre
@@ -408,8 +386,8 @@ className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text
       PDF, JPG o PNG
     </div>
     {fileName && (
-  <div className="mt-3 text-sm text-green-700 font-medium">
-    Archivo adjuntado: {fileName}
+  <div className="mt-3 text-sm text-green-700 font-semibold">
+    ✓ Factura adjuntado: {fileName}
   </div>
 )}
 
@@ -442,18 +420,7 @@ className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text
 >
   Solicitar análisis gratuito
 </button>
-{success && (
-  <div className="text-green-700 text-sm font-medium">
-    Solicitud enviada correctamente.
-  </div>
-)}
-
-{error && (
-  <div className="text-red-600 text-sm font-medium">
-    Ha ocurrido un error. Inténtalo de nuevo.
-  </div>
-)}
-  </form>
+</form>
 
 </div>
 

@@ -6,7 +6,8 @@ import {
   Zap,
   Flame,
   BarChart3,
-  Building2
+  Building2,
+  Upload
 } from 'lucide-react'
 export default function ArcoplazaLanding() {
    const services = [
@@ -81,7 +82,7 @@ export default function ArcoplazaLanding() {
   {
     name: 'Candela Energía',
     url: 'https://candelaenergia.es',
-    logo: '/logos/candela.webp'
+    logo: '/logos/candela.png'
   },
   {
     name: 'Eleia',
@@ -174,7 +175,7 @@ export default function ArcoplazaLanding() {
     <div className="flex items-center">
       <img
         src="/logo-arcoplaza.png"
-        alt="Arcoplaza Asesores"
+        alt="arcoplaza asesores"
         className="h-14 w-auto object-contain"
       />
     </div>
@@ -202,9 +203,9 @@ export default function ArcoplazaLanding() {
 </header>
 <section className="bg-[#f3f0ea] border-b border-[#d7d0c4]">
 
-  <div className="max-w-7xl mx-auto px-6 py-5">
+  <div className="max-w-7xl mx-auto px-6 py-8 mt-2">
 
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+    <div className="grid grid-cols-2 lg:grid-cols-4 bg-white rounded-3xl p-3 shadow-sm">
 
       {[
         'Sube tu factura',
@@ -215,7 +216,7 @@ export default function ArcoplazaLanding() {
 
         <div
           key={step}
-          className="bg-[#f8f8f6] border border-[#e7e4dd] rounded-2xl px-5 py-4"
+          className="group rounded-2xl px-5 py-4 hover:bg-[#f6f6f3] transition-all duration-300"
         >
 
           <div className="text-corporateGreen text-2xl font-black mb-1">
@@ -248,10 +249,10 @@ export default function ArcoplazaLanding() {
               Asesoría energética profesional
             </div>
 
-<h1 className="text-4xl lg:text-5xl font-black text-corporate leading-[0.95] mb-6">
+<h1 className="text-4xl lg:text-5xl font-black text-corporate leading-none mb-6">
   Analizamos tu factura <br />
-  y detectamos dónde <br />
-  estás pagando de más.
+  y detectamos dónde estás<br />
+  pagando de más.
 </h1>
               
             <p className="text-xl text-slate-500 leading-relaxed max-w-xl mb-10">
@@ -293,7 +294,7 @@ export default function ArcoplazaLanding() {
             </div>
              </div>
 
-          <div className="bg-[#fafaf8] rounded-3xl border border-[#e7e4dd] p-8 lg:p-10 shadow-lg">
+          <div className="bg-[#fcfcfa] rounded-3xl border border-[#e7e4dd] p-8 lg:p-10 shadow-lg">
 
   <div className="mb-8">
     <div className="text-3xl font-black text-corporate mb-3">
@@ -318,10 +319,10 @@ export default function ArcoplazaLanding() {
       </label>
 
       <input
-  name="telefono"
+  name="nombre"
   type="text"
-        placeholder="Escribe tu nombre"
-        className="w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-green-500 transition-colors"
+  placeholder="Escribe tu nombre"
+        className="mt-5 w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-corporateGreen transition-colors"
       />
     </div>
 
@@ -334,7 +335,7 @@ export default function ArcoplazaLanding() {
   name="telefono"
   type="text"
         placeholder="Tu teléfono"
-        className="w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-green-500 transition-colors"
+        className="w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-corporateGreen transition-colors"
       />
     </div>
 
@@ -347,62 +348,49 @@ export default function ArcoplazaLanding() {
   name="email"
   type="email"
         placeholder="correo@ejemplo.com"
-        className="w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-green-500 transition-colors"
+        className="w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-corporateGreen transition-colors"
       />
     </div>
 <div>
   <label className="block text-sm font-medium mb-2 text-slate-700">
     Factura de luz o gas
   </label>
+<label className="block">
 
-  <div className="relative">
+  <div className="bg-[#f8f8f6] border border-[#e7e4dd] hover:border-corporateGreen transition-colors rounded-2xl p-6 text-center cursor-pointer">
+
+<Upload className="w-8 h-8 mx-auto mb-3 text-corporateGreen" />
+
+    <div className="font-semibold text-corporate mb-1">
+      Sube tu factura
+    </div>
+
+    <div className="text-sm text-slate-500">
+      PDF, JPG o PNG
+    </div>
+
     <input
       type="file"
       accept=".pdf,.jpg,.jpeg,.png"
-      className="
-        w-full
-        bg-[#f8f8f6]
-        border
-        border-[#d7d0c4]
-        rounded-xl
-        px-4
-        py-4
-        text-slate-500
-        file:mr-4
-        file:px-4
-        file:py-2
-        file:border-0
-        file:rounded-lg
-        file:bg-corporateGreen
-        file:text-white
-        file:font-medium
-        hover:file:bg-green-700
-      "
+      className="hidden"
     />
+
   </div>
 
-  <p className="text-xs text-slate-400 mt-2">
-    PDF, JPG o PNG
-  </p>
-</div>
-    <div>
-      <label className="block text-sm font-medium mb-2 text-slate-700">
-        Comentario
-      </label>
-
-      <textarea
+</label>
+<textarea
   name="comentario"
-        rows="4"
-        placeholder="Cuéntanos brevemente tu caso"
-        className="w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-green-500 transition-colors resize-none"
-      />
+  rows="4"
+  placeholder="Si tienes algún comentario o duda, éste es el lugar para escribirlo."
+  className="mt-5 w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-corporateGreen transition-colors resize-none"
+/>
     </div>
 
     <button
       type="submit"
       className="w-full bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white py-4 rounded-xl font-semibold"
     >
-      Solicitar revisión gratuita
+      Solicitar análisis gratuito
     </button>
   </form>
 
@@ -596,7 +584,7 @@ export default function ArcoplazaLanding() {
 
       {/* COMPAÑÍAS */}
       <section className="bg-[#ece7de] border-t border-[#d7d0c4]">
-        <div className="max-w-7xl mx-auto px-6 py-20">
+        <div className="w-full px-0 py-20">
           <div className="text-center mb-12">
             <div className="text-[#1faa59] font-semibold uppercase tracking-wider text-sm mb-4">
               Compañías con las que trabajamos
@@ -611,19 +599,26 @@ export default function ArcoplazaLanding() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+          <div className="bg-white px-8 md:px-16 py-12">
+  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
             {companies.map((company) => (
-              <a
+              <div
                 key={company.name}
-                href={company.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-[#f8f6f1] border border-[#d7d0c4] rounded-xl px-6 py-5 flex items-center justify-center text-center hover:shadow-md transition-all duration-300 duration-300"              >
+                className="group rounded-2xl px-6 py-7 flex items-center justify-center hover:bg-black/[0.02] transition-all duration-300"              >
                 <img
   src={company.logo}
   alt={company.name}
-  className="
-    h-10
+  className={`
+    ${
+      company.name === 'Candela Energía' ||
+      company.name === 'Factor Energía' ||
+      company.name === 'Energya VM'
+        ? 'h-14'
+        : company.name === 'Plenitude' ||
+          company.name === 'Repsol'
+        ? 'h-16'
+        : 'h-10'
+    }
     w-auto
     object-contain
     grayscale
@@ -632,18 +627,19 @@ export default function ArcoplazaLanding() {
     group-hover:opacity-100
     transition-all
     duration-300
-  "
+  `}
 />
-              </a>
+              </div>
             ))}
           </div>
         </div>
+      </div>  
       </section>
 
       {/* FOOTER */}
       <footer className="border-t border-[#d7d0c4] bg-[#f8f8f6]">
         <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between gap-4 text-sm text-slate-500">
-          <div>© 2026 Arcoplaza Asesores</div>
+          <div>© 2026 arcoplaza Asesores</div>
           <div>El trabajo bien hecho habla por sí solo.</div>
         </div>
       </footer>

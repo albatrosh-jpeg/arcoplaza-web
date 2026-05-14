@@ -2,6 +2,12 @@ import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
+export const config = {
+  api: {
+    bodyParser: false
+  }
+}
+
 export default async function handler(req, res) {
 
   if (req.method !== 'POST') {
@@ -10,17 +16,24 @@ export default async function handler(req, res) {
 
   try {
 
+    const formData = await req.formData()
+
+    const nombre = formData.get('nombre')
+    const telefono = formData.get('telefono')
+    const email = formData.get('email')
+    const comentario = formData.get('comentario')
+
     await resend.emails.send({
-      from: 'Arcoplaza <aaff@centralenergyasesores.com>',
-      to: 'aaff@centralenergyasesores.com',
-      subject: 'Nueva solicitud desde Arcoplaza',
+      from: 'Arcoplaza <onboarding@resend.dev>',
+      to: 'alvarcofer@gmail.com',
+      subject: 'Nueva solicitud web',
       html: `
         <h2>Nueva solicitud</h2>
 
-        <p><strong>Nombre:</strong> ${req.body.nombre}</p>
-        <p><strong>Teléfono:</strong> ${req.body.telefono}</p>
-        <p><strong>Email:</strong> ${req.body.email}</p>
-        <p><strong>Comentario:</strong> ${req.body.comentario}</p>
+        <p><strong>Nombre:</strong> ${nombre}</p>
+        <p><strong>Teléfono:</strong> ${telefono}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Comentario:</strong> ${comentario}</p>
       `
     })
 
@@ -28,7 +41,10 @@ export default async function handler(req, res) {
 
   } catch (error) {
 
-    return res.status(500).json({ error: error.message })
+    console.error(error)
 
+    return res.status(500).json({
+      error: 'Error enviando formulario'
+    })
   }
 }

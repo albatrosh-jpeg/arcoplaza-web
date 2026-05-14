@@ -415,6 +415,7 @@ className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text
     </div>
 
     <input
+      name="factura"
       type="file"
       accept=".pdf,.jpg,.jpeg,.png"
       className="hidden"

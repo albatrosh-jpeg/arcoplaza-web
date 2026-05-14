@@ -21,14 +21,23 @@ const handleSubmit = async (e) => {
 
   setLoading(true)
   setError(false)
+  setSuccess(false)
 
-  const formData = new FormData(e.target)
+  const data = {
+    nombre: e.target.nombre.value,
+    telefono: e.target.telefono.value,
+    email: e.target.email.value,
+    comentario: e.target.comentario.value
+  }
 
   try {
 
     const response = await fetch('/api/contact', {
       method: 'POST',
-      body: formData
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
     })
 
     if (response.ok) {
@@ -50,6 +59,7 @@ const handleSubmit = async (e) => {
 
   setLoading(false)
 }
+
    const services = [
   {
     title: 'Autoconsumo solar',

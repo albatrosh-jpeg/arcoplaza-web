@@ -2,26 +2,17 @@ import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-export const config = {
-  api: {
-    bodyParser: false
-  }
-}
-
 export default async function handler(req, res) {
 
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' })
+    return res.status(405).json({
+      error: 'Method not allowed'
+    })
   }
 
   try {
 
-    const formData = await req.formData()
-
-    const nombre = formData.get('nombre')
-    const telefono = formData.get('telefono')
-    const email = formData.get('email')
-    const comentario = formData.get('comentario')
+    const { nombre, telefono, email, comentario } = req.body
 
     await resend.emails.send({
       from: 'Arcoplaza <onboarding@resend.dev>',
@@ -37,7 +28,9 @@ export default async function handler(req, res) {
       `
     })
 
-    return res.status(200).json({ success: true })
+    return res.status(200).json({
+      success: true
+    })
 
   } catch (error) {
 

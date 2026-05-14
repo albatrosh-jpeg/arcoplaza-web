@@ -316,7 +316,6 @@ className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text
   <form
   action="/api/contact"
   method="POST"
-  encType="multipart/form-data"
   className="space-y-5"
 >
 

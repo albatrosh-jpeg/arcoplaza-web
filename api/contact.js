@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   try {
 
     await resend.emails.send({
-      from: 'Arcoplaza <onboarding@resend.dev>',
+      from: 'Arcoplaza <aaff@centralenergyasesores.com>',
       to: 'aaff@centralenergyasesores.com',
       subject: 'Nueva solicitud desde Arcoplaza',
       html: `

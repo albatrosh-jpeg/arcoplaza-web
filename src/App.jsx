@@ -12,9 +12,10 @@ import {
   Upload
 } from 'lucide-react'
 export default function ArcoplazaLanding() {
-  const [loading, setLoading] = useState(false)
+const [loading, setLoading] = useState(false)
 const [success, setSuccess] = useState(false)
 const [error, setError] = useState(false)
+const [fileName, setFileName] = useState('')
 const handleSubmit = async (e) => {
 
   e.preventDefault()
@@ -294,7 +295,7 @@ const handleSubmit = async (e) => {
   <div className="absolute inset-0 bg-[#f5f3ee]" />
 
 <div
-  className="absolute inset-0 opacity-08 bg-cover bg-center mix-blend-multiply"
+  className="absolute inset-0 opacity-10 bg-cover bg-center mix-blend-multiply"
   style={{
     backgroundImage: "url('/hero-bg.png')"
   }}
@@ -423,13 +424,23 @@ className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text
     <div className="text-sm text-slate-500">
       PDF, JPG o PNG
     </div>
+    {fileName && (
+  <div className="mt-3 text-sm text-green-700 font-medium">
+    Archivo adjuntado: {fileName}
+  </div>
+)}
 
     <input
-      name="factura"
-      type="file"
-      accept=".pdf,.jpg,.jpeg,.png"
-      className="hidden"
-    />
+  name="factura"
+  type="file"
+  accept=".pdf,.jpg,.jpeg,.png"
+  className="hidden"
+  onChange={(e) => {
+    if (e.target.files[0]) {
+      setFileName(e.target.files[0].name)
+    }
+  }}
+/>
 
   </div>
 

@@ -214,7 +214,8 @@ export default function ArcoplazaLanding() {
             </div>
 
 <h1 className="text-5xl lg:text-6xl font-black text-corporate leading-tight mb-6">
-  Analizamos tu factura y detectamos dónde estás pagando de más.
+  Analizamos tu factura y detectamos <br />
+  dónde estás pagando de más.
 </h1>
               
             <p className="text-xl text-slate-500 leading-relaxed max-w-xl mb-10">
@@ -256,7 +257,7 @@ export default function ArcoplazaLanding() {
             </div>
              </div>
 
-          <div className="bg-[#f8f6f1] rounded-3xl border border-[#d7d0c4] p-8 lg:p-10 shadow-lg">
+          <div className="bg-[#f4f4f1] rounded-3xl border border-[#ddd9d2] p-8 lg:p-10 shadow-lg">
 
   <div className="mb-8">
     <div className="text-3xl font-black text-corporate mb-3">
@@ -284,7 +285,7 @@ export default function ArcoplazaLanding() {
   name="telefono"
   type="text"
         placeholder="Escribe tu nombre"
-        className="w-full bg-[#f3f0ea] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-green-500 transition-colors"
+        className="w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-green-500 transition-colors"
       />
     </div>
 
@@ -297,7 +298,7 @@ export default function ArcoplazaLanding() {
   name="telefono"
   type="text"
         placeholder="Tu teléfono"
-        className="w-full bg-[#f3f0ea] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-green-500 transition-colors"
+        className="w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-green-500 transition-colors"
       />
     </div>
 
@@ -310,7 +311,7 @@ export default function ArcoplazaLanding() {
   name="email"
   type="email"
         placeholder="correo@ejemplo.com"
-        className="w-full bg-[#f3f0ea] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-green-500 transition-colors"
+        className="w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-green-500 transition-colors"
       />
     </div>
 <div>
@@ -324,7 +325,7 @@ export default function ArcoplazaLanding() {
       accept=".pdf,.jpg,.jpeg,.png"
       className="
         w-full
-        bg-[#f3f0ea]
+        bg-[#f8f8f6]
         border
         border-[#d7d0c4]
         rounded-xl
@@ -357,7 +358,7 @@ export default function ArcoplazaLanding() {
   name="comentario"
         rows="4"
         placeholder="Cuéntanos brevemente tu caso"
-        className="w-full bg-[#f3f0ea] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-green-500 transition-colors resize-none"
+        className="w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-green-500 transition-colors resize-none"
       />
     </div>
 
@@ -375,7 +376,7 @@ export default function ArcoplazaLanding() {
       </section> 
 
       {/* QUIÉNES SOMOS */}
-      <section id="quienes" className="bg-[#f3f0ea] border-y border-[#d7d0c4]">
+      <section id="quienes" className="bg-[#f8f8f6] border-y border-[#d7d0c4]">
         <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <div className="text-[#1faa59] font-semibold uppercase tracking-wider text-sm mb-4">
@@ -485,7 +486,7 @@ export default function ArcoplazaLanding() {
           </div>
         </div>
       </section>
-<section className="bg-[#f3f0ea] border-y border-[#d7d0c4]">
+<section className="bg-[#f8f8f6] border-y border-[#d7d0c4]">
   <div className="max-w-7xl mx-auto px-6 py-24">
 
     <div className="max-w-2xl mb-14">
@@ -642,7 +643,7 @@ export default function ArcoplazaLanding() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-[#d7d0c4] bg-[#f3f0ea]">
+      <footer className="border-t border-[#d7d0c4] bg-[#f8f8f6]">
         <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between gap-4 text-sm text-slate-500">
           <div>© 2026 Arcoplaza Asesores</div>
           <div>El trabajo bien hecho habla por sí solo.</div>

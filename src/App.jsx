@@ -1,4 +1,6 @@
 
+import { useState } from 'react'
+
 import {
   Sun,
   Car,
@@ -10,6 +12,44 @@ import {
   Upload
 } from 'lucide-react'
 export default function ArcoplazaLanding() {
+  const [loading, setLoading] = useState(false)
+const [success, setSuccess] = useState(false)
+const [error, setError] = useState(false)
+const handleSubmit = async (e) => {
+
+  e.preventDefault()
+
+  setLoading(true)
+  setError(false)
+
+  const formData = new FormData(e.target)
+
+  try {
+
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      body: formData
+    })
+
+    if (response.ok) {
+
+      setSuccess(true)
+      e.target.reset()
+
+    } else {
+
+      setError(true)
+
+    }
+
+  } catch {
+
+    setError(true)
+
+  }
+
+  setLoading(false)
+}
    const services = [
   {
     title: 'Autoconsumo solar',
@@ -313,9 +353,8 @@ className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text
     </p>
   </div>
 
-  <form
-  action="/api/contact"
-  method="POST"
+<form
+  onSubmit={handleSubmit}
   className="space-y-5"
 >
 
@@ -393,11 +432,25 @@ className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text
     </div>
 
     <button
-      type="submit"
-      className="w-full bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white py-4 rounded-xl font-semibold"
-    >
-      Solicitar análisis gratuito
-    </button>
+  type="submit"
+  disabled={loading}
+  className="w-full bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white py-4 rounded-xl font-semibold disabled:opacity-70"
+>
+  {loading
+    ? 'Enviando...'
+    : 'Solicitar análisis gratuito'}
+</button>
+{success && (
+  <div className="text-green-700 text-sm font-medium">
+    Solicitud enviada correctamente.
+  </div>
+)}
+
+{error && (
+  <div className="text-red-600 text-sm font-medium">
+    Ha ocurrido un error. Inténtalo de nuevo.
+  </div>
+)}
   </form>
 
 </div>

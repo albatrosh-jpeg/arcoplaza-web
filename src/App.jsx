@@ -362,6 +362,7 @@ className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text
       </label>
 
       <input
+  required
   name="email"
   type="email"
         placeholder="correo@ejemplo.com"
@@ -387,7 +388,7 @@ className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text
     </div>
     {fileName && (
   <div className="mt-3 text-sm text-green-700 font-semibold">
-    ✓ Factura adjuntado: {fileName}
+    ✓ Factura adjuntada: {fileName}
   </div>
 )}
 

@@ -14,19 +14,19 @@ export default async function handler(req, res) {
 
     const { nombre, telefono, email, comentario } = req.body
 
-    await resend.emails.send({
-      from: 'Arcoplaza <onboarding@resend.dev>',
-      to: 'alvarcofer@gmail.com',
-      subject: 'Nueva solicitud web',
-      html: `
-        <h2>Nueva solicitud</h2>
+  await resend.emails.send({
+  from: 'onboarding@resend.dev',
+  to: 'aaff@centralenergyasesores.com',
+  subject: 'Nueva solicitud web',
+  html: `
+    <h2>Nueva solicitud</h2>
 
-        <p><strong>Nombre:</strong> ${nombre}</p>
-        <p><strong>Teléfono:</strong> ${telefono}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Comentario:</strong> ${comentario}</p>
-      `
-    })
+    <p><strong>Nombre:</strong> ${nombre}</p>
+    <p><strong>Teléfono:</strong> ${telefono}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Comentario:</strong> ${comentario}</p>
+  `
+})  
 
     return res.status(200).json({
       success: true

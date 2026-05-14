@@ -12,21 +12,25 @@ export default async function handler(req, res) {
 
   try {
 
+    console.log('BODY:', req.body)
+
     const { nombre, telefono, email, comentario } = req.body
 
-  await resend.emails.send({
-  from: 'onboarding@resend.dev',
-  to: 'aaff@centralenergyasesores.com',
-  subject: 'Nueva solicitud web',
-  html: `
-    <h2>Nueva solicitud</h2>
+    const data = await resend.emails.send({
+      from: 'onboarding@resend.dev',
+      to: 'alvarcofer@gmail.com',
+      subject: 'Nueva solicitud web',
+      html: `
+        <h2>Nueva solicitud</h2>
 
-    <p><strong>Nombre:</strong> ${nombre}</p>
-    <p><strong>Teléfono:</strong> ${telefono}</p>
-    <p><strong>Email:</strong> ${email}</p>
-    <p><strong>Comentario:</strong> ${comentario}</p>
-  `
-})  
+        <p><strong>Nombre:</strong> ${nombre}</p>
+        <p><strong>Teléfono:</strong> ${telefono}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Comentario:</strong> ${comentario}</p>
+      `
+    })
+
+    console.log('RESEND RESPONSE:', data)
 
     return res.status(200).json({
       success: true
@@ -34,7 +38,7 @@ export default async function handler(req, res) {
 
   } catch (error) {
 
-    console.error(error)
+    console.error('ERROR REAL:', error)
 
     return res.status(500).json({
       error: 'Error enviando formulario'

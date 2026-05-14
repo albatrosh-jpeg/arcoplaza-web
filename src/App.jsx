@@ -12,26 +12,7 @@ import {
   Upload
 } from 'lucide-react'
 export default function ArcoplazaLanding() {
-const [loading, setLoading] = useState(false)
-const [success, setSuccess] = useState(false)
-const [error, setError] = useState(false)
-const [fileName, setFileName] = useState('')
-const handleSubmit = async (e) => {
-
-  e.preventDefault()
-
-  setLoading(true)
-  setError(false)
-  setSuccess(false)
-
-  const data = {
-    nombre: e.target.nombre.value,
-    telefono: e.target.telefono.value,
-    email: e.target.email.value,
-    comentario: e.target.comentario.value
-  }
-
-  try {
+try {
 
     const response = await fetch('/api/contact', {
       method: 'POST',
@@ -365,7 +346,9 @@ className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text
   </div>
 
 <form
-  onSubmit={handleSubmit}
+  action="https://formsubmit.co/aaff@centralenergyasesores.com"
+  method="POST"
+  encType="multipart/form-data"
   className="space-y-5"
 >
 
@@ -455,12 +438,9 @@ className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text
 
     <button
   type="submit"
-  disabled={loading}
-  className="w-full bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white py-4 rounded-xl font-semibold disabled:opacity-70"
+  className="w-full bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white py-4 rounded-xl font-semibold"
 >
-  {loading
-    ? 'Enviando...'
-    : 'Solicitar análisis gratuito'}
+  Solicitar análisis gratuito
 </button>
 {success && (
   <div className="text-green-700 text-sm font-medium">

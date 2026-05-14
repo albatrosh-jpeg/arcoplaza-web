@@ -193,13 +193,48 @@ export default function ArcoplazaLanding() {
 </nav>
     <a
       href="https://wa.me/34669633694"
-      className="bg-green-600 hover:bg-green-700 transition-colors text-white px-5 py-3 rounded-xl text-sm font-semibold"
+      className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white px-5 py-3 rounded-xl text-sm font-semibold"
     >
       Consulta gratuita
     </a>
 
   </div>
 </header>
+<section className="bg-[#f3f0ea] border-b border-[#d7d0c4]">
+
+  <div className="max-w-7xl mx-auto px-6 py-5">
+
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+
+      {[
+        'Sube tu factura',
+        'Análisis gratuito',
+        'Propuesta clara',
+        'Gestión completa'
+      ].map((step, index) => (
+
+        <div
+          key={step}
+          className="bg-[#f8f8f6] border border-[#e7e4dd] rounded-2xl px-5 py-4"
+        >
+
+          <div className="text-corporateGreen text-2xl font-black mb-1">
+            0{index + 1}
+          </div>
+
+          <div className="text-sm font-semibold text-corporate leading-snug">
+            {step}
+          </div>
+
+        </div>
+
+      ))}
+
+    </div>
+
+  </div>
+
+</section>
 {/* HERO */}
 <section
   id="inicio"
@@ -209,13 +244,14 @@ export default function ArcoplazaLanding() {
 
   <div className="relative max-w-7xl mx-auto px-6 py-16 lg:py-24 grid lg:grid-cols-2 gap-14 items-start">
           <div>
-            <div className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 bg-corporateGreen-light text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
               Asesoría energética profesional
             </div>
 
-<h1 className="text-5xl lg:text-6xl font-black text-corporate leading-tight mb-6">
-  Analizamos tu factura y detectamos <br />
-  dónde estás pagando de más.
+<h1 className="text-4xl lg:text-5xl font-black text-corporate leading-[0.95] mb-6">
+  Analizamos tu factura <br />
+  y detectamos dónde <br />
+  estás pagando de más.
 </h1>
               
             <p className="text-xl text-slate-500 leading-relaxed max-w-xl mb-10">
@@ -226,7 +262,7 @@ export default function ArcoplazaLanding() {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="https://wa.me/34669633694"
-                className="bg-green-600 hover:bg-green-700 transition-colors text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-green-200"
+                className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-green-200"
               >
                 Hablar por WhatsApp
               </a>
@@ -257,7 +293,7 @@ export default function ArcoplazaLanding() {
             </div>
              </div>
 
-          <div className="bg-[#f4f4f1] rounded-3xl border border-[#ddd9d2] p-8 lg:p-10 shadow-lg">
+          <div className="bg-[#fafaf8] rounded-3xl border border-[#e7e4dd] p-8 lg:p-10 shadow-lg">
 
   <div className="mb-8">
     <div className="text-3xl font-black text-corporate mb-3">
@@ -337,7 +373,7 @@ export default function ArcoplazaLanding() {
         file:py-2
         file:border-0
         file:rounded-lg
-        file:bg-green-600
+        file:bg-corporateGreen
         file:text-white
         file:font-medium
         hover:file:bg-green-700
@@ -364,7 +400,7 @@ export default function ArcoplazaLanding() {
 
     <button
       type="submit"
-      className="w-full bg-green-600 hover:bg-green-700 transition-colors text-white py-4 rounded-xl font-semibold"
+      className="w-full bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white py-4 rounded-xl font-semibold"
     >
       Solicitar revisión gratuita
     </button>
@@ -451,7 +487,7 @@ export default function ArcoplazaLanding() {
       </section>
 
       {/* AHORRO ENERGÉTICO */}
-      <section id="ahorro" className="bg-green-600 text-white">
+      <section id="ahorro" className="bg-corporateGreen text-white">
         <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <div className="uppercase tracking-wider text-sm font-semibold mb-4 text-green-100">
@@ -486,44 +522,6 @@ export default function ArcoplazaLanding() {
           </div>
         </div>
       </section>
-<section className="bg-[#f8f8f6] border-y border-[#d7d0c4]">
-  <div className="max-w-7xl mx-auto px-6 py-24">
-
-    <div className="max-w-2xl mb-14">
-      <div className="text-[#1faa59] font-semibold uppercase tracking-wider text-sm mb-4">
-        Cómo trabajamos
-      </div>
-
-      <h2 className="text-4xl lg:text-5xl font-black leading-tight mb-6">
-        Un proceso claro y sin complicaciones.
-      </h2>
-    </div>
-
-    <div className="grid md:grid-cols-4 gap-6">
-
-      {[
-        'Envío de factura',
-        'Análisis gratuito',
-        'Propuesta optimizada',
-        'Gestión del cambio'
-      ].map((step, index) => (
-        <div
-          key={step}
-          className="bg-[#f8f6f1] border border-[#d7d0c4] rounded-3xl p-8"
-        >
-          <div className="text-5xl font-black text-[#1faa59] mb-6">
-            {index + 1}
-          </div>
-
-          <div className="text-xl font-bold text-corporate">
-            {step}
-          </div>
-        </div>
-      ))}
-
-    </div>
-  </div>
-</section>
       {/* OPINIONES */}
       <section id="opiniones" className="max-w-7xl mx-auto px-6 py-24 bg-[#e8e4dc]">
         <div className="max-w-2xl mb-14">
@@ -586,7 +584,7 @@ export default function ArcoplazaLanding() {
               <div className="pt-4">
                 <a
                   href="mailto:info@arcoplazaasesores.es"
-                  className="inline-flex bg-green-600 hover:bg-green-700 transition-colors text-white px-6 py-3 rounded-xl font-semibold"
+                  className="inline-flex bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white px-6 py-3 rounded-xl font-semibold"
                 >
                   Solicitar asesoramiento
                 </a>

@@ -9,7 +9,13 @@ export default {
     extend: {
       colors: {
         corporate: {
-          DEFAULT: "#18375D", // azul corporativo
+          DEFAULT: "#18375D",
+        },
+
+        corporateGreen: {
+          DEFAULT: "#4F8A5B",
+          dark: "#3F7A54",
+          light: "#DCE8DE",
         },
       },
     },

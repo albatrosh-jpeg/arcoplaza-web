@@ -263,7 +263,7 @@ export default function ArcoplazaLanding() {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="https://wa.me/34669633694"
-                className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-green-200"
+className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white px-6 py-3 rounded-xl font-semibold shadow-md shadow-black/5"
               >
                 Hablar por WhatsApp
               </a>

@@ -169,7 +169,7 @@ export default function ArcoplazaLanding() {
   return (
     <div className="min-h-screen bg-[#e8e4dc] text-corporate font-sans">
       {/* NAVBAR */}
-    <header className="sticky top-0 z-50 backdrop-blur bg-[#e8e4dc]/95 border-b border-slate-300 shadow-sm">
+    <header className="sticky top-0 z-50 backdrop-blur bg-[#e8e4dc]/95 border-b-4 border-corporate shadow-sm">
   <div className="max-w-7xl mx-auto px-6 py-4 flex items-center">
 
     <div className="flex items-center">
@@ -242,6 +242,13 @@ export default function ArcoplazaLanding() {
   className="relative overflow-hidden border-b border-slate-200"
 >
   <div className="absolute inset-0 bg-[#f5f3ee]" />
+
+<div
+  className="absolute inset-0 opacity-08 bg-cover bg-center mix-blend-multiply"
+  style={{
+    backgroundImage: "url('/hero-bg.png')"
+  }}
+/>
 
   <div className="relative max-w-7xl mx-auto px-6 py-16 lg:py-24 grid lg:grid-cols-2 gap-14 items-start">
           <div>
@@ -637,8 +644,8 @@ className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-[#d7d0c4] bg-[#f8f8f6]">
-        <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between gap-4 text-sm text-slate-500">
+      <footer className="border-t border-[#1f4675] bg-corporate">
+        <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between gap-4 text-sm text-slate-300">
           <div>© 2026 arcoplaza Asesores</div>
           <div>El trabajo bien hecho habla por sí solo.</div>
         </div>

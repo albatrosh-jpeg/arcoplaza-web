@@ -1,12 +1,14 @@
 import { Resend } from 'resend'
-
-const resend = new Resend(process.env.RESEND_API_KEY)
+import formidable from 'formidable'
+import fs from 'fs'
 
 export const config = {
   api: {
     bodyParser: false
   }
 }
+
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export default async function handler(req, res) {
 
@@ -16,74 +18,60 @@ export default async function handler(req, res) {
     })
   }
 
-  try {
+  const form = formidable({})
 
-    const chunks = []
+  form.parse(req, async (err, fields, files) => {
 
-    for await (const chunk of req) {
-      chunks.push(chunk)
+    if (err) {
+      console.error(err)
+
+      return res.status(500).json({
+        error: 'Error procesando formulario'
+      })
     }
 
-    const buffer = Buffer.concat(chunks)
+    try {
 
-    const boundary = req.headers['content-type'].split('boundary=')[1]
+      const factura = files.factura?.[0]
 
-    const parts = buffer
-      .toString()
-      .split(`--${boundary}`)
+      let attachments = []
 
-    let nombre = ''
-    let telefono = ''
-    let email = ''
-    let comentario = ''
+      if (factura) {
 
-    parts.forEach((part) => {
+        const fileBuffer = fs.readFileSync(factura.filepath)
 
-      if (part.includes('name="nombre"')) {
-        nombre = part.split('\r\n\r\n')[1]?.trim()
+        attachments.push({
+          filename: factura.originalFilename,
+          content: fileBuffer
+        })
       }
 
-      if (part.includes('name="telefono"')) {
-        telefono = part.split('\r\n\r\n')[1]?.trim()
-      }
+      await resend.emails.send({
+        from: 'web@arcoplazaasesores.com',
+        to: 'aaff@centralenergyasesores.com',
+        subject: 'Nueva solicitud web',
+        html: `
+          <h2>Nueva solicitud</h2>
 
-      if (part.includes('name="email"')) {
-        email = part.split('\r\n\r\n')[1]?.trim()
-      }
+          <p><strong>Nombre:</strong> ${fields.nombre}</p>
+          <p><strong>Teléfono:</strong> ${fields.telefono}</p>
+          <p><strong>Email:</strong> ${fields.email}</p>
+          <p><strong>Comentario:</strong> ${fields.comentario}</p>
+        `,
+        attachments
+      })
 
-      if (part.includes('name="comentario"')) {
-        comentario = part.split('\r\n\r\n')[1]?.trim()
-      }
+      return res.status(200).json({
+        success: true
+      })
 
-    })
+    } catch (error) {
 
-    await resend.emails.send({
-      from: 'web@arcoplazaasesores.com',
-      to: 'aaff@centralenergyasesores.com',
-      subject: 'Nueva solicitud web Arcoplaza',
-      html: `
-        <h2>Nueva solicitud desde la web</h2>
+      console.error(error)
 
-        <p><strong>Nombre:</strong> ${nombre}</p>
-
-        <p><strong>Teléfono:</strong> ${telefono}</p>
-
-        <p><strong>Email:</strong> ${email}</p>
-
-        <p><strong>Comentario:</strong> ${comentario}</p>
-      `
-    })
-
-    return res.status(200).json({
-      success: true
-    })
-
-  } catch (error) {
-
-    console.error(error)
-
-    return res.status(500).json({
-      error: 'Error enviando formulario'
-    })
-  }
+      return res.status(500).json({
+        error: 'Error enviando email'
+      })
+    }
+  })
 }

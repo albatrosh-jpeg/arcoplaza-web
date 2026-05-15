@@ -225,7 +225,7 @@ const services = [
   return (
     <div className="min-h-screen bg-[#e8e4dc] text-corporate font-sans">
       {/* NAVBAR */}
-    <header className="sticky top-0 z-50 backdrop-blur bg-[#ffffff]/95 border-b-4 border-corporate shadow-sm">
+    <header className="sticky top-0 z-50 backdrop-blur bg-[#faf7f2]/95 border-b-4 border-corporate shadow-sm">
   <div className="max-w-7xl mx-auto px-6 py-4 flex items-center">
 
     <div className="flex items-center">
@@ -257,33 +257,70 @@ const services = [
 
   </div>
 </header>
+{/* PROCESO */}
 <section className="bg-[#f3f0ea] border-b border-[#d7d0c4]">
 
-  <div className="max-w-7xl mx-auto px-6 py-4 mt-2">
+  <div className="max-w-7xl mx-auto px-6 py-24">
 
-    <div className="grid grid-cols-2 lg:grid-cols-4 bg-white/70 backdrop-blur-sm border border-white/70 rounded-3xl p-2 shadow-sm">
+    <div className="text-left mb-16">
+
+      <div className="text-[#1faa59] font-semibold uppercase tracking-wider text-sm mb-4">
+        Cómo trabajamos
+      </div>
+
+      <h2 className="text-4xl lg:text-5xl font-black text-corporate leading-tight mb-6">
+        Proceso claro y acompañado.
+      </h2>
+
+      <p className="text-slate-600 text-lg leading-relaxed">
+  Analizamos tu suministro, detectamos oportunidades de optimización
+  <br />
+  y gestionamos todo el proceso de forma transparente y personalizada.
+</p>
+
+    </div>
+
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
       {[
-        'Envío de factura' , 
-        'Revisión técnica',
-        'Optimización',
-        'Implementación de mejoras'
-      ].map((step, index) => (
+        {
+          number: '01',
+          title: 'Envío de factura',
+          text: 'Revisamos consumos, tarifas y condiciones contractuales.'
+        },
+        {
+          number: '02',
+          title: 'Revisión técnica',
+          text: 'Detectamos sobrecostes y oportunidades reales de ahorro.'
+        },
+        {
+          number: '03',
+          title: 'Propuesta clara',
+          text: 'Te explicamos las mejoras de forma sencilla y transparente.'
+        },
+        {
+          number: '04',
+          title: 'Implementación',
+          text: 'Gestionamos los cambios y realizamos seguimiento continuo.'
+        }
+      ].map((item) => (
 
         <div
-          key={step}
-          className={`group rounded-2xl px-6 py-5 hover:bg-[#f6f6f3] transition-all duration-300 ${
-  index !== 3 ? 'lg:border-r border-[#e5e7eb]' : ''
-}`}
+          key={item.number}
+          className="bg-[#f8f6f1] border border-[#d7d0c4] rounded-[32px] p-10 min-h-[340px] flex flex-col hover:border-corporateGreen transition-all duration-300"
         >
 
-          <div className="text-corporateGreen text-3xl tracking-tight font-black mb-1">
-            0{index + 1}
+          <div className="w-16 h-16 rounded-full bg-[#eef2f5] border border-[#d7d0c4] flex items-center justify-center text-2xl font-black text-corporateGreen mb-10">
+            {item.number}
           </div>
 
-          <div className="text-sm font-semibold text-corporate leading-snug">
-            {step}
-          </div>
+          <h3 className="text-3xl font-black text-corporate leading-tight mb-6">
+            {item.title}
+          </h3>
+
+          <p className="text-slate-600 leading-relaxed text-lg">
+            {item.text}
+          </p>
 
         </div>
 
@@ -354,7 +391,7 @@ const services = [
         </a>
 
         <a
-          href="#formulario"
+          href="#quienes"
           className="border border-slate-300 hover:border-slate-500 bg-white/50 backdrop-blur transition-colors px-7 py-4 rounded-xl font-semibold text-center"
         >
           Cómo trabajamos
@@ -367,7 +404,7 @@ const services = [
     {/* FORMULARIO */}
     <div
       id="formulario"
-      className="bg-white/95 backdrop-blur-xl rounded-[32px] border border-[#d9dfe6] p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
+      className="scroll-mt-32 bg-white/95 backdrop-blur-xl rounded-[32px] border border-[#d9dfe6] p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
     >
 
       <div className="mb-8">

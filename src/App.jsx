@@ -244,12 +244,12 @@ const services = [
     Servicios
   </a>
 
-  <a href="#contacto" className="hover:text-green-600 transition-colors">
+  <a href="#formulario" className="hover:text-green-600 transition-colors">
     Contacto
   </a>
 </nav>
   <a
-  href="#contacto"
+  href="#formulario"
   className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white px-5 py-3 rounded-xl text-sm font-semibold"
 >
   Solicitar análisis
@@ -340,7 +340,7 @@ const services = [
             <div className="flex flex-col sm:flex-row gap-4">
 
   <a
-    href="#contacto"
+    href="#formulario"
     className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white px-7 py-4 rounded-xl font-semibold shadow-md shadow-black/5 text-center"
   >
     Solicitar análisis gratuito
@@ -373,8 +373,10 @@ const services = [
             </div>
              </div>
 
-          <div className="bg-white/95 backdrop-blur-xl rounded-[32px] border border-[#d9dfe6] p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
-
+<div
+  id="formulario"
+  className="bg-white/95 backdrop-blur-xl rounded-[32px] border border-[#d9dfe6] p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
+>
   <div className="mb-8">
     <div className="text-4xl font-black tracking-tight text-corporate mb-4">
       ¿Revisamos tu factura?
@@ -655,47 +657,45 @@ Adjunta tu factura (opcional)
         </div>
       </section>
 
-      {/* CONTACTO */}
-      <section id="contacto" className="bg-[#102542] text-white">
-        <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <div className="text-green-400 uppercase tracking-wider text-sm font-semibold mb-4">
-              Contacto directo
-            </div>
+{/* CONTACTO */}
+<section id="contacto" className="bg-[#102542] text-white">
+  <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-center">
 
-            <h2 className="text-4xl lg:text-5xl font-black leading-tight mb-6">
-              Hablemos de tu factura.
-            </h2>
+    <div>
+      <div className="text-green-400 uppercase tracking-wider text-sm font-semibold mb-4">
+        Contacto directo
+      </div>
 
-            <p className="text-slate-300 text-lg leading-relaxed max-w-xl">
-              Revisamos tu situación sin compromiso y te explicamos de forma clara dónde puedes optimizar costes.
-            </p>
-          </div>
+      <h2 className="text-4xl lg:text-5xl font-black leading-tight mb-6">
+        Hablemos de tu factura.
+      </h2>
 
-          <div className="bg-white text-corporate rounded-3xl p-10 shadow-lg">
-            <div className="space-y-8">
-              <div>
-                <div className="text-sm text-slate-500 mb-1">Álvaro del Arco</div>
-                <div className="text-3xl font-black">669 633 694</div>
-              </div>
+      <p className="text-slate-300 text-lg leading-relaxed max-w-xl">
+        Revisamos tu situación sin compromiso y te explicamos de forma clara dónde puedes optimizar costes.
+      </p>
+    </div>
 
-              <div>
-                <div className="text-sm text-slate-500 mb-1">Enrique Plaza</div>
-                <div className="text-3xl font-black">692 641 439</div>
-              </div>
+    <div className="bg-white text-corporate rounded-3xl p-10 shadow-lg">
 
-              <div className="pt-4">
-                <a
-                  href="mailto:info@arcoplazaasesores.es"
-                  className="inline-flex bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white px-6 py-3 rounded-xl font-semibold"
-                >
-                  Solicitar asesoramiento
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <div className="text-3xl font-black mb-4">
+        Envíanos tu factura
+      </div>
+
+      <p className="text-slate-600 leading-relaxed mb-8">
+        Analizamos tu suministro y te indicamos posibles mejoras, ajustes y oportunidades de ahorro de forma clara y personalizada.
+      </p>
+
+      <a
+        href="#formulario"
+        className="inline-flex bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white px-6 py-4 rounded-xl font-semibold"
+      >
+        Solicitar revisión gratuita
+      </a>
+
+    </div>
+
+  </div>
+</section>
 
       {/* COMPAÑÍAS */}
       <section className="bg-[#ece7de] border-t border-[#d7d0c4]">

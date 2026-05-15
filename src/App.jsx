@@ -259,23 +259,25 @@ const services = [
 </header>
 <section className="bg-[#f3f0ea] border-b border-[#d7d0c4]">
 
-  <div className="max-w-7xl mx-auto px-6 py-8 mt-2">
+  <div className="max-w-7xl mx-auto px-6 py-5 mt-2">
 
-    <div className="grid grid-cols-2 lg:grid-cols-4 bg-white rounded-3xl p-3 shadow-sm">
+    <div className="grid grid-cols-2 lg:grid-cols-4 bg-white/70 backdrop-blur-sm border border-white/70 rounded-3xl p-2 shadow-sm">
 
       {[
-        'Sube tu factura',
-        'Análisis gratuito',
-        'Propuesta clara',
-        'Gestión completa'
+        'Envío de factura' , 
+        'Revisión técnica',
+        'Optimización',
+        'Implementación de mejoras'
       ].map((step, index) => (
 
         <div
           key={step}
-          className="group rounded-2xl px-5 py-4 hover:bg-[#f6f6f3] transition-all duration-300"
+          className={`group rounded-2xl px-5 py-4 hover:bg-[#f6f6f3] transition-all duration-300 ${
+  index !== 3 ? 'lg:border-r border-[#e5e7eb]' : ''
+}`}
         >
 
-          <div className="text-corporateGreen text-2xl font-black mb-1">
+          <div className="text-corporateGreen text-3xl tracking-tight font-black mb-1">
             0{index + 1}
           </div>
 
@@ -306,10 +308,10 @@ const services = [
   }}
 />
 
-  <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-32 grid lg:grid-cols-2 gap-20 items-start">
+  <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-32 grid lg:grid-cols-2 gap-16 items-start">
           <div>
             <div className="inline-flex items-center gap-2 bg-corporateGreen-light text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              Optimización energética inteligente
+              Análisis técnico de suministros
             </div>
 
 <h1 className="text-5xl lg:text-6xl font-black text-corporate leading-[0.92] mb-8 tracking-tight">
@@ -346,12 +348,12 @@ const services = [
     Solicitar análisis gratuito
   </a>
 
-  <a
-    href="https://wa.me/34669633694"
-    className="border border-slate-300 hover:border-slate-500 bg-white/50 backdrop-blur transition-colors px-7 py-4 rounded-xl font-semibold text-center"
-  >
-    WhatsApp directo
-  </a>
+<a
+  href="#formulario"
+  className="border border-slate-300 hover:border-slate-500 bg-white/50 backdrop-blur transition-colors px-7 py-4 rounded-xl font-semibold text-center"
+>
+  Ver análisis personalizado
+</a>
 
 </div>
 
@@ -445,7 +447,7 @@ Adjunta tu factura (opcional)
 </label>
 <label className="block">
 
-  <div className="bg-[#f8f8f6] border border-[#e7e4dd] hover:border-corporateGreen transition-colors rounded-2xl p-6 text-center cursor-pointer">
+  <div className="bg-[#f8f8f6] border border-[#e7e4dd] hover:border-corporateGreen hover:bg-white transition-colors rounded-2xl p-6 text-center cursor-pointer">
 
 <Upload className="w-8 h-8 mx-auto mb-3 text-corporateGreen" />
 
@@ -457,7 +459,7 @@ Adjunta tu factura (opcional)
       PDF, JPG o PNG · Máx. 10MB
     </div>
     {fileName && (
-  <div className="mt-3 text-sm text-green-700 font-semibold">
+  <div className="mt-3 text-sm text-corporate font-semibold">
     ✓ Factura adjuntada: {fileName}
   </div>
 )}
@@ -499,7 +501,7 @@ Adjunta tu factura (opcional)
 
 </button>
 {success && (
-  <div className="text-green-700 text-sm font-medium">
+  <div className="text-corporate text-sm font-medium">
     Solicitud enviada correctamente.
   </div>
 )}
@@ -580,8 +582,8 @@ Adjunta tu factura (opcional)
               key={item.title}
               className="group bg-[#f8f6f1] border border-[#d7d0c4] hover:border-green-400 transition-all rounded-3xl p-8 shadow-sm hover:shadow-md   duration-300"
             >
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#dcefd4] to-white border border-[#bfd8b4] mb-6 shadow-sm transition-transform duration-300 flex items-center justify-center">
-              <item.icon className="w-7 h-7 text-green-700" strokeWidth={2.2} />
+              <div className="w-14 h-14 rounded-xl bg-[#eef2f5] border border-[#bfd8b4] mb-6 shadow-sm duration-300 flex items-center justify-center">
+              <item.icon className="w-6 h-6 text-corporate" strokeWidth={2.2} />
              </div>
 
               <h3 className="text-xl font-bold text-corporate mb-4">{item.title}</h3>
@@ -610,7 +612,7 @@ Adjunta tu factura (opcional)
 
           <div className="grid sm:grid-cols-2 gap-6">
             <div className="bg-white/10 backdrop-blur rounded-3xl p-8 border border-white/10">
-              <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mb-5">   <Zap className="w-7 h-7 text-white" strokeWidth={2.2} /> </div>
+              <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mb-5">   <Zap className="w-6 h-6 text-white" strokeWidth={2.2} /> </div>
               <div className="text-2xl font-bold mb-3">Electricidad</div>
               <p className="text-green-50 leading-relaxed">
                 Ajuste de potencia y tarifas adaptadas al uso real.
@@ -618,7 +620,7 @@ Adjunta tu factura (opcional)
             </div>
 
             <div className="bg-white/10 backdrop-blur rounded-3xl p-8 border border-white/10">
-              <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mb-5">   <Flame className="w-7 h-7 text-white" strokeWidth={2.2} /> </div>
+              <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mb-5">   <Flame className="w-6 h-6 text-white" strokeWidth={2.2} /> </div>
               <div className="text-2xl font-bold mb-3">Gas</div>
               <p className="text-green-50 leading-relaxed">
                 Revisión de costes y optimización de suministro.
@@ -667,11 +669,11 @@ Adjunta tu factura (opcional)
       </div>
 
       <h2 className="text-4xl lg:text-5xl font-black leading-tight mb-6">
-        Hablemos de tu factura.
+        Hablemos.
       </h2>
 
       <p className="text-slate-300 text-lg leading-relaxed max-w-xl">
-        Revisamos tu situación sin compromiso y te explicamos de forma clara dónde puedes optimizar costes.
+        Revisamos la situación de tus suministros sin compromiso y te explicamos de forma clara dónde puedes optimizar costes.
       </p>
     </div>
 

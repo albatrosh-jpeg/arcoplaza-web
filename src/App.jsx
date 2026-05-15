@@ -225,7 +225,7 @@ const services = [
   return (
     <div className="min-h-screen bg-[#e8e4dc] text-corporate font-sans">
       {/* NAVBAR */}
-    <header className="sticky top-0 z-50 backdrop-blur bg-[#e8e4dc]/95 border-b-4 border-corporate shadow-sm">
+    <header className="sticky top-0 z-50 backdrop-blur bg-[#ffffff]/95 border-b-4 border-corporate shadow-sm">
   <div className="max-w-7xl mx-auto px-6 py-4 flex items-center">
 
     <div className="flex items-center">
@@ -259,7 +259,7 @@ const services = [
 </header>
 <section className="bg-[#f3f0ea] border-b border-[#d7d0c4]">
 
-  <div className="max-w-7xl mx-auto px-6 py-5 mt-2">
+  <div className="max-w-7xl mx-auto px-6 py-4 mt-2">
 
     <div className="grid grid-cols-2 lg:grid-cols-4 bg-white/70 backdrop-blur-sm border border-white/70 rounded-3xl p-2 shadow-sm">
 
@@ -272,7 +272,7 @@ const services = [
 
         <div
           key={step}
-          className={`group rounded-2xl px-5 py-4 hover:bg-[#f6f6f3] transition-all duration-300 ${
+          className={`group rounded-2xl px-6 py-5 hover:bg-[#f6f6f3] transition-all duration-300 ${
   index !== 3 ? 'lg:border-r border-[#e5e7eb]' : ''
 }`}
         >
@@ -301,222 +301,224 @@ const services = [
 >
   <div className="absolute inset-0 bg-[#f5f3ee]" />
 
-<div
-  className="absolute inset-0 opacity-[0.07] bg-cover bg-center"
-  style={{
-    backgroundImage: "url('/hero-blueprint.png')"
-  }}
-/>
+  <div
+    className="absolute inset-0 opacity-[0.07] bg-cover bg-center"
+    style={{
+      backgroundImage: "url('/hero-blueprint.png')"
+    }}
+  />
 
   <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-32 grid lg:grid-cols-2 gap-16 items-start">
-          <div>
-            <div className="inline-flex items-center gap-2 bg-corporateGreen-light text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              Análisis técnico de suministros
+
+    {/* COLUMNA IZQUIERDA */}
+    <div>
+
+      <div className="inline-flex items-center gap-2 bg-corporateGreen-light text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+        Análisis técnico de suministros
+      </div>
+
+      <h1 className="text-5xl lg:text-6xl font-black text-corporate leading-[0.92] mb-8 tracking-tight">
+        Detectamos <span className="text-corporateGreen">sobrecostes ocultos</span><br />
+        en tu factura<br />
+        de luz y gas.
+      </h1>
+
+      <p className="text-xl text-slate-500 leading-relaxed max-w-xl mb-10">
+        Analizamos suministros eléctricos y de gas para detectar sobrecostes,
+        optimizar contratos y plantear mejoras reales con un enfoque técnico y transparente.
+      </p>
+
+      <div className="flex flex-wrap gap-3 mb-10">
+
+        <div className="bg-white/70 backdrop-blur border border-[#d7d0c4] px-4 py-2 rounded-full text-sm font-medium text-corporate">
+          ✓ Análisis personalizado
+        </div>
+
+        <div className="bg-white/70 backdrop-blur border border-[#d7d0c4] px-4 py-2 rounded-full text-sm font-medium text-corporate">
+          ✓ Respuesta en 24h
+        </div>
+
+        <div className="bg-white/70 backdrop-blur border border-[#d7d0c4] px-4 py-2 rounded-full text-sm font-medium text-corporate">
+          ✓ Sin compromiso
+        </div>
+
+      </div>
+
+      <div className="flex flex-col sm:flex-row gap-4">
+
+        <a
+          href="#formulario"
+          className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white px-7 py-4 rounded-xl font-semibold shadow-md shadow-black/5 text-center"
+        >
+          Solicitar análisis gratuito
+        </a>
+
+        <a
+          href="#formulario"
+          className="border border-slate-300 hover:border-slate-500 bg-white/50 backdrop-blur transition-colors px-7 py-4 rounded-xl font-semibold text-center"
+        >
+          Cómo trabajamos
+        </a>
+
+      </div>
+
+    </div>
+
+    {/* FORMULARIO */}
+    <div
+      id="formulario"
+      className="bg-white/95 backdrop-blur-xl rounded-[32px] border border-[#d9dfe6] p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
+    >
+
+      <div className="mb-8">
+        <div className="text-4xl font-black tracking-tight text-corporate mb-4">
+          ¿Revisamos tu factura?
+        </div>
+
+        <p className="text-slate-500 text-lg leading-relaxed">
+          Te indicamos si estás pagando de más y qué opciones tienes para optimizar tu suministro.
+        </p>
+      </div>
+
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-5"
+      >
+
+        <div>
+          <label className="block text-sm font-medium mb-2 text-slate-700">
+            Nombre
+          </label>
+
+          <input
+            name="nombre"
+            type="text"
+            placeholder="Escribe tu nombre"
+            className="mt-5 w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-corporateGreen transition-colors"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium mb-2 text-slate-700">
+            Teléfono
+          </label>
+
+          <input
+            name="telefono"
+            type="text"
+            placeholder="Tu teléfono"
+            className="w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-corporateGreen transition-colors"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium mb-2 text-slate-700">
+            Email*
+          </label>
+
+          <input
+            required
+            name="email"
+            type="email"
+            placeholder="correo@ejemplo.com"
+            className="w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-corporateGreen transition-colors"
+          />
+        </div>
+
+        <div>
+
+          <label className="block text-sm font-medium mb-2 text-slate-700">
+            Cuéntanos tu caso
+          </label>
+
+          <textarea
+            name="comentario"
+            rows="4"
+            placeholder="Si tienes algún comentario o duda, éste es el lugar para escribirlo."
+            className="w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-corporateGreen transition-colors resize-none"
+          />
+
+          <label className="block text-sm font-medium mb-2 mt-5 text-slate-700">
+            Adjunta tu factura (opcional)
+          </label>
+
+          <label className="block">
+
+            <div className="bg-[#f8f8f6] border border-[#e7e4dd] hover:border-corporateGreen hover:bg-white transition-colors rounded-2xl p-6 text-center cursor-pointer">
+
+              <Upload className="w-8 h-8 mx-auto mb-3 text-corporateGreen" />
+
+              <div className="font-semibold text-corporate mb-1">
+                Arrastra tu factura o haz clic aquí
+              </div>
+
+              <div className="text-sm text-slate-500">
+                PDF, JPG o PNG · Máx. 10MB
+              </div>
+
+              {fileName && (
+                <div className="mt-3 text-sm text-corporate font-semibold">
+                  ✓ Factura adjuntada: {fileName}
+                </div>
+              )}
+
+              <input
+                name="factura"
+                type="file"
+                accept=".pdf,.jpg,.jpeg,.png"
+                className="hidden"
+                onChange={(e) => {
+                  if (e.target.files[0]) {
+                    setFileName(e.target.files[0].name)
+                  }
+                }}
+              />
+
             </div>
 
-<h1 className="text-5xl lg:text-6xl font-black text-corporate leading-[0.92] mb-8 tracking-tight">
-  Detectamos <span className="text-corporateGreen">sobrecostes ocultos</span><br />
-  en tu factura<br />
-  de luz y gas.
-</h1>
-              
-            <p className="text-xl text-slate-500 leading-relaxed max-w-xl mb-10">
-              En Arcoplaza Asesores optimizamos contratos de luz y gas para hogares,
-              negocios y comunidades. Transparencia, análisis real y atención cercana.
-            </p>
-<div className="flex flex-wrap gap-3 mb-10">
-
-  <div className="bg-white/70 backdrop-blur border border-[#d7d0c4] px-4 py-2 rounded-full text-sm font-medium text-corporate">
-    ✓ Análisis personalizado
-  </div>
-
-  <div className="bg-white/70 backdrop-blur border border-[#d7d0c4] px-4 py-2 rounded-full text-sm font-medium text-corporate">
-    ✓ Respuesta en 24h
-  </div>
-
-  <div className="bg-white/70 backdrop-blur border border-[#d7d0c4] px-4 py-2 rounded-full text-sm font-medium text-corporate">
-    ✓ Sin compromiso
-  </div>
-
-</div>
-            <div className="flex flex-col sm:flex-row gap-4">
-
-  <a
-    href="#formulario"
-    className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white px-7 py-4 rounded-xl font-semibold shadow-md shadow-black/5 text-center"
-  >
-    Solicitar análisis gratuito
-  </a>
-
-<a
-  href="#formulario"
-  className="border border-slate-300 hover:border-slate-500 bg-white/50 backdrop-blur transition-colors px-7 py-4 rounded-xl font-semibold text-center"
->
-  Ver análisis personalizado
-</a>
-
-</div>
-
-            <div className="mt-12 grid grid-cols-3 gap-6 max-w-lg">
-              <div>
-                <div className="text-3xl font-black text-corporate">+500</div>
-                <div className="text-slate-500 text-sm">Clientes asesorados</div>
-              </div>
-
-              <div>
-                <div className="text-3xl font-black text-corporate">24h</div>
-                <div className="text-slate-500 text-sm">Respuesta habitual</div>
-              </div>
-
-              <div>
-                <div className="text-3xl font-black text-corporate">100%</div>
-                <div className="text-slate-500 text-sm">Atención personalizada</div>
-              </div>
-            </div>
-             </div>
-
-<div
-  id="formulario"
-  className="bg-white/95 backdrop-blur-xl rounded-[32px] border border-[#d9dfe6] p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
->
-  <div className="mb-8">
-    <div className="text-4xl font-black tracking-tight text-corporate mb-4">
-      ¿Revisamos tu factura?
-    </div>
-
-    <p className="text-slate-500 text-lg leading-relaxed">
-      Te indicamos si estás pagando de más y qué opciones tienes para optimizar tu suministro.
-    </p>
-  </div>
-
-<form
-  onSubmit={handleSubmit}
-  className="space-y-5"
->
-    <div>
-      <label className="block text-sm font-medium mb-2 text-slate-700">
-        Nombre
-      </label>
-
-      <input
-  name="nombre"
-  type="text"
-  placeholder="Escribe tu nombre"
-        className="mt-5 w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-corporateGreen transition-colors"
-      />
-    </div>
-
-    <div>
-      <label className="block text-sm font-medium mb-2 text-slate-700">
-        Teléfono
-      </label>
-
-      <input
-  name="telefono"
-  type="text"
-        placeholder="Tu teléfono"
-        className="w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-corporateGreen transition-colors"
-      />
-    </div>
-
-    <div>
-      <label className="block text-sm font-medium mb-2 text-slate-700">
-        Email*
-      </label>
-
-      <input
-  required
-  name="email"
-  type="email"
-        placeholder="correo@ejemplo.com"
-        className="w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-corporateGreen transition-colors"
-      />
-    </div>
-<div>
-<label className="block text-sm font-medium mb-2 text-slate-700">
-  Cuéntanos tu caso
-</label>
-<textarea
-  name="comentario"
-  rows="4"
-  placeholder="Si tienes algún comentario o duda, éste es el lugar para escribirlo."
-  className="w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-corporateGreen transition-colors resize-none"
-/>
-  <label className="block text-sm font-medium mb-2 text-slate-700">
-Adjunta tu factura (opcional)  
-</label>
-<label className="block">
-
-  <div className="bg-[#f8f8f6] border border-[#e7e4dd] hover:border-corporateGreen hover:bg-white transition-colors rounded-2xl p-6 text-center cursor-pointer">
-
-<Upload className="w-8 h-8 mx-auto mb-3 text-corporateGreen" />
-
-    <div className="font-semibold text-corporate mb-1">
-      Arrastra tu factura o haz clic aquí
-    </div>
-
-    <div className="text-sm text-slate-500">
-      PDF, JPG o PNG · Máx. 10MB
-    </div>
-    {fileName && (
-  <div className="mt-3 text-sm text-corporate font-semibold">
-    ✓ Factura adjuntada: {fileName}
-  </div>
-)}
-
-<input
-  name="factura"
-  type="file"
-  accept=".pdf,.jpg,.jpeg,.png"
-  className="hidden"
-  onChange={(e) => {
-    if (e.target.files[0]) {
-      setFileName(e.target.files[0].name)
-    }
-  }}
-/>
-</div>
-
-</label>
-
-    </div>
-
-   <button
-  type="submit"
-  disabled={loading}
-  className={`w-full py-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-3 ${
-    loading
-      ? 'bg-green-700 cursor-not-allowed opacity-90 text-white'
-      : 'bg-corporateGreen hover:bg-corporateGreen-dark text-white'
-  }`}
->
-
-  {loading && (
-    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-  )}
-
-  {loading
-    ? 'Analizando solicitud…'
-    : 'Solicitar análisis gratuito'}
-
-</button>
-{success && (
-  <div className="text-corporate text-sm font-medium">
-    Solicitud enviada correctamente.
-  </div>
-)}
-
-{error && (
-  <div className="text-red-600 text-sm font-medium">
-    Ha ocurrido un error. Inténtalo de nuevo.
-  </div>
-)}
-</form>
-
-</div>
+          </label>
 
         </div>
-      </section> 
+
+        <button
+          type="submit"
+          disabled={loading}
+          className={`w-full py-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-3 ${
+            loading
+              ? 'bg-green-700 cursor-not-allowed opacity-90 text-white'
+              : 'bg-corporateGreen hover:bg-corporateGreen-dark text-white'
+          }`}
+        >
+
+          {loading && (
+            <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+          )}
+
+          {loading
+            ? 'Analizando solicitud…'
+            : 'Solicitar análisis gratuito'}
+
+        </button>
+
+        {success && (
+          <div className="text-corporate text-sm font-medium">
+            Solicitud enviada correctamente.
+          </div>
+        )}
+
+        {error && (
+          <div className="text-red-600 text-sm font-medium">
+            Ha ocurrido un error. Inténtalo de nuevo.
+          </div>
+        )}
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
 
       {/* QUIÉNES SOMOS */}
       <section id="quienes" className="bg-[#f8f8f6] border-y border-[#d7d0c4]">

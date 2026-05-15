@@ -68,40 +68,45 @@ export default function ArcoplazaLanding() {
 
 const services = [
   {
-    title: 'Autoconsumo solar',
-    icon: Sun,
-    text: 'Estudios personalizados para instalaciones fotovoltaicas y ahorro energético.'
-  },
-  {
-    title: 'Cargadores VE',
-    icon: Car,
-    text: 'Instalación y asesoramiento de puntos de carga para vehículos eléctricos.'
-  },
-  {
-    title: 'Baterías energéticas',
-    icon: Battery,
-    text: 'Soluciones de almacenamiento para optimizar producción y consumo.'
-  },
-  {
-    title: 'Luz',
+    title: 'Optimización eléctrica',
     icon: Zap,
-    text: 'Revisión de tarifas eléctricas, potencias contratadas y optimización de costes.'
+    text: 'Revisión técnica de tarifas, potencias y condiciones de suministro.'
   },
   {
-    title: 'Gas',
+    title: 'Gestión energética de gas',
     icon: Flame,
-    text: 'Análisis de consumo y mejora de contratos para viviendas y negocios.'
+    text: 'Análisis de consumo y optimización contractual para viviendas y negocios.'
   },
   {
-    title: 'Optimización de contratos',
+    title: 'Autoconsumo fotovoltaico',
+    icon: Sun,
+    text: 'Estudios personalizados para instalaciones solares y ahorro energético.'
+  },
+  {
+    title: 'Movilidad eléctrica',
+    icon: Car,
+    text: 'Soluciones de recarga para particulares, empresas y comunidades.'
+  },
+  {
+    title: 'Almacenamiento energético',
+    icon: Battery,
+    text: 'Sistemas de baterías para optimizar producción y consumo.'
+  },
+  {
+    title: 'Supervisión de contratos',
     icon: BarChart3,
-    text: 'Detectamos sobrecostes y ajustamos tu suministro a tu consumo real.'
+    text: 'Detectamos sobrecostes y desviaciones en tus suministros.'
   },
   {
-    title: 'Empresas y Comunidades de Propietarios',
+    title: 'Empresas y comunidades',
     icon: Building2,
-    text: 'Soluciones energéticas adaptadas a empresas, locales y comunidades de vecinos.'
-  }
+    text: 'Soluciones energéticas adaptadas a entornos residenciales y empresariales.'
+  },
+  {
+  title: 'Auditoría energética',
+  icon: BarChart3,
+  text: 'Estudio detallado de consumos, hábitos y patrones para detectar mejoras reales.'
+}
 ]
 
   const reviews = [
@@ -223,7 +228,7 @@ const services = [
 ]
 
   return (
-    <div className="min-h-screen bg-[#e8e4dc] text-corporate font-sans">
+    <div className="min-h-screen bg-white text-corporate font-sans">
       {/* NAVBAR */}
     <header className="sticky top-0 z-50 backdrop-blur bg-[#faf7f2]/95 border-b-4 border-corporate shadow-sm">
   <div className="max-w-7xl mx-auto px-6 py-4 flex items-center">
@@ -257,80 +262,7 @@ const services = [
 
   </div>
 </header>
-{/* PROCESO */}
-<section className="bg-[#f3f0ea] border-b border-[#d7d0c4]">
 
-  <div className="max-w-7xl mx-auto px-6 py-24">
-
-    <div className="text-left mb-16">
-
-      <div className="text-[#1faa59] font-semibold uppercase tracking-wider text-sm mb-4">
-        Cómo trabajamos
-      </div>
-
-      <h2 className="text-4xl lg:text-5xl font-black text-corporate leading-tight mb-6">
-        Proceso claro y acompañado.
-      </h2>
-
-      <p className="text-slate-600 text-lg leading-relaxed">
-  Analizamos tu suministro, detectamos oportunidades de optimización
-  <br />
-  y gestionamos todo el proceso de forma transparente y personalizada.
-</p>
-
-    </div>
-
-    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-      {[
-        {
-          number: '01',
-          title: 'Envío de factura',
-          text: 'Revisamos consumos, tarifas y condiciones contractuales.'
-        },
-        {
-          number: '02',
-          title: 'Revisión técnica',
-          text: 'Detectamos sobrecostes y oportunidades reales de ahorro.'
-        },
-        {
-          number: '03',
-          title: 'Propuesta clara',
-          text: 'Te explicamos las mejoras de forma sencilla y transparente.'
-        },
-        {
-          number: '04',
-          title: 'Implementación',
-          text: 'Gestionamos los cambios y realizamos seguimiento continuo.'
-        }
-      ].map((item) => (
-
-        <div
-          key={item.number}
-          className="bg-[#f8f6f1] border border-[#d7d0c4] rounded-[32px] p-10 min-h-[340px] flex flex-col hover:border-corporateGreen transition-all duration-300"
-        >
-
-          <div className="w-16 h-16 rounded-full bg-[#eef2f5] border border-[#d7d0c4] flex items-center justify-center text-2xl font-black text-corporateGreen mb-10">
-            {item.number}
-          </div>
-
-          <h3 className="text-3xl font-black text-corporate leading-tight mb-6">
-            {item.title}
-          </h3>
-
-          <p className="text-slate-600 leading-relaxed text-lg">
-            {item.text}
-          </p>
-
-        </div>
-
-      ))}
-
-    </div>
-
-  </div>
-
-</section>
 {/* HERO */}
 <section
   id="inicio"
@@ -345,7 +277,7 @@ const services = [
     }}
   />
 
-  <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-32 grid lg:grid-cols-2 gap-16 items-start">
+  <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-32 grid lg:grid-cols-2 gap-24 items-start">
 
     {/* COLUMNA IZQUIERDA */}
     <div>
@@ -391,7 +323,7 @@ const services = [
         </a>
 
         <a
-          href="#quienes"
+          href="#proceso"
           className="border border-slate-300 hover:border-slate-500 bg-white/50 backdrop-blur transition-colors px-7 py-4 rounded-xl font-semibold text-center"
         >
           Cómo trabajamos
@@ -556,7 +488,82 @@ const services = [
   </div>
 
 </section>
+{/* PROCESO */}
+<section 
+id="proceso"
+className="bg-[#f3f0ea] border-b border-[#d7d0c4]">
 
+  <div className="max-w-7xl mx-auto px-6 py-24">
+
+    <div className="text-left mb-16">
+
+      <div className="text-[#1faa59] font-semibold uppercase tracking-wider text-sm mb-4">
+        Cómo trabajamos
+      </div>
+
+      <h2 className="text-4xl lg:text-5xl font-black text-corporate leading-tight mb-6">
+        Proceso claro y acompañado.
+      </h2>
+
+      <p className="text-slate-600 text-lg leading-relaxed">
+  Analizamos tu suministro, detectamos oportunidades de optimización
+  <br />
+  y gestionamos todo el proceso de forma transparente y personalizada.
+</p>
+
+    </div>
+
+    <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+      {[
+        {
+          number: '01',
+          title: 'Envío de factura',
+          text: 'Revisamos consumos, tarifas y condiciones contractuales.'
+        },
+        {
+          number: '02',
+          title: 'Revisión técnica',
+          text: 'Detectamos sobrecostes y oportunidades reales de ahorro.'
+        },
+        {
+          number: '03',
+          title: 'Propuesta clara',
+          text: 'Te explicamos las mejoras de forma sencilla y transparente.'
+        },
+        {
+          number: '04',
+          title: 'Empieza el ahorro',
+          text: 'Gestionamos los cambios y realizamos seguimiento continuo.'
+        }
+      ].map((item) => (
+
+        <div
+          key={item.number}
+          className="bg-[#f8f6f1] border border-[#d7d0c4] rounded-[32px] p-10 min-h-[340px] flex flex-col hover:border-corporateGreen transition-all duration-300"
+        >
+
+          <div className="w-16 h-16 rounded-full bg-[#eef2f5] border border-[#d7d0c4] flex items-center justify-center text-2xl font-black text-corporateGreen mb-10">
+            {item.number}
+          </div>
+
+          <h3 className="text-3xl font-black text-corporate leading-tight mb-6">
+            {item.title}
+          </h3>
+
+          <p className="text-slate-600 leading-relaxed text-lg">
+            {item.text}
+          </p>
+
+        </div>
+
+      ))}
+
+    </div>
+
+  </div>
+
+</section>
       {/* QUIÉNES SOMOS */}
       <section id="quienes" className="bg-[#f8f8f6] border-y border-[#d7d0c4]">
         <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-center">
@@ -598,7 +605,80 @@ const services = [
           </div>
         </div>
       </section>
+{/* POR QUÉ ARCOPLAZA */}
+<section className="bg-[#eef2f5] border-y border-[#d7d0c4]">
 
+  <div className="max-w-7xl mx-auto px-6 py-24">
+
+    <div className="text-left mb-16">
+
+      <div className="text-[#1faa59] font-semibold uppercase tracking-wider text-sm mb-4">
+        Por qué Arcoplaza
+      </div>
+
+      <h2 className="text-4xl lg:text-5xl font-black text-corporate leading-tight mb-6">
+        Supervisión energética clara y rigurosa.
+      </h2>
+
+      <p className="text-slate-600 text-lg leading-relaxed max-w-3xl">
+        Analizamos cada suministro de forma individual para detectar
+        sobrecostes, mejorar condiciones y plantear optimizaciones reales
+        adaptadas a cada cliente.
+      </p>
+
+    </div>
+
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 gap-6">
+
+      {[
+        {
+          number: '01',
+          title: 'Análisis técnico real',
+          text: 'No utilizamos comparadores automáticos ni propuestas genéricas.'
+        },
+        {
+          number: '02',
+          title: 'Transparencia',
+          text: 'Te explicamos exactamente dónde estás pagando de más.'
+        },
+        {
+          number: '03',
+          title: 'Gestión integral',
+          text: 'Nos encargamos de todo el proceso de optimización.'
+        },
+        {
+          number: '04',
+          title: 'Atención directa',
+          text: 'Sin call centers ni procesos impersonales.'
+        }
+      ].map((item) => (
+
+        <div
+          key={item.number}
+          className="bg-white border border-[#d7d0c4] rounded-[32px] p-10 min-h-[320px] flex flex-col hover:border-corporateGreen transition-all duration-300"
+        >
+
+          <div className="text-5xl font-black text-[#dfe5ea] mb-10">
+            {item.number}
+          </div>
+
+          <h3 className="text-2xl font-black text-corporate leading-tight mb-5">
+            {item.title}
+          </h3>
+
+          <p className="text-slate-600 leading-relaxed text-lg">
+            {item.text}
+          </p>
+
+        </div>
+
+      ))}
+
+    </div>
+
+  </div>
+
+</section>
       {/* SERVICIOS */}
       <section id="servicios" className="max-w-7xl mx-auto px-6 py-24">
         <div className="max-w-2xl mb-14">
@@ -615,17 +695,16 @@ const services = [
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
           {services.map((item) => (
             <div
               key={item.title}
-              className="group bg-[#f8f6f1] border border-[#d7d0c4] hover:border-green-400 transition-all rounded-3xl p-8 shadow-sm hover:shadow-md   duration-300"
-            >
-              <div className="w-14 h-14 rounded-xl bg-[#eef2f5] border border-[#bfd8b4] mb-6 shadow-sm duration-300 flex items-center justify-center">
-              <item.icon className="w-6 h-6 text-corporate" strokeWidth={2.2} />
+              className="group bg-[#f8f8f6] border border-[#d7d0c4] hover:border-corporateGreen rounded-[30px] p-10 min-h-[280px] transition-all duration-300"            >
+              <div className="w-14 h-14 rounded-2xl bg-[#eef2f5] border border-[#d7d0c4] mb-6 shadow-sm duration-300 flex items-center justify-center">
+              <item.icon className="w-6 h-6 text-corporate" strokeWidth={2} />
              </div>
 
-              <h3 className="text-xl font-bold text-corporate mb-4">{item.title}</h3>
+              <h3 className="text-2xl font-black text-corporate leading-tight mb-5">{item.title}</h3>
               <p className="text-slate-600 leading-relaxed">{item.text}</p>
             </div>
           ))}
@@ -668,36 +747,7 @@ const services = [
           </div>
         </div>
       </section>
-      {/* OPINIONES */}
-      <section id="opiniones" className="max-w-7xl mx-auto px-6 py-24 bg-[#e8e4dc]">
-        <div className="max-w-2xl mb-14">
-          <div className="text-[#1faa59] font-semibold uppercase tracking-wider text-sm mb-4">
-            Opiniones reales
-          </div>
-
-          <h2 className="text-4xl lg:text-5xl font-black leading-tight mb-6">
-            Clientes que ya optimizaron sus suministros.
-          </h2>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {reviews.map((review) => (
-            <div
-              key={review.name}
-              className="bg-[#f8f6f1] border border-[#d7d0c4] rounded-3xl p-8 shadow-sm hover:shadow-md hover:border-green-300 transition-all duration-300 group"
-            >
-              <div className="text-5xl text-[#1faa59] mb-4">“</div>
-              <p className="text-slate-600 leading-relaxed mb-6">
-                {review.text}
-              </p>
-              <div className="font-bold text-corporate">
-                {review.name}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
+      
 {/* CONTACTO */}
 <section id="contacto" className="bg-[#102542] text-white">
   <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-center">
@@ -739,9 +789,9 @@ const services = [
 </section>
 
       {/* COMPAÑÍAS */}
-      <section className="bg-[#ece7de] border-t border-[#d7d0c4]">
+      <section className="bg-white border-t border-[#d7d0c4]">
         <div className="w-full px-0 py-20">
-          <div className="text-center mb-12">
+          <div className="max-w-7xl mx-auto mb-12">
             <div className="text-[#1faa59] font-semibold uppercase tracking-wider text-sm mb-4">
               Compañías con las que trabajamos
             </div>
@@ -750,7 +800,7 @@ const services = [
               Empresas colaboradoras que hacen posible soluciones adaptadas para cada cliente.
             </h2>
 
-            <p className="text-slate-600 max-w-3xl mx-auto mt-6 text-lg leading-relaxed">
+            <p className="text-slate-600 max-w-3xl mt-6 text-lg leading-relaxed">
               Trabajamos junto a múltiples comercializadoras y partners energéticos para ofrecer propuestas personalizadas en luz, gas, autoconsumo, instalaciones fotovoltaicas, baterías y cargadores para vehículo eléctrico.
             </p>
           </div>

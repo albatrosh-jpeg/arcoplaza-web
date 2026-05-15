@@ -248,12 +248,12 @@ const services = [
     Contacto
   </a>
 </nav>
-    <a
-      href="https://wa.me/34669633694"
-      className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white px-5 py-3 rounded-xl text-sm font-semibold"
-    >
-      Consulta gratuita
-    </a>
+  <a
+  href="#contacto"
+  className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white px-5 py-3 rounded-xl text-sm font-semibold"
+>
+  Solicitar análisis
+</a>
 
   </div>
 </header>
@@ -338,20 +338,22 @@ const services = [
 
 </div>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="https://wa.me/34669633694"
-className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white px-6 py-3 rounded-xl font-semibold shadow-md shadow-black/5"
-              >
-                Hablar por WhatsApp
-              </a>
 
-              <a
-                href="#servicios"
-                className="border border-slate-300 hover:border-slate-500 transition-colors px-6 py-3 rounded-xl font-semibold"
-              >
-                Ver servicios
-              </a>
-            </div>
+  <a
+    href="#contacto"
+    className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white px-7 py-4 rounded-xl font-semibold shadow-md shadow-black/5 text-center"
+  >
+    Solicitar análisis gratuito
+  </a>
+
+  <a
+    href="https://wa.me/34669633694"
+    className="border border-slate-300 hover:border-slate-500 bg-white/50 backdrop-blur transition-colors px-7 py-4 rounded-xl font-semibold text-center"
+  >
+    WhatsApp directo
+  </a>
+
+</div>
 
             <div className="mt-12 grid grid-cols-3 gap-6 max-w-lg">
               <div>

@@ -300,29 +300,43 @@ const services = [
   <div className="absolute inset-0 bg-[#f5f3ee]" />
 
 <div
-  className="absolute inset-0 opacity-10 bg-cover bg-center mix-blend-multiply"
+  className="absolute inset-0 opacity-[0.07] bg-cover bg-center"
   style={{
-    backgroundImage: "url('/hero-bg.png')"
+    backgroundImage: "url('/hero-blueprint.png')"
   }}
 />
 
-  <div className="relative max-w-7xl mx-auto px-6 py-16 lg:py-24 grid lg:grid-cols-2 gap-14 items-start">
+  <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-32 grid lg:grid-cols-2 gap-20 items-start">
           <div>
             <div className="inline-flex items-center gap-2 bg-corporateGreen-light text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              Asesoría energética profesional
+              Optimización energética inteligente
             </div>
 
-<h1 className="text-4xl lg:text-5xl font-black text-corporate leading-none mb-6">
-  Analizamos tu factura <br />
-  y detectamos dónde estás<br />
-  pagando de más.
+<h1 className="text-5xl lg:text-6xl font-black text-corporate leading-[0.92] mb-8 tracking-tight">
+  Detectamos <span className="text-corporateGreen">sobrecostes ocultos</span><br />
+  en tu factura<br />
+  de luz y gas.
 </h1>
               
             <p className="text-xl text-slate-500 leading-relaxed max-w-xl mb-10">
               En Arcoplaza Asesores optimizamos contratos de luz y gas para hogares,
               negocios y comunidades. Transparencia, análisis real y atención cercana.
             </p>
+<div className="flex flex-wrap gap-3 mb-10">
 
+  <div className="bg-white/70 backdrop-blur border border-[#d7d0c4] px-4 py-2 rounded-full text-sm font-medium text-corporate">
+    ✓ Análisis personalizado
+  </div>
+
+  <div className="bg-white/70 backdrop-blur border border-[#d7d0c4] px-4 py-2 rounded-full text-sm font-medium text-corporate">
+    ✓ Respuesta en 24h
+  </div>
+
+  <div className="bg-white/70 backdrop-blur border border-[#d7d0c4] px-4 py-2 rounded-full text-sm font-medium text-corporate">
+    ✓ Sin compromiso
+  </div>
+
+</div>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="https://wa.me/34669633694"
@@ -357,14 +371,14 @@ className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text
             </div>
              </div>
 
-          <div className="bg-[#fcfcfa] rounded-3xl border border-[#e7e4dd] p-8 lg:p-10 shadow-lg">
+          <div className="bg-white/95 backdrop-blur-xl rounded-[32px] border border-[#d9dfe6] p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
 
   <div className="mb-8">
-    <div className="text-3xl font-black text-corporate mb-3">
+    <div className="text-4xl font-black tracking-tight text-corporate mb-4">
       ¿Revisamos tu factura?
     </div>
 
-    <p className="text-slate-500 leading-relaxed">
+    <p className="text-slate-500 text-lg leading-relaxed">
       Te indicamos si estás pagando de más y qué opciones tienes para optimizar tu suministro.
     </p>
   </div>
@@ -401,7 +415,7 @@ className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text
 
     <div>
       <label className="block text-sm font-medium mb-2 text-slate-700">
-        Email
+        Email*
       </label>
 
       <input
@@ -413,9 +427,18 @@ className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text
       />
     </div>
 <div>
+<label className="block text-sm font-medium mb-2 text-slate-700">
+  Cuéntanos tu caso
+</label>
+<textarea
+  name="comentario"
+  rows="4"
+  placeholder="Si tienes algún comentario o duda, éste es el lugar para escribirlo."
+  className="w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-corporateGreen transition-colors resize-none"
+/>
   <label className="block text-sm font-medium mb-2 text-slate-700">
-    Factura de luz o gas
-  </label>
+Adjunta tu factura (opcional)  
+</label>
 <label className="block">
 
   <div className="bg-[#f8f8f6] border border-[#e7e4dd] hover:border-corporateGreen transition-colors rounded-2xl p-6 text-center cursor-pointer">
@@ -423,11 +446,11 @@ className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text
 <Upload className="w-8 h-8 mx-auto mb-3 text-corporateGreen" />
 
     <div className="font-semibold text-corporate mb-1">
-      Sube tu factura
+      Arrastra tu factura o haz clic aquí
     </div>
 
     <div className="text-sm text-slate-500">
-      PDF, JPG o PNG
+      PDF, JPG o PNG · Máx. 10MB
     </div>
     {fileName && (
   <div className="mt-3 text-sm text-green-700 font-semibold">
@@ -449,19 +472,27 @@ className="bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text
 </div>
 
 </label>
-<textarea
-  name="comentario"
-  rows="4"
-  placeholder="Si tienes algún comentario o duda, éste es el lugar para escribirlo."
-  className="mt-5 w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none focus:border-corporateGreen transition-colors resize-none"
-/>
+
     </div>
 
-    <button
+   <button
   type="submit"
-  className="w-full bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white py-4 rounded-xl font-semibold"
+  disabled={loading}
+  className={`w-full py-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-3 ${
+    loading
+      ? 'bg-green-700 cursor-not-allowed opacity-90 text-white'
+      : 'bg-corporateGreen hover:bg-corporateGreen-dark text-white'
+  }`}
 >
-  Solicitar análisis gratuito
+
+  {loading && (
+    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+  )}
+
+  {loading
+    ? 'Analizando solicitud…'
+    : 'Solicitar análisis gratuito'}
+
 </button>
 {success && (
   <div className="text-green-700 text-sm font-medium">

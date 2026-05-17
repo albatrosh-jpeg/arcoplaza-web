@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.logo-slider {
+  display: flex;
+  width: max-content;
+  animation: scrollLogos 38s linear infinite;
+}
+
+.logo-slider:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollLogos {
+
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+
+}

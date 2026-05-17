@@ -1,15 +1,11 @@
 import { useState } from 'react'
-
+import { motion } from 'framer-motion'
 import {
-  Sun,
-  Car,
-  Battery,
   Zap,
   Flame,
-  BarChart3,
-  Building2,
   Upload
 } from 'lucide-react'
+import Services from './components/sections/Services'
 
 export default function ArcoplazaLanding() {
 
@@ -17,7 +13,60 @@ export default function ArcoplazaLanding() {
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState(false)
   const [fileName, setFileName] = useState('')
+  const [tipo, setTipo] = useState('vivienda')
+const [gasto, setGasto] = useState('')
+const [potencia, setPotencia] = useState('')
+const [resultado, setResultado] = useState(null)
+const fadeUp = {
+  hidden: {
+    opacity: 0,
+    y: 40
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7
+    }
+  }
+}
 
+const stagger = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12
+    }
+  }
+}
+const calcularAhorro = () => {
+
+  if (!gasto) return
+
+  const anual = Number(gasto) * 12
+
+  let minFactor = 0.08
+  let maxFactor = 0.18
+
+  if (tipo === 'empresa') {
+    minFactor = 0.12
+    maxFactor = 0.28
+  }
+
+  if (tipo === 'comunidad') {
+    minFactor = 0.15
+    maxFactor = 0.32
+  }
+
+  if (potencia > 10) {
+    maxFactor += 0.05
+  }
+
+  const min = Math.round(anual * minFactor)
+  const max = Math.round(anual * maxFactor)
+
+  setResultado({ min, max })
+}
   const handleSubmit = async (e) => {
 
     e.preventDefault()
@@ -65,49 +114,6 @@ export default function ArcoplazaLanding() {
 
     setLoading(false)
   }
-
-const services = [
-  {
-    title: 'Optimización eléctrica',
-    icon: Zap,
-    text: 'Revisión técnica de tarifas, potencias y condiciones de suministro.'
-  },
-  {
-    title: 'Gestión energética de gas',
-    icon: Flame,
-    text: 'Análisis de consumo y optimización contractual para viviendas y negocios.'
-  },
-  {
-    title: 'Autoconsumo fotovoltaico',
-    icon: Sun,
-    text: 'Estudios personalizados para instalaciones solares y ahorro energético.'
-  },
-  {
-    title: 'Movilidad eléctrica',
-    icon: Car,
-    text: 'Soluciones de recarga para particulares, empresas y comunidades.'
-  },
-  {
-    title: 'Almacenamiento energético',
-    icon: Battery,
-    text: 'Sistemas de baterías para optimizar producción y consumo.'
-  },
-  {
-    title: 'Supervisión de contratos',
-    icon: BarChart3,
-    text: 'Detectamos sobrecostes y desviaciones en tus suministros.'
-  },
-  {
-    title: 'Empresas y comunidades',
-    icon: Building2,
-    text: 'Soluciones energéticas adaptadas a entornos residenciales y empresariales.'
-  },
-  {
-  title: 'Auditoría energética',
-  icon: BarChart3,
-  text: 'Estudio detallado de consumos, hábitos y patrones para detectar mejoras reales.'
-}
-]
 
   const reviews = [
     {
@@ -228,7 +234,7 @@ const services = [
 ]
 
   return (
-    <div className="min-h-screen bg-white text-corporate font-sans">
+    <div className="min-h-screen bg-[#fcfbf8] text-corporate font-sans">
       {/* NAVBAR */}
     <header className="sticky top-0 z-50 backdrop-blur bg-[#faf7f2]/95 border-b-4 border-corporate shadow-sm">
   <div className="max-w-7xl mx-auto px-6 py-4 flex items-center">
@@ -266,9 +272,9 @@ const services = [
 {/* HERO */}
 <section
   id="inicio"
-  className="relative overflow-hidden border-b border-slate-200"
+  className="relative overflow-hidden border-b border-slate-200 bg-[radial-gradient(circle_at_top,rgba(31,170,89,0.04),transparent_40%)]"
 >
-  <div className="absolute inset-0 bg-[#f5f3ee]" />
+  <div className="absolute inset-0 bg-[#f5f3ee]/90" />
 
   <div
     className="absolute inset-0 opacity-[0.07] bg-cover bg-center"
@@ -293,21 +299,22 @@ const services = [
       </h1>
 
       <p className="text-xl text-slate-500 leading-relaxed max-w-xl mb-10">
-        Analizamos suministros eléctricos y de gas para detectar sobrecostes,
-        optimizar contratos y plantear mejoras reales con un enfoque técnico y transparente.
-      </p>
+Analizamos suministros eléctricos y de gas para detectar sobrecostes,
+optimizar contratos y plantear mejoras reales.
+
+Siempre con un enfoque técnico, transparente y personalizado.      </p>
 
       <div className="flex flex-wrap gap-3 mb-10">
 
-        <div className="bg-white/70 backdrop-blur border border-[#d7d0c4] px-4 py-2 rounded-full text-sm font-medium text-corporate">
+        <div className="bg-[#fcfbf8]/70 backdrop-blur border border-[#d7d0c4] px-4 py-2 rounded-full text-sm font-medium text-corporate">
           ✓ Análisis personalizado
         </div>
 
-        <div className="bg-white/70 backdrop-blur border border-[#d7d0c4] px-4 py-2 rounded-full text-sm font-medium text-corporate">
+        <div className="bg-[#fcfbf8]/70 backdrop-blur border border-[#d7d0c4] px-4 py-2 rounded-full text-sm font-medium text-corporate">
           ✓ Respuesta en 24h
         </div>
 
-        <div className="bg-white/70 backdrop-blur border border-[#d7d0c4] px-4 py-2 rounded-full text-sm font-medium text-corporate">
+        <div className="bg-[#fcfbf8]/70 backdrop-blur border border-[#d7d0c4] px-4 py-2 rounded-full text-sm font-medium text-corporate">
           ✓ Sin compromiso
         </div>
 
@@ -324,7 +331,7 @@ const services = [
 
         <a
           href="#proceso"
-          className="border border-slate-300 hover:border-slate-500 bg-white/50 backdrop-blur transition-colors px-7 py-4 rounded-xl font-semibold text-center"
+          className="border border-slate-300 hover:border-slate-500 bg-[#fcfbf8]/50 backdrop-blur transition-colors px-7 py-4 rounded-xl font-semibold text-center"
         >
           Cómo trabajamos
         </a>
@@ -336,7 +343,7 @@ const services = [
     {/* FORMULARIO */}
     <div
       id="formulario"
-      className="scroll-mt-32 bg-white/95 backdrop-blur-xl rounded-[32px] border border-[#d9dfe6] p-8 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
+      className="scroll-mt-32 bg-[#fcfbf8]/95 backdrop-blur-xl rounded-[32px] border border-[#e7e4dd] p-8 lg:p-10 shadow-[0_10px_40px_rgba(0,0,0,0.06)]"
     >
 
       <div className="mb-8">
@@ -413,7 +420,7 @@ const services = [
 
           <label className="block">
 
-            <div className="bg-[#f8f8f6] border border-[#e7e4dd] hover:border-corporateGreen hover:bg-white transition-colors rounded-2xl p-6 text-center cursor-pointer">
+            <div className="bg-[#f8f8f6] border border-[#e7e4dd] hover:border-corporateGreen hover:bg-[#fcfbf8] transition-colors rounded-2xl p-6 text-center cursor-pointer">
 
               <Upload className="w-8 h-8 mx-auto mb-3 text-corporateGreen" />
 
@@ -488,6 +495,152 @@ const services = [
   </div>
 
 </section>
+
+{/* CALCULADORA */}
+<section className="bg-[#f8f6f1] border-b border-[#d7d0c4]">
+
+  <div className="max-w-7xl mx-auto px-6 py-24">
+
+    <div className="max-w-3xl mb-16">
+
+      <div className="text-[#1faa59] font-semibold uppercase tracking-wider text-sm mb-4">
+        Estimación de ahorro
+      </div>
+
+      <h2 className="text-4xl lg:text-5xl font-black text-corporate leading-tight mb-6">
+        ¿Cuánto podrías ahorrar?
+      </h2>
+
+      <p className="text-slate-600 text-lg leading-relaxed">
+        Calcula una estimación orientativa basada en tu suministro actual.
+      </p>
+
+    </div>
+
+    <div className="grid lg:grid-cols-2 gap-10">
+
+      {/* FORM */}
+      <div className="bg-[#fcfbf8] border border-[#d7d0c4] rounded-[32px] p-10">
+
+        <div className="space-y-6">
+
+          <div>
+            <label className="block text-sm font-medium mb-3 text-slate-700">
+              Tipo de suministro
+            </label>
+
+            <select
+              value={tipo}
+              onChange={(e) => setTipo(e.target.value)}
+              className="w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none"
+            >
+              <option value="vivienda">Vivienda</option>
+              <option value="empresa">Empresa</option>
+              <option value="comunidad">Comunidad</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-3 text-slate-700">
+              Gasto mensual aproximado (€)
+            </label>
+
+            <input
+              type="number"
+              value={gasto}
+              onChange={(e) => setGasto(e.target.value)}
+              placeholder="Ejemplo: 180"
+              className="w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-3 text-slate-700">
+              Potencia contratada (kW)
+            </label>
+
+            <input
+              type="number"
+              value={potencia}
+              onChange={(e) => setPotencia(e.target.value)}
+              placeholder="Ejemplo: 5.75"
+              className="w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none"
+            />
+          </div>
+
+          <button
+            onClick={calcularAhorro}
+            className="w-full bg-corporateGreen hover:bg-corporateGreen-dark transition-colors text-white py-4 rounded-xl font-semibold"
+          >
+            Ver mi ahorro potencial
+          </button>
+
+        </div>
+
+      </div>
+
+      {/* RESULTADO */}
+      <div className="bg-[#102542] text-white rounded-[32px] p-10 flex flex-col justify-center">
+
+        {!resultado ? (
+
+  <>
+    <div className="text-green-300 uppercase tracking-wider text-sm font-semibold mb-4">
+      Simulación orientativa
+    </div>
+
+    <h3 className="text-4xl font-black leading-tight mb-6">
+      Detectamos oportunidades reales de optimización.
+    </h3>
+
+    <p className="text-slate-300 text-lg leading-relaxed">
+      Introduce los datos de tu suministro y te mostraremos una estimación aproximada de ahorro anual.
+    </p>
+  </>
+
+) : (
+
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+  >
+
+    <div className="text-green-300 uppercase tracking-wider text-sm font-semibold mb-4">
+      Ahorro potencial estimado
+    </div>
+
+    <div className="text-6xl lg:text-7xl font-black leading-none mb-6">
+      {resultado.min}€ · {resultado.max}€
+    </div>
+
+    <p className="text-slate-300 text-lg leading-relaxed mb-6">
+      Suministros similares suelen presentar márgenes de optimización dentro de este rango anual.
+    </p>
+
+    <div className="text-sm text-slate-400 mb-10">
+      Estimación orientativa basada en suministros similares analizados.
+    </div>
+
+    <a
+      href="#formulario"
+      className="inline-flex w-fit bg-[#fcfbf8] text-corporate px-6 py-4 rounded-xl font-semibold hover:bg-[#f3f0ea] transition-colors"
+    >
+      Solicitar revisión gratuita
+    </a>
+
+  </motion.div>
+
+)}
+
+</div>
+
+    </div>
+
+  </div>
+
+</section>
+
 {/* PROCESO */}
 <section 
 id="proceso"
@@ -513,7 +666,7 @@ className="bg-[#f3f0ea] border-b border-[#d7d0c4]">
 
     </div>
 
-    <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
 
       {[
         {
@@ -540,14 +693,14 @@ className="bg-[#f3f0ea] border-b border-[#d7d0c4]">
 
         <div
           key={item.number}
-          className="bg-[#f8f6f1] border border-[#d7d0c4] rounded-[32px] p-10 min-h-[340px] flex flex-col hover:border-corporateGreen transition-all duration-300"
+          className="bg-[#f8f6f1] border border-[#d7d0c4] rounded-[32px] p-8 min-h-[300px] flex flex-col hover:border-corporateGreen transition-all duration-300"
         >
 
           <div className="w-16 h-16 rounded-full bg-[#eef2f5] border border-[#d7d0c4] flex items-center justify-center text-2xl font-black text-corporateGreen mb-10">
             {item.number}
           </div>
 
-          <h3 className="text-3xl font-black text-corporate leading-tight mb-6">
+          <h3 className="text-2xl font-black text-corporate leading-tight mb-6">
             {item.title}
           </h3>
 
@@ -593,13 +746,13 @@ className="bg-[#f3f0ea] border-b border-[#d7d0c4]">
               </div>
 
               <div>
-                <div className="text-5xl font-black text-corporate mb-2">Ahorro</div>
-                <div className="text-slate-600">Optimización basada en consumo real</div>
+                <div className="text-5xl font-black text-corporate mb-2">Optimización</div>
+                <div className="text-slate-600">Basada en análisis técnico individualizado</div>
               </div>
 
               <div>
-                <div className="text-5xl font-black text-corporate mb-2">Cercanía</div>
-                <div className="text-slate-600">Atención directa y acompañamiento continuo</div>
+                <div className="text-5xl font-black text-corporate mb-2">Atención directa</div>
+                <div className="text-slate-600">Sin procesos impersonales ni call centers</div>
               </div>
             </div>
           </div>
@@ -628,7 +781,7 @@ className="bg-[#f3f0ea] border-b border-[#d7d0c4]">
 
     </div>
 
-    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 gap-6">
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
       {[
         {
@@ -655,7 +808,7 @@ className="bg-[#f3f0ea] border-b border-[#d7d0c4]">
 
         <div
           key={item.number}
-          className="bg-white border border-[#d7d0c4] rounded-[32px] p-10 min-h-[320px] flex flex-col hover:border-corporateGreen transition-all duration-300"
+          className="bg-[#fcfbf8] border border-[#d7d0c4] rounded-[32px] p-10 min-h-[320px] flex flex-col hover:border-corporateGreen transition-all duration-300"
         >
 
           <div className="text-5xl font-black text-[#dfe5ea] mb-10">
@@ -679,38 +832,98 @@ className="bg-[#f3f0ea] border-b border-[#d7d0c4]">
   </div>
 
 </section>
-      {/* SERVICIOS */}
-      <section id="servicios" className="max-w-7xl mx-auto px-6 py-24">
-        <div className="max-w-2xl mb-14">
-          <div className="text-[#1faa59] font-semibold mb-4 uppercase tracking-wider text-sm">
-            Servicios
+
+<section className="bg-[#f8f8f6] border-y border-[#d7d0c4]">
+
+  <div className="max-w-7xl mx-auto px-6 py-24">
+
+    <div className="max-w-3xl mb-16">
+
+      <div className="text-[#1faa59] font-semibold uppercase tracking-wider text-sm mb-4">
+        Casos reales
+      </div>
+
+      <h2 className="text-4xl lg:text-5xl font-black text-corporate leading-tight mb-6">
+        Optimizaciones reales sobre suministros reales.
+      </h2>
+
+    </div>
+
+    <div className="grid lg:grid-cols-3 gap-6">
+
+      {[
+        {
+          before: '14,9 kW',
+          after: '8,05 kW',
+          saving: '1.240€',
+          type: 'Comunidad'
+        },
+        {
+          before: 'Tarifa antigua',
+          after: 'Tarifa optimizada',
+          saving: '620€',
+          type: 'Vivienda'
+        },
+        {
+          before: 'RL.4 sobredimensionada',
+          after: 'Contrato ajustado',
+          saving: '3.480€',
+          type: 'Empresa'
+        }
+      ].map((item) => (
+
+        <div className="bg-[#fcfbf8] border border-[#d7d0c4] rounded-[32px] p-10">
+
+          <div className="text-sm uppercase tracking-wider text-slate-500 mb-8">
+            {item.type}
           </div>
 
-          <h2 className="text-4xl lg:text-5xl font-black mb-6 leading-tight">
-            Asesoría energética clara y eficiente.
-          </h2>
+          <div className="space-y-6">
 
-          <p className="text-slate-600 text-lg leading-relaxed">
-            Optimización energética basada en consumo real.
-          </p>
-        </div>
+            <div>
+              <div className="text-sm text-slate-500 mb-2">
+                Antes
+              </div>
 
-        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
-          {services.map((item) => (
-            <div
-              key={item.title}
-              className="group bg-[#f8f8f6] border border-[#d7d0c4] hover:border-corporateGreen rounded-[30px] p-10 min-h-[280px] transition-all duration-300"            >
-              <div className="w-14 h-14 rounded-2xl bg-[#eef2f5] border border-[#d7d0c4] mb-6 shadow-sm duration-300 flex items-center justify-center">
-              <item.icon className="w-6 h-6 text-corporate" strokeWidth={2} />
-             </div>
-
-              <h3 className="text-2xl font-black text-corporate leading-tight mb-5">{item.title}</h3>
-              <p className="text-slate-600 leading-relaxed">{item.text}</p>
+              <div className="text-2xl font-black text-slate-400">
+                {item.before}
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
 
+            <div>
+              <div className="text-sm text-slate-500 mb-2">
+                Después
+              </div>
+
+              <div className="text-2xl font-black text-corporateGreen">
+                {item.after}
+              </div>
+            </div>
+
+            <div className="pt-6 border-t border-[#e5e7eb]">
+
+              <div className="text-sm text-slate-500 mb-2">
+                Ahorro anual estimado
+              </div>
+
+              <div className="text-4xl font-black text-corporate">
+                {item.saving}
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      ))}
+
+    </div>
+
+  </div>
+
+</section>
+<Services />
       {/* AHORRO ENERGÉTICO */}
       <section id="ahorro" className="bg-corporateGreen text-white">
         <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-center">
@@ -729,16 +942,16 @@ className="bg-[#f3f0ea] border-b border-[#d7d0c4]">
           </div>
 
           <div className="grid sm:grid-cols-2 gap-6">
-            <div className="bg-white/10 backdrop-blur rounded-3xl p-8 border border-white/10">
-              <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mb-5">   <Zap className="w-6 h-6 text-white" strokeWidth={2.2} /> </div>
+            <div className="bg-[#fcfbf8]/10 backdrop-blur rounded-3xl p-8 border border-white/10">
+              <div className="w-14 h-14 rounded-xl bg-[#fcfbf8]/10 flex items-center justify-center mb-5">   <Zap className="w-6 h-6 text-white" strokeWidth={2.2} /> </div>
               <div className="text-2xl font-bold mb-3">Electricidad</div>
               <p className="text-green-50 leading-relaxed">
                 Ajuste de potencia y tarifas adaptadas al uso real.
               </p>
             </div>
 
-            <div className="bg-white/10 backdrop-blur rounded-3xl p-8 border border-white/10">
-              <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mb-5">   <Flame className="w-6 h-6 text-white" strokeWidth={2.2} /> </div>
+            <div className="bg-[#fcfbf8]/10 backdrop-blur rounded-3xl p-8 border border-white/10">
+              <div className="w-14 h-14 rounded-xl bg-[#fcfbf8]/10 flex items-center justify-center mb-5">   <Flame className="w-6 h-6 text-white" strokeWidth={2.2} /> </div>
               <div className="text-2xl font-bold mb-3">Gas</div>
               <p className="text-green-50 leading-relaxed">
                 Revisión de costes y optimización de suministro.
@@ -766,7 +979,7 @@ className="bg-[#f3f0ea] border-b border-[#d7d0c4]">
       </p>
     </div>
 
-    <div className="bg-white text-corporate rounded-3xl p-10 shadow-lg">
+    <div className="bg-[#fcfbf8] text-corporate rounded-3xl p-10 shadow-lg">
 
       <div className="text-3xl font-black mb-4">
         Envíanos tu factura
@@ -789,7 +1002,7 @@ className="bg-[#f3f0ea] border-b border-[#d7d0c4]">
 </section>
 
       {/* COMPAÑÍAS */}
-      <section className="bg-white border-t border-[#d7d0c4]">
+      <section className="bg-[#fcfbf8] border-t border-[#d7d0c4]">
         <div className="w-full px-0 py-20">
           <div className="max-w-7xl mx-auto mb-12">
             <div className="text-[#1faa59] font-semibold uppercase tracking-wider text-sm mb-4">
@@ -805,43 +1018,66 @@ className="bg-[#f3f0ea] border-b border-[#d7d0c4]">
             </p>
           </div>
 
-          <div className="bg-white px-8 md:px-16 py-12">
-  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
-            {companies.map((company) => (
-              <div
-                key={company.name}
-                className="group rounded-2xl px-6 py-7 flex items-center justify-center hover:bg-black/[0.02] transition-all duration-300"              >
-                <img
-  src={company.logo}
-  alt={company.name}
-  className={`
-    ${
-      company.name === 'Candela Energía' ||
-      company.name === 'Factor Energía' ||
-      company.name === 'Energya VM'
-        ? 'h-14'
-        : company.name === 'Plenitude' ||
-          company.name === 'Repsol'
-        ? 'h-16'
-        : 'h-10'
-    }
-    w-auto
-    object-contain
-    grayscale
-    opacity-70
-    group-hover:grayscale-0
-    group-hover:opacity-100
-    transition-all
-    duration-300
-  `}
-/>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>  
-      </section>
+          <div className="bg-[#fcfbf8] px-8 md:px-16 py-12">
+  <div className="relative overflow-hidden">
 
+  <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#fcfbf8] to-transparent z-10" />
+
+  <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#fcfbf8] to-transparent z-10" />
+
+  <div className="flex logo-slider">
+
+    {[...companies, ...companies].map((company, index) => (
+
+      <div
+        key={`${company.name}-${index}`}
+        className="flex items-center justify-center min-w-[220px] px-10 py-8"
+      >
+
+        <img
+          src={company.logo}
+          alt={company.name}
+          className={`
+            ${
+              company.name === 'Candela Energía' ||
+              company.name === 'Factor Energía' ||
+              company.name === 'Energya VM'
+                ? 'h-14'
+                : company.name === 'Plenitude' ||
+                  company.name === 'Repsol'
+                ? 'h-16'
+                : 'h-10'
+            }
+            w-auto
+            object-contain
+            grayscale
+            opacity-70
+            hover:grayscale-0
+            hover:opacity-100
+            transition-all
+            duration-300
+          `}
+        />
+
+      </div>
+
+    ))}
+
+  </div>
+
+</div>
+</div>
+        </div>
+     
+      </section>
+<div className="fixed bottom-3 left-3 right-3 z-50 md:hidden">
+  <a
+    href="#formulario"
+    className="flex items-center justify-center bg-corporateGreen text-white py-3.5 rounded-2xl font-semibold shadow-2xl"
+  >
+    Solicitar análisis gratuito
+  </a>
+</div>
       {/* FOOTER */}
       <footer className="border-t border-[#1f4675] bg-corporate">
         <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between gap-4 text-sm text-slate-300">

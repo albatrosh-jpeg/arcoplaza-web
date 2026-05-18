@@ -9,18 +9,19 @@ export default function Card({
       className={`
         relative
 
-        bg-white
+        bg-surface-elevated
 
         border
-        border-[#ece7dd]
+        border-border-soft
 
-        rounded-[28px]
+        rounded-[24px]
 
         transition-all
         duration-300
 
         hover:-translate-y-[2px]
-        hover:shadow-[0_18px_50px_rgba(16,37,66,0.06)]
+
+        hover:shadow-[0_18px_50px_rgba(16,37,66,0.05)]
 
         ${className}
       `}

@@ -12,8 +12,8 @@ export default function Hero() {
       id="inicio"
       className="
         relative
-        h-[76vh]
-        min-h-[620px]
+        h-[68vh]
+        min-h-[440px]
         lg:min-h-[680px]
         max-h-[820px]
         flex
@@ -41,8 +41,9 @@ export default function Hero() {
           max-w-7xl
           mx-auto
           px-6
-          pt-16
-          pb-24
+          pt-12
+          pb-16
+
           lg:pt-20
           lg:pb-28
           grid
@@ -54,7 +55,7 @@ export default function Hero() {
 
         {/* IZQUIERDA */}
 
-        <div className="max-w-[560px]">
+        <div className="max-w-[500px] lg:max-w-[560px]">
 
         <div
           className="
@@ -70,20 +71,23 @@ export default function Hero() {
             py-2
 
             text-corporateGreen
-            mb-6
+            mb-5
           "
         >
           Análisis técnico de suministros
         </div>
           <h1
             className="
-              text-[52px]
+              text-[42px]
+              sm:text-[48px]
+              lg:text-[64px]
               lg:text-[64px]
               font-editorial
               text-corporate
               leading-[0.92]
               tracking-tight
-              mb-8
+              mb-6
+              lg:mb-8
             "
           >
           Detectamos
@@ -97,11 +101,13 @@ export default function Hero() {
 
           <p
             className="
-              text-[18px]
+              text-[16px]
               text-text-secondary
-              leading-[1.5]
+              leading-relaxed
               max-w-[560px]
-              mb-8
+              lg:text-[18px]
+              mb-6
+              lg:mb-8
             "
           >
             Analizamos suministros eléctricos y de gas para detectar sobrecostes,

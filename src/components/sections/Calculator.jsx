@@ -33,7 +33,7 @@ export default function Calculator({
 
     <section className="bg-white border-t border-[#ece7dd] border-b border-[#d7d0c4]">
 
-      <div className="max-w-7xl mx-auto px-6 pt-14 pb-4">
+      <div className="max-w-7xl mx-auto px-6 pt-10 pb-2 lg:pt-14 lg:pb-4">
 
         <div className="max-w-3xl mb-16">
 
@@ -51,11 +51,25 @@ export default function Calculator({
 
         </div>
 
-        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
+        <div className="
+        grid 
+        lg:grid-cols-[0.9fr_1.1fr] 
+        gap-6
+        lg:gap-10
+        items-start"
+        >
 
           {/* CALCULADORA */}
 
-          <div className="bg-[#fcfbf8] border border-[#d7d0c4] rounded-[32px] p-10">
+          <div className="
+          bg-[#fcfbf8] 
+          border border-[#d7d0c4] 
+          rounded-[24px]
+
+          p-6
+          lg:p-10
+          "
+          >
 
             <div className="space-y-6">
 
@@ -111,8 +125,10 @@ export default function Calculator({
                 overflow-hidden
                 bg-[#102542]
                 text-white
-                rounded-[32px]
-                p-10
+                rounded-[24px]
+
+                p-6
+                lg:p-10
                 flex
                 flex-col
                 justify-center
@@ -241,15 +257,24 @@ export default function Calculator({
               id="formulario"
               onSubmit={handleSubmit}
               className="
-                mt-10  
-                bg-white
+                mt-8
+                lg:mt-10
+
+                bg-surface-elevated
+
                 border
-                border-[#d7d0c4]
-                rounded-[32px]
-                p-10
-                shadow-[0_12px_40px_rgba(16,37,66,0.06)]
+                border-border-soft
+
+                rounded-[24px]
+
+                p-6
+                lg:p-10
+
+                overflow-hidden
+
+                shadow-[0_12px_40px_rgba(16,37,66,0.04)]
               "
-            >
+                          >
 
               <div className="mb-8">
 

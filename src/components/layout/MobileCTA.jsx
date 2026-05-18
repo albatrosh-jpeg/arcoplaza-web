@@ -2,16 +2,56 @@ export default function MobileCTA() {
 
   return (
 
-    <div className="fixed bottom-3 left-3 right-3 z-50 md:hidden">
+    <div
+      className="
+        fixed
+        bottom-4
+        inset-x-0
+        z-50
 
-      <a
-        href="#formulario"
-        className="flex items-center justify-center bg-corporateGreen text-white py-3.5 rounded-2xl font-semibold shadow-2xl"
-      >
-        Solicitar análisis gratuito
-      </a>
+        px-4
+
+        md:hidden
+      "
+    >
+
+      <div className="max-w-[340px] mx-auto">
+
+        <a
+          href="#formulario"
+          className="
+            flex
+            items-center
+            justify-center
+
+            rounded-[18px]
+
+            bg-corporate
+
+            px-5
+            py-3
+
+            text-[15px]
+            font-medium
+            text-white
+
+            shadow-[0_10px_30px_rgba(16,37,66,0.16)]
+
+            transition-all
+            duration-300
+
+            active:scale-[0.98]
+          "
+        >
+
+          Solicitar análisis gratuito
+
+        </a>
+
+      </div>
 
     </div>
 
   )
+
 }

@@ -9,20 +9,24 @@ export default function Button({
   const variants = {
 
     primary: `
-      bg-[#081b44]
-      hover:bg-[#102a63]
+      bg-corporate
+      hover:bg-corporate-soft
+
       text-white
+
       border
-      border-[#081b44]
+      border-corporate
     `,
 
     secondary: `
+      bg-surface-secondary
+
       border
-      border-[#d7d0c4]
-      hover:border-slate-400
-      bg-[#fcfbf8]/70
+      border-border-soft
+
+      hover:border-corporateGreen/40
+
       text-corporate
-      backdrop-blur-sm
     `
 
   }
@@ -37,10 +41,13 @@ export default function Button({
         items-center
         justify-center
 
-        px-7
-        py-4
+        px-4
+        py-[11px]
 
-        rounded-xl
+        lg:px-7
+        lg:py-4
+
+        rounded-[18px]
 
         button-text
 

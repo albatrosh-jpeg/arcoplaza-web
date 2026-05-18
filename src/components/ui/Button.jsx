@@ -9,30 +9,46 @@ export default function Button({
   const variants = {
 
     primary: `
-      bg-corporateGreen
-      hover:bg-corporateGreen-dark
+      bg-[#081b44]
+      hover:bg-[#102a63]
       text-white
+      border
+      border-[#081b44]
     `,
 
     secondary: `
       border
-      border-slate-300
-      hover:border-slate-500
-      bg-[#fcfbf8]/50
+      border-[#d7d0c4]
+      hover:border-slate-400
+      bg-[#fcfbf8]/70
       text-corporate
+      backdrop-blur-sm
     `
 
   }
-const Component = as
+
+  const Component = as
+
   return (
 
     <Component
       className={`
+        inline-flex
+        items-center
+        justify-center
+
         px-7
         py-4
+
         rounded-xl
-        font-semibold
-        transition-colors
+
+        button-text
+
+        transition-all
+        duration-300
+
+        hover:-translate-y-[1px]
+
         ${variants[variant]}
         ${className}
       `}

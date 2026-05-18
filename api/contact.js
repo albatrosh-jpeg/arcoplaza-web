@@ -23,42 +23,76 @@ export default async function handler(req, res) {
   form.parse(req, async (err, fields, files) => {
 
     if (err) {
+
       console.error(err)
 
       return res.status(500).json({
         error: 'Error procesando formulario'
       })
+
     }
 
     try {
 
-      const factura = files.factura?.[0]
+      const nombre = Array.isArray(fields.nombre)
+        ? fields.nombre[0]
+        : fields.nombre
+
+      const telefono = Array.isArray(fields.telefono)
+        ? fields.telefono[0]
+        : fields.telefono
+
+      const email = Array.isArray(fields.email)
+        ? fields.email[0]
+        : fields.email
+
+      const comentario = Array.isArray(fields.comentario)
+        ? fields.comentario[0]
+        : fields.comentario
+
+      const uploadedFiles = Array.isArray(files.factura)
+        ? files.factura
+        : files.factura
+          ? [files.factura]
+          : []
 
       let attachments = []
 
-      if (factura) {
+      for (const file of uploadedFiles) {
 
-        const fileBuffer = fs.readFileSync(factura.filepath)
+        const fileBuffer = fs.readFileSync(file.filepath)
 
         attachments.push({
-          filename: factura.originalFilename,
+          filename: file.originalFilename,
           content: fileBuffer
         })
+
       }
 
       await resend.emails.send({
+
         from: 'web@arcoplazaasesores.com',
+
         to: 'aaff@centralenergyasesores.com',
-        subject: 'Nueva solicitud web',
+
+        subject: `Nueva solicitud · ${nombre}`,
+
         html: `
           <h2>Nueva solicitud</h2>
 
-          <p><strong>Nombre:</strong> ${fields.nombre}</p>
-          <p><strong>Teléfono:</strong> ${fields.telefono}</p>
-          <p><strong>Email:</strong> ${fields.email}</p>
-          <p><strong>Comentario:</strong> ${fields.comentario}</p>
+          <p><strong>Nombre:</strong> ${nombre}</p>
+
+          <p><strong>Teléfono:</strong> ${telefono}</p>
+
+          <p><strong>Email:</strong> ${email}</p>
+
+          <p><strong>Comentario:</strong> ${comentario}</p>
+
+          <p><strong>Archivos adjuntos:</strong> ${attachments.length}</p>
         `,
+
         attachments
+
       })
 
       return res.status(200).json({
@@ -72,6 +106,9 @@ export default async function handler(req, res) {
       return res.status(500).json({
         error: 'Error enviando email'
       })
+
     }
+
   })
+
 }

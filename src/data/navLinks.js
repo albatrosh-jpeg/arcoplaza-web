@@ -1,7 +1,8 @@
 const navLinks = [
+
   {
-    label: 'Quiénes somos',
-    href: '#quienes'
+    label: 'Inicio',
+    href: '#inicio'
   },
 
   {
@@ -10,9 +11,20 @@ const navLinks = [
   },
 
   {
+    label: 'Proceso',
+    href: '#proceso'
+  },
+
+  {
+    label: 'Partners',
+    href: '#partners'
+  },
+
+  {
     label: 'Contacto',
     href: '#formulario'
   }
+
 ]
 
 export default navLinks

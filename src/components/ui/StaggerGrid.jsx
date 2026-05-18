@@ -1,33 +1,30 @@
-import { motion } from 'framer-motion'
+import AnimatedReveal from './AnimatedReveal'
 
 export default function StaggerGrid({
-  children,
-  className = ''
+  items,
+  renderItem,
+  className = '',
+  stagger = 0.08
 }) {
 
   return (
 
-    <motion.div
-      className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{
-        once: true,
-        amount: 0.1
-      }}
-      variants={{
-        hidden: {},
-        visible: {
-          transition: {
-            staggerChildren: 0.08
-          }
-        }
-      }}
-    >
+    <div className={className}>
 
-      {children}
+      {items.map((item, index) => (
 
-    </motion.div>
+        <AnimatedReveal
+          key={item.title || item.number || index}
+          delay={index * stagger}
+        >
+
+          {renderItem(item, index)}
+
+        </AnimatedReveal>
+
+      ))}
+
+    </div>
 
   )
 

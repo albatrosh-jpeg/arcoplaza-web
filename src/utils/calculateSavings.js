@@ -28,5 +28,10 @@ if (!gasto) return null
   const min = Math.round(anual * minFactor)
   const max = Math.round(anual * maxFactor)
 
-  return { min, max }
+  return {
+  min,
+  max,
+  minPercent: Math.round(minFactor * 100),
+  maxPercent: Math.round(maxFactor * 100),
+}
 }

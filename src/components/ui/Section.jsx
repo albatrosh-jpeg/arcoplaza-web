@@ -2,8 +2,21 @@ export default function Section({
   children,
   className = '',
   containerClassName = '',
-  id
+  id,
+  spacing = 'default'
 }) {
+
+  const spacingMap = {
+
+    none: '',
+
+    sm: 'py-16',
+
+    default: 'py-24',
+
+    lg: 'py-32'
+
+  }
 
   return (
 
@@ -17,7 +30,9 @@ export default function Section({
           max-w-7xl
           mx-auto
           px-6
-          py-24
+
+          ${spacingMap[spacing]}
+
           ${containerClassName}
         `}
       >

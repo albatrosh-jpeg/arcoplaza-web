@@ -19,10 +19,12 @@ export default async function submitForm({
   formData.append('email', e.target.email.value)
   formData.append('comentario', e.target.comentario.value)
 
-  if (e.target.factura.files[0]) {
-    formData.append('factura', e.target.factura.files[0])
-  }
+const files = Array.from(e.target.factura.files)
 
+  files.forEach((file) => {
+    formData.append('factura', file)
+  })
+  
   try {
 
     const response = await fetch('/api/contact', {

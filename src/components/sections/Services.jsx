@@ -5,6 +5,7 @@ import Section from '../ui/Section'
 import SectionTitle from '../ui/SectionTitle'
 import InfoBlock from '../ui/InfoBlock'
 import AnimatedReveal from '../ui/AnimatedReveal'
+import StaggerGrid from '../ui/StaggerGrid'
 
 export default function Services() {
 
@@ -19,39 +20,67 @@ export default function Services() {
           text="Optimización energética basada en consumo real."
         />
         </AnimatedReveal>
-        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <StaggerGrid
+          items={services}
+          className="grid md:grid-cols-2 xl:grid-cols-4 gap-6"
+renderItem={(item) => (
 
-        {services.map((item, index) => (
-          <AnimatedReveal
-          key={item.title}
-          delay={index * 0.08}
-        >
-          <Card
-          className="h-full group bg-[#f8f8f6] hover:border-corporateGreen min-h-[280px]" 
-          >
+  <Card
+    className="
+      h-full
+      min-h-[260px]
 
-            <div className="w-14 h-14 rounded-2xl bg-[#eef2f5] border border-[#d7d0c4] mb-6 shadow-sm flex items-center justify-center">
+      bg-white
 
-              <item.icon
-                className="w-6 h-6 text-corporate"
-                strokeWidth={2}
-              />
+      px-8
+      py-8
 
-            </div>
+      group
 
-          <InfoBlock
-            title={item.title}
-            text={item.text}
-            titleClassName="text-corporate"
-            textClassName="text-slate-600"
-          />
-          </Card>
-          </AnimatedReveal>
+      hover:border-corporateGreen/40
+    "
+  >
 
-        ))}
+    <div
+      className="
+        mb-8
 
-      </div>
+        flex
+        h-14
+        w-14
+        items-center
+        justify-center
 
+        rounded-2xl
+
+        bg-[#f3f6ee]
+
+        text-corporateGreen
+      "
+    >
+
+      <item.icon
+        className="w-6 h-6"
+        strokeWidth={1.9}
+      />
+
+    </div>
+
+    <div className="space-y-4">
+
+      <h3 className="ui-title">
+        {item.title}
+      </h3>
+
+      <p className="card-text">
+        {item.text}
+      </p>
+
+    </div>
+
+  </Card>
+
+)}/>
     </Section>
 
   )

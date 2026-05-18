@@ -12,19 +12,26 @@ export default function SectionTitle({
 
       {eyebrow && (
 
-        <div className="text-[#1faa59] font-semibold uppercase tracking-wider text-sm mb-4">
+        <div className="eyebrow text-corporateGreen mb-4">
           {eyebrow}
         </div>
 
       )}
 
-      <h2 className="text-4xl lg:text-5xl font-black text-corporate leading-tight mb-6">
+      <h2
+        className="
+          section-title
+          text-4xl
+          lg:text-5xl
+          mb-6
+        "
+      >
         {title}
       </h2>
 
       {text && (
 
-        <p className={`${textColor} text-lg leading-relaxed`}>
+        <p className={`body-lg ${textColor}`}>
           {text}
         </p>
 

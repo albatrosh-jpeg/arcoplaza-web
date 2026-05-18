@@ -1,27 +1,34 @@
+import {
+  ChartNoAxesColumn,
+  BadgeCheck,
+  ShieldCheck,
+  Handshake,
+} from "lucide-react"
+
 const whyArcoplaza = [
   {
-    number: '01',
-    title: 'Análisis técnico real',
-    text: 'No utilizamos comparadores automáticos ni propuestas genéricas.'
+    icon: ChartNoAxesColumn,
+    title: "Análisis personalizado",
+    text: "Detectamos oportunidades reales de ahorro energético.",
   },
 
   {
-    number: '02',
-    title: 'Transparencia',
-    text: 'Te explicamos exactamente dónde estás pagando de más.'
+    icon: BadgeCheck,
+    title: "Transparencia total",
+    text: "Explicamos cada coste y cada decisión técnica.",
   },
 
   {
-    number: '03',
-    title: 'Gestión integral',
-    text: 'Nos encargamos de todo el proceso de optimización.'
+    icon: ShieldCheck,
+    title: "Gestión integral",
+    text: "Supervisamos contratos, consumo y optimización.",
   },
 
   {
-    number: '04',
-    title: 'Atención directa',
-    text: 'Sin call centers ni procesos impersonales.'
-  }
+    icon: Handshake,
+    title: "Atención directa",
+    text: "Sin call centers ni procesos impersonales.",
+  },
 ]
 
 export default whyArcoplaza

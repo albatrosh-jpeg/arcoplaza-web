@@ -7,13 +7,21 @@ export default function Card({
 
     <div
       className={`
-        bg-[#fcfbf8]
+        relative
+
+        bg-white
+
         border
-        border-[#d7d0c4]
-        rounded-[32px]
-        p-10
+        border-[#ece7dd]
+
+        rounded-[28px]
+
         transition-all
         duration-300
+
+        hover:-translate-y-[2px]
+        hover:shadow-[0_18px_50px_rgba(16,37,66,0.06)]
+
         ${className}
       `}
     >

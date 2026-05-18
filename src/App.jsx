@@ -3,11 +3,9 @@ import Navbar from './components/sections/Navbar'
 import Hero from './components/sections/Hero'
 import Calculator from './components/sections/Calculator'
 import Process from './components/sections/Process'
-import About from './components/sections/About'
 import WhyArcoplaza from './components/sections/WhyArcoplaza'
 import Cases from './components/sections/Cases'
 import Services from './components/sections/Services'
-import Savings from './components/sections/Savings'
 import Contact from './components/sections/Contact'
 import Partners from './components/sections/Partners'
 import Footer from './components/sections/Footer'
@@ -38,6 +36,9 @@ return (
 
       <Hero />
 
+      <WhyArcoplaza />
+
+
       <Calculator
         tipo={tipo}
         setTipo={setTipo}
@@ -50,15 +51,9 @@ return (
 
       <Process />
 
-      <About />
-
-      <WhyArcoplaza />
-
       <Cases />
 
       <Services />
-
-      <Savings />
 
       <Contact />
 

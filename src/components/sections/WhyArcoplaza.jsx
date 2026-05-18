@@ -1,53 +1,140 @@
-
 import SectionTitle from '../ui/SectionTitle'
 import whyArcoplaza from '../../data/whyArcoplaza'
 import Card from '../ui/Card'
 import Section from '../ui/Section'
-import FeatureGrid from '../ui/FeatureGrid'
 import AnimatedReveal from '../ui/AnimatedReveal'
+import StaggerGrid from '../ui/StaggerGrid'
+import InfoBlock from '../ui/InfoBlock'
 
 export default function WhyArcoplaza() {
 
   return (
 
-<Section
-  className="bg-[#eef2f5] border-y border-[#d7d0c4]" >
-<AnimatedReveal>
+    <Section
+      id="why-arcoplaza"
+      className="
+        bg-[#fcfbf8]
+        pt-0
+        pb-10
+      "    >
 
-<SectionTitle
-  eyebrow="Por qué Arcoplaza"
-  title="Supervisión energética clara y rigurosa."
-  text="Analizamos cada suministro de forma individual para detectar sobrecostes, mejorar condiciones y plantear optimizaciones reales adaptadas a cada cliente."
-/>
-</AnimatedReveal>
-        <FeatureGrid>
+      <div
+        className="
+          grid
+          xl:grid-cols-[300px_minmax(0,1fr)]
+          gap-6
+          items-start
+        "
+      >
 
-          {whyArcoplaza.map((item) => (
+        <AnimatedReveal>
 
-            <Card
-              key={item.number}
-              className="bg-[#fcfbf8] border border-[#d7d0c4] rounded-[32px] p-10 min-h-[320px] flex flex-col hover:border-corporateGreen transition-all duration-300"
-            >
+          <div className="max-w-[280px] pt-6">
 
-              <div className="text-5xl font-black text-[#dfe5ea] mb-10">
-                {item.number}
-              </div>
+            <SectionTitle
+              eyebrow="Por qué Arcoplaza"
+              title="Claros y rigurosos"
+              text="Combinamos análisis técnico, negociación y seguimiento continuo para optimizar suministros eléctricos y de gas con una visión personalizada."
+              align="left"
+            />
 
-              <h3 className="text-2xl font-black text-corporate leading-tight mb-5">
-                {item.title}
-              </h3>
+          </div>
 
-              <p className="text-slate-600 leading-relaxed text-lg">
-                {item.text}
-              </p>
+        </AnimatedReveal>
 
-            </Card>
+        <div>
 
-          ))}
+          <StaggerGrid
+            items={whyArcoplaza}
+            className="
+            grid
+            xl:grid-cols-4
+            gap-5"
+renderItem={(item) => {
 
-        </FeatureGrid>
+  const Icon = item.icon
+
+  return (
+
+    <Card
+      className="
+        h-full
+        bg-[#fcfbf8]
+        border
+        border-[#e7e1d7]
+        rounded-[28px]
+
+        px-7
+        py-8
+
+        min-h-[220px]
+
+        flex
+        flex-col
+
+        transition-all
+        duration-300
+
+        hover:-translate-y-1
+        hover:shadow-[0_20px_50px_rgba(16,37,66,0.08)]
+      "
+    >
+
+      <div
+        className="
+          mb-8
+          flex
+          h-14
+          w-14
+          items-center
+          justify-center
+          rounded-full
+          bg-[#f3f6ee]
+          text-corporateGreen
+        "
+      >
+        <Icon size={26} strokeWidth={1.8} />
+      </div>
+
+      <div className="space-y-4">
+
+        <h3
+          className="
+            text-[24px]
+            leading-tight
+            tracking-tight
+            font-semibold
+            text-corporate
+          "
+        >
+          {item.title}
+        </h3>
+
+        <p
+          className="
+            text-[16px]
+            leading-relaxed
+            text-slate-600
+          "
+        >
+          {item.text}
+        </p>
+
+      </div>
+
+    </Card>
+
+  )
+
+}}
+          />
+
+        </div>
+
+      </div>
 
     </Section>
 
   )
+
 }

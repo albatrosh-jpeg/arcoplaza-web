@@ -9,31 +9,55 @@ export default function FileUpload({
 
     <label className="block cursor-pointer">
 
-      <div className="
-        bg-[#f8f8f6]
-        border
-        border-[#e7e4dd]
-        hover:border-corporateGreen
-        hover:bg-[#fcfbf8]
-        transition-colors
-        rounded-2xl
-        p-6
-        text-center
-      ">
+      <div
+        className="
+          bg-surface-secondary
+          border
+          border-border-soft
 
-        <Upload className="w-8 h-8 mx-auto mb-3 text-corporateGreen" />
+          hover:border-corporateGreen
 
-        <div className="font-semibold text-corporate mb-1">
-          Arrastra tu factura o haz clic aquí
+          transition-colors
+
+          rounded-[24px]
+
+          p-6
+
+          text-center
+        "
+      >
+
+        <Upload
+          className="
+            w-8
+            h-8
+            mx-auto
+            mb-4
+            text-corporateGreen
+          "
+        />
+
+        <div className="ui-title mb-2">
+          Adjunta una o varias facturas
         </div>
 
-        <div className="text-sm text-slate-500">
-          PDF, JPG o PNG · Máx. 10MB
+        <div className="card-text">
+          PDF, JPG o PNG · Máx. 10MB por archivo
         </div>
 
         {fileName && (
 
-          <div className="mt-3 text-sm text-corporate font-semibold">
+          <div
+            className="
+              mt-5
+
+              text-sm
+
+              text-corporate
+
+              font-medium
+            "
+          >
             ✓ {fileName}
           </div>
 
@@ -42,12 +66,23 @@ export default function FileUpload({
         <input
           name="factura"
           type="file"
+          multiple
           accept=".pdf,.jpg,.jpeg,.png"
           className="hidden"
           onChange={(e) => {
 
-            if (e.target.files[0]) {
-              setFileName(e.target.files[0].name)
+            const files = Array.from(e.target.files)
+
+            if (files.length === 1) {
+
+              setFileName(files[0].name)
+
+            } else if (files.length > 1) {
+
+              setFileName(
+                `${files.length} archivos seleccionados`
+              )
+
             }
 
           }}

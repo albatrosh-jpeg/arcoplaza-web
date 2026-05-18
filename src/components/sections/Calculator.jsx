@@ -1,8 +1,14 @@
 import { motion } from 'framer-motion'
+import { Upload } from 'lucide-react'
+
+import useContactForm from '../../hooks/useContactForm'
+
 import Button from '../ui/Button'
 import Input from '../ui/Input'
+import Textarea from '../ui/Textarea'
 import FormField from '../ui/FormField'
 import Select from '../ui/Select'
+import FileUpload from '../ui/FileUpload'
 
 export default function Calculator({
   tipo,
@@ -14,10 +20,20 @@ export default function Calculator({
   resultado
 }) {
 
-  return (
-    <section className="bg-[#f8f6f1] border-b border-[#d7d0c4]">
+  const {
+    handleSubmit,
+    loading,
+    success,
+    error,
+    fileName,
+    setFileName
+  } = useContactForm()
 
-      <div className="max-w-7xl mx-auto px-6 py-24">
+  return (
+
+    <section className="bg-white border-t border-[#ece7dd] border-b border-[#d7d0c4]">
+
+      <div className="max-w-7xl mx-auto px-6 pt-14 pb-4">
 
         <div className="max-w-3xl mb-16">
 
@@ -25,7 +41,7 @@ export default function Calculator({
             Estimación de ahorro
           </div>
 
-          <h2 className="text-4xl lg:text-5xl font-black text-corporate leading-tight mb-6">
+          <h2 className="text-4xl lg:text-5xl font-editorial text-corporate leading-tight mb-6">
             ¿Cuánto podrías ahorrar?
           </h2>
 
@@ -35,9 +51,10 @@ export default function Calculator({
 
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-10">
+        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
 
-          {/* FORM */}
+          {/* CALCULADORA */}
+
           <div className="bg-[#fcfbf8] border border-[#d7d0c4] rounded-[32px] p-10">
 
             <div className="space-y-6">
@@ -53,6 +70,7 @@ export default function Calculator({
                   <option value="empresa">Empresa</option>
                   <option value="comunidad">Comunidad</option>
                 </Select>
+
               </FormField>
 
               <FormField label="Gasto mensual aproximado (€)">
@@ -77,110 +95,240 @@ export default function Calculator({
 
               </FormField>
 
-
             </div>
 
           </div>
 
-          {/* RESULTADO */}
-          <div
-  className="
-    relative
-    overflow-hidden
-    bg-[#102542]
-    text-white
-    rounded-[32px]
-    p-10
-    flex
-    flex-col
-    justify-center
-  "
->
-  <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(circle_at_top,white,transparent_55%)]" />
-<div className="relative z-10">
-            {!resultado ? (
+          {/* RESULTADO + FORMULARIO */}
 
-              <>
-                <div className="text-green-300 uppercase tracking-wider text-sm font-semibold mb-4">
-                  Simulación orientativa
-                </div>
+          <div className="space-y-6">
 
-                <h3 className="text-4xl font-black leading-tight mb-6">
-                  Detectamos oportunidades reales de optimización.
-                </h3>
+            {/* RESULTADO */}
 
-                <p className="text-slate-300 text-lg leading-relaxed">
-                  Introduce los datos de tu suministro y te mostraremos una estimación aproximada de ahorro anual.
-                </p>
-              </>
+            <div
+              className="
+                relative
+                overflow-hidden
+                bg-[#102542]
+                text-white
+                rounded-[32px]
+                p-10
+                flex
+                flex-col
+                justify-center
+              "
+            >
 
-            ) : (
+              <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(circle_at_top,white,transparent_55%)]" />
 
-<motion.div
-  initial={{
-    opacity: 0,
-    scale: 0.96,
-    y: 20
-  }}
-  animate={{
-    opacity: 1,
-    scale: 1,
-    y: 0
-  }}
-  transition={{
-    duration: 0.6,
-    ease: 'easeOut'
-  }}
->
+              <div className="relative z-10">
 
-                <div className="text-green-300 uppercase tracking-wider text-sm font-semibold mb-4">
-                  Ahorro potencial estimado
-                </div>
+                {!resultado ? (
 
-<div className="flex items-end gap-4 mb-6 flex-wrap">
+                  <>
 
-  <div className="text-6xl lg:text-7xl font-black leading-none text-white">
-    {resultado.min}€
-  </div>
+                    <div className="text-green-300 uppercase tracking-wider text-sm font-semibold mb-4">
+                      Simulación orientativa
+                    </div>
 
-  <div className="text-3xl font-black text-green-300 pb-2">
-    a
-  </div>
+                    <h3 className="text-4xl font-editorial-md leading-tight mb-6">
+                      Detectamos oportunidades reales de optimización.
+                    </h3>
 
-  <div className="text-6xl lg:text-7xl font-black leading-none text-green-300">
-    {resultado.max}€
-  </div>
+                    <p className="text-slate-300 text-lg leading-relaxed">
+                      Introduce los datos de tu suministro y te mostraremos una estimación aproximada de ahorro anual.
+                    </p>
 
-</div>
-                <p className="text-slate-300 text-lg leading-relaxed mb-6">
-                  Suministros similares suelen presentar márgenes de optimización dentro de este rango anual.
-                </p>
+                  </>
 
-                <div className="text-sm text-slate-400 mb-10">
-                  Estimación orientativa basada en suministros similares analizados.
-                </div>
+                ) : (
 
-<Button
-  as="a"
-  href="#formulario"
-  variant="secondary"
-  className="w-fit"
->
-  Solicitar revisión gratuita
-</Button>
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      scale: 0.96,
+                      y: 20
+                    }}
+                    animate={{
+                      opacity: 1,
+                      scale: 1,
+                      y: 0
+                    }}
+                    transition={{
+                      duration: 0.6,
+                      ease: 'easeOut'
+                    }}
+                  >
 
-              </motion.div>
+                  <div className="space-y-6">
 
-            )}
+                    <div>
+
+                      <div
+                        className="
+                          text-sm
+                          uppercase
+                          tracking-[0.18em]
+                          text-green-300
+                          mb-3
+                        "
+                      >
+                        Potencial de optimización detectado
+                      </div>
+
+                      <div
+                        className="
+                          text-5xl
+                          lg:text-6xl
+                          font-semibold
+                          leading-none
+                          tracking-tight
+                          text-white
+                          mb-3
+                        "
+                      >
+                        {resultado.minPercent}% – {resultado.maxPercent}%
+                      </div>
+
+                      <div className="text-slate-300 text-lg">
+                        Equivalente aproximado:
+                      </div>
+
+                    </div>
+
+                    <div
+                      className="
+                        text-3xl
+                        lg:text-4xl
+                        font-semibold
+                        leading-tight
+                        text-green-300
+                      "
+                    >
+                      {resultado.min.toLocaleString()}€ – {resultado.max.toLocaleString()}€/año
+                    </div>
+
+                    <div
+                      className="
+                        border-t
+                        border-white/10
+                        pt-5
+                        text-sm
+                        leading-relaxed
+                        text-slate-400
+                      "
+                    >
+                      Estimación orientativa basada en suministros similares y parámetros energéticos generales.
+                    </div>
+
+                  </div>
+                  </motion.div>
+
+                )}
+
+              </div>
+
+            </div>
+
 
           </div>
 
         </div>
 
-      </div>
+                    {/* FORMULARIO */}
+
+            <form
+              id="formulario"
+              onSubmit={handleSubmit}
+              className="
+                mt-10  
+                bg-white
+                border
+                border-[#d7d0c4]
+                rounded-[32px]
+                p-10
+                shadow-[0_12px_40px_rgba(16,37,66,0.06)]
+              "
+            >
+
+              <div className="mb-8">
+
+                <div className="text-sm uppercase tracking-[0.18em] text-slate-500 mb-3">
+                  Solicita revisión
+                </div>
+
+                <h3 className="text-3xl font-editorial-md text-corporate leading-tight mb-4">
+                  Tus asesores analizarán tu suministro y te mostrarán oportunidades reales de ahorro.
+                </h3>
+
+                <p className="text-slate-600 leading-relaxed">
+                  Adjunta una factura y analizaremos posibles optimizaciones en luz y gas.
+                </p>
+
+              </div>
+
+              <div className="grid gap-5">
+
+                <Input
+                  type="text"
+                  name="name"
+                  placeholder="Nombre"
+                  required
+                />
+
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder="Correo electrónico"
+                  required
+                />
+
+                <Input
+                  type="tel"
+                  name="phone"
+                  placeholder="Teléfono"
+                />
+
+                <Textarea
+                  name="message"
+                  placeholder="Cuéntanos brevemente tu caso"
+                  rows={5}
+                />
+
+                <FileUpload
+                  fileName={fileName}
+                  setFileName={setFileName}
+                />
+
+                <Button
+                  type="submit"
+                  className="w-full justify-center"
+                >
+                  {loading
+                    ? 'Enviando...'
+                    : 'Solicitar análisis gratuito'}
+                </Button>
+
+                {success && (
+                  <p className="text-sm text-green-700">
+                    Solicitud enviada correctamente.
+                  </p>
+                )}
+
+                {error && (
+                  <p className="text-sm text-red-600">
+                    Ha ocurrido un error. Inténtalo de nuevo.
+                  </p>
+                )}
+
+              </div>
+
+            </form>
 
       </div>
 
     </section>
+
   )
+
 }

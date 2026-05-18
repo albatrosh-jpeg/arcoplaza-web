@@ -1,13 +1,11 @@
+import { lazy, Suspense } from 'react'
 
 import Navbar from './components/sections/Navbar'
 import Hero from './components/sections/Hero'
 import Calculator from './components/sections/Calculator'
 import Process from './components/sections/Process'
 import WhyArcoplaza from './components/sections/WhyArcoplaza'
-import Cases from './components/sections/Cases'
-import Services from './components/sections/Services'
 import Contact from './components/sections/Contact'
-import Partners from './components/sections/Partners'
 import Footer from './components/sections/Footer'
 
 import MobileCTA from './components/layout/MobileCTA'
@@ -15,6 +13,9 @@ import MobileCTA from './components/layout/MobileCTA'
 import companies from './data/companies'
 
 import useSavingsCalculator from './hooks/useSavingsCalculator'
+
+const Cases = lazy(() => import('./components/sections/Cases'))
+const Partners = lazy(() => import('./components/sections/Partners'))
 
 export default function ArcoplazaLanding() {
 
@@ -30,7 +31,7 @@ const {
 
 return (
 
-    <div className="min-h-screen bg-[#fcfbf8] text-corporate font-sans">
+    <div className="min-h-screen bg-surface-secondary text-corporate font-sans">
 
       <Navbar />
 
@@ -51,13 +52,17 @@ return (
 
       <Process />
 
-      <Cases />
+      <Suspense fallback={null}>
+        <Cases />
+      </Suspense>
 
-      <Services />
+      <Suspense fallback={null}>
+        <Partners companies={companies} />
+      </Suspense>
+      
+      {/* <Services /> */}
 
       <Contact />
-
-      <Partners companies={companies} />
 
       <MobileCTA />
 

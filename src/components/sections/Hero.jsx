@@ -74,7 +74,7 @@ export default function Hero() {
             mb-5
           "
         >
-          Análisis técnico de suministros
+          Optimización energética para empresas y comunidades
         </div>
           <h1
             className="
@@ -96,7 +96,7 @@ export default function Hero() {
             sobrecostes ocultos
           </span>
           <br />
-          en energía.
+          en suministros energéticos.
           </h1>
 
           <p
@@ -110,10 +110,18 @@ export default function Hero() {
               lg:mb-8
             "
           >
-            Analizamos suministros eléctricos y de gas para detectar sobrecostes,
-            optimizar contratos y plantear mejoras reales.
-          </p>
+          Ayudamos a empresas y comunidades a optimizar contratos eléctricos y de gas mediante análisis técnico, revisión tarifaria y supervisión energética continua.          </p>
+          <p
+            className="
+              text-sm
+              text-text-muted
 
+              mb-6
+              lg:mb-8
+            "
+          >
+            Electricidad · Gas · Comunidades · Empresas
+          </p>
           <div className="flex flex-col sm:flex-row gap-3">
 
             <Button

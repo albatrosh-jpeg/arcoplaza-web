@@ -4,7 +4,7 @@ export default function StaggerGrid({
   items,
   renderItem,
   className = '',
-  stagger = 0.08
+  stagger = 0.035
 }) {
 
   return (

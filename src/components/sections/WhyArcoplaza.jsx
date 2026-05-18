@@ -33,8 +33,8 @@ export default function WhyArcoplaza() {
 
             <SectionTitle
               eyebrow="Por qué Arcoplaza"
-              title="Claros y rigurosos"
-              text="Combinamos análisis técnico, negociación y seguimiento continuo para optimizar suministros eléctricos y de gas con una visión personalizada."
+              title="Supervisión energética clara y rigurosa."
+              text="Analizamos contratos eléctricos y de gas para empresas y comunidades, detectando sobrecostes, optimizando tarifas y supervisando el consumo energético de forma continua, con una visión personalizada."
               align="left"
             />
 

@@ -3,8 +3,8 @@ import { motion } from 'framer-motion'
 export default function AnimatedReveal({
   children,
   delay = 0,
-  y = 24,
-  duration = 0.7
+  y = 12,
+  duration = 0.38
 }) {
 
   return (
@@ -14,18 +14,21 @@ export default function AnimatedReveal({
         opacity: 0,
         y
       }}
+
       whileInView={{
         opacity: 1,
         y: 0
       }}
+
       viewport={{
         once: true,
-        amount: 0.15
+        margin: '-40px'
       }}
+
       transition={{
         duration,
         delay,
-        ease: 'easeOut'
+        ease: [0.22, 1, 0.36, 1]
       }}
     >
 

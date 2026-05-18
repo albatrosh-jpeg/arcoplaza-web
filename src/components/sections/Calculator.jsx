@@ -31,22 +31,32 @@ export default function Calculator({
 
   return (
 
-    <section className="bg-white border-t border-[#ece7dd] border-b border-[#d7d0c4]">
+    <section
+  className="
+    bg-surface-primary
+
+    border-t
+    border-border-soft
+
+    border-b
+    border-border
+  "
+>
 
       <div className="max-w-7xl mx-auto px-6 pt-10 pb-2 lg:pt-14 lg:pb-4">
 
         <div className="max-w-3xl mb-16">
 
           <div className="text-[#1faa59] font-semibold uppercase tracking-wider text-sm mb-4">
-            Estimación de ahorro
+            Optimización energética
           </div>
 
           <h2 className="text-4xl lg:text-5xl font-editorial text-corporate leading-tight mb-6">
-            ¿Cuánto podrías ahorrar?
+            ¿Cuánto podrías optimizar en tu suministro energético?
           </h2>
 
           <p className="text-slate-600 text-lg leading-relaxed">
-            Calcula una estimación orientativa basada en tu suministro actual.
+            Calcula una estimación aproximada de ahorro en electricidad y gas a partir de tu consumo, potencia contratada y tipo de suministro.
           </p>
 
         </div>
@@ -148,7 +158,7 @@ export default function Calculator({
                     </div>
 
                     <h3 className="text-4xl font-editorial-md leading-tight mb-6">
-                      Detectamos oportunidades reales de optimización.
+                      Analizamos contratos eléctricos y de gas para detectar oportunidades reales de ahorro.
                     </h3>
 
                     <p className="text-slate-300 text-lg leading-relaxed">
@@ -171,7 +181,7 @@ export default function Calculator({
                       y: 0
                     }}
                     transition={{
-                      duration: 0.6,
+                      duration: 0.35,
                       ease: 'easeOut'
                     }}
                   >
@@ -283,11 +293,11 @@ export default function Calculator({
                 </div>
 
                 <h3 className="text-3xl font-editorial-md text-corporate leading-tight mb-4">
-                  Tus asesores analizarán tu suministro y te mostrarán oportunidades reales de ahorro.
+                  Analizamos contratos eléctricos y de gas para detectar oportunidades reales de ahorro.
                 </h3>
 
                 <p className="text-slate-600 leading-relaxed">
-                  Adjunta una factura y analizaremos posibles optimizaciones en luz y gas.
+                  Adjunta facturas de electricidad o gas y revisaremos tarifas, potencia contratada y posibles optimizaciones.
                 </p>
 
               </div>
@@ -296,7 +306,7 @@ export default function Calculator({
 
                 <Input
                   type="text"
-                  name="name"
+                  name="nombre"
                   placeholder="Nombre"
                   required
                 />
@@ -310,12 +320,12 @@ export default function Calculator({
 
                 <Input
                   type="tel"
-                  name="phone"
+                  name="telefono"
                   placeholder="Teléfono"
                 />
 
                 <Textarea
-                  name="message"
+                  name="mensaje"
                   placeholder="Cuéntanos brevemente tu caso"
                   rows={5}
                 />

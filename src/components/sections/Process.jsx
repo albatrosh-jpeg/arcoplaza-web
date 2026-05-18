@@ -4,12 +4,12 @@ export default function Process() {
     {
       number: '01',
       title: 'Envío de factura',
-      text: 'Revisamos consumos, tarifas y condiciones contractuales.'
+      text: 'Analizamos consumos, tarifas y condiciones contractuales.'
     },
     {
       number: '02',
       title: 'Revisión técnica',
-      text: 'Detectamos sobrecostes y oportunidades reales de ahorro.'
+      text: 'Detectamos sobrecostes y oportunidades reales de optimización.'
     },
     {
       number: '03',
@@ -18,8 +18,8 @@ export default function Process() {
     },
     {
       number: '04',
-      title: 'Empieza el ahorro',
-      text: 'Gestionamos los cambios y realizamos seguimiento continuo.'
+      title: 'Seguimiento',
+      text: 'Gestionamos los cambios y supervisamos la evolución del ahorro.'
     }
   ]
 
@@ -50,7 +50,7 @@ export default function Process() {
         "
       >
 
-        <div className="text-left mb-10 lg:mb-16">
+        <div className="max-w-3xl mb-12 lg:mb-16">
 
           <div className="eyebrow text-corporateGreen mb-4">
             Cómo trabajamos
@@ -78,8 +78,6 @@ export default function Process() {
             className="
               body-md
               lg:body-lg
-
-              max-w-3xl
             "
           >
             Analizamos tu suministro, detectamos oportunidades de optimización
@@ -92,64 +90,52 @@ export default function Process() {
           className="
             grid
 
-            gap-4
-            lg:gap-5
+            gap-8
+            lg:gap-10
 
             md:grid-cols-2
             lg:grid-cols-4
           "
         >
 
-          {steps.map((item) => (
+          {steps.map((item, index) => (
 
             <div
               key={item.number}
               className="
-                bg-surface-elevated
-
-                border
-                border-border-soft
-
-                rounded-[24px]
-
-                p-6
-                lg:p-8
-
-                min-h-[240px]
-                lg:min-h-[300px]
-
-                flex
-                flex-col
-
-                transition-all
-                duration-300
-
-                hover:border-corporateGreen/40
+                relative
               "
             >
 
+              {index !== steps.length - 1 && (
+
+                <div
+                  className="
+                    hidden
+                    lg:block
+
+                    absolute
+                    top-[22px]
+                    left-[72px]
+                    right-[-40px]
+
+                    h-px
+
+                    bg-border-soft
+                  "
+                />
+
+              )}
+
               <div
                 className="
-                  w-14
-                  h-14
-
-                  rounded-full
-
-                  bg-[#eef2f5]
-
-                  border
-                  border-border-soft
-
-                  flex
-                  items-center
-                  justify-center
-
-                  text-[24px]
-                  font-bold
+                  text-[14px]
+                  font-semibold
+                  tracking-[0.14em]
 
                   text-corporateGreen
 
-                  mb-8
+                  mb-4
                 "
               >
 
@@ -161,8 +147,7 @@ export default function Process() {
                 className="
                   ui-title
 
-                  text-[26px]
-                  leading-tight
+                  text-[24px]
 
                   mb-4
                 "
@@ -172,7 +157,13 @@ export default function Process() {
 
               </h3>
 
-              <p className="card-text">
+              <p
+                className="
+                  card-text
+
+                  max-w-[260px]
+                "
+              >
 
                 {item.text}
 

@@ -24,50 +24,158 @@ export default function Process() {
   ]
 
   return (
+
     <section
       id="proceso"
-      className="bg-[#f3f0ea] border-b border-[#d7d0c4]"
+      className="
+        bg-surface-secondary
+
+        border-b
+        border-border-soft
+
+        overflow-hidden
+      "
     >
 
-      <div className="max-w-7xl mx-auto px-6 py-24">
+      <div
+        className="
+          max-w-7xl
+          mx-auto
 
-        <div className="text-left mb-16">
+          px-4
+          lg:px-6
 
-          <div className="text-[#1faa59] font-semibold uppercase tracking-wider text-sm mb-4">
+          py-16
+          lg:py-24
+        "
+      >
+
+        <div className="text-left mb-10 lg:mb-16">
+
+          <div className="eyebrow text-corporateGreen mb-4">
             Cómo trabajamos
           </div>
 
-          <h2 className="text-4xl lg:text-5xl font-black text-corporate leading-tight mb-6">
+          <h2
+            className="
+              section-title
+
+              text-[36px]
+              leading-[0.98]
+
+              sm:text-[42px]
+
+              lg:text-5xl
+
+              mb-5
+              lg:mb-6
+            "
+          >
             Proceso claro y acompañado.
           </h2>
 
-          <p className="text-slate-600 text-lg leading-relaxed">
+          <p
+            className="
+              body-md
+              lg:body-lg
+
+              max-w-3xl
+            "
+          >
             Analizamos tu suministro, detectamos oportunidades de optimización
-            <br />
             y gestionamos todo el proceso de forma transparente y personalizada.
           </p>
 
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div
+          className="
+            grid
+
+            gap-4
+            lg:gap-5
+
+            md:grid-cols-2
+            lg:grid-cols-4
+          "
+        >
 
           {steps.map((item) => (
 
             <div
               key={item.number}
-              className="bg-[#f8f6f1] border border-[#d7d0c4] rounded-[32px] p-8 min-h-[300px] flex flex-col hover:border-corporateGreen transition-all duration-300"
+              className="
+                bg-surface-elevated
+
+                border
+                border-border-soft
+
+                rounded-[24px]
+
+                p-6
+                lg:p-8
+
+                min-h-[240px]
+                lg:min-h-[300px]
+
+                flex
+                flex-col
+
+                transition-all
+                duration-300
+
+                hover:border-corporateGreen/40
+              "
             >
 
-              <div className="w-16 h-16 rounded-full bg-[#eef2f5] border border-[#d7d0c4] flex items-center justify-center text-2xl font-black text-corporateGreen mb-10">
+              <div
+                className="
+                  w-14
+                  h-14
+
+                  rounded-full
+
+                  bg-[#eef2f5]
+
+                  border
+                  border-border-soft
+
+                  flex
+                  items-center
+                  justify-center
+
+                  text-[24px]
+                  font-bold
+
+                  text-corporateGreen
+
+                  mb-8
+                "
+              >
+
                 {item.number}
+
               </div>
 
-              <h3 className="text-2xl font-black text-corporate leading-tight mb-6">
+              <h3
+                className="
+                  ui-title
+
+                  text-[26px]
+                  leading-tight
+
+                  mb-4
+                "
+              >
+
                 {item.title}
+
               </h3>
 
-              <p className="text-slate-600 leading-relaxed text-lg">
+              <p className="card-text">
+
                 {item.text}
+
               </p>
 
             </div>
@@ -79,5 +187,7 @@ export default function Process() {
       </div>
 
     </section>
+
   )
+
 }

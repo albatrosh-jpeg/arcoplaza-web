@@ -1,5 +1,15 @@
 export default function Footer() {
 
+  const linkClass = `
+    text-slate-300
+
+    transition-all
+    duration-300
+
+    hover:text-white
+    hover:translate-x-[2px]
+  `
+
   return (
 
     <footer
@@ -28,7 +38,7 @@ export default function Footer() {
           className="
             grid
 
-            gap-12
+            gap-14
 
             lg:grid-cols-[1.2fr_0.8fr_0.8fr]
           "
@@ -36,20 +46,18 @@ export default function Footer() {
 
           <div className="max-w-md">
 
-            <div
+            <img
+              src="/footer-arcoplaza.png"
+              alt="Arcoplaza Asesores"
               className="
-                text-white
+                h-20
+                w-auto
 
-                text-[22px]
-                font-semibold
+                mb-7
 
-                tracking-tight
-
-                mb-5
+                opacity-95
               "
-            >
-              Arcoplaza Asesores
-            </div>
+            />
 
             <p
               className="
@@ -84,20 +92,27 @@ export default function Footer() {
                 flex-col
 
                 gap-3
-
-                text-slate-300
               "
             >
 
-              <a href="#why-arcoplaza">
+              <a
+                href="#why-arcoplaza"
+                className={linkClass}
+              >
                 Optimización energética
               </a>
 
-              <a href="#calculadora">
+              <a
+                href="#calculadora"
+                className={linkClass}
+              >
                 Revisión de suministros
               </a>
 
-              <a href="#proceso">
+              <a
+                href="#proceso"
+                className={linkClass}
+              >
                 Supervisión energética
               </a>
 
@@ -124,16 +139,17 @@ export default function Footer() {
                 flex-col
 
                 gap-3
-
-                text-slate-300
               "
             >
 
-              <a href="mailto:aaff@centralenergyasesores.com">
+              <a
+                href="mailto:aaff@centralenergyasesores.com"
+                className={linkClass}
+              >
                 aaff@centralenergyasesores.com
               </a>
 
-              <div>
+              <div className="text-slate-300">
                 Madrid, España
               </div>
 
@@ -168,7 +184,7 @@ export default function Footer() {
             © 2026 Arcoplaza Asesores
           </div>
 
-          <div>
+          <div className="text-slate-500">
             Supervisión energética clara y rigurosa.
           </div>
 

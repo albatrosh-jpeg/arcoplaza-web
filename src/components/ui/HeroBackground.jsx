@@ -7,7 +7,7 @@ export default function HeroBackground() {
       {/* IMAGE */}
 
       <img
-        src="/hero-energy.webp"
+        src="/hero-energy.png"
         alt="Arcoplaza Energy"
         className="
           absolute

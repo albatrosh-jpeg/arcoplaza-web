@@ -56,8 +56,8 @@ export default function Navbar() {
               src="/logo-arcoplaza.png"
               alt="Arcoplaza Asesores"
               className="
-                h-12
-                lg:h-11
+                h-[58px]
+                lg:h-[64px]
 
                 w-auto
                 object-contain

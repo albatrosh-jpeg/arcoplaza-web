@@ -1,35 +1,128 @@
-
-import LogoMarquee from '../ui/LogoMarquee'
-import Section from '../ui/Section'
-import SectionTitle from '../ui/SectionTitle'
-import AnimatedReveal from '../ui/AnimatedReveal'
-
-export default function Partners({
-  companies
-}) {
+export default function Partners({ companies }) {
 
   return (
 
-    <Section
-      
-    className="bg-[#fcfbf8] border-t border-[#d7d0c4]"
+    <section
+      className="
+        bg-surface-primary
+
+        border-y
+        border-border-soft
+      "
     >
-      <AnimatedReveal>
 
-      <SectionTitle
-        eyebrow="Compañías con las que trabajamos"
-        title="Compañías con las que trabajamos."
-        text="Trabajamos junto a múltiples comercializadoras y partners energéticos para ofrecer propuestas personalizadas en luz, gas, autoconsumo, instalaciones fotovoltaicas, baterías y cargadores para vehículo eléctrico."
-      />
-      </AnimatedReveal>
+      <div
+        className="
+          max-w-7xl
+          mx-auto
 
-      <div className="bg-[#fcfbf8] px-8 md:px-16 py-12">
+          px-4
+          lg:px-6
 
-        <LogoMarquee items={companies} />
+          py-14
+          lg:py-16
+        "
+      >
+
+        <div className="text-center mb-10">
+
+          <div className="eyebrow text-corporateGreen mb-4">
+            Experiencia en múltiples sectores
+          </div>
+
+          <h2
+            className="
+              section-title
+
+              text-[34px]
+              leading-[1]
+
+              sm:text-[40px]
+
+              lg:text-[46px]
+
+              mb-5
+            "
+          >
+            Supervisamos suministros de compañías líderes.
+          </h2>
+
+          <p
+            className="
+              body-md
+
+              max-w-2xl
+              mx-auto
+            "
+          >
+            Trabajamos con suministros energéticos vinculados a empresas,
+            comunidades y organizaciones de distintos sectores.
+          </p>
+
+        </div>
+
+        <div
+          className="
+            grid
+
+            grid-cols-2
+            sm:grid-cols-3
+            lg:grid-cols-5
+
+            gap-x-8
+            gap-y-10
+
+            items-center
+          "
+        >
+
+          {companies.map((company) => (
+
+            <div
+              key={company.name}
+              className="
+                flex
+                items-center
+                justify-center
+
+                opacity-70
+
+                transition-all
+                duration-300
+
+                hover:opacity-100
+              "
+            >
+
+              <img
+                src={company.logo}
+                alt={company.name}
+                className="
+                  h-10
+                  lg:h-12
+
+                  w-auto
+                  object-contain
+
+                  grayscale
+
+                  transition-all
+                  duration-300
+
+                  hover:grayscale-0
+                "
+                loading="lazy"
+              />
+
+            </div>
+
+          ))}
+
+        </div>
 
       </div>
 
-    </Section>
+    </section>
 
   )
 

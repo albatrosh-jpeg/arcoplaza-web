@@ -8,8 +8,6 @@ import WhyArcoplaza from './components/sections/WhyArcoplaza'
 import Contact from './components/sections/Contact'
 import Footer from './components/sections/Footer'
 
-import MobileCTA from './components/layout/MobileCTA'
-
 import companies from './data/companies'
 
 import useSavingsCalculator from './hooks/useSavingsCalculator'
@@ -63,8 +61,6 @@ return (
       {/* <Services /> */}
 
       <Contact />
-
-      <MobileCTA />
 
       <Footer />
 

@@ -77,7 +77,7 @@
   {
     name: 'Niba',
     url: 'https://niba.es',
-    logo: '/logos/niba.webp'
+    logo: '/logos/niba.png'
   },
   {
     name: 'Nieves Energía',
@@ -92,7 +92,9 @@
   {
     name: 'Repsol',
     url: 'https://www.repsol.es',
-    logo: '/logos/repsol.png'
+    logo: '/logos/repsol.png',
+    className: 'h-14'
+
   },
   {
     name: 'TotalEnergies',

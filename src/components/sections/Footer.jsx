@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function Footer() {
 
   const linkClass = `
@@ -183,12 +185,36 @@ export default function Footer() {
           <div>
             © 2026 Arcoplaza Asesores
           </div>
+          <div className="flex gap-6 text-sm">
 
+          <Link
+            to="/aviso-legal"
+            className={linkClass}
+          >
+            Aviso legal
+          </Link>
+
+          <Link
+            to="/politica-privacidad"
+            className={linkClass}
+          >
+            Privacidad
+          </Link>
+
+          <Link
+            to="/politica-cookies"
+            className={linkClass}
+          >
+            Cookies
+          </Link>
+
+        </div>
           <div>
             Supervisión energética clara y rigurosa. 
             <br />
             El trabajo bien hecho, habla por sí solo.
           </div>
+
 
         </div>
 

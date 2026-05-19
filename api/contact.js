@@ -73,7 +73,7 @@ export default async function handler(req, res) {
 
         from: 'web@arcoplazaasesores.com',
 
-        to: 'aaff@centralenergyasesores.com',
+        to: 'contacto@arcoplazaasesores.com',
 
         subject: `Nueva solicitud · ${nombre}`,
 

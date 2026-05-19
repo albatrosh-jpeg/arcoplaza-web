@@ -143,10 +143,10 @@ export default function Footer() {
             >
 
               <a
-                href="mailto:aaff@centralenergyasesores.com"
+                href="mailto:contacto@arcoplazaasesores.com"
                 className={linkClass}
               >
-                aaff@centralenergyasesores.com
+                contacto@arcoplazaasesores.com
               </a>
 
               <div className="text-slate-300">
@@ -184,8 +184,10 @@ export default function Footer() {
             © 2026 Arcoplaza Asesores
           </div>
 
-          <div className="text-slate-500">
-            Supervisión energética clara y rigurosa.
+          <div>
+            Supervisión energética clara y rigurosa. 
+            <br />
+            El trabajo bien hecho, habla por sí solo.
           </div>
 
         </div>

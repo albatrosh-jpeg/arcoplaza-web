@@ -293,11 +293,11 @@ export default function Calculator({
                 </div>
 
                 <h3 className="text-3xl font-editorial-md text-corporate leading-tight mb-4">
-                  Analizamos contratos eléctricos y de gas para detectar oportunidades reales de ahorro.
+                  Adjunta facturas de electricidad y gas
                 </h3>
 
                 <p className="text-slate-600 leading-relaxed">
-                  Adjunta facturas de electricidad o gas y revisaremos tarifas, potencia contratada y posibles optimizaciones.
+                  y revisaremos tarifas, potencia contratada y posibles optimizaciones.
                 </p>
 
               </div>

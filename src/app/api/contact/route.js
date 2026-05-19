@@ -25,7 +25,7 @@ export async function POST(req) {
 
     await resend.emails.send({
       from: 'onboarding@resend.dev',
-      to: 'aaff@centralenergyasesores.com',
+      to: 'contacto@arcoplazaasesores.com',
       subject: 'Nueva solicitud desde Arcoplaza',
       html: `
         <h2>Nueva solicitud</h2>

@@ -20,7 +20,7 @@ export default function Partners({ companies }) {
           lg:px-6
 
           py-14
-          lg:py-16
+          lg:py-10 sm:py-16
         "
       >
 

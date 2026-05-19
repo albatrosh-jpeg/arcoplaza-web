@@ -12,18 +12,15 @@ export default function Hero() {
       id="inicio"
       className="
         relative
-        h-[68vh]
-        min-h-[440px]
+        min-h-[620px]
         lg:min-h-[680px]
-        max-h-[820px]
         flex
         items-center
         overflow-hidden
         border-b
         border-border-soft
         bg-surface-primary
-              "
-    >
+      "    >
 
       <HeroBackground />
 
@@ -41,14 +38,14 @@ export default function Hero() {
           max-w-7xl
           mx-auto
           px-6
-          pt-12
-          pb-16
+          pt-6
+          pb-10
 
           lg:pt-20
           lg:pb-28
           grid
           lg:grid-cols-[0.8fr_1.2fr]
-          gap-8
+          gap-4 sm:gap-8
           items-center
         "
       >
@@ -67,11 +64,11 @@ export default function Hero() {
 
             bg-corporateGreen-soft
 
-            px-4
-            py-2
+            px-3
+            py-1.5
 
             text-corporateGreen
-            mb-5
+            mb-4
           "
         >
           Optimización energética para empresas y comunidades
@@ -101,9 +98,9 @@ export default function Hero() {
 
           <p
             className="
-              text-[16px]
+              text-[15px]
               text-text-secondary
-              leading-relaxed
+              leading-[1.5]
               max-w-[560px]
               lg:text-[18px]
               mb-6

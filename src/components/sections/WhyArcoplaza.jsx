@@ -16,20 +16,15 @@ export default function WhyArcoplaza() {
         bg-[#fcfbf8]
         pt-0
         pb-10
-      "    >
+        sm:pb-8
+        "    
+        >
 
-      <div
-        className="
-          grid
-          xl:grid-cols-[300px_minmax(0,1fr)]
-          gap-6
-          items-start
-        "
-      >
+      <div className="space-y-6 sm:space-y-10">
 
         <AnimatedReveal>
 
-          <div className="max-w-[280px] pt-6">
+          <div className="max-w-[760px]">
 
             <SectionTitle
               eyebrow="Por qué Arcoplaza"
@@ -48,8 +43,11 @@ export default function WhyArcoplaza() {
             items={whyArcoplaza}
             className="
             grid
+            md:grid-cols-2
             xl:grid-cols-4
-            gap-5"
+            gap-4 sm:gap-6
+            "
+            
 renderItem={(item) => {
 
   const Icon = item.icon
@@ -57,52 +55,81 @@ renderItem={(item) => {
   return (
 
     <Card
-      className="
-        h-full
-        bg-[#fcfbf8]
-        border
-        border-[#e7e1d7]
-        rounded-[28px]
+className="
+          h-full
+          bg-[#fcfbf8]
 
-        px-7
-        py-8
+          border
+          border-[#e7e1d7]
 
-        min-h-[220px]
+          rounded-[24px]
+          sm:rounded-[28px]
 
-        flex
-        flex-col
+          px-5
+          py-6
 
-        transition-all
-        duration-300
+          sm:px-7
+          sm:py-8
 
-        hover:-translate-y-1
-        hover:shadow-[0_20px_50px_rgba(16,37,66,0.08)]
-      "
-    >
+          min-h-[190px]
+          sm:min-h-[220px]
 
-      <div
-        className="
-          mb-8
           flex
-          h-14
-          w-14
-          items-center
-          justify-center
-          rounded-full
-          bg-[#f3f6ee]
-          text-corporateGreen
-        "
-      >
-        <Icon size={26} strokeWidth={1.8} />
-      </div>
+          flex-col
 
-      <div className="space-y-4">
+          transition-all
+          duration-300
+
+          hover:-translate-y-1
+          hover:shadow-[0_20px_50px_rgba(16,37,66,0.08)]
+        "    >
+
+<div
+  className="
+    flex
+    items-center
+
+    gap-4
+
+    mb-4
+    sm:mb-6
+  "
+>
+
+        <div
+          className="
+            flex-shrink-0
+
+            flex
+
+            h-10
+            w-10
+
+            sm:h-12
+            sm:w-12
+
+            items-center
+            justify-center
+
+            rounded-full
+
+            bg-[#f3f6ee]
+            text-corporateGreen
+          "
+        >
+
+          <Icon size={20} strokeWidth={1.8} />
+
+        </div>
 
         <h3
           className="
-            text-[24px]
+            text-[20px]
+            sm:text-[24px]
+
             leading-tight
             tracking-tight
+
             font-semibold
             text-corporate
           "
@@ -110,11 +137,18 @@ renderItem={(item) => {
           {item.title}
         </h3>
 
+      </div>
+
+      <div className="space-y-4">
+
         <p
           className="
-            text-[16px]
-            leading-relaxed
-            text-slate-600
+          text-[15px]
+          leading-[1.7]
+
+          sm:text-[16px]
+          sm:leading-relaxed            
+          text-slate-600
           "
         >
           {item.text}

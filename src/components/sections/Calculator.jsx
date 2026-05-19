@@ -65,7 +65,7 @@ export default function Calculator({
         grid 
         lg:grid-cols-[0.9fr_1.1fr] 
         gap-6
-        lg:gap-10
+        lg:gap-5 sm:gap-6 sm:p-10
         items-start"
         >
 
@@ -77,7 +77,7 @@ export default function Calculator({
           rounded-[24px]
 
           p-6
-          lg:p-10
+          lg:p-6 sm:p-10
           "
           >
 
@@ -138,7 +138,7 @@ export default function Calculator({
                 rounded-[24px]
 
                 p-6
-                lg:p-10
+                lg:p-6 sm:p-10
                 flex
                 flex-col
                 justify-center
@@ -278,7 +278,7 @@ export default function Calculator({
                 rounded-[24px]
 
                 p-6
-                lg:p-10
+                lg:p-6 sm:p-10
 
                 overflow-hidden
 

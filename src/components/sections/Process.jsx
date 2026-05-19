@@ -45,8 +45,8 @@ export default function Process() {
           px-4
           lg:px-6
 
-          py-16
-          lg:py-24
+          py-10 sm:py-16
+          lg:py-10 sm:py-16 sm:py-24
         "
       >
 
@@ -90,8 +90,8 @@ export default function Process() {
           className="
             grid
 
-            gap-8
-            lg:gap-10
+            gap-4 sm:gap-8
+            lg:gap-5 sm:gap-6 sm:p-10
 
             md:grid-cols-2
             lg:grid-cols-4

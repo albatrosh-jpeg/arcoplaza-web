@@ -6,17 +6,17 @@ export default function Section({
   spacing = 'default'
 }) {
 
-  const spacingMap = {
+const spacingMap = {
 
-    none: '',
+  none: '',
 
-    sm: 'py-16',
+  sm: 'py-6 sm:py-10',
 
-    default: 'py-24',
+  default: 'py-8 sm:py-14 lg:py-20',
 
-    lg: 'py-32'
+  lg: 'py-12 sm:py-20 lg:py-28'
 
-  }
+}
 
   return (
 

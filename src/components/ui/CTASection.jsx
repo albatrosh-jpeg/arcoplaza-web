@@ -12,8 +12,8 @@ export default function CTASection({
 
     <div
       className={`
-        rounded-[32px]
-        p-10
+        rounded-[24px] sm:rounded-[32px]
+        p-6 sm:p-10
         lg:p-14
         ${className}
       `}

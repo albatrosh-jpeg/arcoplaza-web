@@ -73,7 +73,7 @@ export default function Navbar() {
 
               items-center
 
-              gap-8
+              gap-4 sm:gap-8
 
               ml-auto
             "

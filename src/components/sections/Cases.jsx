@@ -26,7 +26,7 @@ export default function Cases() {
       renderItem={(item) => (
 
         <Card
-          className="h-full bg-[#fcfbf8] border border-[#d7d0c4] rounded-[32px] p-10"
+          className="h-full bg-[#fcfbf8] border border-[#d7d0c4] rounded-[24px] sm:rounded-[32px] p-6 sm:p-10"
         >
 
           <div className="text-sm uppercase tracking-wider text-slate-500 mb-8">

@@ -257,6 +257,12 @@ const {
       required
     />
 
+    <Input
+  type="tel"
+  name="telefono"
+  placeholder="Teléfono"
+/>
+
     <Textarea
       name="mensaje"
       placeholder="Describe brevemente tu caso"
@@ -264,6 +270,7 @@ const {
     />
 
     <FileUpload
+      name="factura"
       fileName={fileName}
       setFileName={setFileName}
     />

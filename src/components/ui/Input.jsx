@@ -8,7 +8,7 @@ export default function Input({
     <input
       className={`
         w-full
-        bg-[#f8f8f6]
+        bg-[#f8f8f6]/75
         border
         border-[#d7d0c4]
         rounded-xl

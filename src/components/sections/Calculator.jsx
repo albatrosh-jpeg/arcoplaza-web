@@ -195,12 +195,12 @@ export default function Calculator({
               mb-5
             "
           >
-            Analizamos contratos eléctricos y de gas para detectar oportunidades reales de ahorro.
+            Analizamos personalmente los contratos de luz y gas para detectar oportunidades reales de ahorro.
           </h3>
 
           <p
             className="
-              text-slate-300
+              font-swiss
               text-base
               sm:text-lg
               leading-relaxed
@@ -262,7 +262,7 @@ export default function Calculator({
                 {resultado.minPercent}% – {resultado.maxPercent}%
               </div>
 
-              <div className="text-slate-300 text-lg">
+              <div className="font-swiss text-lg">
                 Equivalente aproximado:
               </div>
 

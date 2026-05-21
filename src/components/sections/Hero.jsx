@@ -1,26 +1,42 @@
-import HeroStatsCard from '../ui/HeroStatsCard'
-
 import Button from '../ui/Button'
-import Badge from '../ui/Badge'
 import HeroBackground from '../ui/HeroBackground'
+import { useState } from 'react'
+
+import Input from '../ui/Input'
+import Textarea from '../ui/Textarea'
+import FileUpload from '../ui/FileUpload'
+import useContactForm from '../../hooks/useContactForm'
 
 export default function Hero() {
-
+const {
+  handleSubmit,
+  loading,
+  success,
+  error,
+  fileName,
+  setFileName
+} = useContactForm()
   return (
 
     <section
       id="inicio"
       className="
         relative
+
         min-h-[620px]
         lg:min-h-[680px]
+
         flex
         items-center
+
         overflow-hidden
+
         border-b
         border-border-soft
+
         bg-surface-primary
-      "    >
+      "
+    >
 
       <HeroBackground />
 
@@ -35,99 +51,115 @@ export default function Hero() {
         className="
           relative
           z-10
-          max-w-7xl
+
+          max-w-[1280px]
           mx-auto
-          px-6
-          pt-6
-          pb-10
+
+          px-5
+          lg:px-8
+
+          pt-12
+          pb-16
 
           lg:pt-20
-          lg:pb-28
+          lg:pb-20
+
           grid
-          lg:grid-cols-[0.8fr_1.2fr]
-          gap-4 sm:gap-8
+          md:grid-cols-[1.05fr_0.95fr]
+          gap-10
           items-center
         "
       >
 
         {/* IZQUIERDA */}
 
-        <div className="max-w-[500px] lg:max-w-[560px]">
+        <div className="max-w-[640px]">
 
-        <div
-          className="
-            eyebrow
-            inline-flex
-            items-center
+          <div
+            className="
+              eyebrow
+              inline-flex
+              items-center
 
-            rounded-full
+              rounded-full
 
-            bg-corporateGreen-soft
+              bg-corporateGreen-soft
 
-            px-3
-            py-1.5
+              px-3
+              py-1.5
 
-            text-corporateGreen
-            mb-4
-          "
-        >
-          Optimización energética para empresas y comunidades
-        </div>
+              text-corporateGreen
+
+              mb-5
+            "
+          >
+            Optimización energética para empresas y comunidades
+          </div>
+
           <h1
             className="
               text-[42px]
               sm:text-[48px]
-              lg:text-[64px]
-              lg:text-[64px]
-              font-editorial font-normal
+
+              lg:text-[54px]
+              xl:text-[64px]
+
+              font-editorial
+              font-normal
+
               text-corporate
+
               leading-[0.92]
               tracking-tight
+
               mb-6
-              lg:mb-8
             "
           >
-          Detectamos
-          <br />
-          <span className="text-corporateGreen">
-            sobrecostes ocultos
-          </span>
-          <br />
-          en suministros energéticos.
+
+            Detectamos
+            <br />
+
+            <span className="text-corporateGreen">
+              sobrecostes ocultos
+            </span>
+
+            <br />
+
+            en suministros energéticos.
+
           </h1>
 
           <p
             className="
               text-[15px]
-              text-text-secondary
-              leading-[1.5]
-              max-w-[560px]
               lg:text-[18px]
+
+              leading-[1.6]
+
+              text-text-secondary
+
+              max-w-[540px]
+
               mb-6
-              lg:mb-8
             "
           >
-          Ayudamos a empresas y comunidades a optimizar contratos eléctricos y de gas mediante análisis técnico, revisión tarifaria y supervisión energética continua.          </p>
+
+            Ayudamos a empresas y comunidades a optimizar contratos eléctricos y de gas mediante análisis técnico, revisión tarifaria y supervisión energética continua.
+
+          </p>
+
           <p
             className="
               text-sm
               text-text-muted
 
-              mb-6
-              lg:mb-8
+              mb-8
             "
           >
             Electricidad · Gas · Comunidades · Empresas
           </p>
-          <div className="flex flex-col sm:flex-row gap-3">
 
-            <Button
-              as="a"
-              href="#formulario"
-              className="text-center"
-            >
-              Solicitar auditoría
-            </Button>
+          <div className="flex gap-3">
 
             <Button
               as="a"
@@ -143,30 +175,127 @@ export default function Hero() {
         </div>
 
         {/* DERECHA */}
-
-
-      </div>
-      <div
+      <div className="hidden md:flex justify-end">
+      <form
+        onSubmit={handleSubmit}
         className="
-          absolute
-          left-0
-          right-0
-          bottom-[-24px]
-          z-30
-          hidden
-          xl:block
-          px-6
-          py-4
+          w-full
+          max-w-[390px]
+
+          rounded-[12px]
+
+          border
+          bg-[#f7f5ef]/35
+          backdrop-blur-md
+
+          p-6
+
+          shadow-[0_25px_60px_rgba(15,23,42,0.14)]
         "
       >
 
-        <div className="max-w-7xl mx-auto flex justify-end">
+        <div className="mb-5">
 
-          <HeroStatsCard />
+          <div
+            className="
+              text-[11px]
+              tracking-[0.18em]
+              uppercase
+
+              text-corporateGreen
+
+              mb-3
+            "
+          >
+            Solicita revisión
+          </div>
+
+          <h3
+            className="
+              text-[28px]
+
+              leading-[1.05]
+              tracking-tight
+
+              text-corporate
+
+              font-editorial
+              font-normal
+
+              mb-3
+            "
+          >
+            Revisamos tu suministro energético.
+          </h3>
+
+          <p
+            className="
+              text-[15px]
+              leading-relaxed
+
+              text-slate-600
+            "
+          >
+            Analizamos tarifas, potencia contratada y posibles sobrecostes.
+          </p>
 
         </div>
 
+  <div className="space-y-4">
+
+    <Input
+      type="text"
+      name="nombre"
+      placeholder="Nombre"
+      required
+    />
+
+    <Input
+      type="email"
+      name="email"
+      placeholder="Correo electrónico"
+      required
+    />
+
+    <Textarea
+      name="mensaje"
+      placeholder="Describe brevemente tu caso"
+      rows={4}
+    />
+
+    <FileUpload
+      fileName={fileName}
+      setFileName={setFileName}
+    />
+
+    <Button
+      type="submit"
+      className="w-full justify-center"
+    >
+      {loading
+        ? 'Enviando...'
+        : 'Solicitar análisis'}
+    </Button>
+
+    {success && (
+      <p className="text-sm text-green-700">
+        Solicitud enviada correctamente.
+      </p>
+    )}
+
+    {error && (
+      <p className="text-sm text-red-600">
+        Ha ocurrido un error. Inténtalo de nuevo.
+      </p>
+    )}
+
+  </div>
+
+</form>
+
       </div>
+      </div>
+
     </section>
 
   )

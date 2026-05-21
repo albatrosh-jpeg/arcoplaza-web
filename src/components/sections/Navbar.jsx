@@ -1,9 +1,25 @@
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-
-import navLinks from '../../data/navLinks'
 import Button from '../ui/Button'
+
+const navItems = [
+ {
+    label: 'Servicios',
+    href: '#why-arcoplaza'
+  },
+  {
+    label: 'Proceso',
+    href: '#proceso'
+  },
+  {
+    label: 'Partners',
+    href: '#partners'
+  },
+  {
+    label: 'Contacto',
+    href: '#formulario'
+  }
+]
 
 export default function Navbar() {
 
@@ -11,125 +27,137 @@ export default function Navbar() {
 
   return (
 
-    <header
-      className="
-        sticky
-        top-0
-        z-50
-      "
-    >
+<header
+  className="
+    fixed
+    top-0
+    left-0
+    right-0
 
+    w-full
+
+    z-[100]
+
+    bg-white/70
+    backdrop-blur-sm
+
+    border-b
+    border-border-soft
+  "
+>
       <div
         className="
-          border-b
-          border-border-soft
+          max-w-7xl
+          mx-auto
 
-          bg-surface-secondary/88
-          backdrop-blur-xl
+          px-4
+          lg:px-6
 
-          supports-[backdrop-filter]:bg-surface-secondary/72
+          h-[74px]
+
+          flex
+          items-center
+          justify-between
+
+          gap-4
         "
       >
 
-        <div
+        <a
+          href="#hero"
+          className="shrink-0"
+        >
+
+          <img
+            src="/logo-arcoplaza.png"
+            alt="Arcoplaza Asesores"
+            href="#hero"
+            className="
+              h-14
+              lg:h-16
+
+              w-auto
+            "
+          />
+
+        </a>
+
+        <nav
           className="
-            max-w-7xl
-            mx-auto
+            hidden
+            lg:flex
 
-            px-4
-            lg:px-6
-
-            h-[72px]
-            lg:h-[78px]
-
-            flex
             items-center
+
+            gap-8
+
+            ml-auto
           "
         >
 
-          <a
-            href="#inicio"
-            className="flex items-center shrink-0 z-50"
-          >
+          {navItems.map((item) => (
 
-            <img
-              src="/logo-arcoplaza.png"
-              alt="Arcoplaza Asesores"
+            <a
+              key={item.label}
+              href={item.href}
               className="
-                h-[58px]
-                lg:h-[64px]
+                text-[15px]
 
-                w-auto
-                object-contain
+                text-text-secondary
+
+                transition-colors
+                duration-300
+
+                hover:text-corporate
               "
-            />
+            >
+              {item.label}
+            </a>
 
-          </a>
+          ))}
 
-          <nav
+        </nav>
+
+        <div
+          className="
+            ml-auto
+
+            flex
+            items-center
+            justify-end
+
+            gap-3
+
+            shrink-0
+          "
+        >
+
+          <Button
+            as="a"
+            href="#formulario"
             className="
               hidden
-              xl:flex
+              sm:flex
 
-              items-center
+              px-4
+              lg:px-5
 
-              gap-4 sm:gap-8
+              h-10
+              lg:h-11
 
-              ml-auto
+              text-[14px]
+              whitespace-nowrap
             "
           >
 
-            {navLinks.map((link) => (
+            Solicitar análisis
 
-              <a
-                key={link.href}
-                href={link.href}
-                className="
-                  text-[15px]
-                  font-medium
-
-                  text-corporate
-
-                  transition-colors
-                  duration-300
-
-                  hover:text-corporate-soft
-                "
-              >
-
-                {link.label}
-
-              </a>
-
-            ))}
-
-          </nav>
-
-          <div className="hidden 2xl:block ml-8">
-
-            <Button
-              as="a"
-              href="#formulario"
-              className="
-                px-4
-                py-[11px]
-
-                text-[14px]
-              "
-            >
-
-              Solicitar análisis
-
-            </Button>
-
-          </div>
+          </Button>
 
           <button
             onClick={() => setOpen(true)}
             className="
-              xl:hidden
-
-              ml-auto
+              lg:hidden
 
               flex
               items-center
@@ -158,158 +186,119 @@ export default function Navbar() {
 
       </div>
 
-      <AnimatePresence>
+      {open && (
 
-        {open && (
+        <div
+          className="
+            fixed
+            inset-0
+            z-[120]
 
-          <>
+            bg-black/30
+            backdrop-blur-sm
+          "
+        >
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+          <div
+            className="
+              absolute
+              top-0
+              right-0
 
-              transition={{ duration: 0.2 }}
+              w-[88%]
+              max-w-[360px]
 
+              h-full
+
+              bg-[#fcfbf8]
+
+              border-l
+              border-border-soft
+
+              p-6
+            "
+          >
+
+            <div
               className="
-                fixed
-                inset-0
-
-                bg-[#18375D]/20
-                backdrop-blur-sm
-
-                z-40
-              "
-              onClick={() => setOpen(false)}
-            />
-
-            <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-
-              transition={{
-                duration: 0.35,
-                ease: [0.22, 1, 0.36, 1]
-              }}
-
-              className="
-                fixed
-                top-0
-                right-0
-                bottom-0
-
-                w-[320px]
-                max-w-[88vw]
-
-                bg-surface-elevated
-
-                border-l
-                border-border-soft
-
-                z-50
-
-                p-6
-
                 flex
-                flex-col
+                items-center
+                justify-between
+
+                mb-10
               "
             >
 
-              <div
+              <img
+                src="/logo-arcoplaza.png"
+                alt="Arcoplaza Asesores"
+                className="h-10 w-auto"
+              />
+
+              <button
+                onClick={() => setOpen(false)}
                 className="
                   flex
                   items-center
-                  justify-between
+                  justify-center
 
-                  mb-10
+                  w-11
+                  h-11
+
+                  rounded-full
+
+                  border
+                  border-border-soft
+
+                  text-corporate
                 "
+                aria-label="Cerrar menú"
               >
 
-                <img
-                  src="/logo-arcoplaza.png"
-                  alt="Arcoplaza Asesores"
-                  className="h-11 w-auto"
-                />
+                <X size={20} />
 
-                <button
+              </button>
+
+            </div>
+
+            <nav
+              className="
+                flex
+                flex-col
+
+                gap-6
+              "
+            >
+
+              {navItems.map((item) => (
+
+                <a
+                  key={item.label}
+                  href={item.href}
                   onClick={() => setOpen(false)}
                   className="
-                    flex
-                    items-center
-                    justify-center
-
-                    w-10
-                    h-10
-
-                    rounded-full
-
-                    border
-                    border-border-soft
+                    text-[18px]
 
                     text-corporate
+
+                    transition-colors
+                    duration-300
+
+                    hover:text-corporateGreen
                   "
                 >
+                  {item.label}
+                </a>
 
-                  <X size={18} />
+              ))}
 
-                </button>
+            </nav>
 
-              </div>
+          </div>
 
-              <nav
-                className="
-                  flex
-                  flex-col
+        </div>
 
-                  gap-6
-                "
-              >
-
-                {navLinks.map((link) => (
-
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="
-                      text-[18px]
-                      font-medium
-
-                      text-corporate
-                    "
-                  >
-
-                    {link.label}
-
-                  </a>
-
-                ))}
-
-              </nav>
-
-              <div className="mt-auto pt-10">
-
-                <Button
-                  as="a"
-                  href="#formulario"
-                  onClick={() => setOpen(false)}
-                  className="w-full"
-                >
-
-                  Solicitar análisis
-
-                </Button>
-
-              </div>
-
-            </motion.div>
-
-          </>
-
-        )}
-
-      </AnimatePresence>
+      )}
 
     </header>
 

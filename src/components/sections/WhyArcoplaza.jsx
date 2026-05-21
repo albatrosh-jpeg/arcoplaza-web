@@ -43,9 +43,9 @@ export default function WhyArcoplaza() {
             items={whyArcoplaza}
             className="
             grid
-            md:grid-cols-2
-            xl:grid-cols-4
-            gap-4 sm:gap-6
+            grid-cols-2
+            lg:grid-cols-4
+            gap-5
             "
             
 renderItem={(item) => {

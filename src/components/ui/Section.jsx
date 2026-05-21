@@ -1,22 +1,16 @@
+const spacingMap = {
+  normal: 'py-14 lg:py-20',
+  tight: 'py-10 lg:py-14',
+  hero: '',
+}
+
 export default function Section({
   children,
+  id,
   className = '',
   containerClassName = '',
-  id,
-  spacing = 'default'
+  spacing = 'normal'
 }) {
-
-const spacingMap = {
-
-  none: '',
-
-  sm: 'py-6 sm:py-10',
-
-  default: 'py-8 sm:py-14 lg:py-20',
-
-  lg: 'py-12 sm:py-20 lg:py-28'
-
-}
 
   return (
 
@@ -27,9 +21,11 @@ const spacingMap = {
 
       <div
         className={`
-          max-w-7xl
+          max-w-[1280px]
           mx-auto
-          px-6
+
+          px-5
+          lg:px-8
 
           ${spacingMap[spacing]}
 

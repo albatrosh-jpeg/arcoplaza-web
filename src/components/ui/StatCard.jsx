@@ -22,17 +22,22 @@ export default function StatCard({
 
       )}
 
-      <div
-  className="
-    text-[34px]
-    sm:text-[42px]
-
-    font-bold
+<div
+  className={`
+    font-semibold
     tracking-tight
     leading-none
-  "
+
+    ${
+      value.length > 18
+        ? 'text-[22px] sm:text-[26px]'
+        : value.length > 12
+          ? 'text-[26px] sm:text-[30px]'
+          : 'text-[20px] sm:text-[24px]'
+    }
+  `}
 >
-        {value}
+{value}
       </div>
 
       {description && (

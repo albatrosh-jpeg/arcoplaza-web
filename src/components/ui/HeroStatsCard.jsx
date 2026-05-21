@@ -30,27 +30,36 @@ const items = [
 
 export default function HeroStatsCard() {
   return (
+<div
+  className="
+    bg-white/92
+    backdrop-blur-sm
+
+    w-left
+    max-w-[760px]
+
+    border
+    border-[#e7e1d7]
+
+    rounded-[18px]
+
+    shadow-[0_10px_30px_rgba(15,23,42,0.08)]
+
+    px-6
+    py-4
+  "
+>
     <div
-      className="
-        hidden
-        xl:grid
-        grid-cols-4
-        gap-5
+  className="
+  flex
+  flex-wrap
 
-        rounded-[30px]
-        border
-        border-[#ece7dd]
+  items-start
 
-        bg-[#fcfbf8]/92
-        backdrop-blur-md
-
-        px-6
-        py-5
-
-        shadow-[0_18px_50px_rgba(16,37,66,0.06)]
-      "
-    >
-      {items.map((item, index) => {
+  gap-x-6
+  gap-y-4
+">
+          {items.map((item, index) => {
         const Icon = item.icon
 
         return (
@@ -59,11 +68,13 @@ export default function HeroStatsCard() {
             className="
               flex
               items-start
-              gap-4
+              gap-3
+
+              w-[155px]
+
               min-w-0
             "
-          >
-            <div
+          >            <div
               className="
                 flex
                 h-12
@@ -72,8 +83,8 @@ export default function HeroStatsCard() {
                 items-center
                 justify-center
                 rounded-full
-                bg-[#f3f6ee]
-                text-corporateGreen
+                bg-corporateGreen-soft
+                text-corporate
               "
             >
               <Icon size={22} strokeWidth={1.8} />
@@ -83,7 +94,7 @@ export default function HeroStatsCard() {
               <div
                 className="
                   text-[17px]
-                  leading-tight
+                  leading-relaxed
                   font-swiss
                   tracking-tight
                   text-corporate
@@ -106,6 +117,7 @@ export default function HeroStatsCard() {
           </div>
         )
       })}
+    </div>
     </div>
   )
 }

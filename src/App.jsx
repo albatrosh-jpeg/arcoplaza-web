@@ -29,7 +29,7 @@ const {
 
 return (
 
-    <div className="min-h-screen bg-surface-secondary text-corporate font-sans">
+    <div className="min-h-screen bg-surface-secondary text-corporate font-sans pt-[74px]">
 
       <Navbar />
 

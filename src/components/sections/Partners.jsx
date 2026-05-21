@@ -2,7 +2,7 @@ export default function Partners({ companies }) {
 
   return (
 
-    <section
+    <section id="partners"
       className="
         bg-surface-primary
 
@@ -24,7 +24,7 @@ export default function Partners({ companies }) {
         "
       >
 
-        <div className="text-center mb-10">
+        <div className="mb-10">
 
           <div className="eyebrow text-corporateGreen mb-4">
             Experiencia en múltiples sectores
@@ -52,7 +52,6 @@ export default function Partners({ companies }) {
               body-md
 
               max-w-2xl
-              mx-auto
             "
           >
             Trabajamos con suministros energéticos vinculados a empresas,

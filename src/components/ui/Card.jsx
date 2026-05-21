@@ -1,27 +1,30 @@
 export default function Card({
   children,
-  className = ''
+  className = '',
+  hover = false
 }) {
 
   return (
 
     <div
       className={`
-        relative
-
-        bg-surface-elevated
+        rounded-[24px]
 
         border
-        border-border-soft
+        border-[#e7e1d7]
 
-        rounded-[24px]
+        bg-white
+
+        shadow-[0_4px_20px_rgba(15,23,42,0.04)]
 
         transition-all
         duration-300
 
-        hover:-translate-y-[2px]
-
-        hover:shadow-[0_18px_50px_rgba(16,37,66,0.05)]
+        ${
+          hover
+            ? 'hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(15,23,42,0.08)]'
+            : ''
+        }
 
         ${className}
       `}

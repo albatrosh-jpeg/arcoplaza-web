@@ -21,12 +21,12 @@ export default {
 
           corporate: {
             DEFAULT: "#18375D",
-            soft: "#28496F",
+            soft: "#2f4b6b",
           },
 
           corporateGreen: {
-            DEFAULT: "#4F8A5B",
-            dark: "#3F7A54",
+            DEFAULT: "#367e45",
+            dark: "#2c5c3c",
             light: "#DCE8DE",
             soft: "#F3F6EE",
           },
@@ -44,7 +44,7 @@ export default {
 
           text: {
             primary: "#18375D",
-            secondary: "#5F6B7A",
+            secondary: "#556274",
             muted: "#7C8795",
           }
 

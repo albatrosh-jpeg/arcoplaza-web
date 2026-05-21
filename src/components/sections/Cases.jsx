@@ -11,65 +11,126 @@ export default function Cases() {
   return (
 
     <Section
-      className="bg-[#f8f8f6] border-y border-[#d7d0c4]"
-    >
-    <AnimatedReveal>
-
-    <SectionTitle
-      eyebrow="Casos reales"
-      title="Optimizaciones reales sobre suministros reales."
-    />
-    </AnimatedReveal>
-    <StaggerGrid
-      items={cases}
       className="
-  grid
+        bg-[#f8f8f6]
 
-  md:grid-cols-2
-  2xl:grid-cols-3
+        border-y
+        border-[#d7d0c4]
+      "
+    >
 
-  gap-5
-"
-      renderItem={(item) => (
+      <AnimatedReveal>
 
-        <Card
-          className="h-full bg-[#fcfbf8] border border-[#d7d0c4] rounded-[24px] sm:rounded-[32px] card-padding"
-        >
+        <SectionTitle
+          eyebrow="Casos reales"
+          title="Optimizaciones reales sobre suministros reales."
+        />
 
-          <div className="text-sm uppercase tracking-wider text-slate-500 mb-4">
-            {item.type}
-          </div>
+      </AnimatedReveal>
 
-          <div className="space-y-3">
+      <StaggerGrid
+        items={cases}
+        className="
+          grid
 
-            <StatCard
-              label="Antes"
-              value={item.before}
-              className="text-slate-400"
-            />
+          grid-cols-1
+          md:grid-cols-2
+          xl:grid-cols-4
 
-            <StatCard
-              label="Después"
-              value={item.after}
-              className="text-corporateGreen"
-            />
+          gap-5
 
-            <div className="pt-4 border-t border-[#e5e7eb]">
+          items-start
+        "
+        renderItem={(item) => (
+
+          <Card
+            className="
+              rounded-[28px]
+
+              border
+              border-border-soft
+
+              bg-white/70
+
+              p-6
+
+              h-auto
+            "
+          >
+
+            <div
+              className="
+                text-[12px]
+
+                uppercase
+                tracking-[0.16em]
+
+                text-text-muted
+
+                mb-5
+              "
+            >
+              {item.type}
+            </div>
+
+            <div className="space-y-4">
 
               <StatCard
-                label="Ahorro anual estimado"
-                value={item.saving}
-                className="text-corporate"
+                label="Antes"
+                value={item.before}
+                className="
+                  text-[24px]
+                  lg:text-[30px]
+
+                  leading-none
+
+                  text-[#94A3B8]
+                "
               />
+
+              <StatCard
+                label="Después"
+                value={item.after}
+                className="
+                  text-[44px]
+                  lg:text-[50px]
+
+                  leading-none
+
+                  text-corporateGreen
+                "
+              />
+
+              <div
+                className="
+                  pt-5
+
+                  border-t
+                  border-[#e5e7eb]
+                "
+              >
+
+                <StatCard
+                  label="Ahorro anual estimado"
+                  value={item.saving}
+                  className="
+                    text-[40px]
+
+                    leading-none
+
+                    text-corporate
+                  "
+                />
+
+              </div>
 
             </div>
 
-          </div>
-
-        </Card>
+          </Card>
 
         )}
       />
+
     </Section>
 
   )

@@ -11,7 +11,8 @@ export default function FileUpload({
 
       <div
         className="
-          bg-surface-secondary
+          bg-white
+
           border
           border-border-soft
 
@@ -19,9 +20,10 @@ export default function FileUpload({
 
           transition-colors
 
-          rounded-[24px]
+          rounded-[16px]
 
-          p-6
+          px-5
+          py-5
 
           text-center
         "
@@ -29,19 +31,39 @@ export default function FileUpload({
 
         <Upload
           className="
-            w-8
-            h-8
+            w-5
+            h-5
+
             mx-auto
-            mb-4
+            mb-3
+
             text-corporateGreen
           "
         />
 
-        <div className="ui-title mb-2">
+        <div
+          className="
+            text-[16px]
+            font-medium
+
+            tracking-tight
+
+            text-corporate
+
+            mb-1
+          "
+        >
           Adjunta una o varias facturas
         </div>
 
-        <div className="card-text">
+        <div
+          className="
+            text-[13px]
+            leading-relaxed
+
+            text-slate-500
+          "
+        >
           PDF, JPG o PNG · Máx. 10MB por archivo
         </div>
 
@@ -49,9 +71,9 @@ export default function FileUpload({
 
           <div
             className="
-              mt-5
+              mt-3
 
-              text-sm
+              text-[13px]
 
               text-corporate
 

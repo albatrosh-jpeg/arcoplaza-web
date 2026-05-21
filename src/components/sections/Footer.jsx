@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
 export default function Footer() {
 
   const linkClass = `
-    text-slate-300
+    font-swiss
+
+    text-white/70
 
     transition-all
     duration-300
@@ -60,8 +62,7 @@ export default function Footer() {
 
             <p
               className="
-                text-slate-300
-
+                text-white/70
                 leading-relaxed
               "
             >
@@ -148,7 +149,7 @@ export default function Footer() {
                 contacto@arcoplazaasesores.com
               </a>
 
-              <div className="text-slate-300">
+              <div className="font-swiss text-white/70">
                 Madrid, España
               </div>
 
@@ -175,43 +176,44 @@ export default function Footer() {
             lg:justify-between
 
             text-[14px]
-            text-slate-400
+            text-white/50
           "
         >
 
           <div>
             © 2026 Arcoplaza Asesores
           </div>
+
           <div className="flex gap-6 text-sm">
 
-          <Link
-            to="/aviso-legal"
-            className={linkClass}
-          >
-            Aviso legal
-          </Link>
+            <Link
+              to="/aviso-legal"
+              className={linkClass}
+            >
+              Aviso legal
+            </Link>
 
-          <Link
-            to="/politica-privacidad"
-            className={linkClass}
-          >
-            Privacidad
-          </Link>
+            <Link
+              to="/politica-privacidad"
+              className={linkClass}
+            >
+              Privacidad
+            </Link>
 
-          <Link
-            to="/politica-cookies"
-            className={linkClass}
-          >
-            Cookies
-          </Link>
+            <Link
+              to="/politica-cookies"
+              className={linkClass}
+            >
+              Cookies
+            </Link>
 
-        </div>
+          </div>
+
           <div>
-            Supervisión energética clara y rigurosa. 
+            Supervisión energética clara y rigurosa.
             <br />
             El trabajo bien hecho, habla por sí solo.
           </div>
-
 
         </div>
 

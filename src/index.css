@@ -1,30 +1,10 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.logo-slider {
-  display: flex;
-  width: max-content;
-  animation: scrollLogos 42s linear infinite;
-will-change: transform;
-}
-
-.logo-slider:hover {
-  animation-play-state: paused;
-}
-
-@keyframes scrollLogos {
-
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
-
-}
+/* ------------------------------------------------ */
+/* GLOBAL */
+/* ------------------------------------------------ */
 
 html,
 body {
@@ -36,36 +16,183 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 
+  scroll-padding-top: 60px;
+
+  background: #fcfbf8;
+
 }
+
+/* ------------------------------------------------ */
+/* TYPOGRAPHY */
+/* ------------------------------------------------ */
 
 .font-editorial {
 
   font-family: 'Cormorant Garamond', serif;
+
   font-weight: 500;
+
   letter-spacing: -0.025em;
 
 }
 
 .section-title {
-  @apply font-editorial text-corporate tracking-tight leading-[1];
+
+  @apply
+    font-editorial
+    text-corporate
+
+    tracking-tight
+    leading-[0.95]
+
+    text-[38px]
+    lg:text-[52px];
+
 }
 
 .body-lg {
-  @apply text-[17px] leading-relaxed text-slate-600;
+
+  @apply
+    text-[16px]
+    lg:text-[18px]
+
+    leading-relaxed
+
+    text-slate-600;
+
 }
 
 .ui-title {
-  @apply text-[22px] font-semibold tracking-tight text-corporate;
+
+  @apply
+    text-[20px]
+    lg:text-[22px]
+
+    font-semibold
+
+    tracking-tight
+
+    text-corporate;
+
 }
 
+/* ------------------------------------------------ */
+/* SURFACES */
+/* ------------------------------------------------ */
+
 .surface-section {
-  @apply bg-[#fcfbf8] border-t border-[#ece7dd];
+
+  @apply
+    bg-[#fcfbf8]
+    border-t
+    border-[#ece7dd];
+
 }
+
+/* ------------------------------------------------ */
+/* SECTION SPACING */
+/* ------------------------------------------------ */
+
+.section-spacing {
+
+  @apply
+    py-14
+    lg:py-20;
+
+}
+
+.section-spacing-tight {
+
+  @apply
+    py-10
+    lg:py-14;
+
+}
+
+/* ------------------------------------------------ */
+/* UTILITIES */
+/* ------------------------------------------------ */
+
+.editorial-stack {
+
+  @apply
+    space-y-6
+    lg:space-y-10;
+
+}
+
+.card-padding {
+
+  @apply
+    p-5
+    lg:p-6;
+
+}
+
+.card-gap {
+
+  @apply
+    gap-4
+    lg:gap-5;
+
+}
+
+.mobile-tight {
+
+  @apply
+    leading-[1.7]
+    lg:leading-relaxed;
+
+}
+
+/* ------------------------------------------------ */
+/* LOGO SLIDER */
+/* ------------------------------------------------ */
+
+.logo-slider {
+
+  display: flex;
+
+  width: max-content;
+
+  animation: scrollLogos 42s linear infinite;
+
+  will-change: transform;
+
+}
+
+.logo-slider:hover {
+
+  animation-play-state: paused;
+
+}
+
+@keyframes scrollLogos {
+
+  from {
+
+    transform: translateX(0);
+
+  }
+
+  to {
+
+    transform: translateX(-50%);
+
+  }
+
+}
+
+/* ------------------------------------------------ */
+/* ACCESSIBILITY */
+/* ------------------------------------------------ */
+
 @media (prefers-reduced-motion: reduce) {
 
   * {
 
     animation-duration: 0.01ms !important;
+
     animation-iteration-count: 1 !important;
 
     transition-duration: 0.01ms !important;
@@ -74,27 +201,4 @@ body {
 
   }
 
-}
-.section-spacing {
-  @apply py-10 sm:py-10 sm:py-16 lg:py-10 sm:py-16 sm:py-24;
-}
-
-.section-spacing-tight {
-  @apply py-6 sm:py-10 lg:py-10 sm:py-16;
-}
-
-.editorial-stack {
-  @apply space-y-6 sm:space-y-10;
-}
-
-.card-padding {
-  @apply p-5 sm:p-8;
-}
-
-.card-gap {
-  @apply gap-4 sm:gap-6;
-}
-
-.mobile-tight {
-  @apply leading-[1.7] sm:leading-relaxed;
 }

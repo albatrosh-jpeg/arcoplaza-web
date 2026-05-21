@@ -79,7 +79,7 @@ export default function Hero() {
               sm:text-[48px]
               lg:text-[64px]
               lg:text-[64px]
-              font-editorial
+              font-editorial font-normal
               text-corporate
               leading-[0.92]
               tracking-tight

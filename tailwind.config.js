@@ -7,6 +7,16 @@ export default {
 
   theme: {
     extend: {
+          fontFamily: {
+
+            sans: ['Inter', 'sans-serif'],
+
+            editorial: ['Cormorant Garamond', 'serif'],
+
+            swiss: ['Manrope', 'sans-serif'],
+
+          },
+
         colors: {
 
           corporate: {

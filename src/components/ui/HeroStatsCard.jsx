@@ -84,7 +84,7 @@ export default function HeroStatsCard() {
                 className="
                   text-[17px]
                   leading-tight
-                  font-semibold
+                  font-swiss
                   tracking-tight
                   text-corporate
                   mb-1

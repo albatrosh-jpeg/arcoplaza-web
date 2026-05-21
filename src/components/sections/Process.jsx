@@ -130,7 +130,7 @@ export default function Process() {
               <div
                 className="
                   text-[14px]
-                  font-semibold
+                  font-swiss
                   tracking-[0.14em]
 
                   text-corporateGreen

@@ -45,13 +45,13 @@ export default function Calculator({
 
       <div className="max-w-7xl mx-auto px-6 pt-10 pb-2 lg:pt-14 lg:pb-4">
 
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-4xl mb-16">
 
-          <div className="text-[#1faa59] font-semibold uppercase tracking-wider text-sm mb-4">
+          <div className="text-[#1faa59] font-swiss uppercase tracking-wider text-sm mb-4">
             Optimización energética
           </div>
 
-          <h2 className="text-4xl lg:text-5xl font-editorial text-corporate leading-tight mb-6">
+          <h2 className="text-4xl lg:text-5xl font-editorial font-normal text-corporate leading-tight mb-6">
             ¿Cuánto podrías optimizar en tu suministro energético?
           </h2>
 
@@ -60,204 +60,252 @@ export default function Calculator({
           </p>
 
         </div>
+        <div
+          className="
+            grid
+            xl:grid-cols-2
 
-        <div className="
-        grid 
-        lg:grid-cols-[0.9fr_1.1fr] 
-        gap-6
-        lg:gap-5 sm:gap-6 sm:p-10
-        items-start"
+            gap-6
+            items-stretch
+            w-full
+          "
         >
 
-          {/* CALCULADORA */}
+  {/* CALCULADORA */}
 
-          <div className="
-          bg-[#fcfbf8] 
-          border border-[#d7d0c4] 
-          rounded-[24px]
+  <div
+    className="
+      bg-[#fcfbf8]
+      border border-[#d7d0c4]
+      rounded-[24px]
 
-          p-6
-          lg:p-6 sm:p-10
+      p-6
+      sm:p-8
+    "
+  >
+
+    <div className="space-y-6">
+
+      <FormField label="Tipo de suministro">
+
+        <Select
+          value={tipo}
+          onChange={(e) => setTipo(e.target.value)}
+          className="
+            w-full
+            bg-[#f8f8f6]
+            border border-[#d7d0c4]
+            rounded-xl
+            px-4
+            py-4
+            outline-none
           "
+        >
+          <option value="vivienda">Vivienda</option>
+          <option value="empresa">Empresa</option>
+          <option value="comunidad">Comunidad</option>
+        </Select>
+
+      </FormField>
+
+      <FormField label="Gasto mensual aproximado (€)">
+
+        <Input
+          type="number"
+          value={gasto}
+          onChange={(e) => setGasto(e.target.value)}
+          placeholder="Ejemplo: 180"
+        />
+
+      </FormField>
+
+      <FormField label="Potencia contratada (kW)">
+
+        <Input
+          type="number"
+          value={potencia}
+          onChange={(e) => setPotencia(e.target.value)}
+          placeholder="Ejemplo: 5.75"
+        />
+
+      </FormField>
+
+    </div>
+
+  </div>
+
+  {/* RESULTADO */}
+
+  <div
+    className="
+      relative
+      overflow-hidden
+
+      bg-[#102542]
+      text-white
+
+      rounded-[24px]
+
+      p-6
+      sm:p-8
+
+      flex
+      flex-col
+      justify-between
+    "
+  >
+
+    <div
+      className="
+        absolute
+        inset-0
+        opacity-[0.05]
+        bg-[radial-gradient(circle_at_top,white,transparent_55%)]
+      "
+    />
+
+    <div className="relative z-10">
+
+      {!resultado ? (
+
+        <>
+
+          <div
+            className="
+              text-green-300
+              uppercase
+              tracking-wider
+              text-sm
+              font-swiss
+              mb-4
+            "
           >
-
-            <div className="space-y-6">
-
-              <FormField label="Tipo de suministro">
-
-                <Select
-                  value={tipo}
-                  onChange={(e) => setTipo(e.target.value)}
-                  className="w-full bg-[#f8f8f6] border border-[#d7d0c4] rounded-xl px-4 py-4 outline-none"
-                >
-                  <option value="vivienda">Vivienda</option>
-                  <option value="empresa">Empresa</option>
-                  <option value="comunidad">Comunidad</option>
-                </Select>
-
-              </FormField>
-
-              <FormField label="Gasto mensual aproximado (€)">
-
-                <Input
-                  type="number"
-                  value={gasto}
-                  onChange={(e) => setGasto(e.target.value)}
-                  placeholder="Ejemplo: 180"
-                />
-
-              </FormField>
-
-              <FormField label="Potencia contratada (kW)">
-
-                <Input
-                  type="number"
-                  value={potencia}
-                  onChange={(e) => setPotencia(e.target.value)}
-                  placeholder="Ejemplo: 5.75"
-                />
-
-              </FormField>
-
-            </div>
-
+            Simulación orientativa
           </div>
 
-          {/* RESULTADO + FORMULARIO */}
+          <h3
+            className="
+              text-[26px]
+              sm:text-[32px]
+
+              leading-[1.12]
+
+              font-editorial font-normal
+
+              mb-5
+            "
+          >
+            Analizamos contratos eléctricos y de gas para detectar oportunidades reales de ahorro.
+          </h3>
+
+          <p
+            className="
+              text-slate-300
+              text-base
+              sm:text-lg
+              leading-relaxed
+            "
+          >
+            Introduce los datos de tu suministro y te mostraremos una estimación aproximada de ahorro anual.
+          </p>
+
+        </>
+
+      ) : (
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            scale: 0.96,
+            y: 20
+          }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            y: 0
+          }}
+          transition={{
+            duration: 0.35,
+            ease: 'easeOut'
+          }}
+        >
 
           <div className="space-y-6">
 
-            {/* RESULTADO */}
+            <div>
 
-            <div
-              className="
-                relative
-                overflow-hidden
-                bg-[#102542]
-                text-white
-                rounded-[24px]
+              <div
+                className="
+                  text-sm
+                  uppercase
+                  tracking-[0.18em]
+                  text-green-300
+                  mb-3
+                "
+              >
+                Potencial de optimización detectado
+              </div>
 
-                p-6
-                lg:p-6 sm:p-10
-                flex
-                flex-col
-                justify-center
-              "
-            >
+              <div
+                className="
+                  text-5xl
+                  lg:text-6xl
 
-              <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(circle_at_top,white,transparent_55%)]" />
+                  font-swiss
+                  leading-none
+                  tracking-tight
 
-              <div className="relative z-10">
+                  text-white
+                  mb-3
+                "
+              >
+                {resultado.minPercent}% – {resultado.maxPercent}%
+              </div>
 
-                {!resultado ? (
-
-                  <>
-
-                    <div className="text-green-300 uppercase tracking-wider text-sm font-semibold mb-4">
-                      Simulación orientativa
-                    </div>
-
-                    <h3 className="text-4xl font-editorial-md leading-tight mb-6">
-                      Analizamos contratos eléctricos y de gas para detectar oportunidades reales de ahorro.
-                    </h3>
-
-                    <p className="text-slate-300 text-lg leading-relaxed">
-                      Introduce los datos de tu suministro y te mostraremos una estimación aproximada de ahorro anual.
-                    </p>
-
-                  </>
-
-                ) : (
-
-                  <motion.div
-                    initial={{
-                      opacity: 0,
-                      scale: 0.96,
-                      y: 20
-                    }}
-                    animate={{
-                      opacity: 1,
-                      scale: 1,
-                      y: 0
-                    }}
-                    transition={{
-                      duration: 0.35,
-                      ease: 'easeOut'
-                    }}
-                  >
-
-                  <div className="space-y-6">
-
-                    <div>
-
-                      <div
-                        className="
-                          text-sm
-                          uppercase
-                          tracking-[0.18em]
-                          text-green-300
-                          mb-3
-                        "
-                      >
-                        Potencial de optimización detectado
-                      </div>
-
-                      <div
-                        className="
-                          text-5xl
-                          lg:text-6xl
-                          font-semibold
-                          leading-none
-                          tracking-tight
-                          text-white
-                          mb-3
-                        "
-                      >
-                        {resultado.minPercent}% – {resultado.maxPercent}%
-                      </div>
-
-                      <div className="text-slate-300 text-lg">
-                        Equivalente aproximado:
-                      </div>
-
-                    </div>
-
-                    <div
-                      className="
-                        text-3xl
-                        lg:text-4xl
-                        font-semibold
-                        leading-tight
-                        text-green-300
-                      "
-                    >
-                      {resultado.min.toLocaleString()}€ – {resultado.max.toLocaleString()}€/año
-                    </div>
-
-                    <div
-                      className="
-                        border-t
-                        border-white/10
-                        pt-5
-                        text-sm
-                        leading-relaxed
-                        text-slate-400
-                      "
-                    >
-                      Estimación orientativa basada en suministros similares y parámetros energéticos generales.
-                    </div>
-
-                  </div>
-                  </motion.div>
-
-                )}
-
+              <div className="text-slate-300 text-lg">
+                Equivalente aproximado:
               </div>
 
             </div>
 
+            <div
+              className="
+                text-3xl
+                lg:text-4xl
+
+                font-swiss
+                leading-tight
+
+                text-green-300
+              "
+            >
+              {resultado.min.toLocaleString()}€ – {resultado.max.toLocaleString()}€/año
+            </div>
+
+            <div
+              className="
+                border-t
+                border-white/10
+
+                pt-5
+
+                text-sm
+                leading-relaxed
+                text-slate-400
+              "
+            >
+              Estimación orientativa basada en suministros similares y parámetros energéticos generales.
+            </div>
 
           </div>
+
+        </motion.div>
+
+      )}
+
+    </div>
+
+  </div>
 
         </div>
 
@@ -292,7 +340,7 @@ export default function Calculator({
                   Solicita revisión
                 </div>
 
-                <h3 className="text-3xl font-editorial-md text-corporate leading-tight mb-4">
+                <h3 className="text-3xl font-editorial font-normal-md text-corporate leading-tight mb-4">
                   Adjunta facturas de electricidad y gas
                 </h3>
 

@@ -22,7 +22,16 @@ export default function StatCard({
 
       )}
 
-      <div className="text-4xl font-bold tracking-tight">
+      <div
+  className="
+    text-[34px]
+    sm:text-[42px]
+
+    font-bold
+    tracking-tight
+    leading-none
+  "
+>
         {value}
       </div>
 

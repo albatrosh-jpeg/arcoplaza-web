@@ -130,7 +130,7 @@ className="
             leading-tight
             tracking-tight
 
-            font-semibold
+            font-swiss
             text-corporate
           "
         >

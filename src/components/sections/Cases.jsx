@@ -22,18 +22,25 @@ export default function Cases() {
     </AnimatedReveal>
     <StaggerGrid
       items={cases}
-      className="grid lg:grid-cols-3 gap-6"
+      className="
+  grid
+
+  md:grid-cols-2
+  2xl:grid-cols-3
+
+  gap-5
+"
       renderItem={(item) => (
 
         <Card
-          className="h-full bg-[#fcfbf8] border border-[#d7d0c4] rounded-[24px] sm:rounded-[32px] p-6 sm:p-10"
+          className="h-full bg-[#fcfbf8] border border-[#d7d0c4] rounded-[24px] sm:rounded-[32px] card-padding"
         >
 
-          <div className="text-sm uppercase tracking-wider text-slate-500 mb-8">
+          <div className="text-sm uppercase tracking-wider text-slate-500 mb-4">
             {item.type}
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-3">
 
             <StatCard
               label="Antes"
@@ -47,7 +54,7 @@ export default function Cases() {
               className="text-corporateGreen"
             />
 
-            <div className="pt-6 border-t border-[#e5e7eb]">
+            <div className="pt-4 border-t border-[#e5e7eb]">
 
               <StatCard
                 label="Ahorro anual estimado"

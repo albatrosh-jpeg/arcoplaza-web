@@ -13,18 +13,22 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 export default async function handler(req, res) {
 
   if (req.method !== 'POST') {
+
     return res.status(405).json({
       error: 'Method not allowed'
     })
+
   }
 
-  const form = formidable({})
+  const form = formidable({
+  multiples: true
+})
 
   form.parse(req, async (err, fields, files) => {
 
     if (err) {
 
-      console.error(err)
+      console.error('FORM PARSE ERROR:', err)
 
       return res.status(500).json({
         error: 'Error procesando formulario'
@@ -33,6 +37,13 @@ export default async function handler(req, res) {
     }
 
     try {
+
+      console.log(
+        'RESEND_API_KEY:',
+        process.env.RESEND_API_KEY
+          ? 'OK'
+          : 'MISSING'
+      )
 
       const nombre = Array.isArray(fields.nombre)
         ? fields.nombre[0]
@@ -56,37 +67,39 @@ export default async function handler(req, res) {
           ? [files.factura]
           : []
 
-      let attachments = []
+      const attachments = []
 
       for (const file of uploadedFiles) {
+
+        if (!file?.filepath) continue
 
         const fileBuffer = fs.readFileSync(file.filepath)
 
         attachments.push({
-          filename: file.originalFilename,
+          filename: file.originalFilename || 'archivo',
           content: fileBuffer
         })
 
       }
 
-      await resend.emails.send({
+      const response = await resend.emails.send({
 
-        from: 'web@arcoplazaasesores.com',
+        from: 'contacto@arcoplazaasesores.com',
 
         to: 'contacto@arcoplazaasesores.com',
 
-        subject: `Nueva solicitud · ${nombre}`,
+        subject: `Nueva solicitud · ${nombre || 'Sin nombre'}`,
 
         html: `
           <h2>Nueva solicitud</h2>
 
-          <p><strong>Nombre:</strong> ${nombre}</p>
+          <p><strong>Nombre:</strong> ${nombre || '-'}</p>
 
-          <p><strong>Teléfono:</strong> ${telefono}</p>
+          <p><strong>Teléfono:</strong> ${telefono || '-'}</p>
 
-          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Email:</strong> ${email || '-'}</p>
 
-          <p><strong>Comentario:</strong> ${comentario}</p>
+          <p><strong>Comentario:</strong> ${comentario || '-'}</p>
 
           <p><strong>Archivos adjuntos:</strong> ${attachments.length}</p>
         `,
@@ -95,13 +108,15 @@ export default async function handler(req, res) {
 
       })
 
+      console.log('RESEND RESPONSE:', response)
+
       return res.status(200).json({
         success: true
       })
 
     } catch (error) {
 
-      console.error(error)
+      console.error('EMAIL ERROR:', error)
 
       return res.status(500).json({
         error: 'Error enviando email'

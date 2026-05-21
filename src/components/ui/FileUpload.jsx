@@ -93,19 +93,20 @@ export default function FileUpload({
           className="hidden"
           onChange={(e) => {
 
-            const files = Array.from(e.target.files)
+            const files = Array.from(e.target.files || [])
 
-            if (files.length === 1) {
+            if (!files.length) {
 
-              setFileName(files[0].name)
-
-            } else if (files.length > 1) {
-
-              setFileName(
-                `${files.length} archivos seleccionados`
-              )
+              setFileName('')
+              return
 
             }
+
+            setFileName(
+              files.length === 1
+                ? files[0].name
+                : `${files.length} archivos seleccionados`
+            )
 
           }}
         />

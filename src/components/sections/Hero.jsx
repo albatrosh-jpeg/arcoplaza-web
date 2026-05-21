@@ -93,7 +93,7 @@ const {
               mb-5
             "
           >
-            Optimización energética para empresas y comunidades
+            Análisis personalizados para empresas y comunidades
           </div>
 
           <h1

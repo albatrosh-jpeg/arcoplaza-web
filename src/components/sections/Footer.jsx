@@ -27,11 +27,15 @@ export default function Footer() {
 
       <div
         className="
+         max-w-7xl
+         mx-auto 
+        
           px-4
           lg:px-6
 
           py-14
-          lg:py-10 sm:py-16
+          lg:py-10
+          sm:py-16
         "
       >
 

@@ -17,7 +17,7 @@ export default async function submitForm({
   formData.append('nombre', e.target.nombre.value)
   formData.append('telefono', e.target.telefono.value)
   formData.append('email', e.target.email.value)
-  formData.append('comentario', e.target.comentario.value)
+  formData.append('comentario', e.target.mensaje.value)
 
 const files = Array.from(e.target.factura.files)
 
@@ -25,31 +25,33 @@ const files = Array.from(e.target.factura.files)
     formData.append('factura', file)
   })
   
-  try {
+try {
 
-    const response = await fetch('/api/contact', {
-      method: 'POST',
-      body: formData
-    })
+  const response = await fetch('/api/contact', {
+    method: 'POST',
+    body: formData
+  })
 
-    if (response.ok) {
+  if (response.ok) {
 
-      setSuccess(true)
-      setFileName('')
-      e.target.reset()
+    setSuccess(true)
+    setFileName('')
+    e.target.reset()
 
-    } else {
+  } else {
 
-      setError(true)
-
-    }
-
-  } catch (err) {
-
-    console.error(err)
     setError(true)
 
   }
 
+} catch (err) {
+
+  console.error(err)
+  setError(true)
+
+} finally {
+
   setLoading(false)
+
+}
 }

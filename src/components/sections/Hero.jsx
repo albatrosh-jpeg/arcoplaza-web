@@ -19,7 +19,7 @@ const {
   return (
 
     <section
-      id="inicio"
+      id="hero"
       className="
         relative
 

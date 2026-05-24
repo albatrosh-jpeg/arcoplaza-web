@@ -58,9 +58,11 @@ export default async function handler(req, res) {
         ? fields.email[0]
         : fields.email
 
-      const comentario = Array.isArray(fields.comentario)
-        ? fields.comentario[0]
-        : fields.comentario
+      const comentario = Array.isArray(
+        fields.comentario || fields.mensaje
+)
+      ? (fields.comentario || fields.mensaje)[0]
+      : (fields.comentario || fields.mensaje)
 
       const uploadedFiles = Array.isArray(files.factura)
         ? files.factura
@@ -117,7 +119,7 @@ if (invoiceData) {
 
       Warnings:
       ${
-        invoiceData.warnings.length
+        invoiceData.warnings?.length
           ? invoiceData.warnings.join(', ')
           : 'Sin alertas'
       }

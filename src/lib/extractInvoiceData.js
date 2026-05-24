@@ -1,10 +1,10 @@
-import pdf from 'pdf-parse'
+import pdfParse from 'pdf-parse/lib/pdf-parse.js'
 
 export default async function extractInvoiceData(buffer) {
 
   try {
 
-    const data = await pdf(buffer)
+    const data = await pdfParse(buffer)
 
     const text = data.text
 

@@ -27,9 +27,10 @@ export default function WhyArcoplaza() {
           <div className="max-w-[760px]">
 
             <SectionTitle
-              eyebrow="Por qué Arcoplaza"
-              title="Supervisión energética clara y rigurosa."
-              text="Analizamos contratos eléctricos y de gas para empresas y comunidades, detectando sobrecostes, optimizando tarifas y supervisando el consumo energético de forma continua, con una visión personalizada."
+              eyebrow="POR QUÉ ARCOPLAZA"
+              title="Monitorización clara y rigurosa."
+              text="Analizamos contratos eléctricos y de gas para detectar excesos de potencia, tarifas mal ajustadas y
+costes evitables."
               align="left"
             />
 

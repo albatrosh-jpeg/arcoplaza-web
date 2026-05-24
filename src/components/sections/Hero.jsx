@@ -58,7 +58,7 @@ const {
           px-5
           lg:px-8
 
-          pt-12
+          pt-4
           pb-16
 
           lg:pt-20
@@ -71,10 +71,9 @@ const {
         "
       >
 
-        {/* IZQUIERDA */}
+          {/* IZQUIERDA */}
 
-        <div className="max-w-[640px]">
-
+          <div className="max-w-[640px] lg:-mt-60">
           <div
             className="
               eyebrow
@@ -93,16 +92,16 @@ const {
               mb-5
             "
           >
-            Análisis personalizados para empresas y comunidades
+            Nosotros vemos lo que otros pasan por alto
           </div>
 
           <h1
             className="
-              text-[42px]
-              sm:text-[48px]
+              text-[36px]
+              sm:text-[40px]
 
-              lg:text-[54px]
-              xl:text-[64px]
+              lg:text-[50px]
+              xl:text-[60px]
 
               font-editorial
               font-normal
@@ -125,7 +124,7 @@ const {
 
             <br />
 
-            en suministros energéticos.
+            en tus suministros eléctricos y de gas.
 
           </h1>
 
@@ -225,7 +224,7 @@ const {
               mb-3
             "
           >
-            Revisamos tu suministro energético.
+            No se trata de consumir menos. Se trata de pagar lo justo.
           </h3>
 
           <p
@@ -236,7 +235,7 @@ const {
               text-slate-600
             "
           >
-            Analizamos tarifas, potencia contratada y posibles sobrecostes.
+            Una revisión técnica independiente puede cambiar completamente el coste real del suministro. Sal de duas ya!
           </p>
 
         </div>
@@ -265,7 +264,7 @@ const {
 
     <Textarea
       name="mensaje"
-      placeholder="Describe brevemente tu caso"
+      placeholder="Si lo necesitas describe brevemente tu caso"
       rows={4}
     />
 

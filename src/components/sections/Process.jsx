@@ -4,17 +4,17 @@ export default function Process() {
     {
       number: '01',
       title: 'Envío de factura',
-      text: 'Analizamos consumos, tarifas y condiciones contractuales.'
+      text: 'Revisamos tu factura, consumos, tarifas y oportunidades.'
     },
     {
       number: '02',
       title: 'Revisión técnica',
-      text: 'Detectamos sobrecostes y oportunidades reales de optimización.'
+      text: 'Identificamos aquellos costes que normalmente pasan desapercibidos.'
     },
     {
       number: '03',
       title: 'Propuesta clara',
-      text: 'Te explicamos las mejoras de forma sencilla y transparente.'
+      text: 'Te explicamos qué está ocurriendo, qué cambios recomendamos y qué impacto pueden tener en el coste final.'
     },
     {
       number: '04',
@@ -53,7 +53,7 @@ export default function Process() {
         <div className="max-w-3xl mb-12 lg:mb-16">
 
           <div className="eyebrow text-corporateGreen mb-4">
-            Cómo trabajamos
+            CÓMO TRABAJAMOS
           </div>
 
           <h2
@@ -71,7 +71,7 @@ export default function Process() {
               lg:mb-6
             "
           >
-            Proceso claro y acompañado.
+            Hay sobrecostes que pasan desapercibidos durante años.
           </h2>
 
           <p
@@ -80,6 +80,7 @@ export default function Process() {
               lg:body-lg
             "
           >
+            
             Analizamos tu suministro, detectamos oportunidades de optimización
             y gestionamos todo el proceso de forma transparente y personalizada.
           </p>

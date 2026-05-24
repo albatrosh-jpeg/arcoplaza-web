@@ -38,8 +38,7 @@ export default function Navbar() {
 
     z-[100]
 
-    bg-white/70
-    backdrop-blur-sm
+    bg-white
 
     border-b
     border-border-soft
@@ -171,7 +170,7 @@ export default function Navbar() {
               border
               border-border-soft
 
-              bg-white/70
+              bg-white
 
               text-corporate
             "
@@ -194,30 +193,26 @@ export default function Navbar() {
             inset-0
             z-[120]
 
-            bg-black/30
-            backdrop-blur-sm
+            bg-black/90
           "
         >
 
           <div
             className="
-              absolute
-              top-0
+              fixed
+              top-[74px]
+              left-0
               right-0
+              bottom-0
 
-              w-[88%]
-              max-w-[360px]
-
+              w-full
               h-full
 
-              bg-[#fcfbf8]
-
-              border-l
-              border-border-soft
+              bg-white
 
               p-6
-            "
-          >
+            " 
+           >
 
             <div
               className="
@@ -232,7 +227,7 @@ export default function Navbar() {
               <img
                 src="/logo-arcoplaza.png"
                 alt="Arcoplaza Asesores"
-                className="h-10 w-auto"
+                className="h-12 w-auto"
               />
 
               <button

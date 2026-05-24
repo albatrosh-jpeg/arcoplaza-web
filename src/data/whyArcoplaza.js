@@ -8,8 +8,8 @@ import {
 const whyArcoplaza = [
   {
     icon: ChartNoAxesColumn,
-    title: "Análisis energético personalizado",
-    text: "Revisamos consumos eléctricos y de gas para detectar sobrecostes y oportunidades reales de optimización.",
+    title: "Análisis personalizado",
+    text: "Analizamos tus contratos para detectar excesos de potencia, tarifas mal ajustadas y costes evitables.",
   },
 
   {
@@ -20,13 +20,13 @@ const whyArcoplaza = [
 
   {
     icon: ShieldCheck,
-    title: "Supervisión continua",
-    text: "Supervisamos contratos energéticos, consumo y evolución del ahorro en empresas y comunidades.",
+    title: "Seguimiento continuo",
+    text: "No vendemos energía. Revisamos si la estás pagando correctamente.",
   },
 
   {
     icon: Handshake,
-    title: "Atención técnica directa",
+    title: "Atención técnica",
     text: "Trabajas directamente con asesores energéticos especializados, sin intermediarios ni call centers.",
   },
 ]

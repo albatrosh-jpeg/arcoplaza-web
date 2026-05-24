@@ -52,7 +52,8 @@ export default function Calculator({
           </div>
 
           <h2 className="text-4xl lg:text-5xl font-editorial font-normal text-corporate leading-tight mb-6">
-            ¿Cuánto podrías optimizar en tu suministro energético?
+              No vendemos energía. Revisamos si la estás pagando correctamente.
+.
           </h2>
 
           <p className="text-slate-600 text-lg leading-relaxed">

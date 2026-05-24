@@ -82,38 +82,116 @@ export default async function handler(req, res) {
 
       }
 
-      const response = await resend.emails.send({
+const response = await resend.emails.send({
 
-        from: 'contacto@arcoplazaasesores.com',
+  from: 'contacto@arcoplazaasesores.com',
 
-        to: 'contacto@arcoplazaasesores.com',
+  to: 'contacto@arcoplazaasesores.com',
 
-        subject: `Nueva solicitud · ${nombre || 'Sin nombre'}`,
+  replyTo: email,
 
-        html: `
-          <h2>Nueva solicitud</h2>
+  subject: `Nueva solicitud · ${nombre || 'Sin nombre'}`,
 
-          <p><strong>Nombre:</strong> ${nombre || '-'}</p>
+  html: `
+    <h2>Nueva solicitud</h2>
 
-          <p><strong>Teléfono:</strong> ${telefono || '-'}</p>
+    <p><strong>Nombre:</strong> ${nombre || '-'}</p>
 
-          <p><strong>Email:</strong> ${email || '-'}</p>
+    <p><strong>Teléfono:</strong> ${telefono || '-'}</p>
 
-          <p><strong>Comentario:</strong> ${comentario || '-'}</p>
+    <p><strong>Email:</strong> ${email || '-'}</p>
 
-          <p><strong>Archivos adjuntos:</strong> ${attachments.length}</p>
-        `,
+    <p><strong>Comentario:</strong> ${comentario || '-'}</p>
 
-        attachments
+    <p><strong>Archivos adjuntos:</strong> ${attachments.length}</p>
+  `,
 
-      })
+  attachments
 
-      console.log('RESEND RESPONSE:', response)
+})
 
-      return res.status(200).json({
-        success: true
-      })
+console.log('RESEND RESPONSE:', response)
 
+if (response.error) {
+
+  console.error(response.error)
+
+  return res.status(500).json({
+    error: response.error.message
+  })
+
+}
+
+await resend.emails.send({
+
+  from: 'contacto@arcoplazaasesores.com',
+
+  to: email,
+
+  subject: 'Hemos recibido tu solicitud · Arcoplaza Asesores',
+
+  html: `
+
+    <div style="
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #1e293b;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 32px;
+    ">
+
+      <img
+        src="https://www.arcoplazaasesores.com/logo-arcoplaza.png"
+        alt="Arcoplaza Asesores"
+        style="
+          width: 180px;
+          margin-bottom: 32px;
+        "
+      />
+
+      <h2 style="
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #163a70;
+      ">
+        Hemos recibido tu solicitud.
+      </h2>
+
+      <p>
+        Hola ${nombre || ''},
+      </p>
+
+      <p>
+        Hemos recibido correctamente tu solicitud de revisión energética y la documentación adjunta.
+      </p>
+
+      <p>
+        Nuestro equipo revisará la información y se pondrá en contacto contigo lo antes posible.
+      </p>
+
+      <div style="
+        margin-top: 40px;
+        padding-top: 24px;
+        border-top: 1px solid #e2e8f0;
+        font-size: 14px;
+        color: #64748b;
+      ">
+
+        <strong>Arcoplaza Asesores</strong><br/>
+        Supervisión energética independiente<br/>
+        www.arcoplazaasesores.com
+
+      </div>
+
+    </div>
+
+  `
+})
+
+return res.status(200).json({
+  success: true
+})
     } catch (error) {
 
       console.error('EMAIL ERROR:', error)

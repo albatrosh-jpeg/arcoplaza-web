@@ -1,6 +1,7 @@
 import { Resend } from 'resend'
 import formidable from 'formidable'
 import fs from 'fs'
+import extractInvoiceData from '../src/lib/extractInvoiceData.js'
 
 export const config = {
   api: {
@@ -68,7 +69,7 @@ export default async function handler(req, res) {
           : []
 
       const attachments = []
-
+      let invoiceAnalysis = []
       for (const file of uploadedFiles) {
 
         if (!file?.filepath) continue
@@ -80,6 +81,52 @@ export default async function handler(req, res) {
           content: fileBuffer
         })
 
+const invoiceData =
+  await extractInvoiceData(fileBuffer)
+
+console.log(invoiceData)
+
+if (invoiceData) {
+
+  invoiceAnalysis.push(`
+
+    <div style="
+      margin-bottom: 18px;
+      padding: 14px;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+    ">
+
+      <strong>Factura analizada</strong><br/><br/>
+
+      Comercializadora:
+      ${invoiceData.company || 'No detectada'}
+      <br/>
+
+      Tarifa:
+      ${invoiceData.tariff || 'No detectada'}
+      <br/>
+
+      Potencia:
+      ${invoiceData.power || 'No detectada'}
+      <br/>
+
+      Total:
+      ${invoiceData.total || 'No detectado'}
+      <br/><br/>
+
+      Warnings:
+      ${
+        invoiceData.warnings.length
+          ? invoiceData.warnings.join(', ')
+          : 'Sin alertas'
+      }
+
+    </div>
+
+  `)
+
+}
       }
 
 const response = await resend.emails.send({
@@ -104,6 +151,10 @@ const response = await resend.emails.send({
     <p><strong>Comentario:</strong> ${comentario || '-'}</p>
 
     <p><strong>Archivos adjuntos:</strong> ${attachments.length}</p>
+    
+    <h3>Análisis preliminar</h3>
+
+${invoiceAnalysis.join('')}
   `,
 
   attachments

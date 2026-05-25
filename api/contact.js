@@ -73,7 +73,7 @@ export default async function handler(req, res) {
       const attachments = []
 
       let invoiceAnalysis = []
-      
+
       let analysisData = []
       
       for (const file of uploadedFiles) {
@@ -91,6 +91,7 @@ const invoiceData =
   await extractInvoiceData(fileBuffer)
 
 console.log(invoiceData)
+analysisData.push(invoiceData)
 
 if (invoiceData) {
 

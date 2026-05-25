@@ -3,8 +3,9 @@ export default async function submitForm({
   setLoading,
   setSuccess,
   setError,
-  setFileName
-}) {
+  setFileName,
+  setAnalysis
+}){
 
   e.preventDefault()
 
@@ -32,18 +33,25 @@ try {
     body: formData
   })
 
-  if (response.ok) {
+if (response.ok) {
 
-    setSuccess(true)
-    setFileName('')
-    e.target.reset()
+  const data = await response.json()
 
-  } else {
+  console.log(data.analysis)
 
-    setError(true)
+  setAnalysis(data.analysis)
 
-  }
+  setSuccess(true)
 
+  setFileName('')
+
+  e.target.reset()
+
+} else {
+
+  setError(true)
+
+}
 } catch (err) {
 
   console.error(err)

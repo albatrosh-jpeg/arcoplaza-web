@@ -9,13 +9,15 @@ import useContactForm from '../../hooks/useContactForm'
 
 export default function Hero() {
 const {
-  handleSubmit,
   loading,
   success,
   error,
   fileName,
-  setFileName
+  analysis,
+  setFileName,
+  handleSubmit
 } = useContactForm()
+
   return (
 
     <section
@@ -288,6 +290,69 @@ const {
         Solicitud enviada correctamente.
       </p>
     )}
+
+{
+  analysis?.[0] && (
+
+    <div
+      className="
+        mt-6
+        rounded-2xl
+        border
+        border-[#d7d0c4]
+        bg-[#f8f6f1]
+        p-5
+        text-sm
+        text-[#163a70]
+      "
+    >
+
+      <p className="font-semibold mb-3">
+        ✓ Factura analizada
+      </p>
+
+      <div className="space-y-2">
+
+<p>
+        • Comercializadora detectada:
+        {' '}
+        <span className="font-medium">
+          {analysis[0].company || 'No detectada'}
+        </span>
+      </p>
+
+      <p>
+        • Tarifa identificada:
+        {' '}
+        <span className="font-medium">
+          {analysis[0].tariff || 'No detectada'}
+        </span>
+      </p>
+
+        {
+          analysis[0].warnings?.map(
+            (warning, index) => (
+
+              <p key={index}>
+                • {warning}
+              </p>
+
+            )
+          )
+        }
+      <p className="mt-4 text-[#5b6b88] leading-relaxed">
+
+  Nuestro equipo revisará ahora la estructura
+  tarifaria, la potencia contratada y posibles
+  penalizaciones asociadas al suministro.
+
+</p>
+      </div>
+
+    </div>
+
+  )
+}
 
     {error && (
       <p className="text-sm text-red-600">

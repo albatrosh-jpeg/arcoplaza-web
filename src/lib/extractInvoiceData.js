@@ -8,29 +8,72 @@ export default async function extractInvoiceData(buffer) {
 
     const text = data.text
 
-    const result = {
+const result = {
 
-      company: null,
-      tariff: null,
-      power: null,
-      total: null,
-      warnings: []
+  company: null,
+  tariff: null,
+  power: null,
+  maxDemand: null,
+  total: null,
+  warnings: []
 
-    }
+}
 
     // COMERCIALIZADORA
 
-    if (/iberdrola/i.test(text)) {
-      result.company = 'Iberdrola'
-    }
+const companies = [
 
-    if (/endesa/i.test(text)) {
-      result.company = 'Endesa'
-    }
+  'Iberdrola',
+  'Endesa',
+  'Naturgy',
+  'Holaluz',
+  'Repsol',
+  'TotalEnergies',
+  'Aldro',
+  'Factor Energía',
+  'Plenitude',
+  'Aizen',
+  'Plena Energía',
+  'Audax',
+  'Fenie',
+  'CHC',
+  'Octopus',
+  'Podo',
+  'Acciona',
+  'EDP',
+  "Lucera",
+  "Cepsa",
+  "Energía XXI",
+  "Gana Energía",
+  "Candela Energía",
+  "Cobra",
+  "Energía de Madrid",
+  "Energía XXI",
+  "Axpo",
+  "AEQ",
+  "Agraria",
+  "Eleia",
+  "Ignis",
+  "GALP",
+  "Acciona",
+  "TotalsEnergies",
 
-    if (/naturgy/i.test(text)) {
-      result.company = 'Naturgy'
-    }
+]
+
+for (const company of companies) {
+
+  const regex =
+    new RegExp(company, 'i')
+
+  if (regex.test(text)) {
+
+    result.company = company
+
+    break
+
+  }
+
+}
 
     // TARIFA
 
@@ -106,7 +149,30 @@ if (
   )
 
 }
+if (
 
+  /reactiva/i.test(text) ||
+
+  /energía reactiva/i.test(text)
+
+) {
+
+  result.warnings.push(
+    'Posibles penalizaciones por energía reactiva detectadas'
+  )
+
+}
+if (
+
+  /Excesos de Potencia/i.test(text)
+
+) {
+
+  result.warnings.push(
+    'Posibles excesos de potencia detectados'
+  )
+
+}
     // TOTAL FACTURA
 
     const totalMatch =
@@ -141,5 +207,11 @@ if (numericPower > 15) {
     return null
 
   }
+<p className="mt-4 text-[#5b6b88] leading-relaxed">
 
+  Nuestro equipo revisará ahora la estructura
+  tarifaria, la potencia contratada y posibles
+  penalizaciones asociadas al suministro.
+
+</p>
 }

@@ -13,6 +13,7 @@ const result = {
   company: null,
   tariff: null,
   power: null,
+  periodPowers: null,
   maxDemand: null,
   total: null,
   warnings: []
@@ -28,7 +29,6 @@ const companies = [
   'Naturgy',
   'Holaluz',
   'Repsol',
-  'TotalEnergies',
   'Aldro',
   'Factor Energía',
   'Plenitude',
@@ -56,7 +56,7 @@ const companies = [
   "Ignis",
   "GALP",
   "Acciona",
-  "TotalsEnergies",
+  "TotalEnergies",
 
 ]
 
@@ -85,6 +85,34 @@ for (const company of companies) {
     }
 
     // POTENCIA
+    
+const periodPowers = {}
+
+for (let i = 1; i <= 6; i++) {
+
+  const match =
+    text.match(
+      new RegExp(
+        `P${i}:\\s*(\\d+[.,]?\\d*)\\s*kW`,
+        'i'
+      )
+    )
+
+  if (match) {
+
+    periodPowers[`P${i}`] = match[1]
+
+  }
+
+}
+
+if (
+  Object.keys(periodPowers).length
+) {
+
+  result.periodPowers = periodPowers
+
+}
 
 const powerMatch =
   text.match(
@@ -145,35 +173,56 @@ if (
 ) {
 
   result.warnings.push(
-    'Posible exceso de potencia contratada'
+    'Se detectan posibles desviaciones entre potencia contratada y demanda real'
+  )
+
+}
+const reactiveMatch =
+  text.match(
+    /Importe por energía reactiva.*?([\d.,]+)\s*€/is
+  )
+
+if (
+  reactiveMatch &&
+  parseFloat(
+    reactiveMatch[1].replace(',', '.')
+  ) > 0
+) {
+
+  result.warnings.push(
+    'Se detectan posibles penalizaciones por energía reactiva'
+  )
+
+}
+const excessMatch =
+  text.match(
+    /Excesos de Potencia\s*([\d.,]+)\s*€/i
+  )
+
+if (
+  excessMatch &&
+  parseFloat(
+    excessMatch[1].replace(',', '.')
+  ) > 0
+) {
+
+  result.warnings.push(
+    'Se detectan indicios de excesos de potencia en el suministro'
   )
 
 }
 if (
 
-  /reactiva/i.test(text) ||
-
-  /energía reactiva/i.test(text)
+  /Penalización por baja anticipada:\s*SI/i.test(text)
 
 ) {
 
   result.warnings.push(
-    'Posibles penalizaciones por energía reactiva detectadas'
+    'El suministro podría tener condiciones de permanencia activas'
   )
 
 }
-if (
-
-  /Excesos de Potencia/i.test(text)
-
-) {
-
-  result.warnings.push(
-    'Posibles excesos de potencia detectados'
-  )
-
-}
-    // TOTAL FACTURA
+// TOTAL FACTURA
 
     const totalMatch =
       text.match(

@@ -71,7 +71,11 @@ export default async function handler(req, res) {
           : []
 
       const attachments = []
+
       let invoiceAnalysis = []
+      
+      let analysisData = []
+      
       for (const file of uploadedFiles) {
 
         if (!file?.filepath) continue
@@ -109,8 +113,12 @@ if (invoiceData) {
       ${invoiceData.tariff || 'No detectada'}
       <br/>
 
-      Potencia:
-      ${invoiceData.power || 'No detectada'}
+      Potencia punta:
+      ${invoiceData.power?.punta || 'No detectada'}
+      <br/>
+
+      Potencia valle:
+      ${invoiceData.power?.valle || 'No detectada'}
       <br/>
 
       Total:
@@ -243,7 +251,11 @@ await resend.emails.send({
 })
 
 return res.status(200).json({
-  success: true
+
+  success: true,
+
+  analysis: analysisData
+
 })
     } catch (error) {
 

@@ -43,14 +43,69 @@ export default async function extractInvoiceData(buffer) {
 
     // POTENCIA
 
-    const powerMatch =
-      text.match(
-        /Potencia contratada.*?(\d+[.,]?\d*)/i
-      )
+const powerMatch =
+  text.match(
+    /Potencia punta:\s*(\d+[.,]?\d*)\s*kW/i
+  )
 
-    if (powerMatch) {
-      result.power = powerMatch[1]
-    }
+const valleyMatch =
+  text.match(
+    /Potencia valle:\s*(\d+[.,]?\d*)\s*kW/i
+  )
+
+if (powerMatch || valleyMatch) {
+
+  result.power = {
+
+    punta: powerMatch
+      ? powerMatch[1]
+      : null,
+
+    valle: valleyMatch
+      ? valleyMatch[1]
+      : null
+
+  }
+
+}
+
+const maxDemandMatch =
+  text.match(
+    /Potencias máximas demandadas.*?(\d+[.,]?\d*)\s*kW.*?(\d+[.,]?\d*)\s*kW/is
+  )
+
+if (maxDemandMatch) {
+
+  result.maxDemand = {
+
+    punta: maxDemandMatch[1],
+    valle: maxDemandMatch[2]
+
+  }
+
+}
+
+const contracted =
+  parseFloat(
+    result.power?.punta?.replace(',', '.')
+  )
+
+const demanded =
+  parseFloat(
+    result.maxDemand?.punta?.replace(',', '.')
+  )
+
+if (
+  contracted &&
+  demanded &&
+  contracted > demanded * 2
+) {
+
+  result.warnings.push(
+    'Posible exceso de potencia contratada'
+  )
+
+}
 
     // TOTAL FACTURA
 
@@ -65,19 +120,18 @@ export default async function extractInvoiceData(buffer) {
 
     // WARNINGS
 
-    const numericPower =
-      parseFloat(
-        result.power?.replace(',', '.')
-      )
+const numericPower =
+  parseFloat(
+    result.power?.punta?.replace(',', '.')
+  )
 
-    if (numericPower > 15) {
+if (numericPower > 15) {
 
-      result.warnings.push(
-        'Posible potencia sobredimensionada'
-      )
+  result.warnings.push(
+    'Potencia contratada elevada'
+  )
 
-    }
-
+}
     return result
 
   } catch (error) {

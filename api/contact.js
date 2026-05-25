@@ -192,63 +192,63 @@ await resend.emails.send({
 
   subject: 'Hemos recibido tu solicitud · Arcoplaza Asesores',
 
-  html: `
+html: `
+
+  <div style="
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #1e293b;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 32px;
+  ">
+
+    <img
+      src="https://www.arcoplazaasesores.com/logo-arcoplaza.png"
+      alt="Arcoplaza Asesores"
+      style="
+        width: 180px;
+        margin-bottom: 32px;
+      "
+    />
+
+    <h2 style="
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #163a70;
+    ">
+      Hemos recibido tu solicitud.
+    </h2>
+
+    <p>
+      Hola ${nombre || ''},
+    </p>
+
+    <p>
+      Hemos recibido correctamente tu solicitud de revisión energética y la documentación adjunta.
+    </p>
+
+    <p>
+      Nuestro equipo revisará la información y se pondrá en contacto contigo lo antes posible.
+    </p>
 
     <div style="
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #1e293b;
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 32px;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 14px;
+      color: #64748b;
     ">
 
-      <img
-        src="https://www.arcoplazaasesores.com/logo-arcoplaza.png"
-        alt="Arcoplaza Asesores"
-        style="
-          width: 180px;
-          margin-bottom: 32px;
-        "
-      />
-
-      <h2 style="
-        font-size: 28px;
-        margin-bottom: 20px;
-        color: #163a70;
-      ">
-        Hemos recibido tu solicitud.
-      </h2>
-
-      <p>
-        Hola ${nombre || ''},
-      </p>
-
-      <p>
-        Hemos recibido correctamente tu solicitud de revisión energética y la documentación adjunta.
-      </p>
-
-      <p>
-        Nuestro equipo revisará la información y se pondrá en contacto contigo lo antes posible.
-      </p>
-
-      <div style="
-        margin-top: 40px;
-        padding-top: 24px;
-        border-top: 1px solid #e2e8f0;
-        font-size: 14px;
-        color: #64748b;
-      ">
-
-        <strong>Arcoplaza Asesores</strong><br/>
-        Supervisión energética independiente<br/>
-        www.arcoplazaasesores.com
-
-      </div>
+      <strong>Arcoplaza Asesores</strong><br/>
+      Asesores energéticos independientes<br/>
+      www.arcoplazaasesores.com
 
     </div>
 
-  `
+  </div>
+
+`
 })
 
 return res.status(200).json({
@@ -258,6 +258,7 @@ return res.status(200).json({
   analysis: analysisData
 
 })
+
     } catch (error) {
 
       console.error('EMAIL ERROR:', error)

@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import CommercialEmail from './pages/CommercialEmail'
 
 import {
   BrowserRouter,
@@ -26,6 +27,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route
           path="/"
           element={<App />}
+        />
+
+        <Route
+          path="/commercial-email"
+          element={<CommercialEmail />}
         />
 
         <Route

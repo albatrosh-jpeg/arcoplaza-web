@@ -1,5 +1,8 @@
+import { Send, Loader2 } from 'lucide-react'
 import { useState } from 'react'
 import { firstVisitEmail } from '../emails/firstVisitEmail.js'
+import { Helmet } from 'react-helmet'
+import { useEffect } from 'react'
 
 export default function CommercialEmail() {
 
@@ -16,7 +19,44 @@ const [password, setPassword] =
     useState('')
 
   const [omiePrice, setOmiePrice] =
-    useState('42,18')
+    useState('')
+
+    useEffect(() => {
+
+  const loadOmiePrice =
+    async () => {
+
+      try {
+
+        const response =
+          await fetch(
+            '/api/getOmiePrice'
+          )
+
+        const data =
+          await response.json()
+
+        if (data.price) {
+
+          setOmiePrice(
+            data.price
+          )
+
+        }
+
+      }
+
+      catch (error) {
+
+        console.error(error)
+
+      }
+
+    }
+
+  loadOmiePrice()
+
+}, [])
 
   const [omieComment, setOmieComment] =
     useState(
@@ -94,7 +134,9 @@ function handleLogin(e) {
   e.preventDefault()
 
   if (
-    password === 'arcoplaza2026'
+    password ===
+import.meta.env
+.VITE_COMMERCIAL_PASSWORD
   ) {
 
     setAuthorized(true)
@@ -171,7 +213,18 @@ if (!authorized) {
 
 }
 
-  return (
+return (
+
+  <>
+
+    <Helmet>
+
+      <meta
+        name="robots"
+        content="noindex,nofollow"
+      />
+
+    </Helmet>
 
     <div className="
       min-h-screen
@@ -180,21 +233,28 @@ if (!authorized) {
       py-16
     ">
 
-    <div className="
-      max-w-7xl
-      mx-auto
-      grid
-      grid-cols-1
-      lg:grid-cols-2
-      gap-10
-    ">
-        <h1 className="
-          text-4xl
-          font-semibold
-          mb-10
-        ">
-          Commercial Email
-        </h1>
+      <div className="
+        max-w-7xl
+        mx-auto
+        grid
+        grid-cols-1
+        lg:grid-cols-2
+        gap-10
+        px-6
+        py-12
+      ">
+
+        <div className="lg:col-span-2">
+
+          <h1 className="
+            text-4xl
+            font-semibold
+            mb-10
+          ">
+            Commercial Email
+          </h1>
+
+        </div>
 
         <form
           onSubmit={handleSubmit}
@@ -272,19 +332,30 @@ if (!authorized) {
           <button
             type="submit"
             disabled={loading}
-            className="
+            className={`
               bg-black
               text-white
               rounded-xl
               px-6
               py-4
               font-medium
-            "
+              transition-all
+              hover:opacity-90
+              active:scale-[0.98]
+              shadow-sm
+hover:shadow-md
+
+              ${
+                loading
+                  ? 'opacity-60 cursor-not-allowed'
+                  : ''
+              }
+            `}
           >
 
             {
               loading
-                ? 'Enviando...'
+                ? 'Procesando envío...'
                 : 'Enviar email'
             }
 
@@ -293,57 +364,63 @@ if (!authorized) {
           {
             success && (
 
-              <div className="
-                text-green-600
-                font-medium
-              ">
+          <div className="
+            text-green-600
+            font-medium
+            bg-green-50
+            border
+            border-green-200
+            rounded-xl
+            px-4
+            py-3
+          ">
 
-                Email enviado correctamente.
+            Email enviado correctamente.
 
-              </div>
-
+          </div>
             )
           }
 
         </form>
 
         <div
-  className="
-    border
-    border-gray-200
-    rounded-2xl
-    overflow-hidden
-    bg-white
-    shadow-sm
-  "
->
+          className="
+            border
+            border-gray-200
+            rounded-2xl
+            overflow-hidden
+            bg-white
+            shadow-sm
+          "
+        >
 
-  <div className="
-    px-6
-    py-4
-    border-b
-    border-gray-200
-    font-medium
-  ">
-    Preview email
-  </div>
+          <div className="
+            px-6
+            py-4
+            border-b
+            border-gray-200
+            font-medium
+          ">
+            Preview email
+          </div>
 
-  <iframe
-    title="email-preview"
-    srcDoc={previewHtml}
-    className="
-      w-full
-      h-[700px]
-      bg-white
-    "
-  />
+          <iframe
+            title="email-preview"
+            srcDoc={previewHtml}
+            className="
+              w-full
+              h-[700px]
+              bg-white
+            "
+          />
 
-</div>
+        </div>
 
       </div>
 
     </div>
 
-  )
+  </>
 
+)
 }

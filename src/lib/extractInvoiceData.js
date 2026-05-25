@@ -198,6 +198,8 @@ if (numericPower > 15) {
   )
 
 }
+result.warnings =
+  result.warnings.slice(0, 2)
     return result
 
   } catch (error) {
@@ -207,11 +209,5 @@ if (numericPower > 15) {
     return null
 
   }
-<p className="mt-4 text-[#5b6b88] leading-relaxed">
 
-  Nuestro equipo revisará ahora la estructura
-  tarifaria, la potencia contratada y posibles
-  penalizaciones asociadas al suministro.
-
-</p>
 }

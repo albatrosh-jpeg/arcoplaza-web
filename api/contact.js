@@ -9,10 +9,9 @@ export const config = {
   }
 }
 
-const resend = new Resend(const resend = new Resend(
+const resend = new Resend(
   process.env.RESEND_API_KEY
-))
-
+)
 export default async function handler(req, res) {
 
   if (req.method !== 'POST') {
@@ -42,14 +41,11 @@ export default async function handler(req, res) {
     try {
 
       console.log(
-        'RESEND_API_KEY:',
-        const resend = new Resend(
+  'RESEND_API_KEY:',
   process.env.RESEND_API_KEY
+    ? 'OK'
+    : 'MISSING'
 )
-          ? 'OK'
-          : 'MISSING'
-      )
-
       const nombre = Array.isArray(fields.nombre)
         ? fields.nombre[0]
         : fields.nombre

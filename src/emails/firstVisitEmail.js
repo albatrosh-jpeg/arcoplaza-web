@@ -259,21 +259,6 @@ export const firstVisitEmail = ({
 
 </div>
 
-
-            <div
-              style="
-                font-size:15px;
-                line-height:1.8;
-                color:#556274;
-              "
-            >
-              ${omieComment}
-            </div>
-
-          </div>
-
-        </div>
-
         <div
           style="
             margin-top:56px;

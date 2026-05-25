@@ -1,6 +1,13 @@
 import { useState } from 'react'
+import { firstVisitEmail } from '../emails/firstVisitEmail.js'
 
 export default function CommercialEmail() {
+
+const [authorized, setAuthorized] =
+  useState(false)
+
+const [password, setPassword] =
+  useState('')
 
   const [clientName, setClientName] =
     useState('')
@@ -21,6 +28,16 @@ export default function CommercialEmail() {
 
   const [success, setSuccess] =
     useState(false)
+
+  const previewHtml = firstVisitEmail({
+
+  clientName,
+
+  omiePrice,
+
+  omieComment
+
+})
 
   async function handleSubmit(e) {
 
@@ -72,6 +89,88 @@ export default function CommercialEmail() {
 
   }
 
+function handleLogin(e) {
+
+  e.preventDefault()
+
+  if (
+    password === 'arcoplaza2026'
+  ) {
+
+    setAuthorized(true)
+
+  }
+
+}
+
+if (!authorized) {
+
+  return (
+
+    <div className="
+      min-h-screen
+      flex
+      items-center
+      justify-center
+      bg-white
+      px-6
+    ">
+
+      <form
+        onSubmit={handleLogin}
+        className="
+          w-full
+          max-w-md
+          flex
+          flex-col
+          gap-4
+        "
+      >
+
+        <h1 className="
+          text-3xl
+          font-semibold
+          mb-4
+        ">
+          Acceso interno
+        </h1>
+
+        <input
+          type="password"
+          placeholder="Contraseña"
+          value={password}
+          onChange={(e) =>
+            setPassword(e.target.value)
+          }
+          className="
+            border
+            border-gray-300
+            rounded-xl
+            px-4
+            py-3
+          "
+        />
+
+        <button
+          type="submit"
+          className="
+            bg-black
+            text-white
+            rounded-xl
+            py-3
+          "
+        >
+          Entrar
+        </button>
+
+      </form>
+
+    </div>
+
+  )
+
+}
+
   return (
 
     <div className="
@@ -81,11 +180,14 @@ export default function CommercialEmail() {
       py-16
     ">
 
-      <div className="
-        max-w-2xl
-        mx-auto
-      ">
-
+    <div className="
+      max-w-7xl
+      mx-auto
+      grid
+      grid-cols-1
+      lg:grid-cols-2
+      gap-10
+    ">
         <h1 className="
           text-4xl
           font-semibold
@@ -204,6 +306,39 @@ export default function CommercialEmail() {
           }
 
         </form>
+
+        <div
+  className="
+    border
+    border-gray-200
+    rounded-2xl
+    overflow-hidden
+    bg-white
+    shadow-sm
+  "
+>
+
+  <div className="
+    px-6
+    py-4
+    border-b
+    border-gray-200
+    font-medium
+  ">
+    Preview email
+  </div>
+
+  <iframe
+    title="email-preview"
+    srcDoc={previewHtml}
+    className="
+      w-full
+      h-[700px]
+      bg-white
+    "
+  />
+
+</div>
 
       </div>
 

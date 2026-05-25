@@ -52,9 +52,9 @@ export const firstVisitEmail = ({
     <div style="margin: 40px 0;">
 
       <a
-        href="https://www.arcoplazaasesores.com/contacto"
+        href="https://www.arcoplazaasesores.com/"
         style="
-          background: #111111;
+          background-color: #003e85;
           color: #ffffff;
           padding: 14px 28px;
           border-radius: 10px;

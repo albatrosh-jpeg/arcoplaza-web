@@ -10,7 +10,7 @@ export const config = {
 }
 
 const resend = new Resend(const resend = new Resend(
-  're_BT1n2qww_KSHsQsmFPt8u8hXipb3LV248'
+  process.env.RESEND_API_KEY
 ))
 
 export default async function handler(req, res) {
@@ -44,7 +44,7 @@ export default async function handler(req, res) {
       console.log(
         'RESEND_API_KEY:',
         const resend = new Resend(
-  're_BT1n2qww_KSHsQsmFPt8u8hXipb3LV248'
+  process.env.RESEND_API_KEY
 )
           ? 'OK'
           : 'MISSING'

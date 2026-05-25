@@ -2,7 +2,7 @@ import { Resend } from 'resend'
 import { firstVisitEmail } from '../src/emails/firstVisitEmail.js'
 
 const resend = new Resend(
-  're_BT1n2qww_KSHsQsmFPt8u8hXipb3LV248'
+  process.env.RESEND_API_KEY
 )
 
 export default async function handler(req, res) {

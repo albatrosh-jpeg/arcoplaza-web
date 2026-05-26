@@ -11,9 +11,31 @@ export default async function handler(
 
     const html = await response.text()
 
-    const match = html.match(
-      /<span class="price up">€([\d.]+)/i
-    )
+const today = new Date()
+
+const startOfYear =
+  new Date(today.getFullYear(), 0, 1)
+
+const days =
+  Math.floor(
+    (today - startOfYear) /
+    (24 * 60 * 60 * 1000)
+  )
+
+const week =
+  Math.ceil(
+    (days + startOfYear.getDay() + 1) / 7
+  )
+
+const weekCode =
+  `Wk${String(week).padStart(2, '0')}-${String(today.getFullYear()).slice(-2)}`
+
+const regex = new RegExp(
+  `${weekCode}[\\s\\S]*?€([\\d.]+)`,
+  'i'
+)
+
+const match = html.match(regex)
 
     if (!match) {
 

@@ -11,9 +11,14 @@ export default async function handler(
 
     const html = await response.text()
     console.log(
-      html.slice(0, 10000)
+      html.includes('SPEL')
+      
     )
 
+    console.log(
+    html.match(/SPEL.{0,200}/gi)
+    )
+    
     const match = html.match(
       /SPEL Base Weekly[\s\S]*?(\d+,\d+)/i
     )

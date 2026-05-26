@@ -3,6 +3,44 @@ export default async function handler(
   res
 ) {
 
+  function getISOWeek(date) {
+
+    const target = new Date(date)
+
+    const dayNr =
+      (date.getDay() + 6) % 7
+
+    target.setDate(
+      target.getDate() - dayNr + 3
+    )
+
+    const firstThursday =
+      target.valueOf()
+
+    target.setMonth(0, 1)
+
+    if (target.getDay() !== 4) {
+
+      target.setMonth(
+        0,
+        1 + (
+          (4 - target.getDay()) + 7
+        ) % 7
+      )
+
+    }
+
+    return (
+      1 + Math.ceil(
+        (
+          firstThursday -
+          target
+        ) / 604800000
+      )
+    )
+
+  }
+
   try {
 
     const response = await fetch(
@@ -11,26 +49,37 @@ export default async function handler(
 
     const html = await response.text()
 
-/api/getMarketData
+    const today = new Date()
 
-const regex = new RegExp(
-  `${weekCode}[\\s\\S]*?€([\\d.]+)`,
-  'i'
-)
+    const week =
+      getISOWeek(today)
 
-const match = html.match(regex)
+    const weekCode =
+      `Wk${String(week).padStart(2, '0')}-${String(today.getFullYear()).slice(-2)}`
+
+    const regex = new RegExp(
+      `${weekCode}[\\s\\S]*?€([\\d.]+)`,
+      'i'
+    )
+
+    const match = html.match(regex)
 
     if (!match) {
 
       return res.status(500).json({
-        error: 'No se pudo obtener OMIP'
+
+        error:
+          'No se pudo obtener OMIP'
+
       })
 
     }
 
     return res.status(200).json({
 
-      price: match[1].replace('.', ','),
+      price:
+        match[1].replace('.', ','),
+
       max: null,
       min: null,
       energy: null
@@ -45,7 +94,8 @@ const match = html.match(regex)
 
     return res.status(500).json({
 
-      error: 'Error obteniendo OMIP'
+      error:
+        'Error obteniendo OMIP'
 
     })
 

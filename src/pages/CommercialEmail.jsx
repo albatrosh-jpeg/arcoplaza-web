@@ -74,15 +74,15 @@ En Arcoplaza Asesores realizamos revisiones técnicas independientes orientadas 
   const [success, setSuccess] =
     useState(false)
 
-  const previewHtml = firstVisitEmail({
+const previewHtml = firstVisitEmail({
 
   clientName,
-  
-  customMessage,
 
   marketPrice,
 
-  marketComment
+  marketComment,
+
+  customMessage
 
 })
 

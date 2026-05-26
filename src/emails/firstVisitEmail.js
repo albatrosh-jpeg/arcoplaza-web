@@ -1,7 +1,7 @@
 export const firstVisitEmail = ({
   clientName,
-  omiePrice,
-  omieComment,
+  marketPrice,
+  marketComment,
   customMessage
 }) => {
 
@@ -131,25 +131,21 @@ export const firstVisitEmail = ({
                 Optimización de potencia
               </td>
             </tr>
-
             <tr>
               <td style="padding:10px 0;">
                 Revisión tarifaria
               </td>
             </tr>
-
             <tr>
               <td style="padding:10px 0;">
                 Detección de penalizaciones
               </td>
             </tr>
-
             <tr>
               <td style="padding:10px 0;">
                 Comparativa de mercado energético
               </td>
             </tr>
-
             <tr>
               <td style="padding:10px 0;">
                 Análisis de excesos y permanencias
@@ -269,7 +265,7 @@ export const firstVisitEmail = ({
                 color:#163A70;
                 font-weight:300;
               ">
-                ${omiePrice}
+                ${marketPrice}
               </div>
 
               <div style="
@@ -291,7 +287,7 @@ export const firstVisitEmail = ({
             line-height:1.8;
             color:#556274;
           ">
-            ${omieComment}
+            ${marketComment}
           </div>
 
         </div>

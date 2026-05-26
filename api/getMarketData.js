@@ -10,35 +10,27 @@ export default async function handler(
     )
 
     const html = await response.text()
-    console.log(
-      html.includes('SPEL')
-      
-    )
 
-    console.log(
-    html.match(/SPEL.{0,200}/gi)
-    )
-    
     const match = html.match(
-      /SPEL Base Weekly[\s\S]*?(\d+,\d+)/i
+      /<span class="price up">€([\d.]+)/i
     )
 
     if (!match) {
 
       return res.status(500).json({
-        error: 'No se pudo obtener OMIE'
+        error: 'No se pudo obtener OMIP'
       })
 
     }
 
-      return res.status(200).json({
+    return res.status(200).json({
 
-        price: match[1],
-        max: '167,20',
-        min: '-0,39',
-        energy: '484'
+      price: match[1].replace('.', ','),
+      max: '167,20',
+      min: '-0,39',
+      energy: '484'
 
-      })
+    })
 
   }
 
@@ -48,7 +40,7 @@ export default async function handler(
 
     return res.status(500).json({
 
-      error: 'Error obteniendo OMIE'
+      error: 'Error obteniendo OMIP'
 
     })
 

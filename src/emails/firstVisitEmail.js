@@ -191,73 +191,163 @@ export const firstVisitEmail = ({
 
         </div>
 
-        <div
-  style="
-    margin-top:64px;
-    padding-top:36px;
-    border-top:1px solid #ECE7DD;
-  "
->
+        <div style="
+          margin-top:40px;
+          padding:32px;
+          border:1px solid #E5E7EB;
+          border-radius:24px;
+          background:#FCFBF8;
+        ">
 
-  <div
-    style="
-      font-size:12px;
-      letter-spacing:1.8px;
-      text-transform:uppercase;
-      color:#7C8795;
-      margin-bottom:18px;
-      font-weight:700;
-    "
-  >
-    Mercado diario España
-  </div>
+          <div style="
+            font-size:12px;
+            letter-spacing:2px;
+            text-transform:uppercase;
+            color:#7C8795;
+            margin-bottom:8px;
+          ">
+            Mercado diario España
+          </div>
 
-  <div
-    style="
-      display:flex;
-      align-items:flex-end;
-      gap:14px;
-      margin-bottom:28px;
-    "
-  >
+          <div style="
+            font-size:13px;
+            color:#94A3B8;
+            margin-bottom:26px;
+          ">
+            ${new Date().toLocaleDateString(
+              'es-ES',
+              {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+              }
+            )}
+          </div>
 
-    <div
-      style="
-        font-family:'Cormorant Garamond',serif;
-        font-size:64px;
-        line-height:0.9;
-        color:#18375D;
-        font-weight:500;
-        letter-spacing:-0.04em;
-      "
-    >
-      ${omiePrice}
-    </div>
+          <div style="
+            width:140px;
+            height:140px;
+            margin:0 auto 28px auto;
+            border-radius:999px;
+            border:6px solid #D7E6F7;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:white;
+          ">
 
-    <div
-      style="
-        font-size:18px;
-        color:#7C8795;
-        padding-bottom:10px;
-      "
-    >
-      €/MWh
-    </div>
+            <div style="
+              text-align:center;
+            ">
 
-  </div>
+              <div style="
+                font-size:52px;
+                line-height:1;
+                color:#163A70;
+                font-weight:300;
+              ">
+                ${omiePrice}
+              </div>
 
-  <div
-    style="
-      font-size:15px;
-      line-height:1.9;
-      color:#556274;
-      max-width:480px;
-    "
-  >
-    ${omieComment}
-  </div>
+              <div style="
+                font-size:16px;
+                color:#7C8795;
+                margin-top:6px;
+              ">
+                €/MWh
+              </div>
 
-</div>
+            </div>
+
+          </div>
+
+          <div style="
+            display:flex;
+            justify-content:space-between;
+            gap:12px;
+            margin-top:18px;
+            text-align:center;
+          ">
+
+            <div style="flex:1;">
+
+              <div style="
+                font-size:12px;
+                color:#7C8795;
+                margin-bottom:6px;
+              ">
+                Máximo
+              </div>
+
+              <div style="
+                font-size:22px;
+                color:#163A70;
+                font-weight:600;
+              ">
+                167,20
+              </div>
+
+            </div>
+
+            <div style="flex:1;">
+
+              <div style="
+                font-size:12px;
+                color:#7C8795;
+                margin-bottom:6px;
+              ">
+                Mínimo
+              </div>
+
+              <div style="
+                font-size:22px;
+                color:#163A70;
+                font-weight:600;
+              ">
+                -0,39
+              </div>
+
+            </div>
+
+            <div style="flex:1;">
+
+              <div style="
+                font-size:12px;
+                color:#7C8795;
+                margin-bottom:6px;
+              ">
+                Energía
+              </div>
+
+              <div style="
+                font-size:22px;
+                color:#163A70;
+                font-weight:600;
+              ">
+                484
+              </div>
+
+              <div style="
+                font-size:12px;
+                color:#94A3B8;
+              ">
+                GWh
+              </div>
+
+            </div>
+
+          </div>
+
+          <div style="
+            margin-top:28px;
+            font-size:15px;
+            line-height:1.8;
+            color:#556274;
+          ">
+            ${omieComment}
+          </div>
+
+        </div>
 
         <div
           style="

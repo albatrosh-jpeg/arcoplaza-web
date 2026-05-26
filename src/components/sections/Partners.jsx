@@ -1,62 +1,27 @@
+import Section from '../ui/Section'
+import SectionTitle from '../ui/SectionTitle'
+
 export default function Partners({ companies }) {
 
   return (
 
-    <section id="partners"
-      className="
+<Section
+  id="partners"
+        className="
         bg-surface-primary
 
         border-y
         border-border-soft
       "
     >
+        <div className="max-w-[760px] mb-10">
 
-      <div
-        className="
-          max-w-7xl
-          mx-auto
-
-          px-4
-          lg:px-6
-
-          py-14
-          lg:py-10 sm:py-16
-        "
-      >
-
-        <div className="mb-10">
-
-          <div className="eyebrow text-corporateGreen mb-4">
-            Experiencia en múltiples sectores
-          </div>
-
-          <h2
-            className="
-              section-title
-
-              text-[34px]
-              leading-[1]
-
-              sm:text-[40px]
-
-              lg:text-[46px]
-
-              mb-5
-            "
-          >
-            Supervisamos suministros de compañías líderes.
-          </h2>
-
-          <p
-            className="
-              body-md
-
-              max-w-2xl
-            "
-          >
-            Trabajamos con suministros energéticos vinculados a empresas,
-            comunidades y organizaciones de distintos sectores.
-          </p>
+          <SectionTitle
+            eyebrow="EXPERIENCIA EN MÚLTIPLES SECTORES"
+            title="Supervisamos suministros de compañías líderes."
+            text="Trabajamos con suministros energéticos vinculados a empresas, comunidades y organizaciones de distintos sectores."
+            align="left"
+          />
 
         </div>
 
@@ -64,10 +29,9 @@ export default function Partners({ companies }) {
           className="
             grid
 
-            grid-cols-2
-            sm:grid-cols-3
+            grid-cols-1
+            sm:grid-cols-2
             lg:grid-cols-5
-
             gap-x-8
             gap-y-10
 
@@ -119,9 +83,8 @@ export default function Partners({ companies }) {
 
         </div>
 
-      </div>
 
-    </section>
+    </Section>
 
   )
 

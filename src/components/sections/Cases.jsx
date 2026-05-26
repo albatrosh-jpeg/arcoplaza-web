@@ -22,7 +22,7 @@ export default function Cases() {
       <AnimatedReveal>
 
         <SectionTitle
-          eyebrow="Casos reales"
+          eyebrow="CASOS DE ÉXITO"
           title="Optimizaciones reales sobre suministros reales."
         />
 

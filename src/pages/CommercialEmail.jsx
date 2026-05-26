@@ -62,7 +62,12 @@ const [password, setPassword] =
     useState(
       'Mercado estable con ligeras tensiones en horas punta.'
     )
+    const [customMessage, setCustomMessage] =
+    useState(
+      `Gracias por dedicarnos parte de vuestro tiempo durante la visita.
 
+      En Arcoplaza Asesores realizamos revisiones técnicas independientes orientadas a detectar ineficiencias económicas, optimizar contratos eléctricos y analizar oportunidades de mejora en suministros profesionales.`
+        )
   const [loading, setLoading] =
     useState(false)
 
@@ -72,6 +77,8 @@ const [password, setPassword] =
   const previewHtml = firstVisitEmail({
 
   clientName,
+  
+  customMessage,
 
   omiePrice,
 
@@ -192,7 +199,21 @@ if (!authorized) {
             py-3
           "
         />
-
+      <textarea
+  rows="8"
+  placeholder="Mensaje personalizado"
+  value={customMessage}
+  onChange={(e) =>
+    setCustomMessage(e.target.value)
+  }
+  className="
+    border
+    border-gray-300
+    rounded-xl
+    px-4
+    py-3
+  "
+/>
         <button
           type="submit"
           className="

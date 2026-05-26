@@ -1,7 +1,8 @@
 export const firstVisitEmail = ({
   clientName,
   omiePrice,
-  omieComment
+  omieComment,
+  customMessage
 }) => {
 
   return `
@@ -87,16 +88,14 @@ export const firstVisitEmail = ({
           Gracias por dedicarnos parte de vuestro tiempo durante la visita.
         </p>
 
-        <p
+        <div
           style="
             margin-bottom:36px;
+            white-space:pre-line;
           "
         >
-          En Arcoplaza Asesores realizamos revisiones técnicas
-          independientes orientadas a detectar ineficiencias
-          económicas, optimizar contratos eléctricos y analizar
-          oportunidades de mejora en suministros profesionales.
-        </p>
+          ${customMessage}
+        </div>
 
         <div
           style="
@@ -229,7 +228,9 @@ export const firstVisitEmail = ({
             height:140px;
             margin:0 auto 28px auto;
             border-radius:999px;
-            border:6px solid #D7E6F7;
+            border:5px solid #7DB7E8;
+            box-shadow:
+              inset 0 0 0 8px #EDF5FC;
             display:flex;
             align-items:center;
             justify-content:center;
@@ -263,8 +264,8 @@ export const firstVisitEmail = ({
 
           <div style="
             display:flex;
-            justify-content:space-between;
-            gap:12px;
+            justify-content:center;
+            gap:24px;
             margin-top:18px;
             text-align:center;
           ">
@@ -276,7 +277,7 @@ export const firstVisitEmail = ({
                 color:#7C8795;
                 margin-bottom:6px;
               ">
-                Máximo
+                ▲ Máximo
               </div>
 
               <div style="
@@ -296,7 +297,7 @@ export const firstVisitEmail = ({
                 color:#7C8795;
                 margin-bottom:6px;
               ">
-                Mínimo
+                ▼ Mínimo
               </div>
 
               <div style="

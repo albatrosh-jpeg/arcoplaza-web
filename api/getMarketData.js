@@ -6,13 +6,16 @@ export default async function handler(
   try {
 
     const response = await fetch(
-      'https://www.omie.es/'
+      'https://www.omip.pt/es'
     )
 
     const html = await response.text()
+    console.log(
+      html.slice(0, 10000)
+    )
 
     const match = html.match(
-      /Precio medio España[\s\S]*?(\d+,\d+)/i
+      /SPEL Base Weekly[\s\S]*?(\d+,\d+)/i
     )
 
     if (!match) {

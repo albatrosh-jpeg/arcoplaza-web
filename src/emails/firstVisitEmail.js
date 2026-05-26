@@ -80,23 +80,18 @@ export const firstVisitEmail = ({
           Hola ${clientName},
         </p>
 
-        <p
-          style="
-            margin-bottom:28px;
-          "
-        >
-          Gracias por dedicarnos parte de vuestro tiempo durante la visita.
-        </p>
-
         <div
           style="
             margin-bottom:36px;
             white-space:pre-line;
+            font-size:16px;
+            line-height:1.9;
+            color:#556274;
           "
         >
           ${customMessage}
         </div>
-
+        
         <div
           style="
             background:#FCFBF8;

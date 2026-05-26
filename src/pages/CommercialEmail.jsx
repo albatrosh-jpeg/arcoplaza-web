@@ -1,8 +1,6 @@
-import { Send, Loader2 } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { firstVisitEmail } from '../emails/firstVisitEmail.js'
 import { Helmet } from 'react-helmet'
-import { useEffect } from 'react'
 
 export default function CommercialEmail() {
 
@@ -18,12 +16,12 @@ const [password, setPassword] =
   const [clientEmail, setClientEmail] =
     useState('')
 
-  const [omiePrice, setOmiePrice] =
+  const [marketPrice, setMarketPrice] =
     useState('')
 
     useEffect(() => {
 
-  const loadOmiePrice =
+  const loadMarketPrice =
     async () => {
 
       try {
@@ -36,9 +34,9 @@ const [password, setPassword] =
         const data =
           await response.json()
 
-        if (data.price) {
+        if (data?.price) {
 
-          setOmiePrice(
+          setMarketPrice(
             data.price
           )
 
@@ -54,20 +52,22 @@ const [password, setPassword] =
 
     }
 
-  loadOmiePrice()
+  loadMarketPrice()
 
 }, [])
 
-  const [omieComment, setOmieComment] =
+  const [marketComment, setMarketComment] =
     useState(
       'Mercado estable con ligeras tensiones en horas punta.'
     )
-    const [customMessage, setCustomMessage] =
-    useState(
-      `Gracias por dedicarnos parte de vuestro tiempo durante la visita.
 
-      En Arcoplaza Asesores realizamos revisiones técnicas independientes orientadas a detectar ineficiencias económicas, optimizar contratos eléctricos y analizar oportunidades de mejora en suministros profesionales.`
-        )
+const [customMessage, setCustomMessage] =
+  useState(
+`Gracias por dedicarnos parte de vuestro tiempo durante la visita.
+
+En Arcoplaza Asesores realizamos revisiones técnicas independientes orientadas a detectar ineficiencias económicas, optimizar contratos eléctricos y analizar oportunidades de mejora en suministros profesionales.`
+  )
+  
   const [loading, setLoading] =
     useState(false)
 
@@ -80,9 +80,9 @@ const [password, setPassword] =
   
   customMessage,
 
-  omiePrice,
+  marketPrice,
 
-  omieComment
+  marketComment
 
 })
 
@@ -112,9 +112,11 @@ const [password, setPassword] =
 
             clientEmail,
 
-            omiePrice,
+            marketPrice,
 
-            omieComment
+            marketComment,
+
+            customMessage
 
           })
         }
@@ -257,7 +259,7 @@ return (
             font-semibold
             mb-10
           ">
-            Commercial Email
+            Email Comercial
           </h1>
 
         </div>
@@ -305,10 +307,10 @@ return (
 
           <input
             type="text"
-            placeholder="Precio OMIE"
-            value={omiePrice}
+            placeholder="Precio SPEL Base Week"
+            value={marketPrice}
             onChange={(e) =>
-              setOmiePrice(e.target.value)
+              setMarketPrice(e.target.value)
             }
             className="
               border
@@ -337,9 +339,9 @@ return (
           <textarea
             rows="5"
             placeholder="Comentario mercado"
-            value={omieComment}
+            value={marketComment}
             onChange={(e) =>
-              setOmieComment(e.target.value)
+              setMarketComment(e.target.value)
             }
             className="
               border
@@ -430,7 +432,7 @@ hover:shadow-md
             srcDoc={previewHtml}
             className="
               w-full
-              h-[700px]
+              h-[900px]
               bg-white
             "
           />

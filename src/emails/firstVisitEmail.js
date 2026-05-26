@@ -235,6 +235,13 @@ export const firstVisitEmail = ({
               }
             )}
           </div>
+          <div style="
+              font-size:14px;
+              color:#556274;
+              margin-bottom:24px;
+            ">
+              SPEL Base Week · OMIP
+            </div>
 
           <div style="
             width:140px;
@@ -252,6 +259,8 @@ export const firstVisitEmail = ({
 
             <div style="
               text-align:center;
+              padding-top:12px;
+              box-sizing:border-box;
             ">
 
               <div style="
@@ -262,17 +271,11 @@ export const firstVisitEmail = ({
               ">
                 ${omiePrice}
               </div>
-              <div style="
-  font-size:14px;
-  color:#556274;
-  margin-bottom:24px;
-">
-  SPEL Base Week · OMIP
-</div>
+
               <div style="
                 font-size:16px;
                 color:#7C8795;
-                margin-top:6px;
+                margin-top:12px;
               ">
                 €/MWh
               </div>
@@ -281,82 +284,6 @@ export const firstVisitEmail = ({
 
           </div>
 
-          <div style="
-            display:flex;
-            justify-content:center;
-            gap:24px;
-            margin-top:18px;
-            text-align:center;
-          ">
-
-            <div style="flex:1;">
-
-              <div style="
-                font-size:12px;
-                color:#7C8795;
-                margin-bottom:6px;
-              ">
-                ▲ Máximo
-              </div>
-
-              <div style="
-                font-size:22px;
-                color:#163A70;
-                font-weight:600;
-              ">
-                167,20
-              </div>
-
-            </div>
-
-            <div style="flex:1;">
-
-              <div style="
-                font-size:12px;
-                color:#7C8795;
-                margin-bottom:6px;
-              ">
-                ▼ Mínimo
-              </div>
-
-              <div style="
-                font-size:22px;
-                color:#163A70;
-                font-weight:600;
-              ">
-                -0,39
-              </div>
-
-            </div>
-
-            <div style="flex:1;">
-
-              <div style="
-                font-size:12px;
-                color:#7C8795;
-                margin-bottom:6px;
-              ">
-                Energía
-              </div>
-
-              <div style="
-                font-size:22px;
-                color:#163A70;
-                font-weight:600;
-              ">
-                484
-              </div>
-
-              <div style="
-                font-size:12px;
-                color:#94A3B8;
-              ">
-                GWh
-              </div>
-
-            </div>
-
-          </div>
 
           <div style="
             margin-top:28px;

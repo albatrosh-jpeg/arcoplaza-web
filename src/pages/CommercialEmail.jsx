@@ -199,21 +199,6 @@ if (!authorized) {
             py-3
           "
         />
-      <textarea
-  rows="8"
-  placeholder="Mensaje personalizado"
-  value={customMessage}
-  onChange={(e) =>
-    setCustomMessage(e.target.value)
-  }
-  className="
-    border
-    border-gray-300
-    rounded-xl
-    px-4
-    py-3
-  "
-/>
         <button
           type="submit"
           className="
@@ -340,6 +325,22 @@ return (
             value={omieComment}
             onChange={(e) =>
               setOmieComment(e.target.value)
+            }
+            className="
+              border
+              border-gray-300
+              rounded-xl
+              px-4
+              py-3
+            "
+          />
+
+          <textarea
+            rows="5"
+            placeholder="Mensaje personalizado"
+            value={customMessage}
+            onChange={(e) =>
+              setCustomMessage(e.target.value)
             }
             className="
               border

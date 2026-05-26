@@ -218,7 +218,7 @@ export const firstVisitEmail = ({
             color:#7C8795;
             margin-bottom:8px;
           ">
-            Mercado diario España
+            Mercado eléctrico Ibérico
           </div>
 
           <div style="
@@ -255,14 +255,20 @@ export const firstVisitEmail = ({
             ">
 
               <div style="
-                font-size:52px;
+                font-size:42px;
                 line-height:1;
                 color:#163A70;
                 font-weight:300;
               ">
                 ${omiePrice}
               </div>
-
+              <div style="
+  font-size:14px;
+  color:#556274;
+  margin-bottom:24px;
+">
+  SPEL Base Week · OMIP
+</div>
               <div style="
                 font-size:16px;
                 color:#7C8795;

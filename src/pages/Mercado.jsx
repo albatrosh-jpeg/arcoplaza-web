@@ -4,13 +4,20 @@ export default function Mercado() {
 
   const [data, setData] = useState(null)
 
+const [loading, setLoading] =
+  useState(true)
+
   useEffect(() => {
 
-    fetch('/api/getMarketData')
-      .then(res => res.json())
-      .then(setData)
+fetch('/api/getMarketData')
+  .then(res => res.json())
+  .then(data => {
 
-  }, [])
+    setData(data)
+    setLoading(false)
+
+  })
+  },  [])
 
   return (
 
@@ -42,7 +49,7 @@ export default function Mercado() {
             text-slate-500
             mb-3
           ">
-            Mercado diario España
+            Mercado eléctrico ibérico
           </div>
 
           <div className="
@@ -50,6 +57,9 @@ export default function Mercado() {
             text-slate-400
             mb-10
           ">
+            SPEL Base Week · OMIP
+          </div>
+
             {
               new Date().toLocaleDateString(
                 'es-ES',
@@ -85,7 +95,9 @@ export default function Mercado() {
                 leading-none
               ">
                 {
-                  data?.price || '--'
+                  loading
+                ? '...'
+                : data?.price ?? '—'
                 }
               </div>
 
@@ -125,7 +137,7 @@ export default function Mercado() {
                 text-[#163A70]
               ">
                 {
-                  data?.max || '--'
+                  data?.max ?? '—'
                 }
               </div>
 
@@ -149,7 +161,7 @@ export default function Mercado() {
                 text-[#163A70]
               ">
                 {
-                  data?.min || '--'
+                  data?.min ?? '—'
                 }
               </div>
 
@@ -173,17 +185,22 @@ export default function Mercado() {
                 text-[#163A70]
               ">
                 {
-                  data?.energy || '--'
+                  data?.energy ?? '—'
                 }
               </div>
 
-              <div className="
-                text-xs
-                text-slate-400
-              ">
-                GWh
-              </div>
+              {
+                data?.energy && (
 
+                  <div className="
+                    text-xs
+                    text-slate-400
+                  ">
+                    GWh
+                  </div>
+
+                )
+              }
             </div>
 
           </div>
@@ -192,7 +209,6 @@ export default function Mercado() {
 
       </div>
 
-    </div>
 
   )
 

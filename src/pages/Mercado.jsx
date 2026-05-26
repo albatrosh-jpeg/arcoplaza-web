@@ -6,7 +6,7 @@ export default function Mercado() {
 
   useEffect(() => {
 
-    fetch('/api/getOmiePrice')
+    fetch('/api/getMarketData')
       .then(res => res.json())
       .then(setData)
 

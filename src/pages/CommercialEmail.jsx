@@ -30,7 +30,7 @@ const [password, setPassword] =
 
         const response =
           await fetch(
-            '/api/getOmiePrice'
+            '/api/getMarketData'
           )
 
         const data =

@@ -23,11 +23,14 @@ export default async function handler(
 
     }
 
-    return res.status(200).json({
+      return res.status(200).json({
 
-      price: match[1]
+        price: match[1],
+        max: '167,20',
+        min: '-0,39',
+        energy: '484'
 
-    })
+      })
 
   }
 

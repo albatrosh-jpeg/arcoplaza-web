@@ -91,7 +91,7 @@ export const firstVisitEmail = ({
         >
           ${customMessage}
         </div>
-        
+
         <div
           style="
             background:#FCFBF8;
@@ -182,7 +182,25 @@ export const firstVisitEmail = ({
           >
             Solicitar revisión energética
           </a>
+        <div
+            style="
+              text-align:center;
+              margin-top:18px;
+            "
+          >
 
+            <a
+              href="https://www.arcoplazaasesores.com/mercado"
+              style="
+                font-size:14px;
+                color:#163A70;
+                text-decoration:none;
+              "
+            >
+              Ver mercado energético actualizado →
+            </a>
+
+          </div>
         </div>
 
         <div style="

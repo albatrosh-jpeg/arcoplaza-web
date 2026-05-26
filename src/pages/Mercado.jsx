@@ -4,20 +4,21 @@ export default function Mercado() {
 
   const [data, setData] = useState(null)
 
-const [loading, setLoading] =
-  useState(true)
+  const [loading, setLoading] =
+    useState(true)
 
   useEffect(() => {
 
-fetch('/api/getMarketData')
-  .then(res => res.json())
-  .then(data => {
+    fetch('/api/getMarketData')
+      .then(res => res.json())
+      .then(data => {
 
-    setData(data)
-    setLoading(false)
+        setData(data)
+        setLoading(false)
 
-  })
-  },  [])
+      })
+
+  }, [])
 
   return (
 
@@ -55,11 +56,8 @@ fetch('/api/getMarketData')
           <div className="
             text-sm
             text-slate-400
-            mb-10
+            mb-3
           ">
-            SPEL Base Week · OMIP
-          </div>
-
             {
               new Date().toLocaleDateString(
                 'es-ES',
@@ -70,6 +68,14 @@ fetch('/api/getMarketData')
                 }
               )
             }
+          </div>
+
+          <div className="
+            text-sm
+            text-[#556274]
+            mb-10
+          ">
+            SPEL Base Week · OMIP
           </div>
 
           <div className="
@@ -96,8 +102,8 @@ fetch('/api/getMarketData')
               ">
                 {
                   loading
-                ? '...'
-                : data?.price ?? '—'
+                    ? '...'
+                    : data?.price ?? '—'
                 }
               </div>
 
@@ -201,6 +207,7 @@ fetch('/api/getMarketData')
 
                 )
               }
+
             </div>
 
           </div>
@@ -209,6 +216,7 @@ fetch('/api/getMarketData')
 
       </div>
 
+    </div>
 
   )
 

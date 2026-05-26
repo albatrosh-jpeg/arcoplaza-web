@@ -29,6 +29,7 @@ export default async function handler(
       max: null,
       min: null,
       energy: null
+
     })
 
   }

@@ -318,13 +318,12 @@ return (
               py-3
             "
           />
-
           <textarea
             rows="5"
-            placeholder="Comentario mercado"
-            value={omieComment}
+            placeholder="Mensaje personalizado"
+            value={customMessage}
             onChange={(e) =>
-              setOmieComment(e.target.value)
+              setCustomMessage(e.target.value)
             }
             className="
               border
@@ -337,10 +336,10 @@ return (
 
           <textarea
             rows="5"
-            placeholder="Mensaje personalizado"
-            value={customMessage}
+            placeholder="Comentario mercado"
+            value={omieComment}
             onChange={(e) =>
-              setCustomMessage(e.target.value)
+              setOmieComment(e.target.value)
             }
             className="
               border

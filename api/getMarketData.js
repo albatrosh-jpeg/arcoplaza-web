@@ -57,13 +57,9 @@ export default async function handler(
     const weekCode =
       `Wk${String(week).padStart(2, '0')}-${String(today.getFullYear()).slice(-2)}`
 
-    const regex = new RegExp(
-      `${weekCode}[\\s\\S]*?€([\\d.]+)`,
-      'i'
-    )
-
-    const match = html.match(regex)
-
+const match = html.match(
+  /Wk23-26[\s\S]{0,800}?€([\d.]+)/i
+)
     if (!match) {
 
       return res.status(500).json({

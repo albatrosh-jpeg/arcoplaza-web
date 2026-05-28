@@ -70,43 +70,91 @@ const [marketComment, setMarketComment] =
 const messageOptions = [
 
   {
+
     label:
-      'Optimización general',
+      'MAIL EMPRESA',
 
     value:
-`Gracias por dedicarnos parte de vuestro tiempo durante la visita.
+`Encantados de conocerte hoy en {{lugar}}.
 
-En Arcoplaza Asesores realizamos revisiones técnicas independientes orientadas a detectar ineficiencias económicas, optimizar contratos eléctricos y analizar oportunidades de mejora en suministros profesionales.`
+Como hemos hablado, Álvaro y yo nos dedicamos al asesoramiento energético para empresas. Actualmente trabajamos con compañías con necesidades tan diferentes como Wetaca, Dulca SL o Perfumerías Avenida, ayudándoles a optimizar costes, revisar contratos y detectar oportunidades de ahorro.
+
+Si te parece interesante, podéis enviarnos una factura reciente y os preparamos un estudio sin compromiso para que veáis de forma clara qué margen de mejora podríamos conseguir en vuestro caso.
+
+Además del posible ahorro, nuestro objetivo es que todo el proceso sea sencillo y transparente. Nuestro objetivo es crear relaciones laborales lo suficientemente buenas para que sean duraderas en el tiempo.
+
+A vuestra disposición para cualquier duda,`
+
   },
 
   {
+
     label:
-      'Excesos y potencia',
+      'MAIL AAFF',
 
     value:
-`Durante la visita detectamos posibles oportunidades de optimización relacionadas con excesos de potencia y estructura de contratación eléctrica.
+`Encantados de conocerte hoy en {{lugar}}.
 
-Nuestro análisis permitirá evaluar ajustes técnicos que podrían reducir costes recurrentes y mejorar la eficiencia contractual del suministro.`
+Como hemos hablado, Álvaro y yo nos dedicamos al asesoramiento energético, trabajando especialmente con administradores de fincas y comunidades de propietarios para optimizar costes y quitaros de encima trámites y gestiones relacionadas con los suministros.
+
+Si te parece interesante, podéis enviarnos una factura reciente y os preparamos un estudio sin compromiso para que veáis de forma clara qué margen de mejora podríamos conseguir en vuestras comunidades.
+
+Nuestro objetivo es que todo el proceso sea sencillo, transparente y así crear relaciones laborales duraderas en el tiempo.
+
+A vuestra disposición para cualquier duda,`
+
   },
 
   {
+
     label:
-      'Mercado energético',
+      'PARTICULAR',
 
     value:
-`El contexto actual del mercado energético continúa mostrando volatilidad relevante en precios y futuros eléctricos.
+`Encantados de conocerte hoy en {{lugar}}.
 
-Desde Arcoplaza analizamos oportunidades de optimización contractual y exposición energética adaptadas al perfil real de consumo de cada empresa.`
+Como hemos hablado, Álvaro y yo nos dedicamos al asesoramiento energético, ayudando tanto a particulares como a empresas como Wetaca, Dulca SL o Perfumerías Avenida a optimizar costes y mejorar sus contratos de luz y gas.
+
+Si te parece interesante, puedes enviarnos una de tus facturas particulares recientes y te preparamos un estudio sin compromiso para que veas de forma clara qué opciones de ahorro o mejora podríamos conseguir en tu caso.
+
+Nuestro objetivo es que todo el proceso sea sencillo, transparente y generar relaciones de confianza duraderas en el tiempo.
+
+A vuestra disposición para cualquier duda,`
+
   },
 
   {
+
     label:
-      'Revisión completa',
+      'EMPRESA REFERIDO',
 
     value:
-`Gracias por recibirnos durante la visita realizada recientemente.
+`Te escribo porque {{referido}} nos ha pasado este contacto y pensó que podría tener sentido que contactáramos.
 
-En Arcoplaza Asesores desarrollamos revisiones energéticas integrales orientadas a detectar sobrecostes invisibles, optimizar contratos eléctricos y mejorar la estructura energética global del suministro profesional.`
+Álvaro y yo nos dedicamos al asesoramiento energético para empresas. Actualmente trabajamos con compañías con necesidades tan diferentes como Wetaca, Dulca SL o Perfumerías Avenida, ayudándoles a optimizar costes, revisar contratos y detectar oportunidades de ahorro.
+
+Además del posible ahorro, nuestro objetivo es que todo el proceso sea sencillo, transparente y generar relaciones laborales duraderas en el tiempo.
+
+Si te parece interesante, podemos mantener una conversación o haceros una visita rápida para conocernos.`
+
+  },
+
+  {
+
+    label:
+      'MAIL DUDA',
+
+    value:
+`Encantados de conocerte hoy en {{lugar}}.
+
+Como hemos hablado, Álvaro y yo nos dedicamos al asesoramiento energético, ayudando tanto a empresas como a particulares a optimizar costes y mejorar sus condiciones de suministro.
+
+Entendemos que antes de valorar algo a nivel profesional puede ser interesante verlo de primera mano, así que si te parece, puedes enviarnos una factura personal y te preparamos un estudio sin compromiso para que veas cómo trabajamos y qué margen de mejora podríamos conseguir.
+
+Nuestro objetivo es que todo el proceso sea sencillo, transparente y generar relaciones de confianza duraderas en el tiempo.
+
+A vuestra disposición para cualquier duda,`
+
   }
 
 ]
@@ -139,6 +187,11 @@ const previewHtml = firstVisitEmail({
 
     setSuccess(false)
 
+  const finalMessage =
+    customMessage
+      .replace('{{lugar}}', 'vuestras oficinas')
+      .replace('{{referido}}', 'un contacto común')
+
     try {
 
       const response = await fetch(
@@ -161,8 +214,8 @@ const previewHtml = firstVisitEmail({
 
             marketComment,
 
-            customMessage
-
+            message: finalMessage
+            
           })
         }
       )

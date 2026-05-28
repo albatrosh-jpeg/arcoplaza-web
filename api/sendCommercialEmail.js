@@ -42,7 +42,7 @@ export default async function handler(req, res) {
 
         marketComment,
 
-        omieComment
+        customMessage
 
       })
 
@@ -52,7 +52,9 @@ export default async function handler(req, res) {
       success: true
     })
 
-  } catch (error) {
+  }
+
+  catch (error) {
 
     console.error(error)
 

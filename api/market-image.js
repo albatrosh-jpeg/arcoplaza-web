@@ -34,37 +34,6 @@ export default async function handler(
     fill="#F8F6F1"
   />
 
-  <text
-    x="80"
-    y="100"
-    fill="#64748B"
-    font-size="24"
-    font-family="Arial"
-    letter-spacing="4"
-  >
-    MERCADO ELÉCTRICO IBÉRICO
-  </text>
-
-  <text
-    x="80"
-    y="160"
-    fill="#64748B"
-    font-size="36"
-    font-family="Arial"
-  >
-    SPEL Base Week
-  </text>
-
-  <text
-    x="80"
-    y="220"
-    fill="#94A3B8"
-    font-size="28"
-    font-family="Arial"
-  >
-    ${today}
-  </text>
-
   <circle
     cx="900"
     cy="180"
@@ -76,10 +45,11 @@ export default async function handler(
 
   <text
     x="920"
-    y="170"
+    y="180"
     text-anchor="middle"
     fill="#163A70"
     font-size="54"
+    font-weight="300"
     font-family="Arial"
   >
     ${price}
@@ -87,23 +57,13 @@ export default async function handler(
 
   <text
     x="920"
-    y="220"
+    y="235"
     text-anchor="middle"
     fill="#64748B"
     font-size="24"
     font-family="Arial"
   >
     €/MWh
-  </text>
-
-  <text
-  x="80"
-  y="320"
-  fill="#94A3B8"
-  font-size="18"
-  font-family="Arial"
-  >
-    Datos de referencia · OMIP
   </text>
 
 </svg>

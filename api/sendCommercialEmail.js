@@ -48,6 +48,35 @@ export default async function handler(req, res) {
 
     })
 
+    await fetch(
+      'https://script.google.com/macros/s/AKfycbw5T3csh4LfW82K0UJNDl6FEa1nR8Kb6z--lVyguYPVj6nxEKB1_FQpcaNHh-fOwGhlIA/exec',
+      {
+
+        method: 'POST',
+
+        headers: {
+          'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+
+          clientName,
+
+          clientEmail,
+
+          template: 'Commercial Email',
+
+          message: customMessage,
+
+          status: 'Enviado',
+
+          commercial: 'Arcoplaza Asesores'
+
+        })
+
+      }
+    )
+
     return res.status(200).json({
       success: true
     })

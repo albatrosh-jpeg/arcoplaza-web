@@ -199,24 +199,63 @@ export const firstVisitEmail = ({
           </div>
         </div>
 
-      <div style="
-  margin-top:40px;
-">
+<div
+  style="
+    margin-top:48px;
+    text-align:center;
+  "
+>
 
-  <img
-    src="https://www.arcoplazaasesores.com/api/market-image"
-    alt="Mercado energético"
-    width="100%"
+  <div
     style="
-      display:block;
-      width:100%;
+      display:inline-block;
+      background:#FCFBF8;
+      border:1px solid #ECE7DD;
       border-radius:24px;
-      border:1px solid #E5E7EB;
+      padding:28px 32px;
     "
-  />
+  >
+
+    <div
+      style="
+        font-size:11px;
+        letter-spacing:2px;
+        text-transform:uppercase;
+        color:#7C8795;
+        margin-bottom:20px;
+        font-weight:700;
+      "
+    >
+      Mercado eléctrico ibérico
+    </div>
+
+    <img
+      src="https://www.arcoplazaasesores.com/api/market-image"
+      alt="Mercado energético"
+      width="162"
+      height="162"
+      style="
+        display:block;
+        width:162px;
+        height:162px;
+        margin:auto;
+      "
+    />
+
+    <div
+      style="
+        margin-top:18px;
+        font-size:13px;
+        color:#7C8795;
+        line-height:1.7;
+      "
+    >
+      Referencia semanal OMIP
+    </div>
+
+  </div>
 
 </div>
-
         <div
           style="
             margin-top:56px;

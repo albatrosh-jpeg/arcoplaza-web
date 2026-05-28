@@ -166,6 +166,16 @@ const [customMessage, setCustomMessage] =
   useState(
     messageOptions[0].value
   )
+const finalMessage =
+  customMessage
+    .replace(
+      '{{lugar}}',
+      'vuestras oficinas'
+    )
+    .replace(
+      '{{referido}}',
+      'un contacto común'
+    )
 
 const previewHtml = firstVisitEmail({
 
@@ -175,7 +185,7 @@ const previewHtml = firstVisitEmail({
 
   marketComment,
 
-  customMessage
+  customMessage: finalMessage
 
 })
 
@@ -186,11 +196,6 @@ const previewHtml = firstVisitEmail({
     setLoading(true)
 
     setSuccess(false)
-
-  const finalMessage =
-    customMessage
-      .replace('{{lugar}}', 'vuestras oficinas')
-      .replace('{{referido}}', 'un contacto común')
 
     try {
 
@@ -214,7 +219,7 @@ const previewHtml = firstVisitEmail({
 
             marketComment,
 
-            message: finalMessage
+            customMessage: finalMessage
             
           })
         }

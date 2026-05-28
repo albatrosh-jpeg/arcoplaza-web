@@ -14,41 +14,31 @@ export default async function handler(
     const price =
       data.price || '--'
 
-    const today =
-      new Date().toLocaleDateString(
-        'es-ES',
-        {
-          day: 'numeric',
-          month: 'long',
-          year: 'numeric'
-        }
-      )
-
     const svg = `
 
-<svg width="1200" height="360" xmlns="http://www.w3.org/2000/svg">
-
-  <rect
-    width="100%"
-    height="100%"
-    fill="#F8F6F1"
-  />
+<svg
+  width="162"
+  height="162"
+  viewBox="0 0 162 162"
+  xmlns="http://www.w3.org/2000/svg"
+>
 
   <circle
-    cx="900"
-    cy="180"
-    r="95"
+    cx="81"
+    cy="81"
+    r="68"
     fill="white"
     stroke="#7DB7E8"
-    stroke-width="12"
+    stroke-width="6"
   />
 
   <text
-    x="920"
-    y="180"
+    x="81"
+    y="76"
     text-anchor="middle"
+    dominant-baseline="middle"
     fill="#163A70"
-    font-size="54"
+    font-size="34"
     font-weight="300"
     font-family="Arial"
   >
@@ -56,11 +46,11 @@ export default async function handler(
   </text>
 
   <text
-    x="920"
-    y="235"
+    x="81"
+    y="108"
     text-anchor="middle"
     fill="#64748B"
-    font-size="24"
+    font-size="14"
     font-family="Arial"
   >
     €/MWh
@@ -79,6 +69,8 @@ export default async function handler(
   }
 
   catch (error) {
+
+    console.error(error)
 
     res.status(500).send(
       'Error generating image'

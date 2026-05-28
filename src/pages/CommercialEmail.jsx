@@ -9,6 +9,11 @@ const [authorized, setAuthorized] =
 
 const [password, setPassword] =
   useState('')
+const [loading, setLoading] =
+  useState(false)
+
+const [success, setSuccess] =
+  useState(false)
 
   const [clientName, setClientName] =
     useState('')
@@ -452,8 +457,8 @@ return (
           <button
             type="submit"
             disabled={loading}
-            className={`
-              bg-black
+            className={
+              `bg-black
               text-white
               rounded-xl
               px-6
@@ -463,7 +468,7 @@ return (
               hover:opacity-90
               active:scale-[0.98]
               shadow-sm
-hover:shadow-md
+              hover:shadow-md
 
               ${
                 loading

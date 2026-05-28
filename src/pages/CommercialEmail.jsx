@@ -188,8 +188,7 @@ function handleLogin(e) {
 
   if (
     password ===
-import.meta.env
-.VITE_COMMERCIAL_PASSWORD
+    import.meta.env.VITE_COMMERCIAL_PASSWORD
   ) {
 
     setAuthorized(true)
@@ -457,8 +456,8 @@ return (
           <button
             type="submit"
             disabled={loading}
-            className={
-              `bg-black
+            className={`
+              bg-black
               text-white
               rounded-xl
               px-6

@@ -56,23 +56,62 @@ const [password, setPassword] =
 
 }, [])
 
-  const [marketComment, setMarketComment] =
-    useState(
-      'Mercado estable con ligeras tensiones en horas punta.'
-    )
-
-const [customMessage, setCustomMessage] =
+const [marketComment, setMarketComment] =
   useState(
+    'Mercado estable con ligeras tensiones en horas punta.'
+  )
+
+const messageOptions = [
+
+  {
+    label:
+      'Optimización general',
+
+    value:
 `Gracias por dedicarnos parte de vuestro tiempo durante la visita.
 
 En Arcoplaza Asesores realizamos revisiones técnicas independientes orientadas a detectar ineficiencias económicas, optimizar contratos eléctricos y analizar oportunidades de mejora en suministros profesionales.`
-  )
-  
-  const [loading, setLoading] =
-    useState(false)
+  },
 
-  const [success, setSuccess] =
-    useState(false)
+  {
+    label:
+      'Excesos y potencia',
+
+    value:
+`Durante la visita detectamos posibles oportunidades de optimización relacionadas con excesos de potencia y estructura de contratación eléctrica.
+
+Nuestro análisis permitirá evaluar ajustes técnicos que podrían reducir costes recurrentes y mejorar la eficiencia contractual del suministro.`
+  },
+
+  {
+    label:
+      'Mercado energético',
+
+    value:
+`El contexto actual del mercado energético continúa mostrando volatilidad relevante en precios y futuros eléctricos.
+
+Desde Arcoplaza analizamos oportunidades de optimización contractual y exposición energética adaptadas al perfil real de consumo de cada empresa.`
+  },
+
+  {
+    label:
+      'Revisión completa',
+
+    value:
+`Gracias por recibirnos durante la visita realizada recientemente.
+
+En Arcoplaza Asesores desarrollamos revisiones energéticas integrales orientadas a detectar sobrecostes invisibles, optimizar contratos eléctricos y mejorar la estructura energética global del suministro profesional.`
+  }
+
+]
+
+const [selectedMessage, setSelectedMessage] =
+  useState(0)
+
+const [customMessage, setCustomMessage] =
+  useState(
+    messageOptions[0].value
+  )
 
 const previewHtml = firstVisitEmail({
 
@@ -320,6 +359,64 @@ return (
               py-3
             "
           />
+
+          <div className="mb-4">
+
+  <label className="
+    block
+    text-sm
+    text-slate-600
+    mb-2
+  ">
+    Plantilla de mensaje
+  </label>
+
+  <select
+
+    value={selectedMessage}
+
+    onChange={(e) => {
+
+      const index = Number(e.target.value)
+
+      setSelectedMessage(index)
+
+      setCustomMessage(
+        messageOptions[index].value
+      )
+
+    }}
+
+    className="
+      w-full
+      rounded-xl
+      border
+      border-[#D8D2C5]
+      bg-white
+      px-4
+      py-3
+      text-sm
+      text-[#163A70]
+      outline-none
+    "
+  >
+
+    {messageOptions.map(
+      (option, index) => (
+
+        <option
+          key={option.label}
+          value={index}
+        >
+          {option.label}
+        </option>
+
+      )
+    )}
+
+  </select>
+
+</div>
           <textarea
             rows="5"
             placeholder="Mensaje personalizado"

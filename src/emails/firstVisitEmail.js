@@ -199,98 +199,23 @@ export const firstVisitEmail = ({
           </div>
         </div>
 
-        <div style="
-          margin-top:40px;
-          padding:32px;
-          border:1px solid #E5E7EB;
-          border-radius:24px;
-          background:#FCFBF8;
-        ">
+      <div style="
+  margin-top:40px;
+">
 
-          <div style="
-            font-size:12px;
-            letter-spacing:2px;
-            text-transform:uppercase;
-            color:#7C8795;
-            margin-bottom:8px;
-          ">
-            Mercado eléctrico Ibérico
-          </div>
+  <img
+    src="https://www.arcoplazaasesores.com/api/market-image"
+    alt="Mercado energético"
+    width="100%"
+    style="
+      display:block;
+      width:100%;
+      border-radius:24px;
+      border:1px solid #E5E7EB;
+    "
+  />
 
-          <div style="
-            font-size:13px;
-            color:#94A3B8;
-            margin-bottom:26px;
-          ">
-            ${new Date().toLocaleDateString(
-              'es-ES',
-              {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric'
-              }
-            )}
-          </div>
-          <div style="
-              font-size:14px;
-              color:#556274;
-              margin-bottom:24px;
-            ">
-              SPEL Base Week · OMIP
-            </div>
-
-          <div style="
-            width:140px;
-            height:140px;
-            margin:0 auto 28px auto;
-            border-radius:999px;
-            border:5px solid #7DB7E8;
-            box-shadow:
-              inset 0 0 0 8px #EDF5FC;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            background:white;
-          ">
-
-            <div style="
-              text-align:center;
-              padding-top:12px;
-              box-sizing:border-box;
-            ">
-
-              <div style="
-                font-size:42px;
-                line-height:1;
-                color:#163A70;
-                font-weight:300;
-              ">
-                ${marketPrice}
-              </div>
-
-              <div style="
-                font-size:16px;
-                color:#7C8795;
-                margin-top:12px;
-              ">
-                €/MWh
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div style="
-            margin-top:28px;
-            font-size:15px;
-            line-height:1.8;
-            color:#556274;
-          ">
-            ${marketComment}
-          </div>
-
-        </div>
+</div>
 
         <div
           style="

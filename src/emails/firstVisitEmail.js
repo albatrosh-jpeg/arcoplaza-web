@@ -441,7 +441,7 @@ export const firstVisitEmail = ({
         text-decoration:none;
       "
     >
-      Ver mercado energético actualizado →
+      Ver análisis de mercado →
     </a>
 
   </div>

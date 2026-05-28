@@ -1,3 +1,4 @@
+import OmipChart from '../components/OmipChart'
 import { useEffect, useState } from 'react'
 
 export default function Mercado() {
@@ -7,27 +8,45 @@ export default function Mercado() {
   const [loading, setLoading] =
     useState(true)
 
-  useEffect(() => {
+useEffect(() => {
 
-    fetch('/api/getMarketData')
-      .then(res => res.json())
-      .then(data => {
+  async function loadMarketData() {
 
-        setData(data)
-        setLoading(false)
+    try {
 
-      })
+      const response =
+        await fetch(
+          '/api/getMarketData'
+        )
 
-  }, [])
+      const result =
+        await response.json()
 
+      console.log(result)
+
+      setData(result)
+
+    }
+
+    catch (error) {
+
+      console.error(error)
+
+    }
+
+    finally {
+
+      setLoading(false)
+
+    }
+
+  }
+
+  loadMarketData()
+
+}, [])
   return (
-
-    <div className="
-      min-h-screen
-      bg-[#F8F6F1]
-      px-6
-      py-20
-    ">
+    <>
 
       <div className="
         max-w-3xl
@@ -216,7 +235,11 @@ export default function Mercado() {
 
       </div>
 
-    </div>
+      <OmipChart
+        history={data?.history || []}
+      />
+
+    </>
 
   )
 

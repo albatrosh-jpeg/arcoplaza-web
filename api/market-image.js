@@ -26,7 +26,7 @@ export default async function handler(
 
     const svg = `
 
-<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="360" xmlns="http://www.w3.org/2000/svg">
 
   <rect
     width="100%"
@@ -47,17 +47,7 @@ export default async function handler(
 
   <text
     x="80"
-    y="200"
-    fill="#163A70"
-    font-size="78"
-    font-family="Arial"
-  >
-    Referencia semanal OMIP
-  </text>
-
-  <text
-    x="80"
-    y="320"
+    y="160"
     fill="#64748B"
     font-size="36"
     font-family="Arial"
@@ -67,7 +57,7 @@ export default async function handler(
 
   <text
     x="80"
-    y="380"
+    y="220"
     fill="#94A3B8"
     font-size="28"
     font-family="Arial"
@@ -76,9 +66,9 @@ export default async function handler(
   </text>
 
   <circle
-    cx="920"
-    cy="315"
-    r="140"
+    cx="900"
+    cy="180"
+    r="95"
     fill="white"
     stroke="#7DB7E8"
     stroke-width="12"
@@ -86,10 +76,10 @@ export default async function handler(
 
   <text
     x="920"
-    y="305"
+    y="170"
     text-anchor="middle"
     fill="#163A70"
-    font-size="82"
+    font-size="54"
     font-family="Arial"
   >
     ${price}
@@ -97,13 +87,23 @@ export default async function handler(
 
   <text
     x="920"
-    y="360"
+    y="220"
     text-anchor="middle"
     fill="#64748B"
-    font-size="32"
+    font-size="24"
     font-family="Arial"
   >
     €/MWh
+  </text>
+
+  <text
+  x="80"
+  y="320"
+  fill="#94A3B8"
+  font-size="18"
+  font-family="Arial"
+  >
+    Datos de referencia · OMIP
   </text>
 
 </svg>

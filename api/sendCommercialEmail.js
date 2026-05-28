@@ -20,8 +20,9 @@ export default async function handler(req, res) {
     const {
       clientName,
       clientEmail,
-      omiePrice,
-      omieComment
+      marketPrice,
+      marketComment,
+      customMessage
     } = req.body
 
     await resend.emails.send({
@@ -37,7 +38,9 @@ export default async function handler(req, res) {
 
         clientName,
 
-        omiePrice,
+        marketPrice,
+
+        marketComment,
 
         omieComment
 

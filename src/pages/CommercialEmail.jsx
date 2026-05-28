@@ -407,21 +407,6 @@ return (
             "
           />
 
-          <input
-            type="text"
-            placeholder="Precio SPEL Base Week"
-            value={marketPrice}
-            onChange={(e) =>
-              setMarketPrice(e.target.value)
-            }
-            className="
-              border
-              border-gray-300
-              rounded-xl
-              px-4
-              py-3
-            "
-          />
 
           <div className="mb-4">
 

@@ -9,15 +9,16 @@ const [authorized, setAuthorized] =
 
 const [password, setPassword] =
   useState('')
+
 const [loading, setLoading] =
   useState(false)
 
 const [success, setSuccess] =
   useState(false)
 
-  const [clientName, setClientName] =
-    useState('')
-
+const [clientName, setClientName] =
+  useState('')
+  
   const [clientEmail, setClientEmail] =
     useState('')
 

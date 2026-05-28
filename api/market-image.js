@@ -1,177 +1,129 @@
-import { ImageResponse } from '@vercel/og'
+export default async function handler(
+  req,
+  res
+) {
 
-export const config = {
-  runtime: 'edge'
-}
+  try {
 
-async function getMarketPrice() {
-
-  const response = await fetch(
-    'https://www.arcoplazaasesores.com/api/getMarketData'
-  )
-
-  const data = await response.json()
-
-  return data.price || '--'
-
-}
-
-export default async function handler() {
-
-  const price = await getMarketPrice()
-
-  const today =
-    new Date().toLocaleDateString(
-      'es-ES',
-      {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric'
-      }
+    const response = await fetch(
+      'https://www.arcoplazaasesores.com/api/getMarketData'
     )
 
-  return new ImageResponse(
+    const data = await response.json()
 
-    (
-      <div
-        style={{
-          width: '1200px',
-          height: '630px',
-          display: 'flex',
-          background: '#F8F6F1',
-          color: '#163A70',
-          fontFamily: 'sans-serif',
-          padding: '70px',
-          flexDirection: 'column',
-          justifyContent: 'space-between'
-        }}
-      >
+    const price =
+      data.price || '--'
 
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column'
-          }}
-        >
+    const today =
+      new Date().toLocaleDateString(
+        'es-ES',
+        {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric'
+        }
+      )
 
-          <div
-            style={{
-              fontSize: 22,
-              letterSpacing: 4,
-              textTransform: 'uppercase',
-              color: '#64748B',
-              marginBottom: 18
-            }}
-          >
-            Mercado eléctrico ibérico
-          </div>
+    const svg = `
 
-          <div
-            style={{
-              fontSize: 84,
-              lineHeight: 1,
-              maxWidth: '850px',
-              fontWeight: 300
-            }}
-          >
-            Referencia semanal OMIP
-          </div>
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
 
-        </div>
+  <rect
+    width="100%"
+    height="100%"
+    fill="#F8F6F1"
+  />
 
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between'
-          }}
-        >
+  <text
+    x="80"
+    y="100"
+    fill="#64748B"
+    font-size="24"
+    font-family="Arial"
+    letter-spacing="4"
+  >
+    MERCADO ELÉCTRICO IBÉRICO
+  </text>
 
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column'
-            }}
-          >
+  <text
+    x="80"
+    y="200"
+    fill="#163A70"
+    font-size="78"
+    font-family="Arial"
+  >
+    Referencia semanal OMIP
+  </text>
 
-            <div
-              style={{
-                fontSize: 28,
-                color: '#64748B',
-                marginBottom: 16
-              }}
-            >
-              SPEL Base Week
-            </div>
+  <text
+    x="80"
+    y="320"
+    fill="#64748B"
+    font-size="36"
+    font-family="Arial"
+  >
+    SPEL Base Week
+  </text>
 
-            <div
-              style={{
-                fontSize: 26,
-                color: '#94A3B8'
-              }}
-            >
-              {today}
-            </div>
+  <text
+    x="80"
+    y="380"
+    fill="#94A3B8"
+    font-size="28"
+    font-family="Arial"
+  >
+    ${today}
+  </text>
 
-          </div>
+  <circle
+    cx="920"
+    cy="315"
+    r="140"
+    fill="white"
+    stroke="#7DB7E8"
+    stroke-width="12"
+  />
 
-          <div
-            style={{
-              width: 280,
-              height: 280,
-              borderRadius: 999,
-              border: '12px solid #7DB7E8',
-              background: 'white',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow:
-                'inset 0 0 0 16px #EDF5FC'
-            }}
-          >
+  <text
+    x="920"
+    y="305"
+    text-anchor="middle"
+    fill="#163A70"
+    font-size="82"
+    font-family="Arial"
+  >
+    ${price}
+  </text>
 
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center'
-              }}
-            >
+  <text
+    x="920"
+    y="360"
+    text-anchor="middle"
+    fill="#64748B"
+    font-size="32"
+    font-family="Arial"
+  >
+    €/MWh
+  </text>
 
-              <div
-                style={{
-                  fontSize: 88,
-                  lineHeight: 1,
-                  fontWeight: 300
-                }}
-              >
-                {price}
-              </div>
+</svg>
+`
 
-              <div
-                style={{
-                  marginTop: 12,
-                  fontSize: 28,
-                  color: '#64748B'
-                }}
-              >
-                €/MWh
-              </div>
+    res.setHeader(
+      'Content-Type',
+      'image/svg+xml'
+    )
 
-            </div>
+    res.status(200).send(svg)
 
-          </div>
+  }
 
-        </div>
+  catch (error) {
 
-      </div>
-    ),
+    res.status(500).send(
+      'Error generating image'
+    )
 
-    {
-      width: 1200,
-      height: 630
-    }
-
-  )
+  }
 
 }

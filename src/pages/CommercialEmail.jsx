@@ -19,13 +19,13 @@ const [success, setSuccess] =
 const [clientName, setClientName] =
   useState('')
   
-  const [clientEmail, setClientEmail] =
-    useState('')
+const [clientEmail, setClientEmail] =
+  useState('')
 
-  const [marketPrice, setMarketPrice] =
-    useState('')
+const [marketPrice, setMarketPrice] =
+  useState('')
 
-    useEffect(() => {
+  useEffect(() => {
 
   const loadMarketPrice =
     async () => {

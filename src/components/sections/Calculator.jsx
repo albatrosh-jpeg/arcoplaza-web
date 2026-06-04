@@ -44,7 +44,7 @@ export default function Calculator({
   "
 >
 
-      <div className="max-w-7xl mx-auto px-6 pt-10 pb-2 lg:pt-14 lg:pb-4">
+      <div className="container-hero pt-10 pb-2 lg:pt-14 lg:pb-4">
 
         <div className="max-w-4xl mb-16">
 

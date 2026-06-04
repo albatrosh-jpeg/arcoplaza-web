@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { firstVisitEmail } from '../emails/firstVisitEmail.js'
-import { Helmet } from 'react-helmet'
 
 export default function CommercialEmail() {
 
@@ -266,7 +265,7 @@ if (!authorized) {
       items-center
       justify-center
       bg-white
-      px-6
+      px-16
     ">
 
       <form
@@ -327,19 +326,10 @@ return (
 
   <>
 
-    <Helmet>
-
-      <meta
-        name="robots"
-        content="noindex,nofollow"
-      />
-
-    </Helmet>
-
     <div className="
       min-h-screen
       bg-white
-      px-6
+      px-16
       py-16
     ">
 
@@ -350,7 +340,7 @@ return (
         grid-cols-1
         lg:grid-cols-2
         gap-10
-        px-6
+        px-16
         py-12
       ">
 
@@ -504,7 +494,7 @@ return (
               bg-black
               text-white
               rounded-xl
-              px-6
+              px-16
               py-4
               font-medium
               transition-all
@@ -563,7 +553,7 @@ return (
         >
 
           <div className="
-            px-6
+            px-16
             py-4
             border-b
             border-gray-200

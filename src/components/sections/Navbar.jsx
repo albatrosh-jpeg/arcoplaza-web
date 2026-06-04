@@ -46,11 +46,7 @@ export default function Navbar() {
 >
       <div
         className="
-          max-w-7xl
-          mx-auto
-
-          px-4
-          lg:px-6
+          container-content
 
           h-[74px]
 

@@ -31,7 +31,7 @@ export default function Footer() {
          mx-auto 
         
           px-4
-          lg:px-6
+          lg:px-16
 
           py-14
           lg:py-10

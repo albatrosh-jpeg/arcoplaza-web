@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import CommercialEmail from './pages/CommercialEmail'
 import Mercado from './pages/Mercado'
+import Blog from './pages/Blog'
 
 import {
   BrowserRouter,
@@ -38,6 +39,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route
           path="/mercado"
           element={<Mercado />}
+        />
+
+        <Route
+          path="/blog"
+          element={<Blog />}
         />
 
         <Route

@@ -58,8 +58,6 @@ return (
         <Partners companies={companies} />
       </Suspense>
       
-      {/* <Services /> */}
-
       <Contact />
 
       <Footer />

@@ -43,7 +43,7 @@ export default function Process() {
           mx-auto
 
           px-4
-          lg:px-6
+          lg:px-16
 
           py-10 sm:py-16
           lg:py-10 sm:py-16 sm:py-24

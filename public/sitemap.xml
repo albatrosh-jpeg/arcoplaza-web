@@ -32,4 +32,28 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+  <loc>https://www.arcoplazaasesores.com/blog/precio-fijo-o-indexado</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://www.arcoplazaasesores.com/blog/que-es-la-potencia-contratada</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://www.arcoplazaasesores.com/blog/errores-frecuentes-en-comunidades-que-encarecen-la-luz</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://www.arcoplazaasesores.com/blog/que-son-omip-y-omie</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+
 </urlset>

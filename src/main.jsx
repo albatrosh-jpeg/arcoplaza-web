@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import CommercialEmail from './pages/CommercialEmail'
 import Mercado from './pages/Mercado'
 import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost'
 
 import {
   BrowserRouter,
@@ -18,9 +19,12 @@ import AvisoLegal from './pages/AvisoLegal'
 import PoliticaPrivacidad from './pages/PoliticaPrivacidad'
 import PoliticaCookies from './pages/PoliticaCookies'
 
+import { HelmetProvider } from 'react-helmet-async'
+
 ReactDOM.createRoot(document.getElementById('root')).render(
 
   <React.StrictMode>
+    <HelmetProvider>
 
     <BrowserRouter>
 
@@ -47,6 +51,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         />
 
         <Route
+          path="/blog/:slug"
+          element={<BlogPost />}
+        />
+
+        <Route
           path="/aviso-legal"
           element={<AvisoLegal />}
         />
@@ -64,6 +73,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </Routes>
 
     </BrowserRouter>
+
+    </HelmetProvider>
 
   </React.StrictMode>
 

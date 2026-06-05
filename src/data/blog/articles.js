@@ -51,7 +51,7 @@ export const articles = [
 
     readTime: "7 min",
 
-    image: "/blog/omip.jpg",
+    image: "/blog/fijovsindexado.jpg",
 
     featured: false
   },
@@ -92,5 +92,25 @@ export const articles = [
   image: "/blog/ventilador.jpg",
 
   featured: false
+},
+
+{
+  slug: "que-son-omip-y-omie",
+
+  category: "Mercado",
+
+  title: "Qué son OMIP y OMIE, cómo utilizarlos en tu beneficio y por qué influyen en tu factura",
+
+  excerpt:
+    "Descubre cómo funcionan OMIP y OMIE, qué diferencias existen entre ambos y cómo afectan al precio que pagas por la energía.",
+
+  date: "Junio 2026",
+
+  readTime: "7 min",
+
+  image: "/blog/omip.jpg",
+
+  featured: false
 }
+
 ]

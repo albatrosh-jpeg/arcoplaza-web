@@ -18,7 +18,7 @@ datePublished: "2026-06-06",
 
 readTime: "7 min",
 
-image: "/blog/omip.jpg",
+image: "blog/fijovsindexado.jpg",
 
 featured: false,
 

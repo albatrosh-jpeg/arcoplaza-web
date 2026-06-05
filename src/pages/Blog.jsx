@@ -69,7 +69,7 @@ const featured =
                 pt-10
               "
             >
-              BLOG
+              OBSERVATORIO ARCOPLAZA
             </div>
 
             <h1
@@ -85,7 +85,7 @@ const featured =
                 max-w-[900px]
             "
             >
-                  Información que ayuda a tomar mejores decisiones energéticas
+                  Análisis y conocimiento para entender mejor el mercado energético
             </h1>
 
             <p
@@ -97,8 +97,9 @@ const featured =
                 leading-8
               "
             >
-              Análisis, guías y casos reales para optimizar contratos,
-              suministros y costes energéticos.
+              Tendencias de mercado, contratación energética,
+              facturación, potencia, comunidades de propietarios
+              y todo aquello que influye en el coste real de la energía.
             </p>
 
             <div className="flex flex-wrap gap-4 mt-10">

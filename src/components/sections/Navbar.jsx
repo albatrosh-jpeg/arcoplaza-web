@@ -1,30 +1,39 @@
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import Button from '../ui/Button'
+import { Link, useLocation } from 'react-router-dom'
 
-const navItems = [
- {
-    label: 'Servicios',
-    href: '#why-arcoplaza'
-  },
-  {
-    label: 'Proceso',
-    href: '#proceso'
-  },
-  {
-    label: 'Partners',
-    href: '#partners'
-  },
-  {
-    label: 'Contacto',
-    href: '#formulario'
-  }
-]
+  const navItems = [
+    {
+      label: 'Servicios',
+      href: '#why-arcoplaza'
+    },
+    {
+      label: 'Proceso',
+      href: '#proceso'
+    },
+    {
+      label: 'Partners',
+      href: '#partners'
+    },
+    {
+      label: 'Observatorio',
+      href: '/blog'
+    },
+    {
+      label: 'Contacto',
+      href: '#formulario'
+    }
+  ]
 
 export default function Navbar() {
 
   const [open, setOpen] = useState(false)
+  const location = useLocation()
 
+  const isBlog =
+    location.pathname.startsWith('/blog')
+    
   return (
 
 <header
@@ -58,15 +67,14 @@ export default function Navbar() {
         "
       >
 
-        <a
-          href="#hero"
+        <Link
+          to="/"
           className="shrink-0"
         >
 
           <img
             src="/logo-arcoplaza.png"
             alt="Arcoplaza Asesores"
-            href="#hero"
             className="
               h-14
               lg:h-16
@@ -75,7 +83,9 @@ export default function Navbar() {
             "
           />
 
-        </a>
+        </Link>
+        
+        {!isBlog && (
 
         <nav
           className="
@@ -90,28 +100,36 @@ export default function Navbar() {
           "
         >
 
-          {navItems.map((item) => (
+        {navItems.map((item) => (
 
-            <a
-              key={item.label}
-              href={item.href}
-              className="
-                text-[15px]
+          item.href.startsWith('/')
 
-                text-text-secondary
+            ? (
 
-                transition-colors
-                duration-300
+              <Link
+                key={item.label}
+                to={item.href}
+              >
+                {item.label}
+              </Link>
 
-                hover:text-corporate
-              "
-            >
-              {item.label}
-            </a>
+            )
 
-          ))}
+            : (
+
+              <a
+                key={item.label}
+                href={item.href}
+              >
+                {item.label}
+              </a>
+
+            )
+
+        ))}
 
         </nav>
+        )}
 
         <div
           className="

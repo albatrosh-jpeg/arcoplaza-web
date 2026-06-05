@@ -4,6 +4,7 @@ import { articles } from '../data/blog/articles'
 import { posts } from '../data/blog/posts'
 import { Link, useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
+import ReactMarkdown from 'react-markdown'
 
 export default function BlogPost() {
 
@@ -283,19 +284,20 @@ export default function BlogPost() {
 
             return (
 
-              <p
-                key={index}
-                className="
-                  text-lg
-                  leading-9
-                  text-[#556274]
+        <div
+          key={index}
+          className="
+            text-lg
+            leading-9
+            text-[#556274]
 
-                  mb-8
-                "
-              >
-                {block.text}
-              </p>
-
+            mb-8
+          "
+        >
+          <ReactMarkdown>
+            {block.text}
+          </ReactMarkdown>
+        </div>
             )
 
           })}

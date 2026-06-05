@@ -10,7 +10,7 @@ import {
 import Navbar from '../components/sections/Navbar'
 import Footer from '../components/sections/Footer'
 import { articles } from '../data/blog/articles'
-
+import { Link } from 'react-router-dom'
 
 export default function Blog() {
 
@@ -66,6 +66,7 @@ const featured =
                 text-md
                 font-bold
                 mb-8
+                pt-10
               "
             >
               BLOG
@@ -178,95 +179,112 @@ const featured =
 
       </section>
 
-    <section>
+      <section>
         <div className="container-content py-20">
 
-        <div
-          className="
-            grid
-            lg:grid-cols-2
-            gap-12
-            items-center
-          "
-        >
-        <img
-        src="/blog/destacado.jpg"
-        alt="La noticia de la semana"
-        className="
-            w-full
-            h-[420px]
-            object-cover
-            rounded-[28px]
-            border
-            border-[#ECE7DD]
-        "
-        />
-          <div>
+          <Link
+            to={`/blog/${featured.slug}`}
+            className="block group"
+          >
 
             <div
               className="
-                text-corporateGreen
-                uppercase
-                tracking-[0.18em]
-                text-xs
-                mb-4
-              "
-            >
-              ARTÍCULO DESTACADO
-            </div>
-
-            <h2
-            className="
-                text-[40px]
-                lg:text-[48px]
-
-                font-editorial
-
-                leading-[0.95]
-                tracking-tight
-
-                mb-6
-                text-[#18375D]
-            "
-            >
-                  {featured.title}     
-            </h2>
-
-            {/* Article Meta Fecha y Tiempo de lectura hasta final del div */}
-            <div
-            className="
-                flex
-                text-corporateGreen
+                grid
+                lg:grid-cols-2
+                gap-12
                 items-center
-                gap-3
-                text-sm
-                mb-6
-            "
-            >
-            <span>{featured.date}</span>
-
-            <span>•</span>
-
-            <span>{featured.readTime} lectura</span>
-            </div>
-
-            <p
-              className="
-                text-[#556274]
-                text-lg
-                leading-8
-                mb-8
               "
             >
-              {featured.excerpt}
-            </p>
 
-          </div>
+              <img
+                src="/blog/destacado.jpg"
+                alt="La noticia de la semana"
+                className="
+                  w-full
+                  h-[420px]
+                  object-cover
+                  rounded-[28px]
+                  border
+                  border-[#ECE7DD]
 
-        </div>
+                  transition-transform
+                  duration-500
+
+                  group-hover:scale-[1.02]
+                "
+              />
+
+              <div>
+
+                <div
+                  className="
+                    text-corporateGreen
+                    uppercase
+                    tracking-[0.18em]
+                    text-xs
+                    mb-4
+                  "
+                >
+                  ARTÍCULO DESTACADO
+                </div>
+
+                <h2
+                  className="
+                    text-[40px]
+                    lg:text-[48px]
+
+                    font-editorial
+
+                    leading-[0.95]
+                    tracking-tight
+
+                    mb-6
+                    text-[#18375D]
+
+                    transition-colors
+                    duration-300
+
+                    group-hover:text-corporateGreen
+                  "
+                >
+                  {featured.title}
+                </h2>
+
+                <div
+                  className="
+                    flex
+                    items-center
+                    gap-3
+
+                    text-sm
+                    text-corporateGreen
+
+                    mb-6
+                  "
+                >
+                  <span>{featured.date}</span>
+                  <span>•</span>
+                  <span>{featured.readTime} lectura</span>
+                </div>
+
+                <p
+                  className="
+                    text-[#556274]
+                    text-lg
+                    leading-8
+                  "
+                >
+                  {featured.excerpt}
+                </p>
+
+              </div>
+
+            </div>
+
+          </Link>
+
         </div>
       </section>
-
         <section>
         <div className="container-content pb-24">
 
@@ -279,13 +297,18 @@ const featured =
           "
         >
 
-          {articles.map(article => (
+          {articles
+            .filter(article => !article.featured)
+            .map(article => (
+
+              <Link
+                key={article.slug}
+                to={`/blog/${article.slug}`}
+                className="block group"
+              >
 
                 <article
-                  key={article.title}
                   className="
-                    group
-
                     border
                     border-[#ECE7DD]
 
@@ -301,8 +324,9 @@ const featured =
                     hover:-translate-y-1
                     hover:shadow-lg
                   "
-                >
-                <img
+                >                
+      
+              <img
                   src={article.image}
                   alt={article.title}
                   className="
@@ -328,21 +352,27 @@ const featured =
                   {article.category}
                 </div>
 
-                <h3
-                  className="
-                    font-editorial
+              <h3
+                className="
+                  font-editorial
 
-                    text-[28px]
+                  text-[28px]
 
-                    leading-[1]
+                  leading-[1]
 
-                    tracking-tight
+                  tracking-tight
 
-                    text-[#18375D]
+                  text-[#18375D]
 
-                    mb-4
-                  "
-                >
+                  mb-4
+
+                  transition-colors
+                  duration-300
+
+                  group-hover:text-corporateGreen
+                "
+              >
+                
                   {article.title}
                 </h3>
 
@@ -374,6 +404,7 @@ const featured =
               </div>
 
             </article>
+          </Link>
 
           ))}
 

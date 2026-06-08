@@ -37,7 +37,7 @@ const featured =
       >
 
         <img
-          src="/hero-blueprint.png"
+          src="/hero-blueprint.webp"
           alt=""
           className="
             absolute

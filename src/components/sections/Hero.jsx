@@ -45,7 +45,7 @@ const {
       <div
         className="absolute inset-0 opacity-[0.07] bg-cover bg-center"
         style={{
-          backgroundImage: "url('/hero-blueprint.png')"
+          backgroundImage: "url('/hero-blueprint.webp')"
         }}
       />
 

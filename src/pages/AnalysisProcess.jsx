@@ -29,15 +29,14 @@ export default function AnalysisProcess() {
 
     <section
       id="como-funciona"
-      className="
-        section-padding
+        className="py-20 lg:py-26
         bg-surface-primary
       "
     >
 
       <div className="container-content">
 
-        <SectionTitle
+      <SectionTitle
           eyebrow="PROCESO"
           title="Cómo funciona"
           text="Un proceso sencillo, transparente y orientado a detectar oportunidades reales de optimización."

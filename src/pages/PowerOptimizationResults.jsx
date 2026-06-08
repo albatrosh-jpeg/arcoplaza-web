@@ -1,32 +1,36 @@
 import SectionTitle from '../components/ui/SectionTitle'
 
-const items = [
+const results = [
   {
-    title: 'Contratos que dejaron de ser competitivos',
-    text: 'Las condiciones que parecían razonables hace meses pueden no encajar con la situación actual del mercado.'
+    title: 'Potencia sobredimensionada',
+    text: 'Suministros que mantienen potencias contratadas muy por encima de la demanda real observada.'
   },
   {
-    title: 'Potencias sobredimensionadas',
-    text: 'Una potencia superior a la necesaria puede generar costes fijos innecesarios todos los meses.'
+    title: 'Contratos sin revisar',
+    text: 'Potencias que llevan años sin reevaluarse pese a cambios en la actividad o en las instalaciones.'
   },
   {
-    title: 'Márgenes y condiciones poco visibles',
-    text: 'Algunos sobrecostes no aparecen de forma evidente en la factura, pero influyen directamente en el importe final.'
+    title: 'Costes fijos evitables',
+    text: 'Importes recurrentes que podrían optimizarse sin afectar al funcionamiento normal del suministro.'
   }
 ]
 
-export default function AnalysisProblem() {
+export default function PowerOptimizationResults() {
 
   return (
 
-    <section className="py-20 lg:py-26">
+    <section
+        className="py-24 lg:py-32
+        bg-surface-primary
+      "
+    >
 
       <div className="container-content">
 
         <SectionTitle
-          eyebrow="EL COSTE OCULTO"
-          title="La mayoría de los sobrecostes no están en el consumo"
-          text="Muchas empresas y comunidades revisan su consumo energético, pero rara vez revisan las condiciones de sus contratos."
+          eyebrow="RESULTADOS"
+          title="Las situaciones más habituales que encontramos"
+          text="Cada suministro es diferente, pero existen patrones que aparecen una y otra vez cuando revisamos potencias contratadas."
         />
 
         <div
@@ -38,10 +42,10 @@ export default function AnalysisProblem() {
           "
         >
 
-          {items.map((item) => (
+          {results.map((result) => (
 
             <div
-              key={item.title}
+              key={result.title}
               className="
                 border
                 border-border-soft
@@ -60,7 +64,7 @@ export default function AnalysisProblem() {
                   mb-4
                 "
               >
-                {item.title}
+                {result.title}
               </h3>
 
               <p
@@ -69,7 +73,7 @@ export default function AnalysisProblem() {
                   leading-relaxed
                 "
               >
-                {item.text}
+                {result.text}
               </p>
 
             </div>

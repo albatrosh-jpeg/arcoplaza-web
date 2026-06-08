@@ -29,8 +29,7 @@ export default function PowerOptimizationProcess() {
 
     <section
       id="como-funciona"
-      className="
-        section-padding
+        className="py-24 lg:py-32
         bg-surface-primary
       "
     >

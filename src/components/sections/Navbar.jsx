@@ -22,7 +22,7 @@ import { Link, useLocation } from 'react-router-dom'
     },
     {
       label: 'Contacto',
-      href: '#formulario'
+      href: '/#formulario'
     }
   ]
 
@@ -33,8 +33,14 @@ export default function Navbar() {
 
   const isBlog =
     location.pathname.startsWith('/blog')
-    location.pathname.startsWith('/soluciones')
-    
+
+  const isLanding =
+    location.pathname === '/analisis-factura-electrica' ||
+    location.pathname.startsWith('/soluciones/')
+
+  const simplifiedNavbar =
+    isBlog || isLanding
+
   return (
 
 <header
@@ -86,7 +92,7 @@ export default function Navbar() {
 
         </Link>
         
-        {!isBlog && (
+      {!simplifiedNavbar && (
 
         <nav
           className="

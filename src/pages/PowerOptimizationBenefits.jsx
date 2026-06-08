@@ -19,7 +19,7 @@ export default function PowerOptimizationBenefits() {
 
   return (
 
-    <section className="section-padding">
+    <section className="py-20 lg:py-26">
 
       <div className="container-content">
 

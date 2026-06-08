@@ -14,8 +14,8 @@ export default function AnalysisHero({
     <section
       className="
         relative
-        min-h-[620px]
-        lg:min-h-[680px]
+        min-h-[760px]
+        lg:min-h-[860px]
         flex
         items-center
         overflow-hidden
@@ -24,15 +24,6 @@ export default function AnalysisHero({
         bg-surface-primary
       "
     >
-
-      <HeroBackground />
-
-      <div
-        className="absolute inset-0 opacity-[0.07] bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/hero-blueprint.webp')"
-        }}
-      />
 
       <div
         className="

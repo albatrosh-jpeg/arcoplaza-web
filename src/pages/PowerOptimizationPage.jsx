@@ -12,6 +12,7 @@ import SectionTitle from '../components/ui/SectionTitle'
 import PowerOptimizationBenefits from './PowerOptimizationBenefits'
 
 import PowerOptimizationSignals from './PowerOptimizationSignals'
+import PowerOptimizationResults from './PowerOptimizationResults'
 
 const reviewItems = [
   {
@@ -62,7 +63,7 @@ export default function PowerOptimizationPage() {
           imageAlt="Optimización de potencia contratada"
         />
 
-        <section className="section-padding">
+        <section className="py-20 lg:py-26">
 
           <div className="container-content">
 
@@ -77,8 +78,7 @@ export default function PowerOptimizationPage() {
         </section>
 
         <section
-          className="
-            section-padding
+            className="py-24 lg:py-32
             bg-surface-primary
           "
         >
@@ -144,6 +144,7 @@ export default function PowerOptimizationPage() {
 
         </section>
 
+
         <PowerOptimizationBenefits />
 
         <PowerOptimizationSignals />
@@ -151,6 +152,8 @@ export default function PowerOptimizationPage() {
         <PowerOptimizationProcess />
 
         <Cases />
+
+        <PowerOptimizationResults />
 
         <PowerOptimizationCTA />
 

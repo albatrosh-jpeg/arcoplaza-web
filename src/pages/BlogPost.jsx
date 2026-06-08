@@ -22,67 +22,90 @@ export default function BlogPost() {
   const nextArticle =
     articles[currentIndex + 1]
 
-  if (!article || !post) {
+if (!article || !post) {
 
-    return (
+  return (
 
-      <>
-              <Helmet>
+    <>
+      <Navbar />
 
-          <title>
-            {post.seoTitle}
-          </title>
+      <main className="container-content py-32">
 
-          <meta
-            name="description"
-            content={post.seoDescription}
-          />
+        <h1 className="font-editorial text-5xl text-[#18375D]">
+          Artículo no encontrado
+        </h1>
 
-          <meta
-            property="og:title"
-            content={post.seoTitle}
-          />
+      </main>
 
-          <meta
-            property="og:description"
-            content={post.seoDescription}
-          />
+      <Footer />
 
-          <meta
-            property="og:type"
-            content="article"
-          />
+    </>
 
-          <meta
-            property="og:image"
-            content={post.image}
-          />
+  )
 
-          <meta
-            property="og:url"
-            content={`https://arcoplaza.es/blog/${post.slug}`}
-          />
+}
 
-          <meta
-            name="twitter:card"
-            content="summary_large_image"
-          />
+return (
 
-          <meta
-            name="twitter:title"
-            content={post.seoTitle}
-          />
+  <>
 
-          <meta
-            name="twitter:description"
-            content={post.seoDescription}
-          />
+    <Helmet>
 
-          <meta
-            name="twitter:image"
-            content={post.image}
-          />
-        <script type="application/ld+json">
+      <title>
+        {post.seoTitle}
+      </title>
+
+      <meta
+        name="description"
+        content={post.seoDescription}
+      />
+
+      <meta
+        property="og:title"
+        content={post.seoTitle}
+      />
+
+      <meta
+        property="og:description"
+        content={post.seoDescription}
+      />
+
+      <meta
+        property="og:type"
+        content="article"
+      />
+
+      <meta
+        property="og:image"
+        content={post.image}
+      />
+
+      <meta
+        property="og:url"
+        content={`https://www.arcoplazaasesores.com/blog/${post.slug}`}
+      />
+
+      <meta
+        name="twitter:card"
+        content="summary_large_image"
+      />
+
+      <meta
+        name="twitter:title"
+        content={post.seoTitle}
+      />
+
+      <meta
+        name="twitter:description"
+        content={post.seoDescription}
+      />
+
+      <meta
+        name="twitter:image"
+        content={post.image}
+      />
+
+      <script type="application/ld+json">
         {JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'Article',
@@ -92,7 +115,7 @@ export default function BlogPost() {
           description: post.seoDescription,
 
           image: [
-            `https://arcoplaza.es${post.image}`
+            `https://www.arcoplazaasesores.com${post.image}`
           ],
 
           author: {
@@ -106,7 +129,7 @@ export default function BlogPost() {
 
             logo: {
               '@type': 'ImageObject',
-              url: 'https://arcoplaza.es/logo.png'
+              url: 'https://www.arcoplazaasesores.com/logo.png'
             }
           },
 
@@ -114,34 +137,15 @@ export default function BlogPost() {
 
           mainEntityOfPage: {
             '@type': 'WebPage',
-            '@id': `https://arcoplaza.es/blog/${post.slug}`
+            '@id': `https://www.arcoplazaasesores.com/blog/${post.slug}`
           }
-          })}
-        </script>
+        })}
+      </script>
 
-        </Helmet>
-        <Navbar />
+    </Helmet>
 
-        <main className="container-content py-32">
-
-          <h1 className="font-editorial text-5xl text-[#18375D]">
-            Artículo no encontrado
-          </h1>
-
-        </main>
-
-        <Footer />
-      </>
-
-    )
-
-  }
-
-  return (
-
-    <>
-      <Navbar />
-
+    <Navbar />
+    
       <article>
 
         <section

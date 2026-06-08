@@ -16,7 +16,10 @@ export default function Section({
 
     <section
       id={id}
-      className={className}
+      className={`
+        ${id ? 'scroll-mt-6' : ''}
+        ${className}
+      `}
     >
 
       <div

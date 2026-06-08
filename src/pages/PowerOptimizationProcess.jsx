@@ -57,6 +57,7 @@ export default function PowerOptimizationProcess() {
             <div
               key={step.number}
               className="
+                card-top-accent
                 border
                 border-border-soft
                 rounded-[28px]
@@ -78,9 +79,7 @@ export default function PowerOptimizationProcess() {
 
               <h3
                 className="
-                  font-editorial
-                  text-[30px]
-                  leading-[1]
+                  heading-h3
                   text-corporate
                   mb-4
                 "

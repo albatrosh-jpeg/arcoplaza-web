@@ -11,9 +11,7 @@ export default function InfoBlock({
 
       <h3
         className={`
-          text-2xl
-          font-black
-          leading-tight
+          heading-h3
           mb-5
           ${titleClassName}
         `}

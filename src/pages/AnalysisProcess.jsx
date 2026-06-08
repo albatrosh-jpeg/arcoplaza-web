@@ -29,7 +29,7 @@ export default function AnalysisProcess() {
 
     <section
       id="como-funciona"
-        className="py-20 lg:py-26
+        className="py-20 lg:py-32
         bg-surface-primary
       "
     >
@@ -57,6 +57,7 @@ export default function AnalysisProcess() {
             <div
               key={step.number}
               className="
+                card-top-accent
                 border
                 border-border-soft
                 rounded-[28px]
@@ -78,9 +79,7 @@ export default function AnalysisProcess() {
 
               <h3
                 className="
-                  font-editorial
-                  text-[30px]
-                  leading-[1]
+                  heading-h3
                   text-corporate
                   mb-4
                 "

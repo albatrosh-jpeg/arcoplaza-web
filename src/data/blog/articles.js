@@ -75,7 +75,7 @@ export const articles = [
     featured: false
   },
   
-  {
+{
   slug: "cuanto-cuesta-tener-un-ventilador-encendido-toda-la-noche",
 
   category: "Facturas",
@@ -90,6 +90,25 @@ export const articles = [
   readTime: "4 min",
 
   image: "/blog/ventilador.jpg",
+
+  featured: false
+},
+
+{
+  slug: "cuanto-cuesta-tener-un-aire-acondicionado-encendido-toda-la-noche",
+
+  category: "Facturas",
+
+  title: "Cuánto cuesta tener un aire acondicionado encendido toda la noche",
+
+  excerpt:
+    "Calculamos cuánto consume un aire acondicionado durante la noche, cuánto puede costar al mes y cómo reducir el gasto sin perder confort.",
+
+  date: "Junio 2026",
+
+  readTime: "6 min",
+
+  image: "/blog/aire-acondicionado-image3.png",
 
   featured: false
 },

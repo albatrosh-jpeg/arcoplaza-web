@@ -5,6 +5,13 @@ import { posts } from '../data/blog/posts'
 import { Link, useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import ReactMarkdown from 'react-markdown'
+import {
+  ArrowLeft,
+  ArrowRight,
+  CalendarDays,
+  Clock3,
+  Tag
+} from 'lucide-react'
 
 export default function BlogPost() {
 
@@ -31,7 +38,7 @@ if (!article || !post) {
 
       <main className="container-content py-32">
 
-        <h1 className="font-editorial text-5xl text-[#18375D]">
+        <h1 className="heading-h1 text-[#18375D]">
           Artículo no encontrado
         </h1>
 
@@ -150,14 +157,34 @@ return (
 
         <section
           className="
+            relative
+            overflow-hidden
             bg-corporate-gradient
             text-white
             pt-24
-            pb-20
+            pb-28
+            lg:pb-36
           "
         >
+ 
+          <img
+            src="/hero-blueprint.webp"
+            alt=""
+            className="
+              pointer-events-none
+              absolute
+              inset-0
+              h-full
+              w-full
+              object-cover
+              opacity-10
+            "
+          />
 
-          <div className="container-content">
+          <div className="pointer-events-none absolute -right-24 top-10 hidden h-80 w-80 rounded-full border border-white/10 lg:block" />
+          <div className="pointer-events-none absolute bottom-10 right-16 hidden h-36 w-36 rounded-full border border-dashed border-white/10 lg:block" />
+
+          <div className="container-content relative z-10">
           <div
           className="
             flex
@@ -166,7 +193,7 @@ return (
 
             text-sm
 
-            text-slate-300
+            text-white/72
 
             mb-8
           "
@@ -185,7 +212,7 @@ return (
 
           <span>/</span>
 
-          <span className="text-white">
+          <span className="max-w-[420px] truncate text-white">
             {article.title}
           </span>
 
@@ -194,7 +221,7 @@ return (
               className="
                 text-xs
                 uppercase
-                tracking-[0.22em]
+                tracking-[0.18em]
                 text-corporateGreen
                 mb-6
               "
@@ -204,12 +231,9 @@ return (
 
             <h1
               className="
-                font-editorial
-                text-[54px]
-                lg:text-[78px]
-                leading-[0.92]
-                tracking-tight
-                max-w-[900px]
+                heading-h1
+                max-w-[980px]
+                text-balance
               "
             >
               {article.title}
@@ -223,38 +247,51 @@ return (
 
             mt-8
 
-            text-slate-300
+            text-white/72
           "
         >
-          <span>{article.date}</span>
+          <span className="inline-flex items-center gap-2">
+            <CalendarDays size={16} />
+            {article.date}
+          </span>
 
-          <span>•</span>
+          <span className="inline-flex items-center gap-2">
+            <Clock3 size={16} />
+            {article.readTime} lectura
+          </span>
 
-          <span>{article.readTime} lectura</span>
-
-          <span>•</span>
-
-          <span>{article.category}</span>
+          <span className="inline-flex items-center gap-2">
+            <Tag size={16} />
+            {article.category}
+          </span>
 
         </div>
         </div>
         </section>
 
-        <section className="container-content py-16">
+        <section className="bg-[#FCFBF8]">
+
+          <div className="container-content pb-20 pt-12 lg:pt-16">
 
           <img
             src={article.image}
             alt={article.title}
             className="
               w-full
-              max-w-[700px]
+              max-w-[780px]
+              mx-auto
 
-              rounded-[28px]
-              mb-16
+              rounded-[30px]
+              border
+              border-white/70
+              bg-white
+              shadow-[0_24px_70px_rgba(16,37,66,0.12)]
+              mb-14
+              object-cover
             "
           />
-
-        <div className="max-w-3xl">
+ 
+        <div className="mx-auto max-w-[760px]">
 
           {post.content.map((block, index) => {
 
@@ -265,22 +302,51 @@ return (
                 <h2
                   key={index}
                   className="
-                    font-editorial
-
-                    text-[38px]
-
-                    leading-[1]
-
-                    tracking-tight
-
+                    relative
+                    blog-article-heading
                     text-[#18375D]
 
-                    mt-16
+                    mt-14
                     mb-6
+                    pl-5
+                    before:absolute
+                    before:left-0
+                    before:top-[0.18em]
+                    before:h-[0.9em]
+                    before:w-1
+                    before:rounded-full
+                    before:bg-corporateGreen
                   "
                 >
                   {block.text}
                 </h2>
+
+              )
+
+            }
+
+            if (block.type === 'image') {
+
+              return (
+
+                <figure
+                  key={index}
+                  className="my-12 overflow-hidden rounded-[26px] border border-[#ECE7DD] bg-white shadow-[0_18px_48px_rgba(16,37,66,0.07)]"
+                >
+                  <img
+                    src={block.src}
+                    alt={block.alt || ''}
+                    className="
+                      w-full
+                    "
+                  />
+
+                  {block.caption && (
+                    <figcaption className="border-t border-[#ECE7DD] px-5 py-4 text-sm leading-relaxed text-[#6B7280]">
+                      {block.caption}
+                    </figcaption>
+                  )}
+                </figure>
 
               )
 
@@ -293,7 +359,7 @@ return (
           className="
             text-lg
             leading-9
-            text-[#556274]
+            text-[#46566B]
 
             mb-8
           "
@@ -310,15 +376,21 @@ return (
 
         <div
           className="
-            mt-24
+            card-top-accent
+            mt-20
 
-            p-10
+            p-7
+            sm:p-10
 
             rounded-[28px]
 
-            bg-[#F7F5F0]
+            border
+            border-[#E7E1D7]
+            bg-white
 
             max-w-3xl
+            mx-auto
+            shadow-[0_20px_60px_rgba(16,37,66,0.08)]
           "
         >
 
@@ -338,12 +410,7 @@ return (
 
           <h2
             className="
-              font-editorial
-
-              text-[42px]
-
-              leading-[0.95]
-
+              heading-h2
               text-[#18375D]
 
               mb-6
@@ -368,18 +435,24 @@ return (
           </p>
 
           <a
-            href="/#contacto"
+            href="/#formulario"
             className="
               inline-flex
+              items-center
+              gap-3
 
               px-8
               py-4
 
-              rounded-xl
+              rounded-[18px]
 
-              bg-corporate
+              bg-[linear-gradient(135deg,#43B886_0%,#0657B7_100%)]
 
               text-white
+              font-semibold
+              shadow-[0_16px_34px_rgba(6,87,183,0.22)]
+              transition-transform
+              hover:-translate-y-[1px]
             "
           >
             Solicitar revisión
@@ -389,13 +462,16 @@ return (
 
           <div
       className="
-        border-t
-        border-[#ECE7DD]
-
-        mt-24
-        pt-16
-
+        mt-16
         max-w-3xl
+        mx-auto
+
+        rounded-[28px]
+        border
+        border-[#E7E1D7]
+        bg-white/70
+        p-6
+        sm:p-8
       "
     >
 
@@ -403,7 +479,7 @@ return (
 
   <>
 
-    <h3
+    <div
       className="
         text-xs
         uppercase
@@ -415,29 +491,39 @@ return (
       "
     >
       SIGUIENTE ARTÍCULO
-    </h3>
+    </div>
 
     <Link
       to={`/blog/${nextArticle.slug}`}
       className="
-        block
+        group
+        flex
+        items-center
+        justify-between
+        gap-6
 
+        rounded-[20px]
+        border
+        border-[#E7E1D7]
+        bg-white
+        p-5
+
+        text-[22px]
         font-editorial
-
-        text-[34px]
-
-        leading-[1]
-
+        font-semibold
+        leading-tight
         text-[#18375D]
 
         hover:text-corporateGreen
+        hover:shadow-[0_14px_34px_rgba(16,37,66,0.08)]
 
-        transition-colors
+        transition-all
 
         mb-8
       "
     >
-      {nextArticle.title}
+      <span>{nextArticle.title}</span>
+      <ArrowRight className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
     </Link>
 
   </>
@@ -447,9 +533,19 @@ return (
       <Link
         to="/blog"
         className="
+          inline-flex
+          items-center
+          gap-2
+          rounded-full
+          border
+          border-[#E7E1D7]
+          bg-white
+          px-4
+          py-2
           text-[#18375D]
 
           hover:text-corporateGreen
+          hover:border-corporateGreen/30
 
           transition-colors
         "
@@ -458,6 +554,8 @@ return (
       </Link>
     </div>    
 
+          </div>
+ 
         </section>
 
       </article>

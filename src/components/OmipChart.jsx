@@ -13,6 +13,7 @@ export default function OmipChart({ history }) {
 
     <div
       className="
+        card-top-accent
         bg-[#FCFBF8]
         border
         border-[#ECE7DD]

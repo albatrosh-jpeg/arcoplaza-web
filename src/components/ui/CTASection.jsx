@@ -5,6 +5,7 @@ export default function CTASection({
   text,
   buttonText,
   buttonHref = '#formulario',
+  buttonClassName = '',
   className = ''
 }) {
 
@@ -21,13 +22,7 @@ export default function CTASection({
 
       <div className="max-w-3xl">
 
-        <h2 className="
-          text-4xl
-          lg:text-5xl
-          font-black
-          leading-tight
-          mb-6
-        ">
+        <h2 className="heading-h2 mb-6">
 
           {title}
 
@@ -46,6 +41,7 @@ export default function CTASection({
         <Button
           as="a"
           href={buttonHref}
+          className={buttonClassName}
         >
 
           {buttonText}

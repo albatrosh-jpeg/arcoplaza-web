@@ -21,7 +21,7 @@ const whyArcoplaza = [
   {
     icon: ShieldCheck,
     title: "Seguimiento continuo",
-    text: "No vendemos energía. Revisamos si la estás pagando correctamente.",
+    text: "No vendemos energía. Revisamos si la estás pagando correctamente",
   },
 
   {

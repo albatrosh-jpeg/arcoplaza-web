@@ -12,7 +12,7 @@ export default function PowerOptimizationSignals() {
 
   return (
 
-    <section className="py-20 lg:py-26">
+    <section className="py-20 lg:py-32">
 
       <div className="container-content">
 
@@ -35,6 +35,7 @@ export default function PowerOptimizationSignals() {
             <div
               key={signal}
               className="
+                card-top-accent
                 flex
                 gap-4
                 items-start
@@ -43,6 +44,7 @@ export default function PowerOptimizationSignals() {
                 border-border-soft
 
                 rounded-[20px]
+                bg-white
 
                 p-6
               "

@@ -1,4 +1,3 @@
-import HeroBackground from '../components/ui/HeroBackground'
 import Button from '../components/ui/Button'
 
 export default function AnalysisHero({
@@ -21,9 +20,22 @@ export default function AnalysisHero({
         overflow-hidden
         border-b
         border-border-soft
-        bg-surface-primary
+        bg-[#F8F6F1]
       "
     >
+
+      <div
+        className="
+          absolute
+          right-[-180px]
+          top-[120px]
+          w-[520px]
+          h-[520px]
+          rounded-full
+          bg-corporateGreen/10
+          blur-[90px]
+        "
+      />
 
       <div
         className="
@@ -33,10 +45,10 @@ export default function AnalysisHero({
           mx-auto
           px-5
           lg:px-8
-          pt-20
-          pb-20
+          pt-28
+          pb-24
           grid
-          lg:grid-cols-[1.1fr_0.9fr]
+          lg:grid-cols-[0.9fr_1.1fr]
           gap-16
           items-center
         "
@@ -49,11 +61,14 @@ export default function AnalysisHero({
               eyebrow
               inline-flex
               rounded-full
-              bg-corporateGreen-soft
-              px-3
-              py-1.5
+              bg-white
+              border
+              border-border-soft
+              px-4
+              py-2
               text-corporateGreen
-              mb-5
+              mb-6
+              shadow-sm
             "
           >
             {eyebrow}
@@ -61,13 +76,10 @@ export default function AnalysisHero({
 
           <h1
             className="
-              font-editorial
-              text-[42px]
-              lg:text-[68px]
-              leading-[0.92]
-              tracking-tight
+              heading-h1
               text-corporate
               mb-8
+              max-w-[760px]
             "
           >
             {title}
@@ -76,20 +88,21 @@ export default function AnalysisHero({
           <p
             className="
               text-lg
+              lg:text-xl
               leading-relaxed
               text-text-secondary
-              max-w-[640px]
+              max-w-[620px]
               mb-10
             "
           >
             {text}
           </p>
 
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 mb-8">
 
             <Button
               as="a"
-              href="/#contacto"
+              href="/#formulario"
             >
               Solicitar análisis
             </Button>
@@ -104,16 +117,50 @@ export default function AnalysisHero({
 
           </div>
 
+          <div
+            className="
+              flex
+              flex-wrap
+              gap-3
+              text-sm
+              text-text-secondary
+            "
+          >
+            <span>Empresas</span>
+            <span>·</span>
+            <span>Comunidades</span>
+            <span>·</span>
+            <span>Suministros profesionales</span>
+          </div>
+
         </div>
 
-        <div>
+        <div
+          className="
+            relative
+            flex
+            justify-center
+            lg:justify-end
+          "
+        >
+
+          <div
+            className="
+              absolute
+              inset-8
+              rounded-[40px]
+              bg-white/70
+            "
+          />
 
           <img
             src={image}
             alt={imageAlt}
             className="
+              relative
+              z-10
               w-full
-              max-w-[520px]
+              max-w-[700px]
               mx-auto
             "
           />

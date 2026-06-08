@@ -8,6 +8,7 @@ import AnalysisHero from './AnalysisHero'
 import AnalysisProblem from './AnalysisProblem'
 import AnalysisProcess from './AnalysisProcess'
 import AnalysisCTA from './AnalysisCTA'
+import LandingVisualCards from './LandingVisualCards'
 
 export default function AnalysisPage() {
 
@@ -34,6 +35,8 @@ export default function AnalysisPage() {
         <AnalysisHero />
 
         <AnalysisProblem />
+
+        <LandingVisualCards />
 
         <AnalysisProcess />
 

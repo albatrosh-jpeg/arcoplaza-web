@@ -2,26 +2,28 @@ export default function SectionTitle({
   eyebrow,
   title,
   text,
-  align = 'left',
-  textColor = 'text-text-secondary'
+  align = 'left'
 }) {
+
+  const alignClasses = {
+    left: 'text-left',
+    center: 'text-center',
+    right: 'text-right'
+  }
 
   return (
 
-    <div
-      className={`
-        max-w-3xl
-
-        mb-10
-        lg:mb-16
-
-        text-${align}
-      `}
-    >
+    <div className={alignClasses[align] || alignClasses.left}>
 
       {eyebrow && (
 
-        <div className="eyebrow text-corporateGreen mb-4">
+        <div
+          className="
+            eyebrow
+            text-corporateGreen
+            mb-4
+          "
+        >
           {eyebrow}
         </div>
 
@@ -29,17 +31,8 @@ export default function SectionTitle({
 
       <h2
         className="
-          section-title
-
-          text-[36px]
-          leading-[0.98]
-
-          sm:text-[42px]
-
-          lg:text-5xl
-
-          mb-5
-          lg:mb-6
+          heading-h2
+          max-w-[820px]
         "
       >
         {title}
@@ -48,12 +41,13 @@ export default function SectionTitle({
       {text && (
 
         <p
-          className={`
-            body-md
-            lg:body-lg
-
-            ${textColor}
-          `}
+          className="
+            mt-6
+            text-lg
+            leading-relaxed
+            text-text-secondary
+            max-w-[680px]
+          "
         >
           {text}
         </p>

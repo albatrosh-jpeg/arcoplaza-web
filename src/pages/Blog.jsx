@@ -11,12 +11,82 @@ import Navbar from '../components/sections/Navbar'
 import Footer from '../components/sections/Footer'
 import { articles } from '../data/blog/articles'
 import { Link } from 'react-router-dom'
+import { useMemo, useState } from 'react'
+
+const categoryFilters = [
+  {
+    name: 'Todos',
+    icon: LayoutGrid,
+    matches: () => true
+  },
+  {
+    name: 'Facturas',
+    icon: FileText,
+    matches: article => article.category === 'Facturas'
+  },
+  {
+    name: 'Potencia',
+    icon: Zap,
+    matches: article =>
+      [article.title, article.excerpt, article.slug]
+        .join(' ')
+        .toLowerCase()
+        .includes('potencia')
+  },
+  {
+    name: 'Mercado',
+    icon: TrendingUp,
+    matches: article => article.category === 'Mercado'
+  },
+  {
+    name: 'Empresas',
+    icon: Building2,
+    matches: article => article.category === 'Empresas'
+  },
+  {
+    name: 'Comunidades',
+    icon: Users,
+    matches: article => article.category === 'Comunidades'
+  },
+  {
+    name: 'Casos reales',
+    icon: BookOpen,
+    matches: article => article.category === 'Casos reales'
+  }
+]
 
 export default function Blog() {
+
+const [activeCategory, setActiveCategory] = useState('Todos')
 
 const featured =
   articles.find(article => article.featured) ||
   articles[0]
+
+const availableFilters = useMemo(
+  () =>
+    categoryFilters.filter(category =>
+      category.name === 'Todos' ||
+      articles.some(article => category.matches(article))
+    ),
+  []
+)
+
+const activeFilter =
+  availableFilters.find(category => category.name === activeCategory) ||
+  availableFilters[0]
+
+const filteredArticles = articles.filter(article =>
+  activeFilter.matches(article)
+)
+
+const visibleArticles =
+  activeFilter.name === 'Todos'
+    ? articles.filter(article => !article.featured)
+    : filteredArticles
+
+const showFeatured =
+  activeFilter.name === 'Todos'
 
   return (
 
@@ -29,11 +99,8 @@ const featured =
           relative
           overflow-hidden
           text-white
+          bg-corporate-gradient
         "
-       style={{
-          background:
-            'linear-gradient(135deg,#214B6D 0%,#123552 46%,#091C2E 100%)'
-        }}
       >
 
         <img
@@ -74,14 +141,8 @@ const featured =
 
             <h1
             className="
-                font-editorial
-
-                text-[46px]
-                lg:text-[60px]
-
-                leading-[0.92]
-                tracking-tight
-
+                heading-h1
+                text-white
                 max-w-[900px]
             "
             >
@@ -101,24 +162,6 @@ const featured =
               facturación, potencia, comunidades de propietarios
               y todo aquello que influye en el coste real de la energía.
             </p>
-
-            <div className="flex flex-wrap gap-4 mt-10">
-
-            <button
-                className="
-                px-16
-                py-3
-                rounded-xl
-                border
-                border-white/30
-                text-white
-                backdrop-blur-sm
-                "
-            >
-                Solicitar revisión
-            </button>
-
-          </div>
 
         </div>
 
@@ -141,30 +184,35 @@ const featured =
                 gap-8
             "
             >
-            {[
-            { name: 'Todos', icon: LayoutGrid },
-            { name: 'Facturas', icon: FileText },
-            { name: 'Potencia', icon: Zap },
-            { name: 'Mercado', icon: TrendingUp },
-            { name: 'Empresas', icon: Building2 },
-            { name: 'Comunidades', icon: Users },
-            { name: 'Casos reales', icon: BookOpen }
-            ].map(category => {
+            {availableFilters.map(category => {
 
             const Icon = category.icon
+            const isActive = category.name === activeFilter.name
 
             return (
 
                 <button
                 key={category.name}
-                className="
+                type="button"
+                onClick={() => setActiveCategory(category.name)}
+                aria-pressed={isActive}
+                className={`
                     flex
+                    items-center
                     gap-2
+                    rounded-full
+                    border
+                    px-4
+                    py-2
                     text-sm
-                    text-[#556274]
-                    hover:text-[#18375D]
-                    transition-colors
-                "
+                    font-medium
+                    transition-all
+                    ${
+                      isActive
+                        ? 'border-corporateGreen bg-corporateGreen-soft text-corporateGreen shadow-[0_8px_22px_rgba(54,126,69,0.10)]'
+                        : 'border-transparent text-[#556274] hover:border-[#ECE7DD] hover:bg-[#F7F5F0] hover:text-[#18375D]'
+                    }
+                `}
                 >
                 <Icon size={16} />
 
@@ -180,6 +228,7 @@ const featured =
 
       </section>
 
+      {showFeatured && (
       <section>
         <div className="container-content py-20">
 
@@ -231,14 +280,7 @@ const featured =
 
                 <h2
                   className="
-                    text-[40px]
-                    lg:text-[48px]
-
-                    font-editorial
-
-                    leading-[0.95]
-                    tracking-tight
-
+                    heading-h2
                     mb-6
                     text-[#18375D]
 
@@ -286,8 +328,23 @@ const featured =
 
         </div>
       </section>
+      )}
         <section>
-        <div className="container-content pb-24">
+        <div className={`container-content ${showFeatured ? 'pb-24' : 'py-20'}`}>
+
+        {!showFeatured && (
+          <div className="mb-10">
+            <div className="text-sm uppercase tracking-[0.18em] text-corporateGreen">
+              {activeFilter.name}
+            </div>
+
+            <h2 className="heading-h2 mt-3 text-[#18375D]">
+              {visibleArticles.length === 1
+                ? '1 artículo encontrado'
+                : `${visibleArticles.length} artículos encontrados`}
+            </h2>
+          </div>
+        )}
 
         <div
           className="
@@ -298,9 +355,7 @@ const featured =
           "
         >
 
-          {articles
-            .filter(article => !article.featured)
-            .map(article => (
+          {visibleArticles.map(article => (
 
               <Link
                 key={article.slug}
@@ -310,6 +365,7 @@ const featured =
 
                 <article
                   className="
+                    card-top-accent
                     border
                     border-[#ECE7DD]
 
@@ -355,14 +411,7 @@ const featured =
 
               <h3
                 className="
-                  font-editorial
-
-                  text-[28px]
-
-                  leading-[1]
-
-                  tracking-tight
-
+                  heading-h3
                   text-[#18375D]
 
                   mb-4

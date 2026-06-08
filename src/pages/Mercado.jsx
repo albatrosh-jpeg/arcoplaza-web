@@ -54,6 +54,7 @@ useEffect(() => {
       ">
 
         <div className="
+          card-top-accent
           bg-white
           border
           border-[#ECE7DD]

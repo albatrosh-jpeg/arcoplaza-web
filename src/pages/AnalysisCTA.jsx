@@ -4,7 +4,7 @@ export default function AnalysisCTA() {
 
   return (
 
-    <section className="py-20 lg:py-26">
+    <section className="py-20 lg:py-32">
 
       <div className="container-content">
 
@@ -30,9 +30,7 @@ export default function AnalysisCTA() {
 
           <h2
             className="
-              font-editorial
-              text-[42px]
-              leading-[0.95]
+              heading-h2
               text-corporate
               mb-6
             "
@@ -55,7 +53,7 @@ export default function AnalysisCTA() {
 
           <Button
             as="a"
-            href="/#contacto"
+            href="/#formulario"
           >
             Solicitar análisis
           </Button>

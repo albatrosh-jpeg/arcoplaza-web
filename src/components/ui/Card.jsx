@@ -8,6 +8,8 @@ export default function Card({
 
     <div
       className={`
+        card-top-accent
+
         rounded-[24px]
 
         border

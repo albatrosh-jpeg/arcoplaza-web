@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
 import CommercialEmail from './pages/CommercialEmail'
 import Mercado from './pages/Mercado'
@@ -8,7 +8,8 @@ import BlogPost from './pages/BlogPost'
 import {
   BrowserRouter,
   Routes,
-  Route
+  Route,
+  useLocation
 } from 'react-router-dom'
 
 import './index.css'
@@ -23,6 +24,35 @@ import { HelmetProvider } from 'react-helmet-async'
 import AnalysisPage from './pages/AnalysisPage'
 import PowerOptimizationPage from './pages/PowerOptimizationPage'
 
+function ScrollToTop() {
+  const {
+    pathname,
+    hash
+  } = useLocation()
+
+  useEffect(() => {
+    if (hash) {
+      const id = decodeURIComponent(hash.slice(1))
+
+      requestAnimationFrame(() => {
+        document
+          .getElementById(id)
+          ?.scrollIntoView({ block: 'start' })
+      })
+
+      return
+    }
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'auto'
+    })
+  }, [pathname, hash])
+
+  return null
+}
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
@@ -30,6 +60,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <HelmetProvider>
 
     <BrowserRouter>
+
+      <ScrollToTop />
 
       <Routes>
 

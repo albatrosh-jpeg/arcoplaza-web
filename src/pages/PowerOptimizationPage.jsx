@@ -63,7 +63,7 @@ export default function PowerOptimizationPage() {
           imageAlt="Optimización de potencia contratada"
         />
 
-        <section className="py-20 lg:py-26">
+        <section className="py-20 lg:py-32">
 
           <div className="container-content">
 
@@ -105,6 +105,7 @@ export default function PowerOptimizationPage() {
                 <div
                   key={item.title}
                   className="
+                    card-top-accent
                     border
                     border-border-soft
                     rounded-[28px]
@@ -115,9 +116,7 @@ export default function PowerOptimizationPage() {
 
                   <h3
                     className="
-                      font-editorial
-                      text-[30px]
-                      leading-[1]
+                      heading-h3
                       text-corporate
                       mb-4
                     "

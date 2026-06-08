@@ -280,8 +280,8 @@ if (!authorized) {
       >
 
         <h1 className="
-          text-3xl
-          font-semibold
+          heading-h1
+          text-corporate
           mb-4
         ">
           Acceso interno
@@ -347,8 +347,8 @@ return (
         <div className="lg:col-span-2">
 
           <h1 className="
-            text-4xl
-            font-semibold
+            heading-h1
+            text-corporate
             mb-10
           ">
             Email Comercial

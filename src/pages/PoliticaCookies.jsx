@@ -6,7 +6,7 @@ export default function AvisoLegal() {
 
       <div className="max-w-4xl mx-auto">
 
-        <h1 className="text-5xl font-bold mb-10">
+        <h1 className="heading-h1 text-corporate mb-10">
           Aviso legal
         </h1>
 

@@ -1,6 +1,13 @@
 import Button from '../ui/Button'
 import HeroBackground from '../ui/HeroBackground'
-import { useState } from 'react'
+import {
+  ArrowRight,
+  CheckCircle,
+  Mail,
+  MessageCircle,
+  Phone,
+  User
+} from 'lucide-react'
 
 import Input from '../ui/Input'
 import Textarea from '../ui/Textarea'
@@ -99,20 +106,8 @@ const {
 
           <h1
             className="
-              text-[36px]
-              sm:text-[40px]
-
-              lg:text-[50px]
-              xl:text-[60px]
-
-              font-editorial
-              font-normal
-
+              heading-h1
               text-corporate
-
-              leading-[0.92]
-              tracking-tight
-
               mb-6
             "
           >
@@ -180,18 +175,20 @@ const {
       <form
         onSubmit={handleSubmit}
         className="
+          card-top-accent
           w-full
           max-w-[390px]
 
-          rounded-[12px]
+          rounded-[28px]
 
           border
-          bg-[#f7f5ef]/35
+          border-border-soft
+          bg-white/95
           backdrop-blur-md
 
           p-6
 
-          shadow-[0_25px_60px_rgba(15,23,42,0.14)]
+          shadow-[0_25px_60px_rgba(15,23,42,0.18)]
         "
       >
 
@@ -200,6 +197,7 @@ const {
           <div
             className="
               text-[11px]
+              font-semibold
               tracking-[0.18em]
               uppercase
 
@@ -213,16 +211,11 @@ const {
 
           <h3
             className="
-              text-[28px]
-
-              leading-[1.05]
-              tracking-tight
-
-              text-corporate
-
+              text-[26px]
               font-editorial
-              font-normal
-
+              font-semibold
+              leading-[1.08]
+              text-corporate
               mb-3
             "
           >
@@ -234,7 +227,7 @@ const {
               text-[15px]
               leading-relaxed
 
-              text-slate-600
+              text-text-secondary
             "
           >
             Una revisión técnica independiente puede cambiar completamente el coste real del suministro. Sal de duas ya!
@@ -244,46 +237,78 @@ const {
 
   <div className="space-y-4">
 
-    <Input
-      type="text"
-      name="nombre"
-      placeholder="Nombre"
-      required
-    />
+    <HeroIconField icon={User}>
+      <Input
+        type="text"
+        name="nombre"
+        placeholder="Nombre"
+        required
+        className="bg-white pl-12"
+      />
+    </HeroIconField>
 
-    <Input
-      type="email"
-      name="email"
+    <HeroIconField icon={Mail}>
+      <Input
+        type="email"
+        name="email"
       placeholder="Correo electrónico"
-      required
-    />
+        required
+        className="bg-white pl-12"
+      />
+    </HeroIconField>
 
-    <Input
+    <HeroIconField icon={Phone}>
+      <Input
   type="tel"
   name="telefono"
   placeholder="Teléfono"
-/>
+        className="bg-white pl-12"
+      />
+    </HeroIconField>
 
-    <Textarea
-      name="mensaje"
-      placeholder="Si lo necesitas describe brevemente tu caso"
-      rows={4}
-    />
+    <HeroIconField icon={MessageCircle} align="top">
+      <Textarea
+        name="mensaje"
+        placeholder="Si lo necesitas describe brevemente tu caso"
+        rows={4}
+        className="bg-white pl-12"
+      />
+    </HeroIconField>
 
     <FileUpload
       name="factura"
       fileName={fileName}
       setFileName={setFileName}
+      compact
     />
 
-    <Button
+    <button
       type="submit"
-      className="w-full justify-center"
+      disabled={loading}
+      className="
+        flex
+        w-full
+        items-center
+        justify-center
+        gap-3
+        rounded-[18px]
+        bg-[linear-gradient(135deg,#43B886_0%,#0657B7_100%)]
+        px-5
+        py-4
+        font-semibold
+        text-white
+        shadow-[0_16px_34px_rgba(6,87,183,0.22)]
+        transition-transform
+        hover:-translate-y-[1px]
+        disabled:cursor-not-allowed
+        disabled:opacity-70
+      "
     >
       {loading
         ? 'Enviando...'
         : 'Solicitar análisis'}
-    </Button>
+      <ArrowRight size={18} />
+    </button>
 
     {success && (
       <p className="text-sm text-green-700">
@@ -368,6 +393,38 @@ const {
       </div>
 
     </section>
+
+  )
+
+}
+
+function HeroIconField({
+  children,
+  icon: Icon,
+  align = 'center'
+}) {
+
+  const alignClass =
+    align === 'top'
+      ? 'top-4'
+      : 'top-1/2 -translate-y-1/2'
+
+  return (
+
+    <div className="relative">
+      {children}
+
+      <Icon
+        size={19}
+        className={`
+          pointer-events-none
+          absolute
+          left-4
+          ${alignClass}
+          text-corporateGreen
+        `}
+      />
+    </div>
 
   )
 

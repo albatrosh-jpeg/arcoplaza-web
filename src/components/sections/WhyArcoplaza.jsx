@@ -78,6 +78,7 @@ className="
 
           flex
           flex-col
+          overflow-hidden
 
           transition-all
           duration-300
@@ -89,7 +90,8 @@ className="
 <div
   className="
     flex
-    items-center
+    flex-col
+    items-start
 
     gap-4
 
@@ -126,14 +128,16 @@ className="
 
         <h3
           className="
-            text-[20px]
-            sm:text-[24px]
-
-            leading-tight
-            tracking-tight
-
-            font-swiss
+            min-w-0
+            max-w-full
+            text-[24px]
+            font-editorial
+            font-semibold
+            leading-[1.08]
             text-corporate
+            sm:text-[26px]
+            lg:text-[24px]
+            xl:text-[25px]
           "
         >
           {item.title}

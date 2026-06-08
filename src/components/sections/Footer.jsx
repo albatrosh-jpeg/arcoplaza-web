@@ -18,7 +18,7 @@ export default function Footer() {
 
     <footer
       className="
-        bg-corporate
+        bg-corporate-gradient
 
         border-t
         border-[#28496F]
@@ -100,14 +100,14 @@ export default function Footer() {
             >
 
               <a
-                href="#why-arcoplaza"
+                href="/#why-arcoplaza"
                 className={linkClass}
               >
                 Optimización energética
               </a>
 
               <a
-                href="#calculadora"
+                href="/#formulario"
                 className={linkClass}
               >
                 Revisión de suministros

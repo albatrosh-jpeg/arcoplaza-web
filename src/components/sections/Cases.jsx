@@ -1,10 +1,18 @@
 import cases from '../../data/cases'
-import Card from '../ui/Card'
-import SectionTitle from '../ui/SectionTitle'
 import Section from '../ui/Section'
-import StatCard from '../ui/StatCard'
 import AnimatedReveal from '../ui/AnimatedReveal'
 import StaggerGrid from '../ui/StaggerGrid'
+import {
+  Building2,
+  Factory,
+  Home
+} from 'lucide-react'
+
+const caseIcons = {
+  Comunidad: Building2,
+  Vivienda: Home,
+  Empresa: Factory
+}
 
 export default function Cases() {
 
@@ -12,19 +20,48 @@ export default function Cases() {
 
     <Section
       className="
-        bg-[#f8f8f6]
+        bg-[#FCFBF8]
 
         border-y
         border-[#d7d0c4]
+      "
+      spacing="hero"
+      containerClassName="
+        py-20
+        lg:py-28
       "
     >
 
       <AnimatedReveal>
 
-        <SectionTitle
-          eyebrow="CASOS DE ÉXITO"
-          title="Optimizaciones reales sobre suministros reales."
-        />
+        <div className="mb-12 max-w-3xl lg:mb-16">
+          <div
+            className="
+              mb-4
+              text-[12px]
+              font-semibold
+              uppercase
+              tracking-[0.2em]
+              text-corporateGreen
+            "
+          >
+            CASOS DE ÉXITO
+          </div>
+
+          <h2
+            className="
+              max-w-2xl
+              heading-h2
+              text-corporate
+            "
+          >
+            Resultados reales sobre suministros reales.
+          </h2>
+
+          <p className="mt-6 max-w-2xl text-[16px] leading-relaxed text-text-secondary lg:text-[18px]">
+            Cada caso corresponde a un suministro distinto. Por eso mostramos los resultados de forma individual, sin mezclar ahorros que no son comparables entre sí.
+          </p>
+        </div>
 
       </AnimatedReveal>
 
@@ -35,100 +72,110 @@ export default function Cases() {
 
           grid-cols-1
           md:grid-cols-2
-          xl:grid-cols-4
+          xl:grid-cols-3
 
           gap-5
 
-          items-start
+          items-stretch
         "
-        renderItem={(item) => (
+        renderItem={(item) => {
+          const Icon = caseIcons[item.type] || Building2
 
-          <Card
-            className="
-              rounded-[28px]
+          return (
 
-              border
-              border-border-soft
-
-              bg-white/70
-
-              p-6
-
-              h-auto
-            "
-          >
-
-            <div
+            <article
               className="
-                text-[12px]
+                card-top-accent
+                group
+                relative
+                overflow-hidden
+                rounded-[26px]
 
-                uppercase
-                tracking-[0.16em]
+                border
+                border-border-soft
 
-                text-text-muted
+                bg-white
 
-                mb-5
+                p-5
+                lg:p-6
+
+                shadow-[0_18px_48px_rgba(16,37,66,0.07)]
+                transition-transform
+                duration-300
+
+                hover:-translate-y-1
               "
             >
-              {item.type}
-            </div>
-
-            <div className="space-y-4">
-
-              <StatCard
-                label="Antes"
-                value={item.before}
-                className="
-                  text-[24px]
-                  lg:text-[30px]
-
-                  leading-none
-
-                  text-[#94A3B8]
-                "
-              />
-
-              <StatCard
-                label="Después"
-                value={item.after}
-                className="
-                  text-[44px]
-                  lg:text-[50px]
-
-                  leading-none
-
-                  text-corporateGreen
-                "
-              />
-
-              <div
-                className="
-                  pt-5
-
-                  border-t
-                  border-[#e5e7eb]
-                "
-              >
-
-                <StatCard
-                  label="Ahorro anual estimado"
-                  value={item.saving}
+              <div className="mb-6 flex items-center justify-between gap-4">
+                <div
                   className="
-                    text-[40px]
-
-                    leading-none
-
-                    text-corporate
+                    flex
+                    h-11
+                    w-11
+                    items-center
+                    justify-center
+                    rounded-[14px]
+                    bg-corporate
+                    text-white
+                    shadow-[0_10px_24px_rgba(16,37,66,0.16)]
                   "
-                />
+                >
+                  <Icon size={20} strokeWidth={1.9} />
+                </div>
 
+                <div
+                  className="
+                    rounded-full
+                    bg-corporateGreen-soft
+                    px-3
+                    py-1.5
+                    text-[12px]
+                    font-semibold
+                    uppercase
+                    tracking-[0.14em]
+                    text-corporateGreen
+                  "
+                >
+                  {item.type}
+                </div>
               </div>
 
-            </div>
+              <div className="grid gap-3">
+                <div className="rounded-[18px] border border-border-soft bg-[#F8F6F1] p-4">
+                  <div className="mb-2 text-[12px] font-semibold uppercase tracking-[0.18em] text-text-muted">
+                    Antes
+                  </div>
 
-          </Card>
+                  <div className="font-swiss text-[22px] font-semibold leading-tight text-corporate">
+                    {item.before}
+                  </div>
+                </div>
 
-        )}
+                <div className="rounded-[18px] border border-corporateGreen/20 bg-corporateGreen-soft p-4">
+                  <div className="mb-2 text-[12px] font-semibold uppercase tracking-[0.18em] text-corporateGreen">
+                    Después
+                  </div>
+
+                  <div className="font-swiss text-[24px] font-semibold leading-tight text-corporateGreen">
+                    {item.after}
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 border-t border-border-soft pt-5">
+                <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-text-muted">
+                  Ahorro anual estimado
+                </div>
+
+                <div className="mt-2 font-swiss text-[38px] font-semibold leading-none text-corporate">
+                  {item.saving}
+                </div>
+              </div>
+
+            </article>
+
+          )
+        }}
       />
 
     </Section>

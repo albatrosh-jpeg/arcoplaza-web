@@ -6,7 +6,7 @@ import { Link, useLocation } from 'react-router-dom'
   const navItems = [
     {
       label: 'Soluciones',
-      href: '/soluciones'
+      href: '/analisis-factura-electrica'
     },
     {
       label: 'Proceso',
@@ -154,7 +154,7 @@ export default function Navbar() {
 
           <Button
             as="a"
-            href="#formulario"
+            href="/#formulario"
             className="
               hidden
               sm:flex

@@ -40,7 +40,6 @@ export default function Calculator({
     border-border-soft
 
     border-b
-    border-border
   "
 >
 
@@ -87,12 +86,12 @@ export default function Calculator({
   >
 
     <div className="space-y-6">
+    <FormField label="Tipo de suministro">
 
-      <FormField label="Tipo de suministro">
-
-        <Select
-          value={tipo}
-          onChange={(e) => setTipo(e.target.value)}
+      <Select
+        aria-label="Tipo de suministro"
+        value={tipo}
+        onChange={(e) => setTipo(e.target.value)}
           className="
             w-full
             bg-[#f8f8f6]

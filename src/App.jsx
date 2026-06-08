@@ -33,6 +33,8 @@ return (
 
       <Navbar />
 
+      <main>
+
       <Hero />
 
       <WhyArcoplaza />
@@ -59,6 +61,8 @@ return (
       </Suspense>
       
       <Contact />
+
+      </main>
 
       <Footer />
 

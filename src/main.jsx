@@ -20,6 +20,8 @@ import PoliticaPrivacidad from './pages/PoliticaPrivacidad'
 import PoliticaCookies from './pages/PoliticaCookies'
 
 import { HelmetProvider } from 'react-helmet-async'
+import AnalysisPage from './pages/AnalysisPage'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
@@ -68,6 +70,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route
           path="/politica-cookies"
           element={<PoliticaCookies />}
+        />
+
+        <Route
+          path="/analisis-factura-electrica"
+          element={<AnalysisPage />}
         />
 
       </Routes>

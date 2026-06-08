@@ -5,8 +5,8 @@ import { Link, useLocation } from 'react-router-dom'
 
   const navItems = [
     {
-      label: 'Servicios',
-      href: '#why-arcoplaza'
+      label: 'Soluciones',
+      href: '/soluciones'
     },
     {
       label: 'Proceso',
@@ -33,6 +33,7 @@ export default function Navbar() {
 
   const isBlog =
     location.pathname.startsWith('/blog')
+    location.pathname.startsWith('/soluciones')
     
   return (
 

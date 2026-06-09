@@ -230,7 +230,7 @@ const {
               text-text-secondary
             "
           >
-            Una revisión técnica independiente puede cambiar completamente el coste real del suministro. Sal de duas ya!
+            Una revisión técnica independiente puede cambiar completamente el coste real del suministro. ¡Sal de dudas ya!
           </p>
 
         </div>

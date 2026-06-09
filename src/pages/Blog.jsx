@@ -9,7 +9,7 @@ import {
 } from 'lucide-react'
 import Navbar from '../components/sections/Navbar'
 import Footer from '../components/sections/Footer'
-import { articles } from '../data/blog/articles'
+import { articles } from '../data/blog'
 import { Link } from 'react-router-dom'
 import { useMemo, useState } from 'react'
 
@@ -247,8 +247,8 @@ const showFeatured =
             >
 
               <img
-                src="/blog/destacado.jpg"
-                alt="La noticia de la semana"
+                src={featured.image}
+                alt={featured.imageAlt || featured.title}
                 className="
                   w-full
                   h-[420px]
@@ -385,7 +385,7 @@ const showFeatured =
       
               <img
                   src={article.image}
-                  alt={article.title}
+                  alt={article.imageAlt || article.title}
                   className="
                     w-full
                     h-56

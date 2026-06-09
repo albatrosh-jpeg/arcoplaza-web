@@ -9,11 +9,11 @@ export default {
     extend: {
           fontFamily: {
 
-            sans: ['Inter', 'sans-serif'],
+            sans: ['var(--font-body)'],
 
-            editorial: ['Cormorant Garamond', 'serif'],
+            editorial: ['var(--font-heading)'],
 
-            swiss: ['Manrope', 'sans-serif'],
+            swiss: ['var(--font-body)'],
 
           },
 

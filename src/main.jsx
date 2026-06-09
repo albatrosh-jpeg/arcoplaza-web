@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
 import CommercialEmail from './pages/CommercialEmail'
-import Mercado from './pages/Mercado'
+import Mercado from './pages/MercadoMarket'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 

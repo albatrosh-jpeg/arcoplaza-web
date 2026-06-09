@@ -18,7 +18,7 @@ export default function Partners({ companies }) {
 
           <SectionTitle
             eyebrow="EXPERIENCIA EN MÚLTIPLES SECTORES"
-            title="Supervisamos suministros de compañías líderes."
+            title="Analizamos suministros de distintas comercializadoras y sectores."
             text="Trabajamos con suministros energéticos vinculados a empresas, comunidades y organizaciones de distintos sectores."
             align="left"
           />
@@ -32,8 +32,7 @@ export default function Partners({ companies }) {
             grid-cols-1
             sm:grid-cols-2
             lg:grid-cols-5
-            gap-x-8
-            gap-y-10
+            gap-5
 
             items-center
           "
@@ -44,16 +43,33 @@ export default function Partners({ companies }) {
             <div
               key={company.name}
               className="
+                group
+                relative
+
                 flex
                 items-center
                 justify-center
 
-                opacity-70
+                min-h-[104px]
+                rounded-[18px]
+
+                border
+                border-[#ECE7DD]
+
+                bg-white/82
+
+                shadow-[0_10px_24px_rgba(24,55,93,0.04)]
+
+                cursor-default
 
                 transition-all
-                duration-300
+                duration-500
+                ease-out
 
-                hover:opacity-100
+                hover:-translate-y-1
+                hover:border-white
+                hover:bg-white
+                hover:shadow-[0_14px_32px_rgba(24,55,93,0.10),0_0_26px_rgba(54,126,69,0.14)]
               "
             >
 
@@ -65,14 +81,14 @@ export default function Partners({ companies }) {
                   lg:h-12
 
                   w-auto
+                  max-w-[72%]
                   object-contain
 
-                  grayscale
-
                   transition-all
-                  duration-300
+                  duration-500
+                  ease-out
 
-                  hover:grayscale-0
+                  group-hover:scale-[1.04]
                 "
                 loading="lazy"
               />

@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import {
   ArrowRight,
   BarChart3,
@@ -313,22 +312,7 @@ export default function Calculator({
 
               ) : (
 
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    scale: 0.96,
-                    y: 20
-                  }}
-                  animate={{
-                    opacity: 1,
-                    scale: 1,
-                    y: 0
-                  }}
-                  transition={{
-                    duration: 0.35,
-                    ease: 'easeOut'
-                  }}
-                >
+                <div>
                   <div className="text-sm uppercase tracking-[0.18em] text-green-300">
                     Potencial de optimización detectado
                   </div>
@@ -348,7 +332,7 @@ export default function Calculator({
                   <div className="mt-6 border-t border-white/10 pt-5 text-sm leading-relaxed text-white/65">
                     Estimación orientativa basada en suministros similares y parámetros energéticos generales.
                   </div>
-                </motion.div>
+                </div>
 
               )}
 

@@ -1,5 +1,183 @@
 import { useState, useEffect } from 'react'
 import { firstVisitEmail } from '../emails/firstVisitEmail.js'
+import {
+  BarChart3,
+  FileText,
+  Zap
+} from 'lucide-react'
+
+const savingItems = [
+  {
+    icon: FileText,
+    title: 'Contratos renovados automáticamente',
+    text: 'Muchas empresas mantienen precios firmados cuando el mercado energético estaba más alto.'
+  },
+  {
+    icon: BarChart3,
+    title: 'Condiciones poco competitivas',
+    text: 'Tarifas y márgenes que incrementan el coste final sin resultar evidentes.'
+  },
+  {
+    icon: Zap,
+    title: 'Potencias mal ajustadas',
+    text: 'Sobrecostes recurrentes por configuraciones alejadas del consumo real.'
+  }
+]
+
+function PreviewSavingCard({
+  icon: Icon,
+  title,
+  text
+}) {
+  return (
+    <div className="flex gap-4 rounded-[14px] border border-[#ECE7DD] bg-[#FCFBF8] p-4">
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#EAF6E7] text-[#5BA449]">
+        <Icon size={21} strokeWidth={1.9} />
+      </div>
+
+      <div>
+        <h3 className="text-[14px] font-bold leading-snug text-[#18375D]">
+          {title}
+        </h3>
+        <p className="mt-1.5 text-[13px] leading-[1.55] text-[#556274]">
+          {text}
+        </p>
+      </div>
+    </div>
+  )
+}
+
+function DesktopEmailPreview({
+  clientName,
+  finalMessage,
+  marketPrice,
+  marketComment
+}) {
+  const paragraphs = finalMessage
+    .split('\n\n')
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean)
+
+  return (
+    <div className="hidden bg-[#FCFBF8] lg:block">
+      <div className="rounded-[18px] border border-[#ECE7DD] bg-white shadow-[0_24px_70px_rgba(24,55,93,0.08)]">
+        <div className="flex items-center justify-start border-b border-[#ECE7DD] px-8 py-5">
+          <img
+            src="/logo-arcoplaza.png"
+            alt="Arcoplaza Asesores"
+            className="h-14 w-auto"
+          />
+        </div>
+
+        <div className="grid lg:grid-cols-[65fr_35fr]">
+          <div className="border-r border-[#ECE7DD] px-8 py-8">
+            <h2 className="heading-h2 text-[36px] leading-[1.04] text-[#18375D]">
+              Gracias por recibirnos
+            </h2>
+
+            <div className="mt-7 space-y-4 text-[16px] leading-[1.68] text-[#3E4B5B]">
+              <p>
+                Hola {clientName || 'Álvaro del Arco'},
+              </p>
+
+              {paragraphs.map((paragraph) => (
+                <p key={paragraph}>
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+
+            <div className="mt-7 border-t border-[#ECE7DD] pt-6">
+              <div className="grid max-w-xl grid-cols-2 gap-10">
+                <div>
+                  <div className="font-['Segoe_Script','Brush_Script_MT',cursive] text-[24px] leading-none text-[#18375D]">
+                    Álvaro del Arco
+                  </div>
+                  <div className="mt-3 text-sm font-bold text-[#18375D]">
+                    Álvaro del Arco
+                  </div>
+                  <div className="text-sm text-[#556274]">
+                    Socio fundador
+                  </div>
+                </div>
+
+                <div>
+                  <div className="font-['Segoe_Script','Brush_Script_MT',cursive] text-[24px] leading-none text-[#18375D]">
+                    Enrique Plaza
+                  </div>
+                  <div className="mt-3 text-sm font-bold text-[#18375D]">
+                    Enrique Plaza
+                  </div>
+                  <div className="text-sm text-[#556274]">
+                    Socio fundador
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside className="px-7 py-8">
+            <h2 className="text-[24px] font-bold leading-tight text-[#18375D]">
+              Dónde solemos encontrar ahorro
+            </h2>
+
+            <div className="mt-5 space-y-3">
+              {savingItems.map((item) => (
+                <PreviewSavingCard
+                  key={item.title}
+                  {...item}
+                />
+              ))}
+            </div>
+
+            <div className="mt-4 rounded-[18px] border border-[#DDEBD7] bg-[#F7FBF4] px-7 py-6 text-center">
+              <h3 className="text-[21px] font-bold leading-tight text-[#18375D]">
+                ¿Revisamos vuestro contrato energético?
+              </h3>
+              <p className="mx-auto mt-3 max-w-[320px] text-[14px] leading-[1.55] text-[#556274]">
+                Podemos revisar condiciones, potencias y precios actuales para detectar posibles sobrecostes.
+              </p>
+              <div className="mx-auto mt-5 inline-flex rounded-[10px] bg-[#18375D] px-7 py-3 text-sm font-bold text-white shadow-[0_14px_28px_rgba(24,55,93,0.18)]">
+                Solicitar revisión energética
+              </div>
+              <div className="mt-4 text-sm font-semibold text-[#367E45]">
+                Ver análisis de mercado →
+              </div>
+            </div>
+
+            <div className="mt-4 rounded-[18px] border border-[#ECE7DD] bg-[#FCFBF8] p-5">
+              <div className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#367E45]">
+                Mercado eléctrico ibérico
+              </div>
+
+              <div className="mt-4 grid grid-cols-[1fr_auto] items-center gap-5">
+                <div className="flex items-start gap-3 text-[14px] leading-[1.55] text-[#3E4B5B]">
+                  <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#6BCB5B]" />
+                  <span>
+                    {marketComment}
+                  </span>
+                </div>
+
+                <div className="flex h-[112px] w-[112px] shrink-0 flex-col items-center justify-center rounded-full border-[6px] border-[#5BA449] bg-white text-center">
+                  <div className="text-[25px] font-bold leading-none text-[#18375D]">
+                    {marketPrice || '--'}
+                  </div>
+                  <div className="mt-1 text-[13px] text-[#556274]">
+                    €/MWh
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-4 text-[12px] leading-relaxed text-[#7C8795]">
+                Referencia semanal OMIP
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function CommercialEmail() {
 
@@ -23,6 +201,9 @@ const [clientEmail, setClientEmail] =
 
 const [marketPrice, setMarketPrice] =
   useState('')
+
+const [marketPriceLoading, setMarketPriceLoading] =
+  useState(true)
 
   useEffect(() => {
 
@@ -52,6 +233,11 @@ const [marketPrice, setMarketPrice] =
       catch (error) {
 
         console.error(error)
+
+      }
+      finally {
+
+        setMarketPriceLoading(false)
 
       }
 
@@ -331,6 +517,8 @@ return (
       bg-white
       px-16
       py-16
+      lg:px-6
+      lg:py-4
     ">
 
       <div className="
@@ -338,13 +526,16 @@ return (
         mx-auto
         grid
         grid-cols-1
-        lg:grid-cols-2
+        lg:grid-cols-[320px_minmax(0,1fr)]
         gap-10
+        lg:gap-6
         px-16
         py-12
+        lg:px-0
+        lg:py-0
       ">
-
-        <div className="lg:col-span-2">
+ 
+        <div className="lg:hidden">
 
           <h1 className="
             heading-h1
@@ -357,6 +548,7 @@ return (
         </div>
 
         <form
+          id="commercial-email-form"
           onSubmit={handleSubmit}
           className="
             flex
@@ -491,7 +683,10 @@ return (
             type="submit"
             disabled={loading}
             className={`
-              bg-black
+              bg-gradient-to-r
+              from-[#42B883]
+              via-[#0F8BB8]
+              to-[#0B56B3]
               text-white
               rounded-xl
               px-16
@@ -549,6 +744,11 @@ return (
             overflow-hidden
             bg-white
             shadow-sm
+            lg:border-0
+            lg:rounded-none
+            lg:bg-transparent
+            lg:shadow-none
+            lg:overflow-visible
           "
         >
 
@@ -558,9 +758,24 @@ return (
             border-b
             border-gray-200
             font-medium
+            lg:hidden
           ">
             Preview email
           </div>
+
+          <DesktopEmailPreview
+            clientName={clientName}
+            finalMessage={finalMessage}
+            marketPrice={
+              marketPrice ||
+              (
+                marketPriceLoading
+                  ? '...'
+                  : '--'
+              )
+            }
+            marketComment={marketComment}
+          />
 
           <iframe
             title="email-preview"
@@ -569,6 +784,7 @@ return (
               w-full
               h-[900px]
               bg-white
+              lg:hidden
             "
           />
 

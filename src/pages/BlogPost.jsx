@@ -1,7 +1,7 @@
+import React from 'react'
 import Navbar from '../components/sections/Navbar'
 import Footer from '../components/sections/Footer'
-import { articles } from '../data/blog/articles'
-import { posts } from '../data/blog/posts'
+import { articles, posts } from '../data/blog'
 import { Link, useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import ReactMarkdown from 'react-markdown'
@@ -12,6 +12,38 @@ import {
   Clock3,
   Tag
 } from 'lucide-react'
+
+function MarkdownImage({ src, alt, title }) {
+  return (
+    <figure className="my-12 overflow-hidden rounded-[26px] border border-[#ECE7DD] bg-white shadow-[0_18px_48px_rgba(16,37,66,0.07)]">
+      <img
+        src={src}
+        alt={alt || ''}
+        className="w-full"
+      />
+
+      {title && (
+        <figcaption className="border-t border-[#ECE7DD] px-5 py-4 text-sm leading-relaxed text-[#6B7280]">
+          {title}
+        </figcaption>
+      )}
+    </figure>
+  )
+}
+
+function MarkdownParagraph({ children }) {
+  const childArray = React.Children.toArray(children)
+
+  if (childArray.length === 1 && childArray[0]?.type === MarkdownImage) {
+    return childArray[0]
+  }
+
+  return (
+    <p className="text-lg leading-9 text-[#46566B] mb-8">
+      {children}
+    </p>
+  )
+}
 
 export default function BlogPost() {
 
@@ -275,7 +307,7 @@ return (
 
           <img
             src={article.image}
-            alt={article.title}
+            alt={article.imageAlt || article.title}
             className="
               w-full
               max-w-[780px]
@@ -293,14 +325,10 @@ return (
  
         <div className="mx-auto max-w-[760px]">
 
-          {post.content.map((block, index) => {
-
-            if (block.type === 'heading') {
-
-              return (
-
+          <ReactMarkdown
+            components={{
+              h2: ({ children }) => (
                 <h2
-                  key={index}
                   className="
                     relative
                     blog-article-heading
@@ -318,59 +346,15 @@ return (
                     before:bg-corporateGreen
                   "
                 >
-                  {block.text}
+                  {children}
                 </h2>
-
-              )
-
-            }
-
-            if (block.type === 'image') {
-
-              return (
-
-                <figure
-                  key={index}
-                  className="my-12 overflow-hidden rounded-[26px] border border-[#ECE7DD] bg-white shadow-[0_18px_48px_rgba(16,37,66,0.07)]"
-                >
-                  <img
-                    src={block.src}
-                    alt={block.alt || ''}
-                    className="
-                      w-full
-                    "
-                  />
-
-                  {block.caption && (
-                    <figcaption className="border-t border-[#ECE7DD] px-5 py-4 text-sm leading-relaxed text-[#6B7280]">
-                      {block.caption}
-                    </figcaption>
-                  )}
-                </figure>
-
-              )
-
-            }
-
-            return (
-
-        <div
-          key={index}
-          className="
-            text-lg
-            leading-9
-            text-[#46566B]
-
-            mb-8
-          "
-        >
-          <ReactMarkdown>
-            {block.text}
+              ),
+              img: MarkdownImage,
+              p: MarkdownParagraph
+            }}
+          >
+            {post.content}
           </ReactMarkdown>
-        </div>
-            )
-
-          })}
 
         </div>
 

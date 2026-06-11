@@ -125,20 +125,26 @@ export default async function handler(req, res) {
       const token = ${JSON.stringify(token)};
       const content = { token, provider };
 
-      const receiveMessage = (event) => {
-        if (!window.opener || event.source !== window.opener) return;
+      const sendSuccess = (targetOrigin = '*') => {
+        if (!window.opener) return;
 
         window.opener.postMessage(
           'authorization:' + provider + ':success:' + JSON.stringify(content),
-          event.origin,
+          targetOrigin,
         );
 
         window.removeEventListener('message', receiveMessage, false);
         setTimeout(() => window.close(), 500);
       };
 
+      const receiveMessage = (event) => {
+        if (!window.opener || event.source !== window.opener) return;
+        sendSuccess(event.origin);
+      };
+
       window.addEventListener('message', receiveMessage, false);
       window.opener.postMessage('authorizing:' + provider, '*');
+      setTimeout(() => sendSuccess('*'), 700);
     </script>
   </body>
 </html>`

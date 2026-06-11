@@ -1,6 +1,8 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: albatrosh-jpeg/arcoplaza-web
   branch: main
+  auth_endpoint: /api/auth
 
 publish_mode: editorial_workflow
 

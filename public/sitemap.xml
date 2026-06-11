@@ -26,6 +26,46 @@
 
   <url>
     <loc>
+      https://www.arcoplazaasesores.com/blog/lo-que-ocurre-cuando-una-factura-pertenece-a-todo-el-mundo
+    </loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>
+      https://www.arcoplazaasesores.com/blog/la-falsa-sensacion-de-seguridad-de-llevar-anos-con-la-misma-compania
+    </loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>
+      https://www.arcoplazaasesores.com/blog/lo-que-esta-cambiando-en-las-baterias-y-por-que-cada-vez-mas-empresas-preguntan-por-ellas
+    </loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>
+      https://www.arcoplazaasesores.com/blog/que-ocurre-realmente-cuando-cambia-el-precio-de-la-electricidad-en-espana
+    </loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>
+      https://www.arcoplazaasesores.com/blog/lo-que-nadie-mira-en-una-factura
+    </loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>
       https://www.arcoplazaasesores.com/blog/cuanto-cuesta-tener-un-ventilador-encendido-toda-la-noche
     </loc>
     <changefreq>monthly</changefreq>

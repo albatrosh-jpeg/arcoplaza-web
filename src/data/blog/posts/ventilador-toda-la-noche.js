@@ -8,7 +8,7 @@ title: "¿Cuánto cuesta tener un ventilador encendido toda la noche?",
 
 date: "Junio 2026",
 
-readTime: "4 min",
+readTime: "2 min",
 
 image: "/blog/ventilador.jpg",
 

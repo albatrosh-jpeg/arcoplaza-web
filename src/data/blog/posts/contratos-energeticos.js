@@ -8,7 +8,7 @@ title: "Lo que hemos aprendido revisando cientos de contratos energéticos",
 
 date: "Junio 2026",
 
-readTime: "6 min",
+readTime: "3 min",
 
 image: "/blog/destacado.jpg",
 

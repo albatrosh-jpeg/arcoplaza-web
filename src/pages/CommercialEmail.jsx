@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { firstVisitEmail } from '../emails/firstVisitEmail.js'
 import {
   BarChart3,
+  BookOpen,
   FileText,
   Zap
 } from 'lucide-react'
@@ -47,6 +48,38 @@ function PreviewSavingCard({
   )
 }
 
+function ObservatoryRecommendation() {
+  return (
+    <div className="mt-7 rounded-[18px] border border-[#ECE7DD] bg-[#F8F6F1] px-6 py-6">
+      <div className="flex gap-4">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-[#367E45] shadow-[0_8px_22px_rgba(24,55,93,0.06)]">
+          <BookOpen size={19} strokeWidth={1.8} />
+        </div>
+
+        <div>
+          <h3 className="text-[17px] font-bold leading-tight text-[#18375D]">
+            Observatorio Arcoplaza
+          </h3>
+
+          <p className="mt-3 text-[14px] leading-[1.72] text-[#556274]">
+            Analizamos con frecuencia cuestiones relacionadas con contratos energéticos,
+            facturas, potencia contratada y funcionamiento del mercado eléctrico. Si te
+            interesa comprender mejor cómo funciona tu suministro, encontrarás artículos
+            escritos en un lenguaje claro y accesible.
+          </p>
+
+          <a
+            href="https://www.arcoplazaasesores.com/blog"
+            className="mt-4 inline-flex text-[14px] font-semibold text-[#367E45]"
+          >
+            Visitar el Observatorio →
+          </a>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function DesktopEmailPreview({
   clientName,
   finalMessage,
@@ -86,6 +119,8 @@ function DesktopEmailPreview({
                 </p>
               ))}
             </div>
+
+            <ObservatoryRecommendation />
 
             <div className="mt-7 border-t border-[#ECE7DD] pt-6">
               <div className="grid max-w-xl grid-cols-2 gap-10">

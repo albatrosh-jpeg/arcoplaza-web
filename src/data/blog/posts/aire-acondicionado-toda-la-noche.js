@@ -8,7 +8,7 @@ title: "Cuánto cuesta tener un aire acondicionado encendido toda la noche",
 
 date: "Junio 2026",
 
-readTime: "6 min",
+readTime: "5 min",
 
 image: "/blog/aire-acondicionado-image3.png",
 

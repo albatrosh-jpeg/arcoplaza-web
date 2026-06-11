@@ -1,11 +1,13 @@
 import {
   LayoutGrid,
   FileText,
-  Zap,
+  UserRound,
   TrendingUp,
   Building2,
   Users,
-  BookOpen
+  BookOpen,
+  BatteryCharging,
+  ClipboardCheck
 } from 'lucide-react'
 import Navbar from '../components/sections/Navbar'
 import Footer from '../components/sections/Footer'
@@ -25,13 +27,16 @@ const categoryFilters = [
     matches: article => article.category === 'Facturas'
   },
   {
-    name: 'Potencia',
-    icon: Zap,
+    name: 'Particulares',
+    icon: UserRound,
     matches: article =>
-      [article.title, article.excerpt, article.slug]
-        .join(' ')
-        .toLowerCase()
-        .includes('potencia')
+      ['potencia', 'ventilador', 'aire-acondicionado', 'vivienda']
+        .some(term =>
+          [article.title, article.excerpt, article.slug]
+            .join(' ')
+            .toLowerCase()
+            .includes(term)
+        )
   },
   {
     name: 'Mercado',
@@ -42,6 +47,16 @@ const categoryFilters = [
     name: 'Empresas',
     icon: Building2,
     matches: article => article.category === 'Empresas'
+  },
+  {
+    name: 'Contratos',
+    icon: ClipboardCheck,
+    matches: article => article.category === 'Contratos'
+  },
+  {
+    name: 'Autoconsumo',
+    icon: BatteryCharging,
+    matches: article => article.category === 'Autoconsumo'
   },
   {
     name: 'Comunidades',
@@ -99,23 +114,16 @@ const showFeatured =
           relative
           overflow-hidden
           text-white
-          bg-corporate-gradient
+          bg-cover
+          bg-no-repeat
+          bg-[position:70%_center]
+          md:bg-[position:right_center]
         "
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(8,25,45,0.25), rgba(8,25,45,0.25)), url('/blog-observatorio-arcoplaza.webp')",
+        }}
       >
-
-        <img
-          src="/hero-blueprint.webp"
-          alt=""
-          className="
-            absolute
-            inset-0
-            w-full
-            h-full
-            object-cover
-            opacity-20
-            pointer-events-none
-          "
-        />
 
             <div
               className="
@@ -383,18 +391,29 @@ const showFeatured =
                   "
                 >                
       
-              <img
-                  src={article.image}
-                  alt={article.imageAlt || article.title}
+              {article.image ? (
+                <img
+                    src={article.image}
+                    alt={article.imageAlt || article.title}
+                    className="
+                      w-full
+                      h-56
+                      object-cover
+                      transition-transform
+                      duration-500
+                      group-hover:scale-[1.03]
+                    "
+                  />
+              ) : (
+                <div
+                  aria-hidden="true"
                   className="
-                    w-full
                     h-56
-                    object-cover
-                    transition-transform
-                    duration-500
-                    group-hover:scale-[1.03]
+                    w-full
+                    bg-[#F8F6F1]
                   "
                 />
+              )}
 
                 <div className="p-6">
                 <div

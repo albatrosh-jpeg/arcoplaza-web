@@ -1,4 +1,9 @@
 import { post as contratosEnergeticos } from './contratos-energeticos'
+import { post as facturaComunidadTodoElMundo } from './factura-comunidad-todo-el-mundo'
+import { post as falsaSeguridadMismaCompania } from './falsa-seguridad-misma-compania'
+import { post as bateriasEmpresasAutoconsumo } from './baterias-empresas-autoconsumo'
+import { post as cambiaPrecioElectricidadEspana } from './cambia-precio-electricidad-espana'
+import { post as loQueNadieMiraEnUnaFactura } from './lo-que-nadie-mira-en-una-factura'
 import { post as ventiladorTodaLaNoche } from './ventilador-toda-la-noche'
 import { post as aireAcondicionadoTodaLaNoche } from './aire-acondicionado-toda-la-noche'
 import { post as precioFijoVsIndexado } from './precio-fijo-vs-indexado'
@@ -8,6 +13,11 @@ import { post as omipYOmie } from './omip-y-omie'
 
 export const posts = {
   [contratosEnergeticos.slug]: contratosEnergeticos,
+  [facturaComunidadTodoElMundo.slug]: facturaComunidadTodoElMundo,
+  [falsaSeguridadMismaCompania.slug]: falsaSeguridadMismaCompania,
+  [bateriasEmpresasAutoconsumo.slug]: bateriasEmpresasAutoconsumo,
+  [cambiaPrecioElectricidadEspana.slug]: cambiaPrecioElectricidadEspana,
+  [loQueNadieMiraEnUnaFactura.slug]: loQueNadieMiraEnUnaFactura,
   [ventiladorTodaLaNoche.slug]: ventiladorTodaLaNoche,
   [aireAcondicionadoTodaLaNoche.slug]: aireAcondicionadoTodaLaNoche,
   [precioFijoVsIndexado.slug]: precioFijoVsIndexado,

@@ -84,6 +84,12 @@ if (!article || !post) {
 
 }
 
+const articleImage =
+  article.image || post.image
+
+const hasArticleImage =
+  Boolean(articleImage)
+
 return (
 
   <>
@@ -114,10 +120,12 @@ return (
         content="article"
       />
 
-      <meta
-        property="og:image"
-        content={post.image}
-      />
+      {hasArticleImage && (
+        <meta
+          property="og:image"
+          content={articleImage}
+        />
+      )}
 
       <meta
         property="og:url"
@@ -126,7 +134,7 @@ return (
 
       <meta
         name="twitter:card"
-        content="summary_large_image"
+        content={hasArticleImage ? 'summary_large_image' : 'summary'}
       />
 
       <meta
@@ -139,10 +147,12 @@ return (
         content={post.seoDescription}
       />
 
-      <meta
-        name="twitter:image"
-        content={post.image}
-      />
+      {hasArticleImage && (
+        <meta
+          name="twitter:image"
+          content={articleImage}
+        />
+      )}
 
       <script type="application/ld+json">
         {JSON.stringify({
@@ -153,9 +163,13 @@ return (
 
           description: post.seoDescription,
 
-          image: [
-            `https://www.arcoplazaasesores.com${post.image}`
-          ],
+          ...(hasArticleImage
+            ? {
+                image: [
+                  `https://www.arcoplazaasesores.com${articleImage}`
+                ]
+              }
+            : {}),
 
           author: {
             '@type': 'Organization',
@@ -305,23 +319,42 @@ return (
 
           <div className="container-content pb-20 pt-12 lg:pt-16">
 
-          <img
-            src={article.image}
-            alt={article.imageAlt || article.title}
-            className="
-              w-full
-              max-w-[780px]
-              mx-auto
+          {hasArticleImage ? (
+            <img
+              src={articleImage}
+              alt={article.imageAlt || article.title}
+              className="
+                w-full
+                max-w-[780px]
+                mx-auto
 
-              rounded-[30px]
-              border
-              border-white/70
-              bg-white
-              shadow-[0_24px_70px_rgba(16,37,66,0.12)]
-              mb-14
-              object-cover
-            "
-          />
+                rounded-[30px]
+                border
+                border-white/70
+                bg-white
+                shadow-[0_24px_70px_rgba(16,37,66,0.12)]
+                mb-14
+                object-cover
+              "
+            />
+          ) : (
+            <div
+              aria-hidden="true"
+              className="
+                w-full
+                max-w-[780px]
+                mx-auto
+                aspect-[16/9]
+
+                rounded-[30px]
+                border
+                border-white/70
+                bg-[#F8F6F1]
+                shadow-[0_24px_70px_rgba(16,37,66,0.08)]
+                mb-14
+              "
+            />
+          )}
  
         <div className="mx-auto max-w-[760px]">
 

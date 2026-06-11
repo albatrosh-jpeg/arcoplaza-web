@@ -16,7 +16,7 @@ date: "Junio 2026",
 
 datePublished: "2026-06-06",
 
-readTime: "7 min",
+readTime: "6 min",
 
 image: "blog/fijovsindexado.jpg",
 

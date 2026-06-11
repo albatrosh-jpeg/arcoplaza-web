@@ -123,11 +123,22 @@ export default async function handler(req, res) {
     <script>
       const provider = 'github';
       const token = ${JSON.stringify(token)};
-      const message = 'authorization:' + provider + ':success:' + JSON.stringify({ token });
-      if (window.opener) {
-        window.opener.postMessage(message, '*')
-      }
-      setTimeout(() => window.close(), 500);
+      const content = { token, provider };
+
+      const receiveMessage = (event) => {
+        if (!window.opener || event.source !== window.opener) return;
+
+        window.opener.postMessage(
+          'authorization:' + provider + ':success:' + JSON.stringify(content),
+          event.origin,
+        );
+
+        window.removeEventListener('message', receiveMessage, false);
+        setTimeout(() => window.close(), 500);
+      };
+
+      window.addEventListener('message', receiveMessage, false);
+      window.opener.postMessage('authorizing:' + provider, '*');
     </script>
   </body>
 </html>`

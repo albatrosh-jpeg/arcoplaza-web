@@ -73,17 +73,9 @@ export default async function handler(req, res) {
       const authUrl = '${authUrl.toString()}';
       const targetOrigin = '${baseUrl}';
 
-      function onHandshake(event) {
-        if (event.origin !== targetOrigin || event.data !== 'authorizing:' + provider) {
-          return;
-        }
-        window.removeEventListener('message', onHandshake, false);
-        window.location.href = authUrl;
-      }
-
       if (window.opener) {
-        window.addEventListener('message', onHandshake, false);
         window.opener.postMessage('authorizing:' + provider, targetOrigin);
+        window.location.href = authUrl;
       } else {
         document.body.textContent = 'Unable to start GitHub authentication.';
       }

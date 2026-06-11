@@ -3,7 +3,7 @@ backend:
   repo: albatrosh-jpeg/arcoplaza-web
   branch: main
   base_url: https://arcoplazaasesores.com
-  auth_endpoint: /api/auth
+  auth_endpoint: api/begin
 
 publish_mode: editorial_workflow
 

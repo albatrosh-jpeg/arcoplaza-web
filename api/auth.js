@@ -65,7 +65,33 @@ export default async function handler(req, res) {
     authUrl.searchParams.set('state', state)
 
     const cookie = `${COOKIE_NAME}=${state}; Path=/api/auth; HttpOnly; Secure; SameSite=Lax`
-    redirectTo(res, authUrl.toString(), cookie)
+    const html = `<!doctype html>
+<html>
+  <body>
+    <script>
+      const provider = 'github';
+      const authUrl = '${authUrl.toString()}';
+      const targetOrigin = '${baseUrl}';
+
+      function onHandshake(event) {
+        if (event.origin !== targetOrigin || event.data !== 'authorizing:' + provider) {
+          return;
+        }
+        window.removeEventListener('message', onHandshake, false);
+        window.location.href = authUrl;
+      }
+
+      if (window.opener) {
+        window.addEventListener('message', onHandshake, false);
+        window.opener.postMessage('authorizing:' + provider, targetOrigin);
+      } else {
+        document.body.textContent = 'Unable to start GitHub authentication.';
+      }
+    </script>
+  </body>
+</html>`
+    res.setHeader('Set-Cookie', cookie)
+    sendHtml(res, html)
     return
   }
 
@@ -99,12 +125,16 @@ export default async function handler(req, res) {
     return
   }
 
+  const payload = JSON.stringify({ token: tokenData.access_token })
   const html = `<!doctype html>
 <html>
   <body>
     <script>
-      const message = { provider: 'github', token: '${tokenData.access_token}' };
-      window.opener.postMessage(message, window.location.origin);
+      const provider = 'github';
+      const message = 'authorization:' + provider + ':success:' + ${JSON.stringify(payload)};
+      if (window.opener) {
+        window.opener.postMessage(message, '${baseUrl}')
+      }
       window.close();
     </script>
   </body>

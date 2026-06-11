@@ -116,17 +116,18 @@ export default async function handler(req, res) {
     return
   }
 
-  const payload = JSON.stringify({ token: tokenData.access_token })
+  const token = tokenData.access_token
   const html = `<!doctype html>
 <html>
   <body>
     <script>
       const provider = 'github';
-      const message = 'authorization:' + provider + ':success:' + ${JSON.stringify(payload)};
+      const token = ${JSON.stringify(token)};
+      const message = 'authorization:' + provider + ':success:' + JSON.stringify({ token });
       if (window.opener) {
         window.opener.postMessage(message, '*')
       }
-      window.close();
+      setTimeout(() => window.close(), 500);
     </script>
   </body>
 </html>`

@@ -71,10 +71,9 @@ export default async function handler(req, res) {
     <script>
       const provider = 'github';
       const authUrl = '${authUrl.toString()}';
-      const targetOrigin = '${baseUrl}';
 
       if (window.opener) {
-        window.opener.postMessage('authorizing:' + provider, targetOrigin);
+        window.opener.postMessage('authorizing:' + provider, '*');
         window.location.href = authUrl;
       } else {
         document.body.textContent = 'Unable to start GitHub authentication.';
@@ -125,7 +124,7 @@ export default async function handler(req, res) {
       const provider = 'github';
       const message = 'authorization:' + provider + ':success:' + ${JSON.stringify(payload)};
       if (window.opener) {
-        window.opener.postMessage(message, '${baseUrl}')
+        window.opener.postMessage(message, '*')
       }
       window.close();
     </script>

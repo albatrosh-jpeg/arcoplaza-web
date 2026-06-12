@@ -82,6 +82,42 @@ function InlineMarkdown({ children }) {
   )
 }
 
+function getParagraphGroups(content) {
+  const groups = []
+  let paragraphBuffer = []
+
+  const flushParagraphs = () => {
+    if (!paragraphBuffer.length) return
+
+    for (let index = 0; index < paragraphBuffer.length; index += 3) {
+      groups.push({
+        type: 'paragraphGroup',
+        text: paragraphBuffer
+          .slice(index, index + 3)
+          .map(block => block.text)
+          .filter(Boolean)
+          .join(' ')
+      })
+    }
+
+    paragraphBuffer = []
+  }
+
+  content.forEach(block => {
+    if (block.type === 'paragraph') {
+      paragraphBuffer.push(block)
+      return
+    }
+
+    flushParagraphs()
+    groups.push(block)
+  })
+
+  flushParagraphs()
+
+  return groups
+}
+
 function ArticleContent({ content }) {
   if (typeof content === 'string') {
     return (
@@ -99,7 +135,7 @@ function ArticleContent({ content }) {
 
   if (!Array.isArray(content)) return null
 
-  return content.map((block, index) => {
+  return getParagraphGroups(content).map((block, index) => {
     if (block.type === 'heading') {
       return (
         <ArticleHeading key={index}>
@@ -122,7 +158,7 @@ function ArticleContent({ content }) {
     return (
       <p
         key={index}
-        className="text-lg leading-9 text-[#46566B] mb-8"
+        className="text-lg leading-9 text-[#46566B] mb-9"
       >
         <InlineMarkdown>
           {block.text || ''}
@@ -443,7 +479,7 @@ return (
             />
           )}
  
-        <div className="mx-auto max-w-[760px]">
+        <div className="mx-auto max-w-[820px]">
 
           <ArticleContent content={post.content} />
 

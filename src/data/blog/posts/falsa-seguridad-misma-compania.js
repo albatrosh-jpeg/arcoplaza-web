@@ -10,7 +10,7 @@ date: "Julio 2026",
 
 readTime: "4 min",
 
-image: "",
+image: "/blog/la-falsa-sensacion-de-llevar-anos-con-la-misma-compania.webp",
 
 featured: false,
 

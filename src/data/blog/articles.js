@@ -13,7 +13,7 @@ export const articles = [
 
     readTime: "3 min",
 
-    image: "/blog/destacado.jpg",
+    image: "/blog/revisando-cientos-de-contratos.webp",
 
     featured: true
   },
@@ -32,7 +32,7 @@ export const articles = [
 
     readTime: "3 min",
 
-    image: "",
+    image: "/blog/lo-que-ocurre-cuando-una-factura-pertenece-a-todo-el-mundo.webp",
 
     featured: false
   },
@@ -51,7 +51,7 @@ export const articles = [
 
     readTime: "4 min",
 
-    image: "",
+    image: "/blog/la-falsa-sensacion-de-llevar-anos-con-la-misma-compania.webp",
 
     featured: false
   },
@@ -70,7 +70,7 @@ export const articles = [
 
     readTime: "4 min",
 
-    image: "",
+    image: "/blog/baterias-autoconsumo-revelacion.webp",
 
     featured: false
   },
@@ -89,7 +89,7 @@ export const articles = [
 
     readTime: "4 min",
 
-    image: "",
+    image: "/blog/cambios-precios-electricidad-espana.webp",
 
     featured: false
   },
@@ -108,7 +108,7 @@ export const articles = [
 
     readTime: "4 min",
 
-    image: "",
+    image: "/blog/lo-que-nadie-mira-en-una-factura-hasta-que-alguien-se-lo-ensena.webp",
 
     featured: false
   },
@@ -127,7 +127,7 @@ export const articles = [
 
     readTime: "3 min",
 
-    image: "/blog/potencia.jpg",
+    image: "/blog/potencia-contratada.webp",
 
     featured: false
   },
@@ -146,7 +146,7 @@ export const articles = [
 
     readTime: "6 min",
 
-    image: "/blog/fijovsindexado.jpg",
+    image: "/blog/precio-fijo-precio-index.webp",
 
     featured: false
   },
@@ -165,7 +165,7 @@ export const articles = [
 
     readTime: "3 min",
 
-    image: "/blog/comunidad.jpg",
+    image: "/blog/comunidades-ccpp-contratar-barato.webp",
 
     featured: false
   },
@@ -184,7 +184,7 @@ export const articles = [
 
   readTime: "2 min",
 
-  image: "/blog/ventilador.jpg",
+  image: "/blog/coste-ventilador-noche-verano.webp",
 
   featured: false
 },
@@ -203,7 +203,7 @@ export const articles = [
 
   readTime: "5 min",
 
-  image: "/blog/aire-acondicionado-image3.png",
+  image: "/blog/aire-acondicionado-toda-la-noche.webp",
 
   featured: false
 },
@@ -222,7 +222,7 @@ export const articles = [
 
   readTime: "3 min",
 
-  image: "/blog/omip.jpg",
+  image: "/blog/omie-omip.webp",
 
   featured: false
 }

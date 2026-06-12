@@ -18,7 +18,7 @@ datePublished: "2026-06-06",
 
 readTime: "6 min",
 
-image: "blog/fijovsindexado.jpg",
+image: "/blog/precio-fijo-precio-index.webp",
 
 featured: false,
 

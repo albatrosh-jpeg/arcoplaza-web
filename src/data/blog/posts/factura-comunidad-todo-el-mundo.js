@@ -10,7 +10,7 @@ date: "Julio 2026",
 
 readTime: "3 min",
 
-image: "",
+image: "/blog/lo-que-ocurre-cuando-una-factura-pertenece-a-todo-el-mundo.webp",
 
 featured: false,
 

@@ -10,7 +10,7 @@ date: "Junio 2026",
 
 readTime: "3 min",
 
-image: "/blog/destacado.jpg",
+image: "/blog/revisando-cientos-de-contratos.webp",
 
 featured: true,
 

@@ -10,7 +10,7 @@ date: "Junio 2026",
 
 readTime: "5 min",
 
-image: "/blog/aire-acondicionado-image3.png",
+image: "/blog/aire-acondicionado-toda-la-noche.webp",
 
 featured: false,
 
@@ -71,7 +71,7 @@ content: [
 
 {
   type: "image",
-  src: "/blog/aire-acondicionado-image1.png",
+src: "/blog/aire-acondicionado-image1.webp",
   alt: "Cálculo del consumo eléctrico de un aparato de 1.500 W funcionando durante 8 horas.",
   caption: "Un equipo de 1.500 W funcionando durante 8 horas consume aproximadamente 12 kWh."
 },
@@ -93,7 +93,7 @@ content: [
 
 {
   type: "image",
-  src: "/blog/aire-acondicionado-image2.png",
+src: "/blog/aire-acondicionado-image2.webp",
   alt: "Infografía con el coste aproximado de utilizar un aire acondicionado de 1.500 W: 0,23 € por hora, 1,80 € por noche, 54 € al mes y 162 € durante todo el verano.",
   caption: "Tomando como referencia 0,15 €/kWh, el gasto puede superar los 160 € si se usa todas las noches durante todo el verano."
 },
@@ -120,7 +120,7 @@ content: [
 
 {
   type: "image",
-  src: "/blog/aire-acondicionado-image3.png",
+src: "/blog/aire-acondicionado-image3.webp",
   alt: "Comparativa de consumo eléctrico entre ventilador y aire acondicionado.",
   caption: "El ventilador consume mucho menos, aunque no ofrece el mismo nivel de refrigeración."
 },

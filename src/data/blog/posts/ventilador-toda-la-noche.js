@@ -10,7 +10,7 @@ date: "Junio 2026",
 
 readTime: "2 min",
 
-image: "/blog/ventilador.jpg",
+image: "/blog/coste-ventilador-noche-verano.webp",
 
 featured: false,
 

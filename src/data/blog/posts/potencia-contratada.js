@@ -18,7 +18,7 @@ datePublished: "2026-06-06",
 
 readTime: "3 min",
 
-image: "/blog/potencia.jpg",
+image: "/blog/potencia-contratada.webp",
 
 featured: false,
 

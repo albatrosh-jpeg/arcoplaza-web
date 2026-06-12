@@ -18,7 +18,7 @@ datePublished: "2026-06-06",
 
 readTime: "3 min",
 
-image: "/blog/comunidad.jpg",
+image: "/blog/comunidades-ccpp-contratar-barato.webp",
 
 featured: false,
 

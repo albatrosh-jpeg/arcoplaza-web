@@ -18,7 +18,7 @@ datePublished: "2026-06-06",
 
 readTime: "3 min",
 
-image: "/blog/omip.jpg",
+image: "/blog/omie-omip.webp",
 
 featured: false,
 

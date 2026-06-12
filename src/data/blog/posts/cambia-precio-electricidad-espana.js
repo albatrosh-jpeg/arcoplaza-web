@@ -10,7 +10,7 @@ date: "Julio 2026",
 
 readTime: "4 min",
 
-image: "",
+image: "/blog/cambios-precios-electricidad-espana.webp",
 
 featured: false,
 

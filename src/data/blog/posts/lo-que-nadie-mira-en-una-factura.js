@@ -10,7 +10,7 @@ date: "Julio 2026",
 
 readTime: "4 min",
 
-image: "",
+image: "/blog/lo-que-nadie-mira-en-una-factura-hasta-que-alguien-se-lo-ensena.webp",
 
 featured: false,
 

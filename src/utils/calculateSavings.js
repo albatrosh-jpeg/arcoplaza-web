@@ -1,37 +1,113 @@
+function clamp(value, min, max) {
+  return Math.min(Math.max(value, min), max)
+}
+
+function getDailyMarket(marketData) {
+  const source = marketData?.sources?.omieDaily
+
+  if (source?.status !== 'available' || !marketData?.daily) {
+    return null
+  }
+
+  const {
+    average,
+    min,
+    max,
+    currentPrice,
+    unit,
+    dataDate,
+    queryDate
+  } = marketData.daily
+
+  if (
+    !Number.isFinite(Number(average)) ||
+    !Number.isFinite(Number(min)) ||
+    !Number.isFinite(Number(max))
+  ) {
+    return null
+  }
+
+  return {
+    average: Number(average),
+    min: Number(min),
+    max: Number(max),
+    currentPrice: Number.isFinite(Number(currentPrice))
+      ? Number(currentPrice)
+      : Number(average),
+    unit,
+    dataDate,
+    queryDate,
+    source: source.source ?? 'OMIE',
+    marketType: source.marketType ?? 'Mercado diario OMIE'
+  }
+}
+
 export default function calculateSavings({
   gasto,
   tipo,
-  potencia
+  potencia,
+  marketData,
+  marketLoading = false,
+  marketError = null
 }) {
+  if (!gasto) return null
 
-if (!gasto) return null
+  const annualSpend = Number(gasto) * 12
 
-  const anual = Number(gasto) * 12
-
-  let minFactor = 0.08
-  let maxFactor = 0.18
-
-  if (tipo === 'empresa') {
-    minFactor = 0.12
-    maxFactor = 0.28
+  if (!Number.isFinite(annualSpend) || annualSpend <= 0) {
+    return null
   }
 
-  if (tipo === 'comunidad') {
-    minFactor = 0.15
-    maxFactor = 0.32
+  const dailyMarket = getDailyMarket(marketData)
+
+  if (!dailyMarket) {
+    return {
+      status: marketLoading ? 'loading' : 'unavailable',
+      reason: marketError
+        ? 'No se pudo conectar con la fuente de mercado.'
+        : 'Precio horario de OMIE no disponible.',
+      min: null,
+      max: null,
+      minPercent: null,
+      maxPercent: null
+    }
   }
 
-  if (Number(potencia) > 10) {
-    maxFactor += 0.05
-  }
+  const marketSpread =
+    (dailyMarket.max - dailyMarket.min) / dailyMarket.average
+  const currentPressure = Math.max(
+    0,
+    (dailyMarket.currentPrice - dailyMarket.average) / dailyMarket.average
+  )
+  const contractedPower = Number(potencia)
+  const powerSignal = Number.isFinite(contractedPower) && contractedPower > 0
+    ? clamp(contractedPower / 100, 0, marketSpread / 2)
+    : 0
 
-  const min = Math.round(anual * minFactor)
-  const max = Math.round(anual * maxFactor)
+  const supplyComplexity = {
+    vivienda: 0.72,
+    empresa: 1,
+    comunidad: 1.08
+  }[tipo] ?? 1
+
+  const marketOpportunity = (
+    marketSpread * 0.22 +
+    currentPressure * 0.1 +
+    powerSignal
+  ) * supplyComplexity
+
+  const minFactor = clamp(marketOpportunity * 0.55, 0.03, 0.16)
+  const maxFactor = clamp(marketOpportunity, minFactor + 0.02, 0.34)
+
+  const min = Math.round(annualSpend * minFactor)
+  const max = Math.round(annualSpend * maxFactor)
 
   return {
-  min,
-  max,
-  minPercent: Math.round(minFactor * 100),
-  maxPercent: Math.round(maxFactor * 100),
-}
+    status: 'available',
+    min,
+    max,
+    minPercent: Math.round(minFactor * 100),
+    maxPercent: Math.round(maxFactor * 100),
+    market: dailyMarket
+  }
 }

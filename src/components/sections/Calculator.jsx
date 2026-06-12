@@ -31,7 +31,9 @@ export default function Calculator({
   setGasto,
   potencia,
   setPotencia,
-  resultado
+  resultado,
+  marketData,
+  marketLoading
 }) {
 
   const {
@@ -43,6 +45,26 @@ export default function Calculator({
     analysis,
     setFileName
   } = useContactForm()
+
+  const market =
+    resultado?.status === 'available'
+      ? resultado.market
+      : marketData?.sources?.omieDaily?.status === 'available'
+        ? marketData.daily
+        : null
+  const marketDate = market?.dataDate
+    ? new Intl.DateTimeFormat(
+        'es-ES',
+        {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric'
+        }
+      ).format(new Date(`${market.dataDate}T12:00:00`))
+    : null
+  const marketAverage = market
+    ? `${market.average.toFixed(3).replace('.', ',')} ${market.unit ?? '€/kWh'}`
+    : null
 
   return (
 
@@ -125,11 +147,11 @@ export default function Calculator({
 
               <div className="mt-3 flex items-center justify-between">
                 <div className="font-swiss text-[34px] font-semibold leading-none text-corporateGreen">
-                  420€
+                  {marketAverage ?? 'OMIE'}
                 </div>
 
                 <div className="rounded-full bg-corporateGreen-soft px-3 py-1 text-[12px] font-semibold text-corporateGreen">
-                  Ahorro potencial
+                  Mercado actual
                 </div>
               </div>
 
@@ -305,16 +327,34 @@ export default function Calculator({
                   </h3>
 
                   <p className="mt-6 max-w-xl text-[16px] leading-relaxed text-white/82">
-                    Introduce los datos de tu suministro y te mostraremos una estimación aproximada de ahorro anual.
+                    Introduce los datos de tu suministro y te mostraremos una estimación aproximada basada en condiciones actuales de mercado.
                   </p>
 
                 </>
+
+              ) : resultado.status !== 'available' ? (
+
+                <div>
+                  <div className="text-sm uppercase tracking-[0.18em] text-green-300">
+                    Mercado en consulta
+                  </div>
+
+                  <h3 className="mt-4 heading-h3 max-w-xl text-white">
+                    {marketLoading || resultado.status === 'loading'
+                      ? 'Consultando datos actuales de mercado.'
+                      : 'Precio horario no disponible en este momento.'}
+                  </h3>
+
+                  <p className="mt-6 max-w-xl text-[16px] leading-relaxed text-white/72">
+                    {resultado.reason} La calculadora no sustituye esa referencia por valores de ejemplo.
+                  </p>
+                </div>
 
               ) : (
 
                 <div>
                   <div className="text-sm uppercase tracking-[0.18em] text-green-300">
-                    Potencial de optimización detectado
+                    Potencial basado en mercado actual
                   </div>
 
                   <div className="mt-4 font-swiss text-5xl font-semibold leading-none text-white lg:text-6xl">
@@ -330,7 +370,9 @@ export default function Calculator({
                   </div>
 
                   <div className="mt-6 border-t border-white/10 pt-5 text-sm leading-relaxed text-white/65">
-                    Estimación orientativa basada en suministros similares y parámetros energéticos generales.
+                    Estimación orientativa calculada con {market.marketType}
+                    {marketDate ? ` del ${marketDate}` : ''}, fuente {market.source}.
+                    No sustituye la revisión técnica de contrato, potencia y condiciones.
                   </div>
                 </div>
 

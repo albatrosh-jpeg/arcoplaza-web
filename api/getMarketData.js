@@ -262,6 +262,89 @@ function summarizeDaily(hours, currentHour) {
   }
 }
 
+function percentChange(current, previous) {
+  const currentValue = Number(current)
+  const previousValue = Number(previous)
+
+  if (!Number.isFinite(currentValue) || !Number.isFinite(previousValue) || previousValue === 0) {
+    return null
+  }
+
+  return ((currentValue - previousValue) / previousValue) * 100
+}
+
+function describePercentChange(value) {
+  if (!Number.isFinite(Number(value))) {
+    return 'Dato no disponible'
+  }
+
+  const absolute = Math.abs(Number(value))
+    .toFixed(1)
+    .replace('.', ',')
+
+  if (Math.abs(Number(value)) < 0.1) {
+    return 'Sin cambios relevantes'
+  }
+
+  return `${Number(value) > 0 ? '+' : '-'}${absolute}%`
+}
+
+function buildDailyMarketSummary(latest, previousDays = []) {
+  if (!latest) {
+    return null
+  }
+
+  const previousDay = previousDays[0] ?? null
+  const comparableWeek = previousDays
+    .slice(0, 7)
+    .map((item) => Number(item.average))
+    .filter(Number.isFinite)
+  const previousWeekAverage = comparableWeek.length >= 3
+    ? comparableWeek.reduce((total, value) => total + value, 0) / comparableWeek.length
+    : null
+  const dailyVariationPercent = previousDay
+    ? percentChange(latest.average, previousDay.average)
+    : null
+  const weeklyVariationPercent = previousWeekAverage
+    ? percentChange(latest.average, previousWeekAverage)
+    : null
+
+  const referenceVariation = Number.isFinite(weeklyVariationPercent)
+    ? weeklyVariationPercent
+    : dailyVariationPercent
+  const trendLabel = !Number.isFinite(referenceVariation)
+    ? 'Dato no disponible'
+    : Math.abs(referenceVariation) < 5
+      ? 'Mercado estable'
+      : referenceVariation > 0
+        ? 'Mercado al alza'
+        : 'Mercado a la baja'
+  const commentary = !Number.isFinite(weeklyVariationPercent)
+    ? 'No hay histórico reciente suficiente de OMIE para contextualizar la sesión sin introducir estimaciones.'
+    : Math.abs(weeklyVariationPercent) < 5
+      ? 'El precio medio diario se mantiene en niveles cercanos a la media observada durante las últimas sesiones publicadas.'
+      : weeklyVariationPercent > 0
+        ? 'El precio medio diario se sitúa por encima de la media observada durante las últimas sesiones publicadas.'
+        : 'El precio medio diario se sitúa por debajo de la media observada durante las últimas sesiones publicadas.'
+
+  return {
+    source: 'OMIE',
+    marketType: latest.marketType,
+    dataDate: latest.dataDate,
+    queryDate: latest.queryDate,
+    unit: latest.unit,
+    average: latest.average,
+    averageMWh: latest.average * 1000,
+    dailyVariationPercent,
+    dailyVariationLabel: describePercentChange(dailyVariationPercent),
+    weeklyVariationPercent,
+    weeklyVariationLabel: describePercentChange(weeklyVariationPercent),
+    trendLabel,
+    commentary,
+    comparisonDays: comparableWeek.length,
+    previousDayDate: previousDay?.dataDate ?? null
+  }
+}
 function buildOmieDownloadUrl(filename, parents) {
   const params = new URLSearchParams({
     filename,
@@ -491,14 +574,50 @@ function parseOmieContinuousFile(text) {
   }
 }
 
-// Real daily market prices come from OMIE MARGINALPDBC public files. If no valid file is found, no local numeric substitute is returned.
-async function fetchOmieDailyMarket() {
-  const candidates = recentMadridDates().map((date) => ({
+async function fetchValidOmieDailyFiles(limit = 8) {
+  const candidates = recentMadridDates(12).map((date) => ({
     filename: `marginalpdbc_${date.compact}.1`,
     parents: 'marginalpdbc'
   }))
+  const parsedFiles = []
 
-  return fetchFirstValidOmieFile(candidates, parseOmieDailyFile)
+  for (const candidate of candidates) {
+    try {
+      const text = await fetchOmieText(candidate.filename, candidate.parents)
+      const parsed = parseOmieDailyFile(text, candidate)
+
+      if (parsed) {
+        parsedFiles.push(parsed)
+      }
+
+      if (parsedFiles.length >= limit) {
+        break
+      }
+    }
+    catch {}
+  }
+
+  return parsedFiles
+}
+
+// Real daily market prices and comparisons come from OMIE MARGINALPDBC public files. If no valid file is found, no local numeric substitute is returned.
+async function fetchOmieDailyMarket() {
+  const history = await fetchValidOmieDailyFiles()
+  const latest = history[0] ?? null
+
+  if (!latest) {
+    return null
+  }
+
+  return {
+    ...latest,
+    marketSummary: buildDailyMarketSummary(latest, history.slice(1)),
+    recentDailyAverages: history.map((item) => ({
+      dataDate: item.dataDate,
+      average: item.average,
+      unit: item.unit
+    }))
+  }
 }
 
 // Intraday auction prices come from OMIE MARGINALPIBC session files. Missing sessions are ignored, not replaced.
@@ -804,6 +923,8 @@ export default async function handler(req, res) {
       omip
     },
     daily,
+    marketSummary: daily?.marketSummary ?? null,
+    recentDailyAverages: daily?.recentDailyAverages ?? [],
     intraday: omieIntraday.status === 'available' ? omieIntraday : null,
     continuous: omieContinuous.status === 'available' ? omieContinuous : null,
     omip: omipData,

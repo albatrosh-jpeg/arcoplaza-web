@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 
 import Navbar from './components/sections/Navbar'
 import Hero from './components/sections/Hero'
+import MarketTeaser from './components/sections/MarketTeaser'
 import Calculator from './components/sections/Calculator'
 import Process from './components/sections/Process'
 import WhyArcoplaza from './components/sections/WhyArcoplaza'
@@ -24,7 +25,9 @@ const {
   setGasto,
   potencia,
   setPotencia,
-  resultado
+  resultado,
+  marketData,
+  marketLoading
 } = useSavingsCalculator()
 
 return (
@@ -37,6 +40,8 @@ return (
 
       <Hero />
 
+      <MarketTeaser />
+
       <WhyArcoplaza />
 
 
@@ -48,6 +53,8 @@ return (
         potencia={potencia}
         setPotencia={setPotencia}
         resultado={resultado}
+        marketData={marketData}
+        marketLoading={marketLoading}
       />
 
       <Process />

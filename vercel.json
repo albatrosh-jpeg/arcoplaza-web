@@ -8,6 +8,10 @@
       "destination": "/api/$1"
     },
     {
+      "source": "/admin/config.yml",
+      "destination": "/admin/config.yml"
+    },
+    {
       "source": "/admin/:path*",
       "destination": "/admin/:path*"
     },

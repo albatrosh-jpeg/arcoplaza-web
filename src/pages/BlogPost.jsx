@@ -331,8 +331,8 @@ return (
             bg-corporate-gradient
             text-white
             pt-24
-            pb-28
-            lg:pb-36
+            pb-24
+            lg:pb-32
           "
         >
  
@@ -350,6 +350,46 @@ return (
             "
           />
 
+          {hasArticleImage && (
+            <img
+              src={articleImage}
+              alt=""
+              aria-hidden="true"
+              className="
+                pointer-events-none
+                absolute
+                bottom-0
+                right-0
+                h-full
+                w-full
+                object-cover
+                object-[65%_center]
+                opacity-[0.13]
+                saturate-[0.55]
+                contrast-125
+                mix-blend-screen
+                sm:object-[70%_center]
+                md:opacity-[0.16]
+                lg:w-[68%]
+                lg:object-right
+                xl:w-[62%]
+              "
+            />
+          )}
+
+          {hasArticleImage && (
+            <div
+              aria-hidden="true"
+              className="
+                pointer-events-none
+                absolute
+                inset-0
+                bg-[linear-gradient(90deg,rgba(8,25,45,0.96)_0%,rgba(8,25,45,0.88)_38%,rgba(8,25,45,0.68)_68%,rgba(8,25,45,0.54)_100%)]
+                md:bg-[linear-gradient(90deg,rgba(8,25,45,0.96)_0%,rgba(8,25,45,0.84)_42%,rgba(8,25,45,0.48)_100%)]
+              "
+            />
+          )}
+
           <div className="pointer-events-none absolute -right-24 top-10 hidden h-80 w-80 rounded-full border border-white/10 lg:block" />
           <div className="pointer-events-none absolute bottom-10 right-16 hidden h-36 w-36 rounded-full border border-dashed border-white/10 lg:block" />
 
@@ -359,6 +399,8 @@ return (
             flex
             flex-wrap
             gap-2
+            min-w-0
+            overflow-hidden
 
             text-sm
 
@@ -381,7 +423,7 @@ return (
 
           <span>/</span>
 
-          <span className="max-w-[420px] truncate text-white">
+          <span className="hidden min-w-0 max-w-[420px] truncate text-white sm:inline-block">
             {article.title}
           </span>
 
@@ -401,8 +443,16 @@ return (
             <h1
               className="
                 heading-h1
-                max-w-[980px]
+                w-full
+                !max-w-full
+                !text-[34px]
+                !leading-[1.05]
+                sm:!max-w-[980px]
+                sm:!text-[48px]
+                lg:!text-[64px]
+                break-words
                 text-balance
+                [overflow-wrap:anywhere]
               "
             >
               {article.title}
@@ -441,45 +491,8 @@ return (
         <section className="bg-[#FCFBF8]">
 
           <div className="container-content pb-20 pt-12 lg:pt-16">
-
-          {hasArticleImage ? (
-            <img
-              src={articleImage}
-              alt={article.imageAlt || article.title}
-              className="
-                w-full
-                max-w-[780px]
-                mx-auto
-
-                rounded-[30px]
-                border
-                border-white/70
-                bg-white
-                shadow-[0_24px_70px_rgba(16,37,66,0.12)]
-                mb-14
-                object-cover
-              "
-            />
-          ) : (
-            <div
-              aria-hidden="true"
-              className="
-                w-full
-                max-w-[780px]
-                mx-auto
-                aspect-[16/9]
-
-                rounded-[30px]
-                border
-                border-white/70
-                bg-[#F8F6F1]
-                shadow-[0_24px_70px_rgba(16,37,66,0.08)]
-                mb-14
-              "
-            />
-          )}
  
-        <div className="mx-auto max-w-[820px]">
+        <div className="mx-auto w-full !max-w-full sm:!max-w-[820px]">
 
           <ArticleContent content={post.content} />
 

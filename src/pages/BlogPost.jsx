@@ -45,6 +45,93 @@ function MarkdownParagraph({ children }) {
   )
 }
 
+function ArticleHeading({ children }) {
+  return (
+    <h2
+      className="
+        relative
+        blog-article-heading
+        text-[#18375D]
+
+        mt-14
+        mb-6
+        pl-5
+        before:absolute
+        before:left-0
+        before:top-[0.18em]
+        before:h-[0.9em]
+        before:w-1
+        before:rounded-full
+        before:bg-corporateGreen
+      "
+    >
+      {children}
+    </h2>
+  )
+}
+
+function InlineMarkdown({ children }) {
+  return (
+    <ReactMarkdown
+      components={{
+        p: ({ children }) => <>{children}</>
+      }}
+    >
+      {children}
+    </ReactMarkdown>
+  )
+}
+
+function ArticleContent({ content }) {
+  if (typeof content === 'string') {
+    return (
+      <ReactMarkdown
+        components={{
+          h2: ArticleHeading,
+          img: MarkdownImage,
+          p: MarkdownParagraph
+        }}
+      >
+        {content}
+      </ReactMarkdown>
+    )
+  }
+
+  if (!Array.isArray(content)) return null
+
+  return content.map((block, index) => {
+    if (block.type === 'heading') {
+      return (
+        <ArticleHeading key={index}>
+          {block.text}
+        </ArticleHeading>
+      )
+    }
+
+    if (block.type === 'image') {
+      return (
+        <MarkdownImage
+          key={index}
+          src={block.src}
+          alt={block.alt}
+          title={block.caption}
+        />
+      )
+    }
+
+    return (
+      <p
+        key={index}
+        className="text-lg leading-9 text-[#46566B] mb-8"
+      >
+        <InlineMarkdown>
+          {block.text || ''}
+        </InlineMarkdown>
+      </p>
+    )
+  })
+}
+
 export default function BlogPost() {
 
   const { slug } = useParams()
@@ -358,36 +445,7 @@ return (
  
         <div className="mx-auto max-w-[760px]">
 
-          <ReactMarkdown
-            components={{
-              h2: ({ children }) => (
-                <h2
-                  className="
-                    relative
-                    blog-article-heading
-                    text-[#18375D]
-
-                    mt-14
-                    mb-6
-                    pl-5
-                    before:absolute
-                    before:left-0
-                    before:top-[0.18em]
-                    before:h-[0.9em]
-                    before:w-1
-                    before:rounded-full
-                    before:bg-corporateGreen
-                  "
-                >
-                  {children}
-                </h2>
-              ),
-              img: MarkdownImage,
-              p: MarkdownParagraph
-            }}
-          >
-            {post.content}
-          </ReactMarkdown>
+          <ArticleContent content={post.content} />
 
         </div>
 

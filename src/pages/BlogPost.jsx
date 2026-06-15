@@ -42,8 +42,8 @@ function MarkdownParagraph({ children, isLead }) {
     <p
       className={
         isLead
-          ? 'text-[1.28rem] leading-10 text-[#21384F] font-medium mb-10'
-          : 'text-lg leading-9 text-[#2E4057] mb-8'
+          ? 'text-[1.22rem] leading-10 text-[#21384F] font-medium mb-8'
+          : 'text-[1.15rem] leading-8 text-[#26384C] mb-6'
       }
     >
       {children}
@@ -153,8 +153,8 @@ function ArticleContent({ content }) {
         key={index}
         className={
           isFirstParagraph
-            ? 'text-[1.28rem] leading-10 text-[#21384F] font-medium mb-10'
-            : 'text-lg leading-9 text-[#2E4057] mb-8'
+            ? 'text-[1.22rem] leading-10 text-[#21384F] font-medium mb-8'
+            : 'text-[1.15rem] leading-8 text-[#26384C] mb-6'
         }
       >
         <InlineMarkdown>

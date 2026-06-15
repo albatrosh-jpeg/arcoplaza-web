@@ -31,7 +31,7 @@ function MarkdownImage({ src, alt, title }) {
   )
 }
 
-function MarkdownParagraph({ children }) {
+function MarkdownParagraph({ children, isLead }) {
   const childArray = React.Children.toArray(children)
 
   if (childArray.length === 1 && childArray[0]?.type === MarkdownImage) {
@@ -39,7 +39,13 @@ function MarkdownParagraph({ children }) {
   }
 
   return (
-    <p className="text-lg leading-9 text-[#46566B] mb-8">
+    <p
+      className={
+        isLead
+          ? 'text-[1.22rem] leading-10 text-[#21384F] font-medium mb-8'
+          : 'text-[1.15rem] leading-8 text-[#26384C] mb-6'
+      }
+    >
       {children}
     </p>
   )
@@ -53,8 +59,8 @@ function ArticleHeading({ children }) {
         blog-article-heading
         text-[#18375D]
 
-        mt-14
-        mb-6
+        mt-16
+        mb-7
         pl-5
         before:absolute
         before:left-0
@@ -120,12 +126,29 @@ function getParagraphGroups(content) {
 
 function ArticleContent({ content }) {
   if (typeof content === 'string') {
+    let firstParagraphRendered = false
+
     return (
       <ReactMarkdown
         components={{
           h2: ArticleHeading,
           img: MarkdownImage,
-          p: MarkdownParagraph
+          p: ({ children }) => {
+            const childArray = React.Children.toArray(children)
+            const isImageParagraph =
+              childArray.length === 1 && childArray[0]?.type === MarkdownImage
+            const isLead = !firstParagraphRendered && !isImageParagraph
+
+            if (isLead) {
+              firstParagraphRendered = true
+            }
+
+            return (
+              <MarkdownParagraph isLead={isLead}>
+                {children}
+              </MarkdownParagraph>
+            )
+          }
         }}
       >
         {content}
@@ -134,6 +157,44 @@ function ArticleContent({ content }) {
   }
 
   if (!Array.isArray(content)) return null
+
+  const firstParagraphIndex = content.findIndex(
+    block => block.type === 'paragraph'
+  )
+
+  const firstParagraphGroupIndex = (() => {
+    if (firstParagraphIndex === -1) return -1
+
+    let groups = 0
+    let paragraphBuffer = []
+
+    for (let i = 0; i < content.length; i += 1) {
+      const block = content[i]
+
+      if (block.type === 'paragraph') {
+        paragraphBuffer.push(block)
+
+        if (i === firstParagraphIndex) {
+          return groups + Math.floor((paragraphBuffer.length - 1) / 3)
+        }
+
+        continue
+      }
+
+      if (paragraphBuffer.length) {
+        groups += Math.ceil(paragraphBuffer.length / 3)
+        paragraphBuffer = []
+      }
+
+      groups += 1
+    }
+
+    if (paragraphBuffer.length) {
+      groups += Math.ceil(paragraphBuffer.length / 3)
+    }
+
+    return groups
+  })()
 
   return getParagraphGroups(content).map((block, index) => {
     if (block.type === 'heading') {
@@ -155,10 +216,16 @@ function ArticleContent({ content }) {
       )
     }
 
+    const isFirstParagraph = index === firstParagraphGroupIndex
+
     return (
       <p
         key={index}
-        className="text-lg leading-9 text-[#46566B] mb-9"
+        className={
+          isFirstParagraph
+            ? 'text-[1.22rem] leading-10 text-[#21384F] font-medium mb-8'
+            : 'text-[1.15rem] leading-8 text-[#26384C] mb-6'
+        }
       >
         <InlineMarkdown>
           {block.text || ''}
@@ -212,6 +279,9 @@ const articleImage =
 
 const hasArticleImage =
   Boolean(articleImage)
+
+const articleExcerpt =
+  article.excerpt || post.excerpt || post.seoDescription
 
 return (
 
@@ -331,64 +401,34 @@ return (
             bg-corporate-gradient
             text-white
             pt-24
-            pb-24
-            lg:pb-32
+            pb-28
+            lg:pb-36
           "
         >
  
-          <img
-            src="/hero-blueprint.webp"
-            alt=""
-            className="
-              pointer-events-none
-              absolute
-              inset-0
-              h-full
-              w-full
-              object-cover
-              opacity-10
-            "
-          />
-
-          {hasArticleImage && (
-            <img
-              src={articleImage}
-              alt=""
-              aria-hidden="true"
-              className="
-                pointer-events-none
-                absolute
-                bottom-0
-                right-0
-                h-full
-                w-full
-                object-cover
-                object-[65%_center]
-                opacity-[0.13]
-                saturate-[0.55]
-                contrast-125
-                mix-blend-screen
-                sm:object-[70%_center]
-                md:opacity-[0.16]
-                lg:w-[68%]
-                lg:object-right
-                xl:w-[62%]
-              "
-            />
-          )}
-
-          {hasArticleImage && (
-            <div
-              aria-hidden="true"
-              className="
-                pointer-events-none
-                absolute
-                inset-0
-                bg-[linear-gradient(90deg,rgba(8,25,45,0.96)_0%,rgba(8,25,45,0.88)_38%,rgba(8,25,45,0.68)_68%,rgba(8,25,45,0.54)_100%)]
-                md:bg-[linear-gradient(90deg,rgba(8,25,45,0.96)_0%,rgba(8,25,45,0.84)_42%,rgba(8,25,45,0.48)_100%)]
-              "
-            />
-          )}
+          <div className="pointer-events-none absolute inset-0">
+            {hasArticleImage ? (
+              <>
+                <img
+                  src={articleImage}
+                  alt=""
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: 'linear-gradient(90deg, rgba(13,59,116,0.94) 0%, rgba(13,59,116,0.82) 35%, rgba(13,59,116,0.50) 65%, rgba(13,59,116,0.25) 100%)'
+                  }}
+                />
+              </>
+            ) : (
+              <img
+                src="/hero-blueprint.webp"
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover opacity-10"
+              />
+            )}
+          </div>
 
           <div className="pointer-events-none absolute -right-24 top-10 hidden h-80 w-80 rounded-full border border-white/10 lg:block" />
           <div className="pointer-events-none absolute bottom-10 right-16 hidden h-36 w-36 rounded-full border border-dashed border-white/10 lg:block" />
@@ -458,6 +498,12 @@ return (
               {article.title}
             </h1>
 
+            {articleExcerpt && (
+              <p className="mt-6 max-w-[620px] text-lg leading-8 text-white/80">
+                {articleExcerpt}
+              </p>
+            )}
+
         <div
           className="
             flex
@@ -491,8 +537,8 @@ return (
         <section className="bg-[#FCFBF8]">
 
           <div className="container-content pb-20 pt-12 lg:pt-16">
- 
-        <div className="mx-auto w-full !max-w-full sm:!max-w-[820px]">
+
+        <div className="mx-auto max-w-[680px]">
 
           <ArticleContent content={post.content} />
 

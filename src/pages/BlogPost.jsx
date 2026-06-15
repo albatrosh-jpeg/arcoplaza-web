@@ -177,6 +177,9 @@ const articleImage =
 const hasArticleImage =
   Boolean(articleImage)
 
+const articleExcerpt =
+  article.excerpt || post.excerpt || post.seoDescription
+
 return (
 
   <>
@@ -294,25 +297,35 @@ return (
             overflow-hidden
             bg-corporate-gradient
             text-white
-            pt-24
-            pb-28
-            lg:pb-36
+            pt-20
+            pb-20
+            lg:pb-24
           "
         >
  
-          <img
-            src="/hero-blueprint.webp"
-            alt=""
-            className="
-              pointer-events-none
-              absolute
-              inset-0
-              h-full
-              w-full
-              object-cover
-              opacity-10
-            "
-          />
+          <div className="pointer-events-none absolute inset-0">
+            {hasArticleImage ? (
+              <>
+                <img
+                  src={articleImage}
+                  alt=""
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: 'linear-gradient(90deg, rgba(13,59,116,0.94) 0%, rgba(13,59,116,0.82) 35%, rgba(13,59,116,0.50) 65%, rgba(13,59,116,0.25) 100%)'
+                  }}
+                />
+              </>
+            ) : (
+              <img
+                src="/hero-blueprint.webp"
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover opacity-10"
+              />
+            )}
+          </div>
 
           <div className="pointer-events-none absolute -right-24 top-10 hidden h-80 w-80 rounded-full border border-white/10 lg:block" />
           <div className="pointer-events-none absolute bottom-10 right-16 hidden h-36 w-36 rounded-full border border-dashed border-white/10 lg:block" />
@@ -372,6 +385,12 @@ return (
               {article.title}
             </h1>
 
+            {articleExcerpt && (
+              <p className="mt-6 max-w-[620px] text-lg leading-8 text-white/80">
+                {articleExcerpt}
+              </p>
+            )}
+
         <div
           className="
             flex
@@ -404,45 +423,8 @@ return (
 
         <section className="bg-[#FCFBF8]">
 
-          <div className="container-content pb-20 pt-12 lg:pt-16">
+          <div className="container-content pb-20 pt-10 lg:pt-12">
 
-          {hasArticleImage ? (
-            <img
-              src={articleImage}
-              alt={article.imageAlt || article.title}
-              className="
-                w-full
-                max-w-[780px]
-                mx-auto
-
-                rounded-[30px]
-                border
-                border-white/70
-                bg-white
-                shadow-[0_24px_70px_rgba(16,37,66,0.12)]
-                mb-14
-                object-cover
-              "
-            />
-          ) : (
-            <div
-              aria-hidden="true"
-              className="
-                w-full
-                max-w-[780px]
-                mx-auto
-                aspect-[16/9]
-
-                rounded-[30px]
-                border
-                border-white/70
-                bg-[#F8F6F1]
-                shadow-[0_24px_70px_rgba(16,37,66,0.08)]
-                mb-14
-              "
-            />
-          )}
- 
         <div className="mx-auto max-w-[760px]">
 
           <ArticleContent content={post.content} />

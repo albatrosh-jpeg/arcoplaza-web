@@ -58,6 +58,30 @@ export default function calculateSavings({
     return null
   }
 
+  const contractedPower = Number(potencia)
+
+  if (!Number.isFinite(contractedPower) || contractedPower <= 0) {
+    return {
+      status: 'needs_power',
+      reason: 'Introduce la potencia contratada para mostrar una estimación económica. Sin ese dato solo podemos interpretar el gasto anual de forma preliminar.',
+      min: null,
+      max: null,
+      minPercent: null,
+      maxPercent: null
+    }
+  }
+
+  if (contractedPower > 200) {
+    return {
+      status: 'invalid_power',
+      reason: 'Introduce una potencia contratada de hasta 200 kW para mantener esta estimación dentro del rango previsto de la calculadora.',
+      min: null,
+      max: null,
+      minPercent: null,
+      maxPercent: null
+    }
+  }
+
   const dailyMarket = getDailyMarket(marketData)
 
   if (!dailyMarket) {
@@ -65,7 +89,7 @@ export default function calculateSavings({
       status: marketLoading ? 'loading' : 'unavailable',
       reason: marketError
         ? 'No se pudo conectar con la fuente de mercado.'
-        : 'Precio horario de OMIE no disponible.',
+        : 'Dato OMIE no disponible.',
       min: null,
       max: null,
       minPercent: null,
@@ -79,10 +103,7 @@ export default function calculateSavings({
     0,
     (dailyMarket.currentPrice - dailyMarket.average) / dailyMarket.average
   )
-  const contractedPower = Number(potencia)
-  const powerSignal = Number.isFinite(contractedPower) && contractedPower > 0
-    ? clamp(contractedPower / 100, 0, marketSpread / 2)
-    : 0
+  const powerSignal = clamp(contractedPower / 100, 0, marketSpread / 2)
 
   const supplyComplexity = {
     vivienda: 0.72,

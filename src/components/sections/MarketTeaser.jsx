@@ -171,7 +171,7 @@ export default function MarketTeaser() {
                 <div className="mt-7 grid gap-3 sm:grid-cols-[1.1fr_0.9fr]">
                   <div className="rounded-[22px] border border-white/[0.12] bg-white/[0.08] p-5">
                     <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/[0.68]">
-                      Precio medio OMIE
+                      Precio medio diario OMIE
                     </p>
                     <div className="mt-3 flex items-end gap-2">
                       <p className="text-5xl font-semibold leading-none text-white">
@@ -223,7 +223,7 @@ export default function MarketTeaser() {
                   <div className="mb-3 flex items-center justify-between gap-4 text-xs text-white/[0.58]">
                     <span className="inline-flex items-center gap-2">
                       <LineChart size={14} />
-                      Evolución horaria como apoyo visual
+                      Curva diaria como apoyo visual
                     </span>
                     <span className="inline-flex items-center gap-2">
                       <BarChart3 size={14} />
@@ -235,7 +235,7 @@ export default function MarketTeaser() {
                     viewBox="0 0 100 54"
                     className="h-24 w-full overflow-visible"
                     role="img"
-                    aria-label="Vista previa secundaria de la evolución horaria del precio eléctrico"
+                    aria-label="Vista previa secundaria de la evolución diaria del mercado eléctrico"
                   >
                     <defs>
                       <linearGradient id="marketTeaserLine" x1="0" x2="1" y1="0" y2="0">
@@ -280,7 +280,7 @@ export default function MarketTeaser() {
                     <p className="mt-2 text-sm leading-relaxed text-white/[0.62]">
                       {error
                         ? 'Dato no disponible. La API de mercado no ha respondido.'
-                        : dailySource?.reason ?? 'Precio horario no disponible.'}
+                        : dailySource?.reason ?? 'Dato OMIE no disponible.'}
                     </p>
                   )}
                 </div>

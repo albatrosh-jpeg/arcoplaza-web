@@ -2,6 +2,7 @@ import { Resend } from 'resend'
 import formidable from 'formidable'
 import fs from 'fs'
 import extractInvoiceData from '../src/lib/extractInvoiceData.js'
+import { buildInvoiceSupplyDiagnosis } from '../src/utils/supplyDiagnosis.js'
 
 export const config = {
   api: {
@@ -90,6 +91,10 @@ export default async function handler(req, res) {
 const invoiceData =
   await extractInvoiceData(fileBuffer)
 
+if (invoiceData) {
+  invoiceData.diagnosis = buildInvoiceSupplyDiagnosis(invoiceData, null)
+}
+
 console.log(invoiceData)
 analysisData.push(invoiceData)
 
@@ -131,6 +136,14 @@ if (invoiceData) {
         invoiceData.warnings?.length
           ? invoiceData.warnings.join(', ')
           : 'Sin alertas'
+      }
+      <br/><br/>
+
+      Observaciones tecnicas:
+      ${
+        invoiceData.diagnosis?.observations?.length
+          ? invoiceData.diagnosis.observations.join(', ')
+          : 'Pendiente de revision'
       }
 
     </div>

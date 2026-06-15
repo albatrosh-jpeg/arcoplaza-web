@@ -10,14 +10,29 @@ export default async function extractInvoiceData(buffer) {
 
 const result = {
 
+  cups: null,
   company: null,
   tariff: null,
   power: null,
   periodPowers: null,
+  periodConsumption: null,
+  energyCost: null,
+  powerCost: null,
+  reactiveEnergy: null,
+  powerExcess: null,
+  billingPeriod: null,
   maxDemand: null,
   total: null,
   warnings: []
 
+}
+
+const cupsMatch =
+  text.match(/\bCUPS\b\s*[:\-]?\s*([A-Z]{2}\d{16,22}[A-Z0-9]*)/i) ||
+  text.match(/\b(ES\d{16,22}[A-Z0-9]*)\b/i)
+
+if (cupsMatch) {
+  result.cups = cupsMatch[1]
 }
 
     // COMERCIALIZADORA
@@ -85,7 +100,7 @@ for (const company of companies) {
     }
 
     // POTENCIA
-    
+
 const periodPowers = {}
 
 for (let i = 1; i <= 6; i++) {
@@ -111,6 +126,34 @@ if (
 ) {
 
   result.periodPowers = periodPowers
+
+}
+
+const periodConsumption = {}
+
+for (let i = 1; i <= 6; i++) {
+
+  const match =
+    text.match(
+      new RegExp(
+        `P${i}:\\s*(\\d+[.,]?\\d*)\\s*kWh`,
+        'i'
+      )
+    )
+
+  if (match) {
+
+    periodConsumption[`P${i}`] = match[1]
+
+  }
+
+}
+
+if (
+  Object.keys(periodConsumption).length
+) {
+
+  result.periodConsumption = periodConsumption
 
 }
 
@@ -189,7 +232,10 @@ if (
   ) > 0
 ) {
 
-  result.warnings.push(
+
+  result.reactiveEnergy = reactiveMatch[1]
+
+result.warnings.push(
     'Se detectan posibles penalizaciones por energía reactiva'
   )
 
@@ -206,7 +252,10 @@ if (
   ) > 0
 ) {
 
-  result.warnings.push(
+
+  result.powerExcess = excessMatch[1]
+
+result.warnings.push(
     'Se detectan indicios de excesos de potencia en el suministro'
   )
 
@@ -221,6 +270,29 @@ if (
     'El suministro podría tener condiciones de permanencia activas'
   )
 
+}
+const energyCostMatch =
+  text.match(/(?:Termino|T\S+rmino)\s+de\s+energ\S+.*?([\d.,]+)\s*€/is)
+
+if (energyCostMatch) {
+  result.energyCost = energyCostMatch[1]
+}
+
+const powerCostMatch =
+  text.match(/(?:Termino|T\S+rmino)\s+de\s+potencia.*?([\d.,]+)\s*€/is)
+
+if (powerCostMatch) {
+  result.powerCost = powerCostMatch[1]
+}
+
+const periodMatch =
+  text.match(/(?:Periodo|Per\S+odo)\s+(?:facturado|de facturaci\S+n).*?(\d{1,2}[\/.-]\d{1,2}[\/.-]\d{2,4}).*?(\d{1,2}[\/.-]\d{1,2}[\/.-]\d{2,4})/is)
+
+if (periodMatch) {
+  result.billingPeriod = {
+    from: periodMatch[1],
+    to: periodMatch[2]
+  }
 }
 // TOTAL FACTURA
 

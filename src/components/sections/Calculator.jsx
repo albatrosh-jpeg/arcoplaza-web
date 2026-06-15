@@ -7,6 +7,7 @@ import {
   ClipboardCheck,
   Euro,
   Flame,
+  FileText,
   FolderOpen,
   Mail,
   MessageCircle,
@@ -23,6 +24,11 @@ import Input from '../ui/Input'
 import Textarea from '../ui/Textarea'
 import Select from '../ui/Select'
 import FileUpload from '../ui/FileUpload'
+import {
+  buildInvoiceSupplyDiagnosis,
+  buildManualSupplyDiagnosis,
+  invoiceDiagnosisFields
+} from '../../utils/supplyDiagnosis'
 
 export default function Calculator({
   tipo,
@@ -64,6 +70,16 @@ export default function Calculator({
     : null
   const marketAverage = market
     ? `${market.average.toFixed(3).replace('.', ',')} ${market.unit ?? '€/kWh'}`
+    : null
+  const manualDiagnosis = buildManualSupplyDiagnosis({
+    tipo,
+    gasto,
+    potencia,
+    resultado,
+    marketData
+  })
+  const invoiceDiagnosis = analysis?.[0]
+    ? buildInvoiceSupplyDiagnosis(analysis[0], marketData)
     : null
 
   return (
@@ -271,6 +287,9 @@ export default function Calculator({
                 <IconField icon={Zap}>
                   <Input
                     type="number"
+                    min="0"
+                    max="200"
+                    step="0.01"
                     value={potencia}
                     onChange={(e) => setPotencia(e.target.value)}
                     placeholder="Ejemplo: 5.75"
@@ -330,23 +349,35 @@ export default function Calculator({
                     Introduce los datos de tu suministro y te mostraremos una estimación aproximada basada en condiciones actuales de mercado.
                   </p>
 
+                  <p className="mt-4 text-sm leading-relaxed text-white/58">
+                    Referencia: {manualDiagnosis.market.label}.
+                  </p>
+
                 </>
 
               ) : resultado.status !== 'available' ? (
 
                 <div>
                   <div className="text-sm uppercase tracking-[0.18em] text-green-300">
-                    Mercado en consulta
+                    {resultado.status === 'needs_power' || resultado.status === 'invalid_power'
+                      ? 'Datos pendientes'
+                      : 'Mercado en consulta'}
                   </div>
 
                   <h3 className="mt-4 heading-h3 max-w-xl text-white">
-                    {marketLoading || resultado.status === 'loading'
-                      ? 'Consultando datos actuales de mercado.'
-                      : 'Precio horario no disponible en este momento.'}
+                    {resultado.status === 'needs_power'
+                      ? 'Añade la potencia contratada para calcular el rango económico.'
+                      : resultado.status === 'invalid_power'
+                        ? 'La potencia indicada queda fuera del rango de esta calculadora.'
+                        : marketLoading || resultado.status === 'loading'
+                          ? 'Consultando datos actuales de mercado.'
+                          : 'Dato de mercado no disponible en este momento.'}
                   </h3>
 
                   <p className="mt-6 max-w-xl text-[16px] leading-relaxed text-white/72">
-                    {resultado.reason} La calculadora no sustituye esa referencia por valores de ejemplo.
+                    {resultado.reason} {resultado.status === 'needs_power' || resultado.status === 'invalid_power'
+                      ? 'No mostramos euros hasta contar con datos suficientes.'
+                      : 'La calculadora no sustituye esa referencia por valores de ejemplo.'}
                   </p>
                 </div>
 
@@ -354,7 +385,7 @@ export default function Calculator({
 
                 <div>
                   <div className="text-sm uppercase tracking-[0.18em] text-green-300">
-                    Potencial basado en mercado actual
+                    Estimación preliminar con datos suficientes
                   </div>
 
                   <div className="mt-4 font-swiss text-5xl font-semibold leading-none text-white lg:text-6xl">
@@ -362,7 +393,7 @@ export default function Calculator({
                   </div>
 
                   <div className="mt-6 text-lg text-white/85">
-                    Equivalente aproximado:
+                    Rango económico orientativo:
                   </div>
 
                   <div className="mt-2 font-swiss text-3xl font-semibold leading-tight text-green-300 lg:text-4xl">
@@ -370,7 +401,7 @@ export default function Calculator({
                   </div>
 
                   <div className="mt-6 border-t border-white/10 pt-5 text-sm leading-relaxed text-white/65">
-                    Estimación orientativa calculada con {market.marketType}
+                    Estimación preliminar calculada a partir del gasto anual, la potencia indicada y {market.marketType}
                     {marketDate ? ` del ${marketDate}` : ''}, fuente {market.source}.
                     No sustituye la revisión técnica de contrato, potencia y condiciones.
                   </div>
@@ -387,6 +418,57 @@ export default function Calculator({
             </div>
           </div>
 
+        </div>
+
+        <div className="mb-7 grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
+          <div className="rounded-[24px] border border-[#DDE7DD] bg-[#F7FAF7] p-6 shadow-[0_18px_45px_rgba(16,37,66,0.06)]">
+            <div className="flex items-start gap-4">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-corporateGreen shadow-[0_12px_26px_rgba(45,126,81,0.12)]">
+                <FileText size={23} />
+              </div>
+
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-corporateGreen">
+                  Diagnostico con factura
+                </p>
+
+                <h3 className="mt-3 text-2xl font-semibold leading-tight text-corporate">
+                  Tengo una factura y quiero un analisis mas preciso.
+                </h3>
+
+                <p className="mt-3 text-[15px] leading-relaxed text-text-secondary">
+                  Cuando adjuntas una factura podemos leer datos tecnicos del
+                  suministro y generar observaciones preliminares sin prometer
+                  ahorros concretos.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-[24px] border border-border-soft bg-white p-6 shadow-[0_18px_45px_rgba(16,37,66,0.06)]">
+            <p className="text-sm font-semibold text-corporate">
+              Datos que preparan el diagnostico
+            </p>
+
+            <div className="mt-4 flex flex-wrap gap-2">
+              {invoiceDiagnosisFields.slice(0, 8).map((field) => (
+                <span
+                  key={field}
+                  className="rounded-full border border-[#DDE7DD] bg-[#F7FAF7] px-3 py-1.5 text-xs font-medium text-[#2D7E51]"
+                >
+                  {field}
+                </span>
+              ))}
+            </div>
+
+            <a
+              href="#formulario"
+              className="mt-5 inline-flex items-center gap-2 rounded-full bg-corporate-gradient px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_30px_rgba(8,40,74,0.16)] transition-transform hover:-translate-y-0.5"
+            >
+              Adjuntar factura
+              <ArrowRight size={16} />
+            </a>
+          </div>
         </div>
 
         <form
@@ -413,7 +495,7 @@ export default function Calculator({
 
             <div>
               <div className="mb-2 text-[13px] font-semibold uppercase tracking-[0.2em] text-corporateGreen">
-                Solicita revisión
+                Diagnostico preliminar
               </div>
 
               <h3 className="heading-h3 text-corporate">
@@ -421,7 +503,7 @@ export default function Calculator({
               </h3>
 
               <p className="mt-2 text-text-secondary">
-                y revisaremos tarifas, potencia contratada y posibles optimizaciones.
+                y revisaremos datos de suministro, potencia, consumo, costes y condiciones.
               </p>
             </div>
           </div>
@@ -514,7 +596,7 @@ export default function Calculator({
             </p>
           )}
 
-          {analysis?.[0] && (
+          {invoiceDiagnosis && (
 
             <div
               className="
@@ -531,33 +613,52 @@ export default function Calculator({
 
               <p className="mb-3 flex items-center gap-2 font-semibold">
                 <CheckCircle size={16} className="text-corporateGreen" />
-                Diagnóstico preliminar generado
+                {invoiceDiagnosis.title}
               </p>
 
-              <div className="space-y-2">
+              <div className="grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
+                <div className="space-y-2">
                 <p>
                   Comercializadora detectada:{' '}
                   <span className="font-medium">
-                    {analysis[0].company || 'No detectada'}
+                    {invoiceDiagnosis.detectedFields.company || 'No detectada'}
                   </span>
                 </p>
 
                 <p>
                   Tarifa identificada:{' '}
                   <span className="font-medium">
-                    {analysis[0].tariff || 'No detectada'}
+                    {invoiceDiagnosis.detectedFields.tariff || 'No detectada'}
                   </span>
                 </p>
 
-                {analysis[0].warnings?.map((warning, index) => (
-                  <p key={index}>
-                    {warning}
-                  </p>
-                ))}
+                <p>
+                  Total factura:{' '}
+                  <span className="font-medium">
+                    {invoiceDiagnosis.detectedFields.total || 'No detectado'}
+                  </span>
+                </p>
+
+                <p>
+                  Mercado usado:{' '}
+                  <span className="font-medium">
+                    {invoiceDiagnosis.market.label}
+                  </span>
+                </p>
+                </div>
+
+                <div className="space-y-2">
+                  {invoiceDiagnosis.observations.map((observation, index) => (
+                    <p key={index} className="flex gap-2">
+                      <CheckCircle size={15} className="mt-0.5 shrink-0 text-corporateGreen" />
+                      <span>{observation}</span>
+                    </p>
+                  ))}
+                </div>
               </div>
 
               <p className="mt-4 leading-relaxed text-[#5b6b88]">
-                Nuestro equipo revisará ahora la estructura tarifaria, la potencia contratada y posibles penalizaciones asociadas al suministro.
+                Este diagnostico no promete ahorros concretos. Sirve para identificar puntos revisables antes de la revision tecnica manual.
               </p>
 
             </div>

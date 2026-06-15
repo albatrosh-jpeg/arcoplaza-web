@@ -31,7 +31,7 @@ function MarkdownImage({ src, alt, title }) {
   )
 }
 
-function MarkdownParagraph({ children }) {
+function MarkdownParagraph({ children, isLead }) {
   const childArray = React.Children.toArray(children)
 
   if (childArray.length === 1 && childArray[0]?.type === MarkdownImage) {
@@ -39,7 +39,13 @@ function MarkdownParagraph({ children }) {
   }
 
   return (
-    <p className="text-lg leading-9 text-[#46566B] mb-8">
+    <p
+      className={
+        isLead
+          ? 'text-[1.28rem] leading-10 text-[#21384F] font-medium mb-10'
+          : 'text-lg leading-9 text-[#2E4057] mb-8'
+      }
+    >
       {children}
     </p>
   )
@@ -53,8 +59,8 @@ function ArticleHeading({ children }) {
         blog-article-heading
         text-[#18375D]
 
-        mt-14
-        mb-6
+        mt-16
+        mb-7
         pl-5
         before:absolute
         before:left-0
@@ -84,12 +90,29 @@ function InlineMarkdown({ children }) {
 
 function ArticleContent({ content }) {
   if (typeof content === 'string') {
+    let firstParagraphRendered = false
+
     return (
       <ReactMarkdown
         components={{
           h2: ArticleHeading,
           img: MarkdownImage,
-          p: MarkdownParagraph
+          p: ({ children }) => {
+            const childArray = React.Children.toArray(children)
+            const isImageParagraph =
+              childArray.length === 1 && childArray[0]?.type === MarkdownImage
+            const isLead = !firstParagraphRendered && !isImageParagraph
+
+            if (isLead) {
+              firstParagraphRendered = true
+            }
+
+            return (
+              <MarkdownParagraph isLead={isLead}>
+                {children}
+              </MarkdownParagraph>
+            )
+          }
         }}
       >
         {content}
@@ -98,6 +121,10 @@ function ArticleContent({ content }) {
   }
 
   if (!Array.isArray(content)) return null
+
+  const firstParagraphIndex = content.findIndex(
+    block => block.type === 'paragraph'
+  )
 
   return content.map((block, index) => {
     if (block.type === 'heading') {
@@ -119,10 +146,16 @@ function ArticleContent({ content }) {
       )
     }
 
+    const isFirstParagraph = index === firstParagraphIndex
+
     return (
       <p
         key={index}
-        className="text-lg leading-9 text-[#46566B] mb-8"
+        className={
+          isFirstParagraph
+            ? 'text-[1.28rem] leading-10 text-[#21384F] font-medium mb-10'
+            : 'text-lg leading-9 text-[#2E4057] mb-8'
+        }
       >
         <InlineMarkdown>
           {block.text || ''}
@@ -425,7 +458,7 @@ return (
 
           <div className="container-content pb-20 pt-10 lg:pt-12">
 
-        <div className="mx-auto max-w-[760px]">
+        <div className="mx-auto max-w-[680px]">
 
           <ArticleContent content={post.content} />
 

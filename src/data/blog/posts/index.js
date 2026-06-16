@@ -3,6 +3,7 @@ import { post as facturaComunidadTodoElMundo } from './factura-comunidad-todo-el
 import { post as falsaSeguridadMismaCompania } from './falsa-seguridad-misma-compania'
 import { post as bateriasEmpresasAutoconsumo } from './baterias-empresas-autoconsumo'
 import { post as cambiaPrecioElectricidadEspana } from './cambia-precio-electricidad-espana'
+import { post as laElectricidadCambiaCadaHora } from './la-electricidad-cambia-cada-hora'
 import { post as loQueNadieMiraEnUnaFactura } from './lo-que-nadie-mira-en-una-factura'
 import { post as ventiladorTodaLaNoche } from './ventilador-toda-la-noche'
 import { post as aireAcondicionadoTodaLaNoche } from './aire-acondicionado-toda-la-noche'
@@ -17,6 +18,7 @@ export const posts = {
   [falsaSeguridadMismaCompania.slug]: falsaSeguridadMismaCompania,
   [bateriasEmpresasAutoconsumo.slug]: bateriasEmpresasAutoconsumo,
   [cambiaPrecioElectricidadEspana.slug]: cambiaPrecioElectricidadEspana,
+  [laElectricidadCambiaCadaHora.slug]: laElectricidadCambiaCadaHora,
   [loQueNadieMiraEnUnaFactura.slug]: loQueNadieMiraEnUnaFactura,
   [ventiladorTodaLaNoche.slug]: ventiladorTodaLaNoche,
   [aireAcondicionadoTodaLaNoche.slug]: aireAcondicionadoTodaLaNoche,

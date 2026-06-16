@@ -15,10 +15,13 @@ seoTitle: Cuánto cuesta tener un aire acondicionado encendido toda la noche | A
 seoDescription: Calculamos cuánto consume un aire acondicionado durante toda la
   noche, cuánto puede costar al mes y cómo reducir el gasto sin perder confort.
 ---
-
 Cuando llega una ola de calor, hay pocas cosas más agradecidas que acostarse en una habitación fresca.
 
+
+
 Pero después suele aparecer una pregunta bastante habitual: ¿cuánto me cuesta realmente dormir con el aire acondicionado encendido toda la noche?
+
+
 
 A diferencia de un ventilador, el aire acondicionado sí consume una cantidad importante de electricidad. Sin embargo, el coste real suele estar a medio camino entre lo que algunos temen y lo que otros imaginan.
 

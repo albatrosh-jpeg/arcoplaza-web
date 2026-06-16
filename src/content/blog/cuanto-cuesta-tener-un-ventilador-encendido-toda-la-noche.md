@@ -1,17 +1,19 @@
 ---
-order: 5
-slug: "cuanto-cuesta-tener-un-ventilador-encendido-toda-la-noche"
-category: "Facturas"
-title: "¿Cuánto cuesta tener un ventilador encendido toda la noche?"
-excerpt: "Analizamos cuánto consume realmente un ventilador durante la noche y cuánto impacto tiene en la factura eléctrica."
-date: "Junio 2026"
-datePublished: "2026-06-05"
-readTime: "4 min"
-image: "/blog/ventilador.jpg"
-imageAlt: "¿Cuánto cuesta tener un ventilador encendido toda la noche?"
+title: ¿Cuánto cuesta tener un ventilador encendido toda la noche?
+slug: cuanto-cuesta-tener-un-ventilador-encendido-toda-la-noche
+category: Facturas
+excerpt: Analizamos cuánto consume realmente un ventilador durante la noche y
+  cuánto impacto tiene en la factura eléctrica.
+date: Junio 2026
+datePublished: 2026-06-05
+readTime: 4 min
+image: /blog/ventilador.jpg
+imageAlt: ¿Cuánto cuesta tener un ventilador encendido toda la noche?
 featured: false
-seoTitle: "¿Cuánto cuesta tener un ventilador encendido toda la noche? | Arcoplaza"
-seoDescription: "Calculamos cuánto consume un ventilador durante toda la noche y cuál es su impacto real en la factura eléctrica."
+order: 5
+seoTitle: ¿Cuánto cuesta tener un ventilador encendido toda la noche? | Arcoplaza
+seoDescription: Calculamos cuánto consume un ventilador durante toda la noche y
+  cuál es su impacto real en la factura eléctrica.
 ---
 
 Si este verano estás durmiendo con el ventilador encendido, probablemente te hayas hecho la misma pregunta que miles de personas cada año: ¿cuánto me cuesta realmente dejar el ventilador funcionando toda la noche?
@@ -29,6 +31,9 @@ Su trabajo consiste simplemente en mover el aire de la habitación para generar 
 Tomando como referencia un ventilador de 60 W funcionando durante ocho horas, el consumo total sería de aproximadamente 0,48 kWh.
 
 Con un precio de referencia de 0,15 €/kWh, el coste sería de aproximadamente 7 céntimos por noche.
+
+> DATO CLAVE
+> Un ventilador de 60 W funcionando 8 horas consume aproximadamente 0,48 kWh. Con un precio de referencia de 0,15 €/kWh supone unos 7 céntimos por noche.
 
 ## ¿Cuánto cuesta utilizar el ventilador durante un mes?
 

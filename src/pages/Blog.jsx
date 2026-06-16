@@ -187,55 +187,75 @@ const editorialSections =
         "
         style={{
           backgroundImage:
-            "linear-gradient(rgba(8,25,45,0.25), rgba(8,25,45,0.25)), url('/blog-observatorio-arcoplaza.webp')",
+            "linear-gradient(90deg, rgba(8,25,45,0.82) 0%, rgba(8,25,45,0.62) 46%, rgba(8,25,45,0.24) 100%), url('/blog-observatorio-arcoplaza.webp')",
         }}
       >
 
             <div
               className="
                 container-content
-
                 pt-24
-                pb-24
+                pb-20
+                md:pt-28
+                md:pb-24
               "
             >
             <div
               className="
-                text-white
-                uppercase
-                tracking-[0.22em]
-                text-md
-                font-bold
-                mb-8
-                pt-10
+                max-w-[820px]
+                rounded-[8px]
+                border
+                border-white/10
+                bg-white/[0.06]
+                p-6
+                shadow-[0_22px_55px_rgba(0,0,0,0.18)]
+                backdrop-blur-sm
+                md:p-8
+                lg:p-10
               "
             >
-              OBSERVATORIO ARCOPLAZA
-            </div>
+              <div
+                className="
+                  mb-5
+                  text-[15px]
+                  font-bold
+                  uppercase
+                  tracking-[0.24em]
+                  text-[#B8D8C0]
+                  md:text-base
+                "
+              >
+                OBSERVATORIO ARCOPLAZA
+              </div>
 
-            <h1
-            className="
-                heading-h1
-                text-white
-                max-w-[900px]
-            "
-            >
-                  Análisis y conocimiento para entender mejor el mercado energético
-            </h1>
-
-            <p
+              <h1
               className="
-                mt-8
-                text-[20px]
-                text-slate-300
-                max-w-700px
-                leading-8
+                  heading-h1
+                  !text-[40px]
+                  sm:!text-[48px]
+                  lg:!text-[64px]
+                  !leading-[1.02]
+                  text-white
+                  max-w-[760px]
               "
-            >
-              Tendencias de mercado, contratación energética,
-              facturación, potencia, comunidades de propietarios
-              y todo aquello que influye en el coste real de la energía.
-            </p>
+              >
+                Una mirada práctica al mercado energético
+              </h1>
+
+              <p
+                className="
+                  mt-6
+                  max-w-[680px]
+                  text-lg
+                  leading-8
+                  text-white/85
+                  md:text-xl
+                  md:leading-9
+                "
+              >
+                Análisis sobre precios, contratos, facturas y decisiones energéticas, explicado con claridad para empresas, comunidades y particulares.
+              </p>
+            </div>
 
         </div>
 

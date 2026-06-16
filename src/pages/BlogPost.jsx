@@ -12,6 +12,34 @@ import {
   Clock3,
   Tag
 } from 'lucide-react'
+import { absoluteUrl } from '../components/seo/Seo'
+
+function countWords(content) {
+  const text = Array.isArray(content)
+    ? content.map(block => block.text || '').join(' ')
+    : String(content || '')
+
+  return text
+    .replace(/[#*_>`-]/g, ' ')
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean).length
+}
+
+function getRelatedArticles(article, allArticles) {
+  return allArticles
+    .filter(item => item.slug !== article.slug)
+    .sort((a, b) => {
+      const categoryScore =
+        Number(b.category === article.category) -
+        Number(a.category === article.category)
+
+      if (categoryScore !== 0) return categoryScore
+
+      return 0
+    })
+    .slice(0, 3)
+}
 
 function MarkdownImage({ src, alt, title }) {
   return (
@@ -282,6 +310,16 @@ const hasArticleImage =
 
 const articleExcerpt =
   article.excerpt || post.excerpt || post.seoDescription
+const articleUrl =
+  absoluteUrl(`/blog/${post.slug}`)
+const articleImageUrl =
+  hasArticleImage ? absoluteUrl(articleImage) : null
+const articleImageAlt =
+  article.imageAlt || post.imageAlt || article.title
+const wordCount =
+  countWords(post.content)
+const relatedArticles =
+  getRelatedArticles(article, articles)
 
 return (
 
@@ -296,6 +334,11 @@ return (
       <meta
         name="description"
         content={post.seoDescription}
+      />
+
+      <link
+        rel="canonical"
+        href={articleUrl}
       />
 
       <meta
@@ -316,13 +359,35 @@ return (
       {hasArticleImage && (
         <meta
           property="og:image"
-          content={articleImage}
+          content={articleImageUrl}
+        />
+      )}
+
+      {hasArticleImage && (
+        <meta
+          property="og:image:alt"
+          content={articleImageAlt}
         />
       )}
 
       <meta
         property="og:url"
-        content={`https://www.arcoplazaasesores.com/blog/${post.slug}`}
+        content={articleUrl}
+      />
+
+      <meta
+        property="article:published_time"
+        content={post.datePublished}
+      />
+
+      <meta
+        property="article:modified_time"
+        content={post.dateModified ?? post.datePublished}
+      />
+
+      <meta
+        property="article:section"
+        content={article.category}
       />
 
       <meta
@@ -343,7 +408,14 @@ return (
       {hasArticleImage && (
         <meta
           name="twitter:image"
-          content={articleImage}
+          content={articleImageUrl}
+        />
+      )}
+
+      {hasArticleImage && (
+        <meta
+          name="twitter:image:alt"
+          content={articleImageAlt}
         />
       )}
 
@@ -355,11 +427,14 @@ return (
           headline: post.title,
 
           description: post.seoDescription,
+          articleSection: article.category,
+          wordCount,
+          inLanguage: 'es-ES',
 
           ...(hasArticleImage
             ? {
                 image: [
-                  `https://www.arcoplazaasesores.com${articleImage}`
+                  articleImageUrl
                 ]
               }
             : {}),
@@ -375,16 +450,50 @@ return (
 
             logo: {
               '@type': 'ImageObject',
-              url: 'https://www.arcoplazaasesores.com/logo.png'
+              url: absoluteUrl('/logo-arcoplaza.png')
             }
           },
 
           datePublished: post.datePublished,
+          dateModified: post.dateModified ?? post.datePublished,
 
           mainEntityOfPage: {
             '@type': 'WebPage',
-            '@id': `https://www.arcoplazaasesores.com/blog/${post.slug}`
+            '@id': articleUrl
           }
+        })}
+      </script>
+
+      <script type="application/ld+json">
+        {JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Inicio',
+              item: absoluteUrl('/')
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Blog',
+              item: absoluteUrl('/blog')
+            },
+            {
+              '@type': 'ListItem',
+              position: 3,
+              name: article.category,
+              item: absoluteUrl('/blog')
+            },
+            {
+              '@type': 'ListItem',
+              position: 4,
+              name: article.title,
+              item: articleUrl
+            }
+          ]
         })}
       </script>
 
@@ -434,7 +543,8 @@ return (
           <div className="pointer-events-none absolute bottom-10 right-16 hidden h-36 w-36 rounded-full border border-dashed border-white/10 lg:block" />
 
           <div className="container-content relative z-10">
-          <div
+          <nav
+          aria-label="Breadcrumb"
           className="
             flex
             flex-wrap
@@ -449,25 +559,42 @@ return (
             mb-8
           "
         >
+          <ol className="flex min-w-0 flex-wrap gap-2">
+            <li>
+              <Link
+                to="/"
+                className="hover:text-white transition-colors"
+              >
+                Inicio
+              </Link>
+            </li>
 
-          <Link
-            to="/blog"
-            className="hover:text-white transition-colors"
-          >
-            Blog
-          </Link>
+            <li>/</li>
 
-          <span>/</span>
+            <li>
+              <Link
+                to="/blog"
+                className="hover:text-white transition-colors"
+              >
+                Blog
+              </Link>
+            </li>
 
-          <span>{article.category}</span>
+            <li>/</li>
 
-          <span>/</span>
+            <li>{article.category}</li>
 
-          <span className="hidden min-w-0 max-w-[420px] truncate text-white sm:inline-block">
-            {article.title}
-          </span>
+            <li>/</li>
 
-        </div>
+            <li
+              className="hidden min-w-0 max-w-[420px] truncate text-white sm:inline-block"
+              aria-current="page"
+            >
+              {article.title}
+            </li>
+          </ol>
+
+        </nav>
             <div
               className="
                 text-xs
@@ -629,6 +756,36 @@ return (
           </a>
 
         </div>
+
+        {relatedArticles.length > 0 && (
+          <section className="mt-16 max-w-5xl mx-auto">
+            <div className="mb-6 text-xs uppercase tracking-[0.18em] text-corporateGreen">
+              Artículos relacionados
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-3">
+              {relatedArticles.map(related => (
+                <Link
+                  key={related.slug}
+                  to={`/blog/${related.slug}`}
+                  className="card-top-accent rounded-[22px] border border-[#E7E1D7] bg-white p-5 text-[#18375D] transition-all hover:-translate-y-1 hover:text-corporateGreen hover:shadow-[0_14px_34px_rgba(16,37,66,0.08)]"
+                >
+                  <div className="text-[11px] uppercase tracking-[0.18em] text-corporateGreen">
+                    {related.category}
+                  </div>
+
+                  <h2 className="mt-4 font-editorial text-[21px] font-semibold leading-tight">
+                    {related.title}
+                  </h2>
+
+                  <p className="mt-4 text-sm leading-relaxed text-[#556274]">
+                    {related.excerpt}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
           <div
       className="

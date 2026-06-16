@@ -14,6 +14,7 @@ import Footer from '../components/sections/Footer'
 import { articles } from '../data/blog'
 import { Link } from 'react-router-dom'
 import { useMemo, useState } from 'react'
+import Seo from '../components/seo/Seo'
 
 const categoryFilters = [
   {
@@ -106,6 +107,13 @@ const showFeatured =
   return (
 
     <div className="min-h-screen bg-white">
+
+      <Seo
+        title="Observatorio Arcoplaza | Análisis del mercado energético"
+        description="Artículos sobre mercado eléctrico, contratación energética, facturación, potencia contratada y comunidades de propietarios."
+        path="/blog"
+        image="/blog-observatorio-arcoplaza.webp"
+      />
 
       <Navbar />
 

@@ -8,6 +8,10 @@ export const articles = Object.values(posts).map(
     datePublished,
     seoTitle,
     seoDescription,
+    excerpt,
     ...article
-  }) => article
+  }) => ({
+    ...article,
+    excerpt: excerpt || seoDescription
+  })
 )

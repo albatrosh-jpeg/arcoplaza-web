@@ -1,8 +1,15 @@
+import Seo from '../components/seo/Seo'
+
 export default function AvisoLegal() {
 
   return (
 
     <main className="min-h-screen bg-[#F5F3EE] px-16 py-10 sm:py-16 sm:py-24">
+      <Seo
+        title="Política de cookies | Arcoplaza Asesores"
+        description="Información sobre el uso de cookies y tecnologías similares en el sitio web de Arcoplaza Asesores."
+        path="/politica-cookies"
+      />
 
       <div className="max-w-4xl mx-auto">
 

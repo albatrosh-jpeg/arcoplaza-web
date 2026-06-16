@@ -15,6 +15,7 @@ import DailyPriceChart from '../components/DailyPriceChart'
 import Footer from '../components/sections/Footer'
 import MarketOmipChart from '../components/MarketOmipChart'
 import Navbar from '../components/sections/Navbar'
+import Seo from '../components/seo/Seo'
 
 function formatMarketPrice(value, digits = 3) {
   if (!Number.isFinite(Number(value))) {
@@ -184,6 +185,12 @@ export default function MercadoMarket() {
 
   return (
     <div className="min-h-screen bg-[#F7F6F1] text-[#08284A]">
+      <Seo
+        title="Mercado eléctrico | OMIE y OMIP | Arcoplaza Asesores"
+        description="Consulta referencias reales de OMIE y OMIP para interpretar mejor el precio del mercado eléctrico y el coste del suministro."
+        path="/mercado"
+      />
+
       <Navbar />
 
       <main className="pt-[74px]">

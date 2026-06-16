@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { firstVisitEmail } from '../emails/firstVisitEmail.js'
+import Seo from '../components/seo/Seo'
 import {
   BarChart3,
   BookOpen,
@@ -488,6 +489,12 @@ if (!authorized) {
       bg-white
       px-16
     ">
+      <Seo
+        title="Preview email comercial | Arcoplaza Asesores"
+        description="Página interna de previsualización de email comercial de Arcoplaza Asesores."
+        path="/commercial-email"
+        robots="noindex, nofollow"
+      />
 
       <form
         onSubmit={handleLogin}
@@ -546,6 +553,12 @@ if (!authorized) {
 return (
 
   <>
+    <Seo
+      title="Preview email comercial | Arcoplaza Asesores"
+      description="Página interna de previsualización de email comercial de Arcoplaza Asesores."
+      path="/commercial-email"
+      robots="noindex, nofollow"
+    />
 
     <div className="
       min-h-screen

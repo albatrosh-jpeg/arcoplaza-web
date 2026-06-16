@@ -1,8 +1,15 @@
+import Seo from '../components/seo/Seo'
+
 export default function AvisoLegal() {
 
   return (
 
     <main className="min-h-screen bg-[#F5F3EE] px-16 py-10 sm:py-16 sm:py-24">
+      <Seo
+        title="Aviso legal | Arcoplaza Asesores"
+        description="Información legal de Arcoplaza Asesores y condiciones de uso del sitio web."
+        path="/aviso-legal"
+      />
 
       <div className="max-w-4xl mx-auto">
 

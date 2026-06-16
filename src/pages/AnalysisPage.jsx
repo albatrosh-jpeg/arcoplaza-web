@@ -1,8 +1,7 @@
-import { Helmet } from 'react-helmet-async'
-
 import Navbar from '../components/sections/Navbar'
 import Footer from '../components/sections/Footer'
 import Cases from '../components/sections/Cases'
+import Seo from '../components/seo/Seo'
 
 import AnalysisHero from './AnalysisHero'
 import AnalysisProblem from './AnalysisProblem'
@@ -15,18 +14,11 @@ export default function AnalysisPage() {
   return (
 
     <>
-      <Helmet>
-
-        <title>
-          Análisis de factura eléctrica | Arcoplaza Asesores
-        </title>
-
-        <meta
-          name="description"
-          content="Analizamos contratos, tarifas y facturas para detectar sobrecostes, cláusulas desfavorables y oportunidades reales de optimización energética."
-        />
-
-      </Helmet>
+      <Seo
+        title="Análisis de factura eléctrica | Arcoplaza Asesores"
+        description="Analizamos contratos, tarifas y facturas para detectar oportunidades reales de optimización energética en empresas y comunidades."
+        path="/analisis-factura-electrica"
+      />
 
       <Navbar />
 

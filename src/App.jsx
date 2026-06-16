@@ -8,6 +8,7 @@ import Process from './components/sections/Process'
 import WhyArcoplaza from './components/sections/WhyArcoplaza'
 import Contact from './components/sections/Contact'
 import Footer from './components/sections/Footer'
+import Seo from './components/seo/Seo'
 
 import companies from './data/companies'
 
@@ -33,6 +34,12 @@ const {
 return (
 
     <div className="min-h-screen bg-surface-secondary text-corporate font-sans pt-[74px]">
+
+      <Seo
+        title="Arcoplaza Asesores · Optimización energética para empresas y comunidades"
+        description="Supervisión energética clara y rigurosa. Analizamos suministros eléctricos y de gas para optimizar contratos en empresas y comunidades."
+        path="/"
+      />
 
       <Navbar />
 

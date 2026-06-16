@@ -34,9 +34,25 @@ function formatDate(value) {
   ).format(new Date(`${value}T12:00:00`))
 }
 
+function getHourlyPriceMWh(item) {
+  const priceMWh = Number(item?.priceMWh ?? item?.spainPriceMWh)
+
+  if (Number.isFinite(priceMWh)) return priceMWh
+
+  const priceKWh = Number(item?.price ?? item?.spainPrice)
+
+  return Number.isFinite(priceKWh) ? priceKWh * 1000 : null
+}
+
+function formatHour(value) {
+  if (!value) return 'Hora no disponible'
+
+  return value.replace(':00', ' h')
+}
+
 function buildSparkline(hours = []) {
   const values = hours
-    .map(item => Number(item.price))
+    .map(getHourlyPriceMWh)
     .filter(Number.isFinite)
 
   if (values.length < 2) return null
@@ -52,6 +68,36 @@ function buildSparkline(hours = []) {
       return `${x.toFixed(2)},${y.toFixed(2)}`
     })
     .join(' ')
+}
+
+function buildChartContext(hours = []) {
+  const entries = hours
+    .map(item => ({
+      hour: item.hour,
+      value: getHourlyPriceMWh(item)
+    }))
+    .filter(item => Number.isFinite(item.value))
+
+  if (!entries.length) return null
+
+  const total = entries.reduce((sum, item) => sum + item.value, 0)
+  const average = total / entries.length
+  const min = entries.reduce((current, item) => (
+    item.value < current.value ? item : current
+  ), entries[0])
+  const max = entries.reduce((current, item) => (
+    item.value > current.value ? item : current
+  ), entries[0])
+
+  return {
+    average,
+    count: entries.length,
+    min,
+    max,
+    firstHour: entries[0]?.hour,
+    middleHour: entries[Math.floor(entries.length / 2)]?.hour,
+    lastHour: entries[entries.length - 1]?.hour
+  }
 }
 
 function Metric({ label, value, unit, detail }) {
@@ -99,6 +145,10 @@ export default function MarketTeaser() {
     () => buildSparkline(daily?.hours),
     [daily]
   )
+  const chartContext = useMemo(
+    () => buildChartContext(daily?.hours),
+    [daily]
+  )
   const TrendIcon = trendIcon(summary?.trendLabel)
   const averageMWh = Number.isFinite(Number(summary?.averageMWh))
     ? summary.averageMWh
@@ -111,7 +161,7 @@ export default function MarketTeaser() {
       <div className="pointer-events-none absolute inset-0 opacity-[0.55] [background-image:radial-gradient(circle_at_80%_20%,rgba(45,126,81,0.13),transparent_28%),linear-gradient(115deg,rgba(255,255,255,0.9),rgba(247,246,241,0.78))]" />
 
       <div className="container-content relative py-16 lg:py-20">
-        <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
+        <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-corporateGreen">
               Observatorio de mercado
@@ -219,21 +269,55 @@ export default function MarketTeaser() {
                   />
                 </div>
 
-                <div className="mt-5 rounded-[22px] border border-white/[0.12] bg-white/[0.045] p-4">
-                  <div className="mb-3 flex items-center justify-between gap-4 text-xs text-white/[0.58]">
+                <div className="mt-5 rounded-[22px] border border-white/[0.12] bg-white/[0.045] p-5">
+                  <div className="mb-4 flex flex-col gap-3 text-xs text-white/[0.58] sm:flex-row sm:items-center sm:justify-between">
                     <span className="inline-flex items-center gap-2">
                       <LineChart size={14} />
-                      Curva diaria como apoyo visual
+                      Curva diaria OMIE
                     </span>
                     <span className="inline-flex items-center gap-2">
                       <BarChart3 size={14} />
-                      Valores derivados de OMIE
+                      {chartContext ? `${chartContext.count} periodos horarios en EUR/MWh` : 'Valores derivados de OMIE'}
                     </span>
                   </div>
 
+                  {chartContext && (
+                    <div className="mb-4 grid gap-2 text-xs sm:grid-cols-3">
+                      <div className="rounded-2xl border border-white/[0.10] bg-white/[0.06] px-3 py-2">
+                        <p className="text-white/[0.48]">M&iacute;nimo</p>
+                        <p className="mt-1 font-semibold text-white">
+                          {formatMarketPrice(chartContext.min.value, 0)} &euro;/MWh
+                        </p>
+                        <p className="text-white/[0.46]">
+                          {formatHour(chartContext.min.hour)}
+                        </p>
+                      </div>
+
+                      <div className="rounded-2xl border border-white/[0.10] bg-white/[0.06] px-3 py-2">
+                        <p className="text-white/[0.48]">Media</p>
+                        <p className="mt-1 font-semibold text-white">
+                          {formatMarketPrice(chartContext.average, 0)} &euro;/MWh
+                        </p>
+                        <p className="text-white/[0.46]">
+                          sesi&oacute;n diaria
+                        </p>
+                      </div>
+
+                      <div className="rounded-2xl border border-white/[0.10] bg-white/[0.06] px-3 py-2">
+                        <p className="text-white/[0.48]">M&aacute;ximo</p>
+                        <p className="mt-1 font-semibold text-white">
+                          {formatMarketPrice(chartContext.max.value, 0)} &euro;/MWh
+                        </p>
+                        <p className="text-white/[0.46]">
+                          {formatHour(chartContext.max.hour)}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
                   <svg
                     viewBox="0 0 100 54"
-                    className="h-24 w-full overflow-visible"
+                    className="h-32 w-full overflow-visible"
                     role="img"
                     aria-label="Vista previa secundaria de la evolución diaria del mercado eléctrico"
                   >
@@ -275,6 +359,14 @@ export default function MarketTeaser() {
                       />
                     )}
                   </svg>
+
+                  {chartContext && (
+                    <div className="mt-3 flex items-center justify-between text-[11px] text-white/[0.42]">
+                      <span>{formatHour(chartContext.firstHour)}</span>
+                      <span>{formatHour(chartContext.middleHour)}</span>
+                      <span>{formatHour(chartContext.lastHour)}</span>
+                    </div>
+                  )}
 
                   {!daily && !loading && (
                     <p className="mt-2 text-sm leading-relaxed text-white/[0.62]">

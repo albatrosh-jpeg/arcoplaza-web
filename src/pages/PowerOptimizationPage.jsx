@@ -1,8 +1,7 @@
-import { Helmet } from 'react-helmet-async'
-
 import Navbar from '../components/sections/Navbar'
 import Footer from '../components/sections/Footer'
 import Cases from '../components/sections/Cases'
+import Seo from '../components/seo/Seo'
 
 import AnalysisHero from './AnalysisHero'
 import PowerOptimizationProcess from './PowerOptimizationProcess'
@@ -38,18 +37,11 @@ export default function PowerOptimizationPage() {
   return (
 
     <>
-      <Helmet>
-
-        <title>
-          Optimización de potencia contratada | Arcoplaza Asesores
-        </title>
-
-        <meta
-          name="description"
-          content="Analizamos la potencia contratada de empresas y comunidades para detectar excesos, reducir costes fijos y optimizar el suministro eléctrico."
-        />
-
-      </Helmet>
+      <Seo
+        title="Optimización de potencia contratada | Arcoplaza Asesores"
+        description="Analizamos la potencia contratada de empresas y comunidades para revisar costes fijos y optimizar el suministro eléctrico."
+        path="/soluciones/optimizacion-potencia-contratada"
+      />
 
       <Navbar />
 

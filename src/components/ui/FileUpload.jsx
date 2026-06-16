@@ -1,9 +1,20 @@
 import {
+  BadgeCheck,
   CheckCircle,
+  ClipboardCheck,
   Flame,
+  FileImage,
   FileText,
+  ShieldCheck,
   UploadCloud
 } from 'lucide-react'
+
+const analysisBadges = [
+  ['PDF, JPG y PNG', FileImage],
+  ['Analisis preliminar', ClipboardCheck],
+  ['Sin compromiso', ShieldCheck],
+  ['Respuesta personalizada', BadgeCheck]
+]
 
 export default function FileUpload({
   fileName,
@@ -14,7 +25,7 @@ export default function FileUpload({
 
   return (
 
-    <label className={`block cursor-pointer ${className}`}>
+    <label className={`group block cursor-pointer ${className}`}>
 
       <div
         className={`
@@ -23,47 +34,57 @@ export default function FileUpload({
           flex-col
           items-center
           justify-center
-          gap-4
-          sm:flex-row
-          sm:justify-start
-
-          rounded-[20px]
           overflow-hidden
-
           border
           border-dashed
-          border-corporateGreen/35
-
-          ${compact ? 'bg-white/75' : 'bg-[linear-gradient(135deg,#FFFFFF_0%,#F6FBF7_100%)]'}
-
-          ${compact ? 'px-4 py-4' : 'px-6 py-7 lg:pr-72'}
-
           text-center
-          sm:text-left
-
-          transition-colors
+          transition-all
+          duration-300
           hover:border-corporateGreen
+
+          ${compact
+            ? 'gap-4 rounded-[20px] border-corporateGreen/35 bg-white/75 px-4 py-4 sm:flex-row sm:justify-start sm:text-left'
+            : 'min-h-[300px] gap-6 rounded-[26px] border-corporateGreen/45 bg-[radial-gradient(circle_at_50%_20%,rgba(67,184,134,0.11),transparent_34%),linear-gradient(135deg,#FFFFFF_0%,#F7FBF8_58%,#EEF8F3_100%)] px-6 py-10 hover:-translate-y-[1px] hover:shadow-[0_24px_70px_rgba(16,37,66,0.12)] sm:px-8 lg:px-10'
+          }
         `}
       >
 
         {!compact && (
-          <div className="pointer-events-none absolute bottom-0 right-8 hidden h-[110px] w-[250px] lg:block">
-            <div className="absolute bottom-0 left-10 h-[88px] w-[70px] -rotate-6 rounded-[12px] border border-[#DDE8F2] bg-[#EEF5FC] shadow-[0_14px_30px_rgba(16,37,66,0.08)]">
-              <FileText className="absolute left-5 top-4 h-7 w-7 text-[#2A7ED1]" strokeWidth={1.8} />
-              <span className="absolute bottom-8 left-5 h-2 w-9 rounded-full bg-[#B8CCE0]" />
-              <span className="absolute bottom-5 left-5 h-2 w-7 rounded-full bg-[#D1DDE8]" />
+          <>
+            <div className="pointer-events-none absolute inset-0 opacity-60 [background-image:linear-gradient(rgba(45,126,81,0.055)_1px,transparent_1px),linear-gradient(90deg,rgba(45,126,81,0.055)_1px,transparent_1px)] [background-size:34px_34px]" />
+
+            <div className="pointer-events-none absolute left-6 top-6 hidden flex-col gap-3 text-corporateGreen/80 sm:flex">
+              <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-corporateGreen/15 bg-white/80 shadow-[0_12px_28px_rgba(16,37,66,0.06)]">
+                <FileText className="h-5 w-5" strokeWidth={1.8} />
+              </span>
+              <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-corporateGreen/15 bg-white/80 shadow-[0_12px_28px_rgba(16,37,66,0.06)]">
+                <FileImage className="h-5 w-5" strokeWidth={1.8} />
+              </span>
+              <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-corporateGreen/15 bg-white/80 shadow-[0_12px_28px_rgba(16,37,66,0.06)]">
+                <ClipboardCheck className="h-5 w-5" strokeWidth={1.8} />
+              </span>
             </div>
 
-            <div className="absolute bottom-0 right-20 h-[100px] w-[78px] rotate-8 rounded-[14px] border border-[#DDE8F2] bg-[#E8F2FF] shadow-[0_14px_30px_rgba(16,37,66,0.08)]">
-              <Flame className="absolute left-5 top-5 h-7 w-7 text-[#0B69D1]" fill="currentColor" />
-              <span className="absolute bottom-9 left-5 h-2 w-10 rounded-full bg-[#B8CCE0]" />
-              <span className="absolute bottom-6 left-5 h-2 w-8 rounded-full bg-[#D1DDE8]" />
-            </div>
+            <div className="pointer-events-none absolute bottom-6 right-6 hidden h-[150px] w-[220px] lg:block">
+              <div className="absolute bottom-2 left-8 h-[118px] w-[88px] -rotate-6 rounded-[16px] border border-[#DDE8F2] bg-white/85 shadow-[0_18px_40px_rgba(16,37,66,0.10)]">
+                <FileText className="absolute left-6 top-5 h-8 w-8 text-corporateGreen" strokeWidth={1.8} />
+                <span className="absolute bottom-12 left-5 h-2 w-12 rounded-full bg-[#B8CCE0]" />
+                <span className="absolute bottom-8 left-5 h-2 w-10 rounded-full bg-[#D1DDE8]" />
+                <span className="absolute bottom-4 left-5 h-2 w-8 rounded-full bg-[#E1E8EF]" />
+              </div>
 
-            <div className="absolute bottom-6 right-8 flex h-9 w-9 items-center justify-center rounded-full bg-[#8DCC5F] text-white shadow-[0_10px_24px_rgba(54,126,69,0.24)]">
-              <CheckCircle className="h-6 w-6" fill="currentColor" />
+              <div className="absolute bottom-0 right-14 h-[132px] w-[98px] rotate-7 rounded-[18px] border border-[#DDE8F2] bg-[#EFF7FF]/90 shadow-[0_18px_40px_rgba(16,37,66,0.10)]">
+                <Flame className="absolute left-7 top-6 h-8 w-8 text-[#0B69D1]" fill="currentColor" />
+                <span className="absolute bottom-14 left-6 h-2 w-12 rounded-full bg-[#B8CCE0]" />
+                <span className="absolute bottom-10 left-6 h-2 w-10 rounded-full bg-[#D1DDE8]" />
+                <span className="absolute bottom-6 left-6 h-2 w-8 rounded-full bg-[#E1E8EF]" />
+              </div>
+
+              <div className="absolute bottom-8 right-4 flex h-12 w-12 items-center justify-center rounded-full bg-corporateGreen text-white shadow-[0_16px_32px_rgba(45,126,81,0.26)]">
+                <CheckCircle className="h-7 w-7" fill="currentColor" />
+              </div>
             </div>
-          </div>
+          </>
         )}
 
         <div
@@ -71,61 +92,89 @@ export default function FileUpload({
             relative
             z-10
             flex
-            ${compact ? 'h-10 w-10' : 'h-16 w-16'}
             shrink-0
             items-center
             justify-center
             rounded-full
-            ${compact ? 'bg-transparent' : 'bg-corporateGreen-soft'}
-            text-corporateGreen
+            transition-transform
+            duration-300
+
+            ${compact
+              ? 'h-10 w-10 bg-transparent text-corporateGreen'
+              : 'h-20 w-20 bg-corporateGreen text-white shadow-[0_18px_38px_rgba(45,126,81,0.28)] group-hover:scale-105'
+            }
           `}
         >
           {compact ? (
             <UploadCloud className="h-5 w-5" strokeWidth={1.9} />
           ) : (
-            <UploadCloud className="h-9 w-9" strokeWidth={1.8} />
+            <UploadCloud className="h-10 w-10 text-white" strokeWidth={1.8} />
           )}
         </div>
 
-        <div className="relative z-10 min-w-0">
+        <div className={`relative z-10 min-w-0 ${compact ? '' : 'max-w-[520px]'}`}>
 
           <div
             className={`
               mb-1
-              ${compact ? 'text-[14px]' : 'text-[17px]'}
               font-semibold
+              leading-tight
               text-corporate
+              ${compact ? 'text-[14px]' : 'text-[26px] sm:text-[30px]'}
             `}
           >
-            Adjunta una o varias facturas
+            {compact ? 'Adjunta una o varias facturas' : 'Arrastra aqui tu factura'}
           </div>
 
           <div
             className={`
-              ${compact ? 'text-[12px]' : 'text-[13px]'}
               leading-relaxed
               text-slate-500
+              ${compact ? 'text-[12px]' : 'text-[15px]'}
             `}
           >
-            PDF, JPG o PNG · Máx. 10MB por archivo
+            {compact ? (
+              'PDF, JPG o PNG · Max. 10MB por archivo'
+            ) : (
+              <>
+                o haz clic para seleccionarla
+                <span className="mt-2 block text-[13px] text-slate-500">
+                  PDF, JPG o PNG &middot; Max. 10MB por archivo
+                </span>
+              </>
+            )}
           </div>
 
           {fileName && (
 
             <div
-              className="
+              className={`
                 mt-3
-                text-[13px]
                 font-medium
                 text-corporate
-              "
+                ${compact ? 'text-[13px]' : 'text-sm'}
+              `}
             >
-              ✓ {fileName}
+              {fileName}
             </div>
 
           )}
 
         </div>
+
+        {!compact && (
+          <div className="relative z-10 mt-2 flex max-w-[650px] flex-wrap justify-center gap-2">
+            {analysisBadges.map(([label, Icon]) => (
+              <span
+                key={label}
+                className="inline-flex items-center gap-2 rounded-full border border-corporateGreen/14 bg-white/80 px-3 py-2 text-[12px] font-semibold text-corporate shadow-[0_10px_24px_rgba(16,37,66,0.05)]"
+              >
+                <Icon className="h-4 w-4 text-corporateGreen" strokeWidth={1.9} />
+                {label}
+              </span>
+            ))}
+          </div>
+        )}
 
         <input
           name="factura"

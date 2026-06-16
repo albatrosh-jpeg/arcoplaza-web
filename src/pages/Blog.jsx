@@ -272,10 +272,16 @@ const editorialSections =
             <div
             className="
                 container-content
-                py-6
                 flex
-                flex-wrap
-                gap-8
+                flex-nowrap
+                gap-3
+                overflow-x-auto
+                py-3
+                md:gap-4
+                md:py-4
+                [-ms-overflow-style:none]
+                [scrollbar-width:none]
+                [&::-webkit-scrollbar]:hidden
             "
             >
             {availableFilters.map(category => {
@@ -292,8 +298,10 @@ const editorialSections =
                 aria-pressed={isActive}
                 className={`
                     flex
+                    shrink-0
                     items-center
                     gap-2
+                    whitespace-nowrap
                     rounded-full
                     border
                     px-4
@@ -325,7 +333,7 @@ const editorialSections =
       {showFeatured && (
       <main>
         <section>
-          <div className="container-content py-20">
+          <div className="container-content pb-20 pt-14">
             <div className="mb-10 max-w-[780px]">
               <h2 className="heading-h2 text-[#18375D]">
                 Artículos destacados

@@ -1,22 +1,17 @@
 ---
-title: La electricidad cambia cada hora. El gas juega otra partida distinta
-slug: la-electricidad-cambia-cada-hora
-category: Mercado
-excerpt: Electricidad y gas forman parte del coste energético, pero sus mercados
-  funcionan con lógicas distintas. Entender esa diferencia ayuda a interpretar
-  mejor cada factura.
-date: Junio 2026
-datePublished: 2026-06-16
-readTime: 4 min
-image: /blog/la-electricidad.cambia-cada-hora.webp
-imageAlt: Mercado energético y evolución de los precios de la electricidad y el gas
-featured: false
 order: 8
-seoTitle: La electricidad cambia cada hora y el gas sigue otra lógica |
-  Arcoplaza Asesores
-seoDescription: Explicamos por qué electricidad y gas no evolucionan igual, cómo
-  se comportan sus mercados y por qué conviene analizar cada contrato por
-  separado.
+slug: "la-electricidad-cambia-cada-hora"
+category: "Mercado"
+title: "La electricidad cambia cada hora. El gas juega otra partida distinta"
+excerpt: "Electricidad y gas forman parte del coste energético, pero sus mercados funcionan con lógicas distintas. Entender esa diferencia ayuda a interpretar mejor cada factura."
+date: "Junio 2026"
+datePublished: "2026-06-16"
+readTime: "4 min"
+image: "/blog/la-electricidad-cambia-cada-hora.webp"
+imageAlt: "Mercado energético con electricidad y gas representados como costes que evolucionan de forma distinta"
+featured: false
+seoTitle: "La electricidad cambia cada hora y el gas sigue otra lógica | Arcoplaza Asesores"
+seoDescription: "Explicamos por qué electricidad y gas no evolucionan igual, cómo se comportan sus mercados y por qué conviene analizar cada contrato por separado."
 ---
 
 Cuando hablamos de energía, es habitual meter en el mismo saco la electricidad y el gas. Al fin y al cabo, ambos aparecen en las facturas, ambos sirven para hacer funcionar una empresa o una vivienda y ambos están sujetos a las variaciones del mercado.

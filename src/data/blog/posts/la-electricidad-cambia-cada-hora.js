@@ -10,9 +10,9 @@ date: "Junio 2026",
 
 readTime: "4 min",
 
-image: "/blog/cambios-precios-electricidad-espana.webp",
+image: "/blog/la-electricidad-cambia-cada-hora.webp",
 
-imageAlt: "Mercado energético y evolución de los precios de la electricidad y el gas",
+imageAlt: "Mercado energético con electricidad y gas representados como costes que evolucionan de forma distinta",
 
 featured: false,
 

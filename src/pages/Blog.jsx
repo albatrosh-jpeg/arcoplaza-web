@@ -314,68 +314,154 @@ const editorialSections =
 
             <div className="grid gap-8 lg:grid-cols-[1.35fr_0.85fr] lg:items-start">
               {mainEditorialArticle && (
-                <Link
-                  to={`/blog/${mainEditorialArticle.slug}`}
-                  className="block group"
-                >
-                  <article
+                <div className="space-y-5">
+                  <Link
+                    to={`/blog/${mainEditorialArticle.slug}`}
+                    className="block group"
+                  >
+                    <article
+                      className="
+                        card-top-accent
+                        overflow-hidden
+                        rounded-[24px]
+                        border
+                        border-[#ECE7DD]
+                        bg-white
+                        transition-all
+                        duration-300
+                        hover:-translate-y-1
+                        hover:shadow-lg
+                      "
+                    >
+                      <img
+                        src={mainEditorialArticle.image}
+                        alt={mainEditorialArticle.imageAlt || mainEditorialArticle.title}
+                        className="
+                          h-52
+                          w-full
+                          object-cover
+                          transition-transform
+                          duration-500
+                          md:h-60
+                          group-hover:scale-[1.02]
+                        "
+                      />
+
+                      <div className="p-6 md:p-7">
+                        <div className="mb-3 text-xs uppercase tracking-[0.18em] text-corporateGreen">
+                          {mainEditorialArticle.category}
+                        </div>
+
+                        <h2
+                          className="
+                            heading-h2
+                            mb-4
+                            text-[#18375D]
+                            transition-colors
+                            duration-300
+                            group-hover:text-corporateGreen
+                          "
+                        >
+                          {mainEditorialArticle.title}
+                        </h2>
+
+                        <p className="mb-5 text-lg leading-8 text-[#556274]">
+                          {mainEditorialArticle.excerpt}
+                        </p>
+
+                        <span className="text-sm text-[#7C8795]">
+                          {mainEditorialArticle.readTime}
+                        </span>
+                      </div>
+                    </article>
+                  </Link>
+
+                  <div
                     className="
-                      card-top-accent
-                      overflow-hidden
                       rounded-[24px]
                       border
                       border-[#ECE7DD]
                       bg-white
-                      transition-all
-                      duration-300
-                      hover:-translate-y-1
-                      hover:shadow-lg
+                      p-5
+                      relative
+                      flex
+                      flex-col
+                      gap-6
+                      overflow-visible
+                      md:flex-row
+                      md:items-center
+                      md:gap-8
+                      md:p-6
+                      md:pl-48
                     "
                   >
                     <img
-                      src={mainEditorialArticle.image}
-                      alt={mainEditorialArticle.imageAlt || mainEditorialArticle.title}
+                      src="/blog/mascota-revision-factura.png"
+                      alt=""
+                      aria-hidden="true"
                       className="
-                        h-52
-                        w-full
-                        object-cover
-                        transition-transform
-                        duration-500
-                        md:h-60
-                        group-hover:scale-[1.02]
+                        h-40
+                        w-40
+                        shrink-0
+                        self-center
+                        object-contain
+                        md:absolute
+                        md:left-[-44px]
+                        md:top-1/2
+                        md:z-10
+                        md:h-56
+                        md:w-56
+                        md:-translate-y-1/2
                       "
                     />
 
-                    <div className="p-6 md:p-7">
-                      <div className="mb-3 text-xs uppercase tracking-[0.18em] text-corporateGreen">
-                        {mainEditorialArticle.category}
+                    <div
+                      className="
+                        flex
+                        flex-1
+                        flex-col
+                        gap-5
+                        md:flex-row
+                        md:items-center
+                        md:justify-between
+                        md:gap-8
+                      "
+                    >
+                      <div>
+                        <h3 className="heading-h3 text-[#18375D]">
+                          ¿Estás pagando más de lo necesario en luz o gas?
+                        </h3>
+
+                        <p className="mt-3 leading-7 text-[#556274]">
+                          Revisamos tu contrato y te ayudamos a detectar si estás pagando de más.
+                        </p>
                       </div>
 
-                      <h2
+                      <a
+                        href="/#formulario"
                         className="
-                          heading-h2
-                          mb-4
-                          text-[#18375D]
+                          inline-flex
+                          items-center
+                          justify-center
+                          rounded-full
+                          bg-corporateGreen
+                          px-5
+                          py-3
+                          text-sm
+                          font-semibold
+                          text-white
                           transition-colors
                           duration-300
-                          group-hover:text-corporateGreen
+                          hover:bg-[#2d673a]
+                          md:shrink-0
                         "
                       >
-                        {mainEditorialArticle.title}
-                      </h2>
-
-                      <p className="mb-5 text-lg leading-8 text-[#556274]">
-                        {mainEditorialArticle.excerpt}
-                      </p>
-
-                      <span className="text-sm text-[#7C8795]">
-                        {mainEditorialArticle.readTime}
-                      </span>
+                        Solicitar revisión
+                      </a>
                     </div>
-                  </article>
-                </Link>
+                  </div>
+                </div>
               )}
-
               <aside
                 className="
                   rounded-[24px]

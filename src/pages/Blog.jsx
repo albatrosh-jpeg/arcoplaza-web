@@ -423,14 +423,14 @@ const showFeatured =
                 />
               )}
 
-                <div className="p-6 flex flex-col">
+                <div className="p-6">
                 <div
                   className="
                     text-xs
                     uppercase
                     tracking-[0.18em]
                     text-corporateGreen
-                    mb-3
+                    mb-4
                   "
                 >
                   {article.category}
@@ -441,7 +441,7 @@ const showFeatured =
                   heading-h3
                   text-[#18375D]
 
-                  mb-5
+                  mb-4
 
                   transition-colors
                   duration-300
@@ -452,6 +452,16 @@ const showFeatured =
                 
                   {article.title}
                 </h3>
+
+                <p
+                  className="
+                    text-[#556274]
+                    leading-7
+                    mb-6
+                  "
+                >
+                  {article.excerpt}
+                </p>
 
                 <div
                   className="

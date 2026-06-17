@@ -15,23 +15,15 @@ seoTitle: Cuánto cuesta tener un aire acondicionado encendido toda la noche | A
 seoDescription: Calculamos cuánto consume un aire acondicionado durante toda la
   noche, cuánto puede costar al mes y cómo reducir el gasto sin perder confort.
 ---
-Cuando llega una ola de calor, hay pocas cosas más agradecidas que acostarse en una habitación fresca.
-
-
-
-Pero después suele aparecer una pregunta bastante habitual: ¿cuánto me cuesta realmente dormir con el aire acondicionado encendido toda la noche?
-
-
+Ahora que llega el calor, sabemos que pocas cosas se sienten más agradecidas que dormir en una habitación fresquita. Mantener el aire acondicionado suave durante la noche parece la solución idea, pero luego nos preguntamos, ¿cuánto cuesta tener el aire acondicionado funcionando toda la noche?
 
 A diferencia de un ventilador, el aire acondicionado sí consume una cantidad importante de electricidad. Sin embargo, el coste real suele estar a medio camino entre lo que algunos temen y lo que otros imaginan.
 
 ## ¿Consume mucho un aire acondicionado?
 
-En términos generales, sí. Mientras que un ventilador se limita a mover el aire, un aire acondicionado tiene que enfriarlo. Y enfriar aire requiere bastante más energía.
+Generalmente, sí. Ten en cuenta que un ventilador se limita a mover el aire, mientras que un aire acondicionado tiene que hacer el esfuerzo adicional de enfriarlo. Por eso, suele convertirse en uno de los protagonistas de la factura eléctrica durante los meses de verano.
 
-Por eso suele convertirse en uno de los protagonistas de la factura eléctrica durante los meses de verano.
-
-Ahora bien, tampoco todos los equipos consumen igual. La temperatura que selecciones, el aislamiento de la vivienda, la eficiencia del aparato o incluso la temperatura exterior pueden hacer que el consumo varíe de forma considerable.
+Ahora bien, recuerda que no todos los equipos consumen igual. En gran medida, la temperatura que selecciones, la eficiencia del aparato e incluso la temperatura exterior y el aislamiento de tu vivienda pueden hacer que el consumo varíe de forma considerable.
 
 ## Entonces, ¿cuánto cuesta una noche de aire acondicionado?
 
@@ -53,7 +45,7 @@ La diferencia aparece cuando se convierte en un hábito diario durante varias se
 
 ## ¿Qué consume más: un ventilador o un aire acondicionado?
 
-La diferencia es considerable. Un ventilador tiene un consumo habitual de 25 a 80 W, mientras que un aire acondicionado consume entre 1.000 y 3.000 W.
+Consume más el aire acondicionado. Un ventilador tiene un consumo habitual de 25 a 80 W, mientras que un aire acondicionado consume entre 1.000 y 3.000 W.
 
 ![Comparativa de consumo eléctrico entre ventilador y aire acondicionado.](/blog/aire-acondicionado-image3.png "El ventilador consume mucho menos, aunque no ofrece el mismo nivel de refrigeración.")
 

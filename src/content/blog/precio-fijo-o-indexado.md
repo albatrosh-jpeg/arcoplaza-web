@@ -22,17 +22,13 @@ Cuando alguien compara una tarifa fija con una indexada, normalmente busca respo
 
 **¿Cuál es más barata?**
 
-Es una pregunta razonable, pero conviene tener cuidado.
+### ¿Cuál es más barata?
 
-La tarifa más barata hoy puede convertirse en la más cara dentro de seis meses o dentro de un año.
+La pregunta es razonable, pero no tan sencilla de responder. Ten en cuenta que las comercializadoras no diseñan sus tarifas al azar ni se dejan engañar. Ambas modalidades calculan el precio de forma distinta y buscan obtener beneficio mediante estrategias diferentes que **conviene entender bien antes de contratar.**
 
-De hecho, una modalidad puede funcionar muy bien en el corto plazo y ser precisamente la que más te termine costando cuando observas periodos más largos.
+El mercado energético es variable y **la tarifa más barata hoy puede convertirse en la más cara dentro de seis meses** o dentro de un año. **Las comercializadoras utilizan esa incertidumbre a su favor** y, en muchos casos, destacan el ahorro inmediato aunque no siempre refleje lo que puede ocurrir más adelante. Precisamente ahí, **en el tiempo, es donde se encuentran las diferencias** entre un precio fijo y un precio indexado.
 
-Las comercializadoras lo saben y, en muchos casos, utilizan esa percepción a su favor, destacando el ahorro inmediato aunque no siempre refleje lo que ocurrirá más adelante.
-
-Y precisamente ahí está la diferencia entre un precio fijo y un precio indexado: ambas modalidades calculan el precio de forma distinta y buscan obtener beneficio mediante estrategias diferentes que conviene entender y controlar bien.
-
-Por eso, antes de comparar cuál cuesta menos, conviene entender cómo se forma el precio en cada caso.
+De modo que, si nos limitamos a comparar cuál de las dos modalidades tiene el precio más bajo en cada momento, estaremos observando solo una parte de la historia. **Para entender cuál resulta más barata, necesitamos ver cómo se forman sus precios y cómo se comportan a lo largo del tiempo.**
 
 **¿Cómo gana dinero la comercializadora en cada caso?**
 

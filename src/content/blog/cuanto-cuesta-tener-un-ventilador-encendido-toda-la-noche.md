@@ -15,7 +15,6 @@ seoTitle: ¿Cuánto cuesta tener un ventilador encendido toda la noche? | Arcopl
 seoDescription: Calculamos cuánto consume un ventilador durante toda la noche y
   cuál es su impacto real en la factura eléctrica.
 ---
-
 Si este verano estás durmiendo con el ventilador encendido, probablemente te hayas hecho la misma pregunta que miles de personas cada año: ¿cuánto me cuesta realmente dejar el ventilador funcionando toda la noche?
 
 En la mayoría de los casos, tener un ventilador encendido durante toda la noche cuesta apenas unos céntimos. Incluso utilizándolo todos los días durante los meses más calurosos del año, el impacto en la factura suele ser bastante reducido.
@@ -27,6 +26,8 @@ Los ventiladores son uno de los aparatos más eficientes que podemos utilizar pa
 Su trabajo consiste simplemente en mover el aire de la habitación para generar una sensación térmica más agradable.
 
 ## ¿Cuánto cuesta exactamente una noche de ventilador?
+
+![Infografía que resume el coste aproximado de utilizar un ventilador durante toda la noche.](/blog/arcoplaza-infografía-cuanto-cuesta-ventilador.png "¿Cuánto cuesta dormir con un ventilador encendido?")
 
 Tomando como referencia un ventilador de 60 W funcionando durante ocho horas, el consumo total sería de aproximadamente 0,48 kWh.
 

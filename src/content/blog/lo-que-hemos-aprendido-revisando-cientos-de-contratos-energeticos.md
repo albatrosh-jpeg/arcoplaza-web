@@ -15,7 +15,7 @@ seoTitle: Lo que hemos aprendido revisando cientos de contratos energéticos | A
 seoDescription: Las conclusiones más habituales tras años revisando contratos
   energéticos de empresas, comunidades y particulares.
 ---
-Seas una empresa, comunidad o particular, probablemente eliges tu contrato energético de una forma parecida a como eliges tu ropa. Buscas entre distintos modelos y tallas y, después de comparar opciones, eliges la que mejor te queda. Pero, que la prenda sea de tu talla, **no significa que esté hecha a medida.**
+Seas una empresa, comunidad o particular, probablemente eliges tu contrato energético de una forma parecida a como eliges tu ropa. Buscas entre distintos modelos y tallas y, después de comparar opciones, eliges la que mejor te queda. Pero que la prenda sea de tu talla **no significa que esté hecha a medida.**
 
 **Siempre hay detalles que se pueden mejorar**. Quizá el pantalón necesite coger el bajo, o las mangas podrían ajustarse mejor. Son detalles que marcan la diferencia entre lo que encaja y lo que realmente queda bien. **Con los contratos energéticos ocurre algo parecido.**
 

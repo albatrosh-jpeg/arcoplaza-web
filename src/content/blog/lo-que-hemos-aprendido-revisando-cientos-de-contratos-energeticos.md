@@ -17,7 +17,7 @@ seoDescription: Las conclusiones más habituales tras años revisando contratos
 ---
 Seas una empresa, comunidad o particular, probablemente eliges tu contrato energético de una forma parecida a como eliges tu ropa. Buscas entre distintos modelos y tallas y, después de comparar opciones, eliges la que mejor te queda. Pero, que la prenda sea de tu talla, **no significa que esté hecha a medida.**
 
-**Siempre hay detalles que se pueden mejorar**. Quizá el pantalón necesite coger el bajo. Quizá las mangas podrían ajustarse mejor. Son detalles que marcan la diferencia entre lo que encaja y lo que realmente queda bien. **Con los contratos energéticos ocurre algo parecido.**
+**Siempre hay detalles que se pueden mejorar**. Quizá el pantalón necesite coger el bajo, o las mangas podrían ajustarse mejor. Son detalles que marcan la diferencia entre lo que encaja y lo que realmente queda bien. **Con los contratos energéticos ocurre algo parecido.**
 
 Solemos ver a clientes que han hecho un buen trabajo. Han comparado opciones, revisado precios y elegido una tarifa razonable: han encontrado una talla que les encaja mejor que las demás. Sin embargo, el mercado energético rara vez opera a medida de cada empresa, comunidad o vivienda.
 

@@ -33,7 +33,7 @@ Por eso, igual que un pantalón puede quedar bien y seguir necesitando un peque�
 
 Después de años revisando contratos energéticos, hemos aprendido una lección sencilla: siempre merece la pena revisar un suministro.
 
-![Infografía que muestra cómo pequeños ajustes pueden mejorar un contrato energético.]( "Un contrato energético bien ajustado marca la diferencia")
+![Infografía que muestra cómo pequeños ajustes pueden mejorar un contrato energético.](/blog/arcoplaza-infografía-contrato-bien-ajustado.png "Un contrato energético bien ajustado marca la diferencia")
 
 ## 1. El mercado cambia más rápido que muchos contratos
 

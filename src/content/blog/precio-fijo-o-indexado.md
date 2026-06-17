@@ -1,19 +1,21 @@
 ---
-order: 3
-slug: "precio-fijo-o-indexado"
-category: "Facturas"
-title: "¿Es mejor un precio fijo o un precio indexado?"
-excerpt: "Analizamos cómo funcionan las tarifas fijas e indexadas y qué suele ocurrir cuando se observan periodos largos de tiempo."
-date: "Junio 2026"
-datePublished: "2026-06-06"
-readTime: "7 min"
-image: "/blog/precio-fijo-precio-index.webp"
-imageAlt: "¿Es mejor un precio fijo o un precio indexado?"
+title: ¿Es mejor un precio fijo o un precio indexado?
+slug: precio-fijo-o-indexado
+category: Facturas
+excerpt: Analizamos cómo funcionan las tarifas fijas e indexadas y qué suele
+  ocurrir cuando se observan periodos largos de tiempo.
+date: Junio 2026
+datePublished: 2026-06-06
+readTime: 7 min
+image: /blog/precio-fijo-precio-index.webp
+imageAlt: ¿Es mejor un precio fijo o un precio indexado?
 featured: false
-seoTitle: "¿Es mejor un precio fijo o un precio indexado? | Arcoplaza"
-seoDescription: "Analizamos las diferencias entre una tarifa de precio fijo y una tarifa indexada para entender cuál puede resultar más interesante a largo plazo."
+order: 3
+seoTitle: ¿Es mejor un precio fijo o un precio indexado? | Arcoplaza
+seoDescription: Analizamos las diferencias entre una tarifa de precio fijo y una
+  tarifa indexada para entender cuál puede resultar más interesante a largo
+  plazo.
 ---
-
 El precio fijo ofrece estabilidad y el indexado aprovecha mejor las bajadas del mercado. **¿Cuál es mejor en el largo plazo?**
 
 Cuando alguien compara una tarifa fija con una indexada, normalmente busca responder una pregunta muy sencilla:
@@ -36,9 +38,9 @@ Por eso, antes de comparar cuál cuesta menos, conviene entender cómo se forma 
 
 ## Veamos primero cómo se mueve el mercado
 
-En esta gráfica se muestra la evolución del precio de la energía a lo largo del tiempo.
+En esta gráfica se muestra la evolución del precio de la energía en el mercado eléctrico.
 
-[GRÁFICA OMIE]
+![Evolución del precio de la energía en el mercado eléctrico](/blog/arcoplaza-evolucion-mercado-omip.png "Evolución reciente de los precios de referencia del mercado eléctrico. Fuente: OMIP.")
 
 Como ves, el mercado no se mueve en línea recta. Sube y baja constantemente, siguiendo patrones que en muchas ocasiones pueden anticiparse de forma aproximada.
 
@@ -97,6 +99,8 @@ La comercializadora sigue ganando dinero, por supuesto. Pero en lugar de incorpo
 Un indexado con un margen elevado puede acabar siendo tan poco competitivo como una mala tarifa fija.
 
 Y un indexado con un margen reducido puede acercarte mucho al coste real de la energía.
+
+![Infografía sobre las diferencias entre el precio fijo y el precio indexado en el suministro eléctrico.](/blog/arcoplaza-infografía-precio-fijo-indexado.png "Precio fijo o precio indexado")
 
 ## Entonces, ¿qué suele ocurrir a largo plazo?
 

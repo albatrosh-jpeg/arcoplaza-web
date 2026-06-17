@@ -96,7 +96,7 @@ Un indexado con un margen elevado puede acabar siendo tan poco competitivo como 
 
 Y un indexado con un margen reducido puede acercarte mucho al coste real de la energía.
 
-![Infografía sobre las diferencias entre el precio fijo y el precio indexado en el suministro eléctrico.](/blog/arcoplaza-infografía-precio-fijo-indexado.png "Precio fijo o precio indexado")
+![Infografía sobre las diferencias entre el precio fijo y el precio indexado en el suministro eléctrico.](/blog/arcoplaza-infografia-precio-fijo-indexado.png "Precio fijo o precio indexado")
 
 ## Entonces, ¿qué suele ocurrir a largo plazo?
 

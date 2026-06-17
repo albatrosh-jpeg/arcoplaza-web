@@ -27,7 +27,7 @@ Su trabajo consiste simplemente en mover el aire de la habitación para generar 
 
 ## ¿Cuánto cuesta exactamente una noche de ventilador?
 
-![Infografía que resume el coste aproximado de utilizar un ventilador durante toda la noche.](/blog/arcoplaza-infografía-cuanto-cuesta-ventilador.png "¿Cuánto cuesta dormir con un ventilador encendido?")
+![Infografía que resume el coste aproximado de utilizar un ventilador durante toda la noche.](/blog/arcoplaza-infografia-cuanto-cuesta-ventilador.png "¿Cuánto cuesta dormir con un ventilador encendido?")
 
 Tomando como referencia un ventilador de 60 W funcionando durante ocho horas, el consumo total sería de aproximadamente 0,48 kWh.
 

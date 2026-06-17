@@ -23,7 +23,7 @@ Solemos ver a clientes que han hecho un buen trabajo. Han comparado opciones, re
 
 Por eso, igual que un pantalón puede quedar bien y seguir necesitando un pequeño ajuste, **una tarifa puede ser adecuada y seguir teniendo margen de mejora.** Después de años revisando contratos energéticos, hemos aprendido una lección sencilla: **siempre se pueden hacer mejoras**.
 
-![Infografía que muestra cómo pequeños ajustes pueden mejorar un contrato energético.](/blog/arcoplaza-infografía-contrato-bien-ajustado.png "Un contrato energético bien ajustado marca la diferencia")
+![Infografía que muestra cómo pequeños ajustes pueden mejorar un contrato energético.](/blog/arcoplaza-infografia-contrato-bien-ajustado.png "Un contrato energético bien ajustado marca la diferencia")
 
 ## 1. El mercado cambia más rápido que muchos contratos
 

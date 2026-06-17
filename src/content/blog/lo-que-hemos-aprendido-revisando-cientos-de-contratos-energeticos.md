@@ -17,13 +17,13 @@ seoDescription: Las conclusiones más habituales tras años revisando contratos
 ---
 Seas una empresa, una comunidad de propietarios o un particular, probablemente eliges tu contrato energético de una forma parecida a como eliges la ropa que te pones.
 
-Entras en una tienda, buscas entre distintos modelos y tallas y, después de comparar opciones, eliges la prenda que mejor te queda. Pero que una prenda sea de tu talla **no significa necesariamente que esté hecha a medida.**
+Entras en una tienda, buscas entre distintos modelos y tallas y, después de comparar opciones, eliges la prenda que mejor te queda. Pero que una prenda sea de tu talla **no significa que esté hecha a medida.**
 
-**Siempre hay detalles que se pueden mejorar**. Quizá el pantalón necesite coger el bajo. Quizá las mangas podrían ajustarse mejor. Quizá haya pequeños detalles que marquen la diferencia entre algo que simplemente queda bien y algo que realmente encaja.
+**Siempre hay detalles que se pueden mejorar**. Quizá el pantalón necesite coger el bajo. Quizá las mangas podrían ajustarse mejor. Son detalles que marcan la diferencia entre lo que encaja y lo que realmente queda bien.
 
 **Con los contratos energéticos ocurre algo parecido.**
 
-Con frecuencia, nos encontramos con clientes que han hecho un buen trabajo. Han comparado opciones, revisado precios y elegido una tarifa razonable para su suministro. Han encontrado una talla que les encaja mejor que las demás. Sin embargo, el mercado energético rara vez opera a medida de cada empresa, comunidad o vivienda.
+Solemos encontrarnos con clientes que han hecho un buen trabajo. Han comparado opciones, revisado precios y elegido una tarifa razonable para su suministro: han encontrado una talla que les encaja mejor que las demás. Sin embargo, el mercado energético rara vez opera a medida de cada empresa, comunidad o vivienda.
 
 Por eso, igual que un pantalón puede quedar bien y seguir necesitando un pequeño ajuste, **una tarifa puede ser adecuada y seguir teniendo margen de mejora.** Después de años revisando contratos energéticos, hemos aprendido una lección sencilla: **siempre se pueden hacer mejoras**.
 

@@ -1,7 +1,7 @@
 ---
 order: 3
 slug: "precio-fijo-o-indexado"
-category: "Mercado"
+category: "Facturas"
 title: "¿Es mejor un precio fijo o un precio indexado?"
 excerpt: "Analizamos cómo funcionan las tarifas fijas e indexadas y qué suele ocurrir cuando se observan periodos largos de tiempo."
 date: "Junio 2026"

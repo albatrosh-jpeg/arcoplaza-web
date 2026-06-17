@@ -1,19 +1,20 @@
 ---
-order: 1
-slug: "lo-que-hemos-aprendido-revisando-cientos-de-contratos-energeticos"
-category: "Empresas"
-title: "Lo que hemos aprendido revisando cientos de contratos energéticos"
-excerpt: "Las conclusiones más habituales tras años revisando contratos energéticos de empresas, comunidades y particulares."
-date: "Junio 2026"
-datePublished: "2026-06-05"
-readTime: "6 min"
-image: "/blog/revisando-cientos-de-contratos.webp"
-imageAlt: "Lo que hemos aprendido revisando cientos de contratos energéticos"
+title: Lo que hemos aprendido revisando cientos de contratos energéticos
+slug: lo-que-hemos-aprendido-revisando-cientos-de-contratos-energeticos
+category: Empresas
+excerpt: Las conclusiones más habituales tras años revisando contratos
+  energéticos de empresas, comunidades y particulares.
+date: Junio 2026
+datePublished: 2026-06-05
+readTime: 6 min
+image: /blog/revisando-cientos-de-contratos.webp
+imageAlt: Lo que hemos aprendido revisando cientos de contratos energéticos
 featured: true
-seoTitle: "Lo que hemos aprendido revisando cientos de contratos energéticos | Arcoplaza"
-seoDescription: "Las conclusiones más habituales tras años revisando contratos energéticos de empresas, comunidades y particulares."
+order: 1
+seoTitle: Lo que hemos aprendido revisando cientos de contratos energéticos | Arcoplaza
+seoDescription: Las conclusiones más habituales tras años revisando contratos
+  energéticos de empresas, comunidades y particulares.
 ---
-
 Seas una empresa, una comunidad de propietarios o un particular, probablemente te relacionas con el mercado energético de forma parecida a como compras ropa.
 
 Entras en una tienda, buscas entre distintos modelos y tallas y, después de comparar opciones, eliges la prenda que mejor te queda.
@@ -55,6 +56,8 @@ Dos suministros con un consumo prácticamente idéntico pueden terminar pagando 
 ## 5. Los mejores resultados suelen venir de la revisión periódica
 
 No existe el contrato perfecto para siempre. Las necesidades cambian. Las instalaciones cambian. El mercado cambia.
+
+![Infografía que muestra cómo pequeños ajustes pueden mejorar un contrato energético.](/blog/arcoplaza-infografía-contrato-bien-ajustado.png "Un contrato energético bien ajustado marca la diferencia")
 
 ## Conclusión
 

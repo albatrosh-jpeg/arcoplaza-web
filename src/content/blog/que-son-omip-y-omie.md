@@ -7,7 +7,7 @@ excerpt: "Descubre cómo funcionan OMIP y OMIE, qué diferencias existen entre a
 date: "Junio 2026"
 datePublished: "2026-06-06"
 readTime: "7 min"
-image: "/blog/omip.jpg"
+image: "/blog/omie-omip.webp"
 imageAlt: "Qué son OMIP y OMIE, cómo utilizarlos en tu beneficio y por qué influyen en tu factura"
 featured: false
 seoTitle: "Qué son OMIP y OMIE y por qué influyen en tu factura | Arcoplaza"

@@ -7,7 +7,7 @@ excerpt: "Analizamos cómo funcionan las tarifas fijas e indexadas y qué suele 
 date: "Junio 2026"
 datePublished: "2026-06-06"
 readTime: "7 min"
-image: "/blog/fijovsindexado.jpg"
+image: "/blog/precio-fijo-precio-index.webp"
 imageAlt: "¿Es mejor un precio fijo o un precio indexado?"
 featured: false
 seoTitle: "¿Es mejor un precio fijo o un precio indexado? | Arcoplaza"

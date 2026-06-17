@@ -7,7 +7,7 @@ excerpt: Calculamos cuánto consume un aire acondicionado durante la noche,
 date: Junio 2026
 datePublished: 2026-06-09
 readTime: 6 min
-image: /blog/aire-acondicionado-image3.png
+image: /blog/aire-acondicionado-toda-la-noche.webp
 imageAlt: Cuánto cuesta tener un aire acondicionado encendido toda la noche
 featured: false
 order: 6
@@ -37,7 +37,7 @@ Ahora bien, tampoco todos los equipos consumen igual. La temperatura que selecci
 
 Para hacernos una idea, tomemos como ejemplo un equipo doméstico de 1.500 W funcionando durante ocho horas.
 
-![Cálculo del consumo eléctrico de un aparato de 1.500 W funcionando durante 8 horas.](/blog/aire-acondicionado-image1.png "Un equipo de 1.500 W funcionando durante 8 horas consume aproximadamente 12 kWh.")
+![Cálculo del consumo eléctrico de un aparato de 1.500 W funcionando durante 8 horas.](/blog/aire-acondicionado-image1.webp "Un equipo de 1.500 W funcionando durante 8 horas consume aproximadamente 12 kWh.")
 
 Utilizando un precio de referencia de 0,15 €/kWh, el coste sería de aproximadamente **1,80 € por noche**.
 
@@ -45,7 +45,7 @@ Utilizando un precio de referencia de 0,15 €/kWh, el coste sería de aproximad
 
 Aquí es donde el coste empieza a hacerse más visible. Si utilizas el aire acondicionado todas las noches, una noche aislada puede parecer asumible, pero el hábito diario cambia bastante la cifra final.
 
-![Infografía con el coste aproximado de utilizar un aire acondicionado de 1.500 W: 0,23 € por hora, 1,80 € por noche, 54 € al mes y 162 € durante todo el verano.](/blog/aire-acondicionado-image2.png "Tomando como referencia 0,15 €/kWh, el gasto puede superar los 160 € si se usa todas las noches durante todo el verano.")
+![Infografía con el coste aproximado de utilizar un aire acondicionado de 1.500 W: 0,23 € por hora, 1,80 € por noche, 54 € al mes y 162 € durante todo el verano.](/blog/aire-acondicionado-image2.webp "Tomando como referencia 0,15 €/kWh, el gasto puede superar los 160 € si se usa todas las noches durante todo el verano.")
 
 Tomando como referencia un equipo de 1.500 W y un precio de la electricidad de 0,15 €/kWh, el coste de una noche de aire acondicionado ronda los 1,80 €. Utilizado de forma continuada durante todo el verano, el gasto puede superar los 160 €.
 
@@ -55,7 +55,7 @@ La diferencia aparece cuando se convierte en un hábito diario durante varias se
 
 La diferencia es considerable. Un ventilador tiene un consumo habitual de 25 a 80 W, mientras que un aire acondicionado consume entre 1.000 y 3.000 W.
 
-![Comparativa de consumo eléctrico entre ventilador y aire acondicionado.](/blog/aire-acondicionado-image3.png "El ventilador consume mucho menos, aunque no ofrece el mismo nivel de refrigeración.")
+![Comparativa de consumo eléctrico entre ventilador y aire acondicionado.](/blog/aire-acondicionado-image3.webp "El ventilador consume mucho menos, aunque no ofrece el mismo nivel de refrigeración.")
 
 Por eso muchas personas utilizan ambos sistemas juntos. El aire acondicionado enfría la estancia y el ventilador ayuda a repartir mejor ese aire frío. A menudo, esa combinación permite reducir el tiempo de funcionamiento del aire acondicionado sin perder confort.
 

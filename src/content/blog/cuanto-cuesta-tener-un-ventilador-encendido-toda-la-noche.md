@@ -7,7 +7,7 @@ excerpt: Analizamos cuánto consume realmente un ventilador durante la noche y
 date: Junio 2026
 datePublished: 2026-06-05
 readTime: 4 min
-image: /blog/ventilador.jpg
+image: /blog/coste-ventilador-noche-verano.webp
 imageAlt: ¿Cuánto cuesta tener un ventilador encendido toda la noche?
 featured: false
 order: 5

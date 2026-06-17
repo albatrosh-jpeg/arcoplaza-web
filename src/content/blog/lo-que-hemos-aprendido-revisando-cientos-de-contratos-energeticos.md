@@ -7,7 +7,7 @@ excerpt: "Las conclusiones más habituales tras años revisando contratos energ�
 date: "Junio 2026"
 datePublished: "2026-06-05"
 readTime: "6 min"
-image: "/blog/destacado.jpg"
+image: "/blog/revisando-cientos-de-contratos.webp"
 imageAlt: "Lo que hemos aprendido revisando cientos de contratos energéticos"
 featured: true
 seoTitle: "Lo que hemos aprendido revisando cientos de contratos energéticos | Arcoplaza"

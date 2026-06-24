@@ -7,7 +7,7 @@ excerpt: "Los fallos más habituales que generan sobrecostes energéticos en com
 date: "Junio 2026"
 datePublished: "2026-06-06"
 readTime: "6 min"
-image: "/blog/comunidad.jpg"
+image: "/blog/comunidades-ccpp-contratar-barato.webp"
 imageAlt: "Errores frecuentes en comunidades que encarecen la luz"
 featured: false
 seoTitle: "Errores frecuentes en comunidades que encarecen la luz | Arcoplaza"

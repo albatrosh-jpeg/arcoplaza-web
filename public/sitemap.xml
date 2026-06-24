@@ -46,31 +46,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.arcoplazaasesores.com/blog/lo-que-ocurre-cuando-una-factura-pertenece-a-todo-el-mundo</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.arcoplazaasesores.com/blog/la-falsa-sensacion-de-seguridad-de-llevar-anos-con-la-misma-compania</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.arcoplazaasesores.com/blog/lo-que-esta-cambiando-en-las-baterias-y-por-que-cada-vez-mas-empresas-preguntan-por-ellas</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.arcoplazaasesores.com/blog/que-ocurre-realmente-cuando-cambia-el-precio-de-la-electricidad-en-espana</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.arcoplazaasesores.com/blog/lo-que-nadie-mira-en-una-factura</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.arcoplazaasesores.com/blog/que-es-la-potencia-contratada</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -97,6 +72,56 @@
   </url>
   <url>
     <loc>https://www.arcoplazaasesores.com/blog/que-son-omip-y-omie</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.arcoplazaasesores.com/blog/la-electricidad-cambia-cada-hora</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.arcoplazaasesores.com/blog/como-interpretar-cambios-normativos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.arcoplazaasesores.com/blog/cuatro-grandes-companias-mercado-electrico</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.arcoplazaasesores.com/blog/empresas-pagan-realidad-que-ya-no-existe</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.arcoplazaasesores.com/blog/comercializadora-pequena-vender-mas-barato</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.arcoplazaasesores.com/blog/lo-que-esta-cambiando-en-las-baterias-y-por-que-cada-vez-mas-empresas-preguntan-por-ellas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.arcoplazaasesores.com/blog/que-ocurre-realmente-cuando-cambia-el-precio-de-la-electricidad-en-espana</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.arcoplazaasesores.com/blog/lo-que-ocurre-cuando-una-factura-pertenece-a-todo-el-mundo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.arcoplazaasesores.com/blog/la-falsa-sensacion-de-seguridad-de-llevar-anos-con-la-misma-compania</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.arcoplazaasesores.com/blog/lo-que-nadie-mira-en-una-factura</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -1,4 +1,4 @@
-import {
+﻿import {
   LayoutGrid,
   FileText,
   UserRound,
@@ -71,13 +71,43 @@ const categoryFilters = [
   }
 ]
 
+const editorialSectionDefinitions = [
+  {
+    category: 'Mercado',
+    title: 'Mercado',
+    intro: 'Te explicamos con claridad cómo funciona el mercado energético.'
+  },
+  {
+    category: 'Facturas',
+    title: 'Facturas y consumo',
+    intro: 'Para entender mejor tu factura y por qué pagas lo que pagas.'
+  },
+  {
+    category: 'Empresas',
+    title: 'Empresas',
+    intro: 'Lecturas pensadas para revisar contratos, suministros y decisiones energéticas en negocios y organizaciones.'
+  },
+  {
+    category: 'Comunidades',
+    title: 'Comunidades',
+    intro: 'Contenidos útiles para comunidades de propietarios y administradores de fincas.'
+  },
+  {
+    category: 'Casos reales',
+    title: 'Casos reales',
+    intro: 'Aprendizajes extraídos de revisar contratos, facturas y situaciones habituales.'
+  }
+]
+
+const featuredArticleSlugs = [
+  'lo-que-hemos-aprendido-revisando-cientos-de-contratos-energeticos',
+  'cuanto-cuesta-tener-un-aire-acondicionado-encendido-toda-la-noche',
+  'precio-fijo-o-indexado'
+]
+
 export default function Blog() {
 
 const [activeCategory, setActiveCategory] = useState('Todos')
-
-const featured =
-  articles.find(article => article.featured) ||
-  articles[0]
 
 const availableFilters = useMemo(
   () =>
@@ -104,6 +134,34 @@ const visibleArticles =
 const showFeatured =
   activeFilter.name === 'Todos'
 
+const featuredArticles =
+  showFeatured
+    ? featuredArticleSlugs
+        .map(slug => articles.find(article => article.slug === slug))
+        .filter(Boolean)
+    : []
+
+const mainEditorialArticle = featuredArticles[0]
+
+const recommendedArticles = featuredArticles.slice(1, 3)
+
+const featuredSlugs = new Set(
+  featuredArticles.map(article => article.slug)
+)
+
+const editorialSections =
+  editorialSectionDefinitions
+    .map(section => ({
+      ...section,
+      articles: articles
+        .filter(article =>
+          article.category === section.category &&
+          !featuredSlugs.has(article.slug)
+        )
+        .slice(0, 3)
+    }))
+    .filter(section => section.articles.length > 0)
+
   return (
 
     <div className="min-h-screen bg-white">
@@ -129,55 +187,75 @@ const showFeatured =
         "
         style={{
           backgroundImage:
-            "linear-gradient(rgba(8,25,45,0.25), rgba(8,25,45,0.25)), url('/blog-observatorio-arcoplaza.webp')",
+            "linear-gradient(90deg, rgba(8,25,45,0.82) 0%, rgba(8,25,45,0.62) 46%, rgba(8,25,45,0.24) 100%), url('/blog-observatorio-arcoplaza.webp')",
         }}
       >
 
             <div
               className="
                 container-content
-
                 pt-24
-                pb-24
+                pb-20
+                md:pt-28
+                md:pb-24
               "
             >
             <div
               className="
-                text-white
-                uppercase
-                tracking-[0.22em]
-                text-md
-                font-bold
-                mb-8
-                pt-10
+                max-w-[820px]
+                rounded-[8px]
+                border
+                border-white/10
+                bg-white/[0.06]
+                p-6
+                shadow-[0_22px_55px_rgba(0,0,0,0.18)]
+                backdrop-blur-sm
+                md:p-8
+                lg:p-10
               "
             >
-              OBSERVATORIO ARCOPLAZA
-            </div>
+              <div
+                className="
+                  mb-5
+                  text-[15px]
+                  font-bold
+                  uppercase
+                  tracking-[0.24em]
+                  text-[#B8D8C0]
+                  md:text-base
+                "
+              >
+                OBSERVATORIO ARCOPLAZA
+              </div>
 
-            <h1
-            className="
-                heading-h1
-                text-white
-                max-w-[900px]
-            "
-            >
-                  Análisis y conocimiento para entender mejor el mercado energético
-            </h1>
-
-            <p
+              <h1
               className="
-                mt-8
-                text-[20px]
-                text-slate-300
-                max-w-700px
-                leading-8
+                  heading-h1
+                  !text-[40px]
+                  sm:!text-[48px]
+                  lg:!text-[64px]
+                  !leading-[1.02]
+                  text-white
+                  max-w-[760px]
               "
-            >
-              Tendencias de mercado, contratación energética,
-              facturación, potencia, comunidades de propietarios
-              y todo aquello que influye en el coste real de la energía.
-            </p>
+              >
+                Una mirada práctica al mercado energético
+              </h1>
+
+              <p
+                className="
+                  mt-6
+                  max-w-[680px]
+                  text-lg
+                  leading-8
+                  text-white/85
+                  md:text-xl
+                  md:leading-9
+                "
+              >
+                Análisis sobre precios, contratos, facturas y decisiones energéticas, explicado con claridad para empresas, comunidades y particulares.
+              </p>
+            </div>
 
         </div>
 
@@ -194,10 +272,16 @@ const showFeatured =
             <div
             className="
                 container-content
-                py-6
                 flex
-                flex-wrap
-                gap-8
+                flex-nowrap
+                gap-3
+                overflow-x-auto
+                py-3
+                md:gap-4
+                md:py-4
+                [-ms-overflow-style:none]
+                [scrollbar-width:none]
+                [&::-webkit-scrollbar]:hidden
             "
             >
             {availableFilters.map(category => {
@@ -214,8 +298,10 @@ const showFeatured =
                 aria-pressed={isActive}
                 className={`
                     flex
+                    shrink-0
                     items-center
                     gap-2
+                    whitespace-nowrap
                     rounded-full
                     border
                     px-4
@@ -245,106 +331,334 @@ const showFeatured =
       </section>
 
       {showFeatured && (
-      <section>
-        <div className="container-content py-20">
-
-          <Link
-            to={`/blog/${featured.slug}`}
-            className="block group"
-          >
-
-            <div
-              className="
-                grid
-                lg:grid-cols-2
-                gap-12
-                items-center
-              "
-            >
-
-              <img
-                src={featured.image}
-                alt={featured.imageAlt || featured.title}
-                className="
-                  w-full
-                  h-[420px]
-                  object-cover
-                  rounded-[28px]
-                  border
-                  border-[#ECE7DD]
-
-                  transition-transform
-                  duration-500
-
-                  group-hover:scale-[1.02]
-                "
-              />
-
-              <div>
-
-                <div
-                  className="
-                    text-corporateGreen
-                    uppercase
-                    tracking-[0.18em]
-                    text-xs
-                    mb-4
-                  "
-                >
-                  ARTÍCULO DESTACADO
-                </div>
-
-                <h2
-                  className="
-                    heading-h2
-                    mb-6
-                    text-[#18375D]
-
-                    transition-colors
-                    duration-300
-
-                    group-hover:text-corporateGreen
-                  "
-                >
-                  {featured.title}
-                </h2>
-
-                <div
-                  className="
-                    flex
-                    items-center
-                    gap-3
-
-                    text-sm
-                    text-corporateGreen
-
-                    mb-6
-                  "
-                >
-                  <span>{featured.date}</span>
-                  <span>•</span>
-                  <span>{featured.readTime} lectura</span>
-                </div>
-
-                <p
-                  className="
-                    text-[#556274]
-                    text-lg
-                    leading-8
-                  "
-                >
-                  {featured.excerpt}
-                </p>
-
-              </div>
-
+      <main>
+        <section>
+          <div className="container-content pb-20 pt-14">
+            <div className="mb-10 max-w-[780px]">
+              <h2 className="heading-h2 text-[#18375D]">
+                Artículos destacados
+              </h2>
             </div>
 
-          </Link>
+            <div className="grid gap-8 lg:grid-cols-[1.35fr_0.85fr] lg:items-start">
+              {mainEditorialArticle && (
+                <div className="space-y-5">
+                  <Link
+                    to={`/blog/${mainEditorialArticle.slug}`}
+                    className="block group"
+                  >
+                    <article
+                      className="
+                        card-top-accent
+                        overflow-hidden
+                        rounded-[24px]
+                        border
+                        border-[#ECE7DD]
+                        bg-white
+                        transition-all
+                        duration-300
+                        hover:-translate-y-1
+                        hover:shadow-lg
+                      "
+                    >
+                      <img
+                        src={mainEditorialArticle.image}
+                        alt={mainEditorialArticle.imageAlt || mainEditorialArticle.title}
+                        className="
+                          h-52
+                          w-full
+                          object-cover
+                          transition-transform
+                          duration-500
+                          md:h-60
+                          group-hover:scale-[1.02]
+                        "
+                      />
 
-        </div>
-      </section>
+                      <div className="p-6 md:p-7">
+                        <div className="mb-3 text-xs uppercase tracking-[0.18em] text-corporateGreen">
+                          {mainEditorialArticle.category}
+                        </div>
+
+                        <h2
+                          className="
+                            heading-h2
+                            mb-4
+                            text-[#18375D]
+                            transition-colors
+                            duration-300
+                            group-hover:text-corporateGreen
+                          "
+                        >
+                          {mainEditorialArticle.title}
+                        </h2>
+
+                        <p className="mb-5 text-lg leading-8 text-[#556274]">
+                          {mainEditorialArticle.excerpt}
+                        </p>
+
+                        <span className="text-sm text-[#7C8795]">
+                          {mainEditorialArticle.readTime}
+                        </span>
+                      </div>
+                    </article>
+                  </Link>
+
+                  <div
+                    className="
+                      rounded-[24px]
+                      border
+                      border-[#ECE7DD]
+                      bg-white
+                      p-5
+                      relative
+                      flex
+                      flex-col
+                      gap-6
+                      overflow-visible
+                      md:flex-row
+                      md:items-center
+                      md:gap-8
+                      md:p-6
+                      md:pl-48
+                    "
+                  >
+                    <img
+                      src="/blog/mascota-revision-factura.png"
+                      alt=""
+                      aria-hidden="true"
+                      className="
+                        h-40
+                        w-40
+                        shrink-0
+                        self-center
+                        object-contain
+                        md:absolute
+                        md:left-[-44px]
+                        md:top-1/2
+                        md:z-10
+                        md:h-56
+                        md:w-56
+                        md:-translate-y-1/2
+                      "
+                    />
+
+                    <div
+                      className="
+                        flex
+                        flex-1
+                        flex-col
+                        gap-5
+                        md:flex-row
+                        md:items-center
+                        md:justify-between
+                        md:gap-8
+                      "
+                    >
+                      <div>
+                        <h3 className="heading-h3 text-[#18375D]">
+                          ¿Estás pagando más de lo necesario en luz o gas?
+                        </h3>
+
+                        <p className="mt-3 leading-7 text-[#556274]">
+                          Revisamos tu contrato y te ayudamos a detectar si estás pagando de más.
+                        </p>
+                      </div>
+
+                      <a
+                        href="/#formulario"
+                        className="
+                          inline-flex
+                          items-center
+                          justify-center
+                          rounded-full
+                          bg-corporateGreen
+                          px-5
+                          py-3
+                          text-sm
+                          font-semibold
+                          text-white
+                          transition-colors
+                          duration-300
+                          hover:bg-[#2d673a]
+                          md:shrink-0
+                        "
+                      >
+                        Solicitar revisión
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              )}
+              <aside
+                className="
+                  rounded-[24px]
+                  border
+                  border-[#ECE7DD]
+                  bg-[#F8F6F1]
+                  p-6
+                  md:p-7
+                "
+              >
+                <div className="mb-6 text-sm uppercase tracking-[0.18em] text-corporateGreen">
+                  Recomendamos
+                </div>
+
+                <div className="divide-y divide-[#ECE7DD]">
+                  {recommendedArticles.map(article => (
+                    <Link
+                      key={article.slug}
+                      to={`/blog/${article.slug}`}
+                      className="block group py-5 first:pt-0 last:pb-0"
+                    >
+                      <article>
+                        <img
+                          src={article.image}
+                          alt={article.imageAlt || article.title}
+                          className="
+                            mb-4
+                            h-28
+                            w-full
+                            rounded-[16px]
+                            object-cover
+                            transition-transform
+                            duration-500
+                            group-hover:scale-[1.02]
+                          "
+                        />
+
+                        <div className="mb-3 text-xs uppercase tracking-[0.18em] text-corporateGreen">
+                          {article.category}
+                        </div>
+
+                        <h3
+                          className="
+                            heading-h3
+                            mb-3
+                            text-[#18375D]
+                            transition-colors
+                            duration-300
+                            group-hover:text-corporateGreen
+                          "
+                        >
+                          {article.title}
+                        </h3>
+
+                        <p className="mb-4 leading-7 text-[#556274]">
+                          {article.excerpt}
+                        </p>
+
+                        <span className="text-sm text-[#7C8795]">
+                          {article.readTime}
+                        </span>
+                      </article>
+                    </Link>
+                  ))}
+                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div className="container-content pb-24">
+            <div className="space-y-20">
+              {editorialSections.map(section => (
+                <section key={section.category}>
+                  <div className="mb-8 max-w-[760px]">
+                    <div className="text-sm uppercase tracking-[0.18em] text-corporateGreen">
+                      {section.category}
+                    </div>
+
+                    <h2 className="heading-h2 mt-3 text-[#18375D]">
+                      {section.title}
+                    </h2>
+
+                    <p className="mt-4 leading-7 text-[#556274]">
+                      {section.intro}
+                    </p>
+                  </div>
+
+                  <div className="grid gap-5 lg:grid-cols-3">
+                    {section.articles.map((article, index) => (
+                      <Link
+                        key={article.slug}
+                        to={`/blog/${article.slug}`}
+                        className="block group"
+                      >
+                        <article
+                          className="
+                            card-top-accent
+                            h-full
+                            overflow-hidden
+                            rounded-[24px]
+                            border
+                            border-[#ECE7DD]
+                            bg-white
+                            transition-all
+                            duration-300
+                            hover:-translate-y-1
+                            hover:shadow-lg
+                          "
+                        >
+                          <img
+                            src={article.image}
+                            alt={article.imageAlt || article.title}
+                            className="
+                              h-36
+                              w-full
+                              object-cover
+                              transition-transform
+                              duration-500
+                              group-hover:scale-[1.03]
+                            "
+                          />
+
+                          <div className="flex h-full flex-col p-6">
+                            <div className="mb-5 flex items-center justify-between gap-4">
+                              <div className="text-xs uppercase tracking-[0.18em] text-corporateGreen">
+                                {article.category}
+                              </div>
+
+                              <span className="text-sm font-semibold text-[#18375D]">
+                                {String(index + 1).padStart(2, '0')}
+                              </span>
+                            </div>
+
+                            <h3
+                              className="
+                                heading-h3
+                                mb-4
+                                text-[#18375D]
+                                transition-colors
+                                duration-300
+                                group-hover:text-corporateGreen
+                              "
+                            >
+                              {article.title}
+                            </h3>
+
+                            <p className="mb-6 leading-7 text-[#556274]">
+                              {article.excerpt}
+                            </p>
+
+                            <span className="mt-auto text-sm text-[#7C8795]">
+                              {article.readTime}
+                            </span>
+                          </div>
+                        </article>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
       )}
+
+      {!showFeatured && (
         <section>
         <div className={`container-content ${showFeatured ? 'pb-24' : 'py-20'}`}>
 
@@ -364,14 +678,19 @@ const showFeatured =
 
         <div
           className="
-            grid
-            md:grid-cols-2
-            xl:grid-cols-4
+            mx-auto
+            flex
+            max-w-[1120px]
+            flex-col
             gap-8
           "
         >
 
-          {visibleArticles.map(article => (
+          {visibleArticles.map((article, index) => {
+
+            const imageOnRight = index % 2 === 1
+
+            return (
 
               <Link
                 key={article.slug}
@@ -380,7 +699,7 @@ const showFeatured =
               >
 
                 <article
-                  className="
+                  className={`
                     card-top-accent
                     border
                     border-[#ECE7DD]
@@ -391,46 +710,69 @@ const showFeatured =
 
                     bg-white
 
+                    md:grid
+                    md:items-center
+                    ${
+                      imageOnRight
+                        ? 'md:grid-cols-[1fr_minmax(280px,380px)]'
+                        : 'md:grid-cols-[minmax(280px,380px)_1fr]'
+                    }
+
                     transition-all
                     duration-300
 
                     hover:-translate-y-1
                     hover:shadow-lg
-                  "
+                  `}
                 >                
       
               {article.image ? (
                 <img
                     src={article.image}
                     alt={article.imageAlt || article.title}
-                    className="
+                    className={`
                       w-full
-                      h-56
+                      h-60
+                      md:h-56
+                      lg:h-64
                       object-cover
                       transition-transform
                       duration-500
                       group-hover:scale-[1.03]
-                    "
+                      ${imageOnRight ? 'md:order-2' : ''}
+                    `}
                   />
               ) : (
                 <div
                   aria-hidden="true"
-                  className="
-                    h-56
+                  className={`
+                    h-60
+                    md:h-56
+                    lg:h-64
                     w-full
                     bg-[#F8F6F1]
-                  "
+                    ${imageOnRight ? 'md:order-2' : ''}
+                  `}
                 />
               )}
 
-                <div className="p-6">
+                <div
+                  className={`
+                    p-6
+                    md:p-8
+                    lg:p-9
+                    flex
+                    flex-col
+                    ${imageOnRight ? 'md:order-1' : ''}
+                  `}
+                >
                 <div
                   className="
                     text-xs
                     uppercase
                     tracking-[0.18em]
                     text-corporateGreen
-                    mb-4
+                    mb-3
                   "
                 >
                   {article.category}
@@ -469,6 +811,7 @@ const showFeatured =
                     justify-between
                     items-center
                     text-sm
+                    mt-auto
                   "
                 >
 
@@ -483,11 +826,14 @@ const showFeatured =
             </article>
           </Link>
 
-          ))}
+            )
+
+          })}
 
         </div>
         </div>
       </section>
+      )}
 
       <Footer />
 

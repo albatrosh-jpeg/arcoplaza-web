@@ -35,6 +35,8 @@ collections:
           - Empresas
           - Comunidades
           - Casos reales
+          - Contratos
+          - Autoconsumo
       - label: Excerpt
         name: excerpt
         widget: text

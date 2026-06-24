@@ -2,7 +2,7 @@ export const post = {
 
 slug: "precio-fijo-o-indexado",
 
-category: "Mercado",
+category: "Facturas",
 
 title: "¿Es mejor un precio fijo o un precio indexado?",
 

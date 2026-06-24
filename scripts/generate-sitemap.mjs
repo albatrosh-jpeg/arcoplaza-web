@@ -1,5 +1,5 @@
-import { writeFile } from 'node:fs/promises'
-import { articles } from '../src/data/blog/articles.js'
+import { readdir, readFile, writeFile } from 'node:fs/promises'
+import { parseMarkdownPost, sortPosts } from '../src/data/blog/parseMarkdownPost.js'
 
 const SITE_URL = 'https://www.arcoplazaasesores.com'
 
@@ -45,6 +45,21 @@ const staticRoutes = [
     priority: '0.3'
   }
 ]
+
+const contentDir = new URL('../src/content/blog/', import.meta.url)
+const markdownFiles = await readdir(contentDir)
+const articles = sortPosts(
+  await Promise.all(
+    markdownFiles
+      .filter(file => file.endsWith('.md'))
+      .map(async file => {
+        const fileUrl = new URL(file, contentDir)
+        const raw = await readFile(fileUrl, 'utf8')
+
+        return parseMarkdownPost(raw, file)
+      })
+  )
+)
 
 const blogRoutes = articles.map(article => ({
   path: `/blog/${article.slug}`,

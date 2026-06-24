@@ -1,36 +1,29 @@
 ---
-order: 1
-slug: "lo-que-hemos-aprendido-revisando-cientos-de-contratos-energeticos"
-category: "Empresas"
-title: "Lo que hemos aprendido revisando cientos de contratos energéticos"
-excerpt: "Las conclusiones más habituales tras años revisando contratos energéticos de empresas, comunidades y particulares."
-date: "Junio 2026"
-datePublished: "2026-06-05"
-readTime: "6 min"
-image: "/blog/destacado.jpg"
-imageAlt: "Lo que hemos aprendido revisando cientos de contratos energéticos"
+title: Lo que hemos aprendido revisando cientos de contratos energéticos
+slug: lo-que-hemos-aprendido-revisando-cientos-de-contratos-energeticos
+category: Empresas
+excerpt: Las conclusiones más habituales tras años revisando contratos
+  energéticos de empresas, comunidades y particulares.
+date: Junio 2026
+datePublished: 2026-06-05
+readTime: 6 min
+image: /blog/revisando-cientos-de-contratos.webp
+imageAlt: Lo que hemos aprendido revisando cientos de contratos energéticos
 featured: true
-seoTitle: "Lo que hemos aprendido revisando cientos de contratos energéticos | Arcoplaza"
-seoDescription: "Las conclusiones más habituales tras años revisando contratos energéticos de empresas, comunidades y particulares."
+order: 1
+seoTitle: Lo que hemos aprendido revisando cientos de contratos energéticos | Arcoplaza
+seoDescription: Las conclusiones más habituales tras años revisando contratos
+  energéticos de empresas, comunidades y particulares.
 ---
+Seas una empresa, comunidad o particular, probablemente eliges tu contrato energético de una forma parecida a como eliges tu ropa. Buscas entre distintos modelos y tallas y, después de comparar opciones, eliges la que mejor te queda. Pero que la prenda sea de tu talla **no significa que esté hecha a medida.**
 
-Seas una empresa, una comunidad de propietarios o un particular, probablemente te relacionas con el mercado energético de forma parecida a como compras ropa.
+**Siempre hay detalles que se pueden mejorar**. Quizá el pantalón necesite coger el bajo, o las mangas podrían ajustarse mejor. Esos pequeños ajustes son los que marcan la diferencia. **Con los contratos energéticos ocurre algo parecido.**
 
-Entras en una tienda, buscas entre distintos modelos y tallas y, después de comparar opciones, eliges la prenda que mejor te queda.
+Solemos ver a clientes que han hecho un buen trabajo. Han comparado opciones, revisado precios y elegido una tarifa razonable: han encontrado una talla que les encaja mejor que las demás. Sin embargo, el mercado energético rara vez opera a medida de cada empresa, comunidad o vivienda.
 
-Pero que una prenda sea de tu talla no significa necesariamente que esté hecha a medida.
+Por eso, igual que un pantalón puede quedar bien y seguir necesitando un pequeño ajuste, **una tarifa puede ser adecuada y seguir teniendo margen de mejora.** Después de años revisando contratos energéticos, hemos aprendido una lección sencilla: **siempre se pueden hacer mejoras**.
 
-Quizá el pantalón necesite coger el bajo. Quizá las mangas podrían ajustarse mejor. Quizá haya pequeños detalles que marquen la diferencia entre algo que simplemente queda bien y algo que realmente encaja.
-
-Con los contratos energéticos ocurre algo parecido.
-
-Con frecuencia nos encontramos con clientes que han hecho un buen trabajo. Han comparado opciones, han revisado precios y han elegido una tarifa razonable para su suministro. Han encontrado una talla que les encaja mejor que las demás.
-
-Sin embargo, el mercado energético rara vez opera a medida de cada empresa, comunidad o vivienda.
-
-Por eso, igual que un pantalón puede quedar bien y seguir necesitando un pequeño ajuste, una tarifa puede ser adecuada y seguir teniendo margen de mejora.
-
-Después de años revisando contratos energéticos, hemos aprendido una lección sencilla: siempre merece la pena revisar un suministro.
+![Infografía que muestra cómo pequeños ajustes pueden mejorar un contrato energético.](/blog/arcoplaza-infografia-contrato-bien-ajustado.png "Un contrato energético bien ajustado marca la diferencia")
 
 ## 1. El mercado cambia más rápido que muchos contratos
 

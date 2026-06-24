@@ -7,7 +7,7 @@ excerpt: "Explicamos qué es la potencia contratada, cómo afecta a la factura y
 date: "Junio 2026"
 datePublished: "2026-06-06"
 readTime: "5 min"
-image: "/blog/potencia.jpg"
+image: "/blog/potencia-contratada.webp"
 imageAlt: "Qué es la potencia contratada y cuándo está sobredimensionada"
 featured: false
 seoTitle: "Qué es la potencia contratada y cuándo está sobredimensionada | Arcoplaza"

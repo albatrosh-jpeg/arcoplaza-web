@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Plaza;Enrique;;;
+FN:Enrique Plaza
+ORG:Arcoplaza Asesores
+TITLE:Consultor energético
+TEL;TYPE=CELL,VOICE:+34692641439
+EMAIL;TYPE=INTERNET,WORK:contacto@arcoplazaasesores.com
+URL:https://www.arcoplazaasesores.com
+END:VCARD

@@ -102,6 +102,7 @@ h3 {
   @apply
     font-editorial
     font-medium
+    text-corporate
 
     tracking-[-0.02em]
     leading-[0.98]
@@ -117,7 +118,8 @@ h3 {
   @apply
     font-editorial
     font-medium
-
+    text-corporate
+    
     tracking-normal
     leading-[1]
 
@@ -132,6 +134,7 @@ h3 {
   @apply
     font-editorial
     font-medium
+    text-corporate
 
     tracking-normal
     leading-[1.08]
@@ -181,7 +184,7 @@ h3 {
 
     leading-relaxed
 
-    text-slate-600;
+    text-text-secondary;
 
 }
 

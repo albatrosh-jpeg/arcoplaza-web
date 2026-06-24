@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+N:del Arco;Álvaro;;;
+FN:Álvaro del Arco
+ORG:Arcoplaza Asesores
+TITLE:Consultor energético
+TEL;TYPE=CELL,VOICE:+34669633694
+EMAIL;TYPE=INTERNET,WORK:contacto@arcoplazaasesores.com
+URL:https://www.arcoplazaasesores.com
+END:VCARD

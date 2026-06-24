@@ -4,8 +4,10 @@ import Cases from '../components/sections/Cases'
 import Seo from '../components/seo/Seo'
 
 import AnalysisHero from './AnalysisHero'
+import AnalysisScope from './AnalysisScope'
 import AnalysisProblem from './AnalysisProblem'
 import AnalysisProcess from './AnalysisProcess'
+import AnalysisBeforeAfter from './AnalysisBeforeAfter'
 import AnalysisCTA from './AnalysisCTA'
 import LandingVisualCards from './LandingVisualCards'
 
@@ -26,11 +28,15 @@ export default function AnalysisPage() {
 
         <AnalysisHero />
 
+        <AnalysisScope />
+
         <AnalysisProblem />
 
         <LandingVisualCards />
 
         <AnalysisProcess />
+
+        <AnalysisBeforeAfter />
 
         <Cases />
 

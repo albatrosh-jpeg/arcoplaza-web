@@ -23,6 +23,8 @@ import PoliticaCookies from './pages/PoliticaCookies'
 import { HelmetProvider } from 'react-helmet-async'
 import AnalysisPage from './pages/AnalysisPage'
 import PowerOptimizationPage from './pages/PowerOptimizationPage'
+import Contactoalvaro from './pages/Contactoalvaro'
+import Contactoenrique from './pages/Contactoenrique'
 
 function ScrollToTop() {
   const {
@@ -113,6 +115,16 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route
           path="/soluciones/optimizacion-potencia-contratada"
           element={<PowerOptimizationPage />}
+        />
+
+        <Route
+          path="/contactoalvaro"
+          element={<Contactoalvaro />}
+        />
+
+        <Route
+          path="/contactoenrique"
+          element={<Contactoenrique />}
         />
 
       </Routes>

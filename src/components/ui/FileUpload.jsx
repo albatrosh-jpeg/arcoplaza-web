@@ -11,7 +11,7 @@ import {
 
 const analysisBadges = [
   ['PDF, JPG y PNG', FileImage],
-  ['Analisis preliminar', ClipboardCheck],
+  ['Análisis preliminar', ClipboardCheck],
   ['Sin compromiso', ShieldCheck],
   ['Respuesta personalizada', BadgeCheck]
 ]
@@ -74,7 +74,7 @@ export default function FileUpload({
               </div>
 
               <div className="absolute bottom-0 right-14 h-[132px] w-[98px] rotate-7 rounded-[18px] border border-[#DDE8F2] bg-[#EFF7FF]/90 shadow-[0_18px_40px_rgba(16,37,66,0.10)]">
-                <Flame className="absolute left-7 top-6 h-8 w-8 text-[#0B69D1]" fill="currentColor" />
+                <Flame className="absolute left-7 top-6 h-8 w-8 text-corporate" fill="currentColor" />
                 <span className="absolute bottom-14 left-6 h-2 w-12 rounded-full bg-[#B8CCE0]" />
                 <span className="absolute bottom-10 left-6 h-2 w-10 rounded-full bg-[#D1DDE8]" />
                 <span className="absolute bottom-6 left-6 h-2 w-8 rounded-full bg-[#E1E8EF]" />
@@ -123,22 +123,22 @@ export default function FileUpload({
               ${compact ? 'text-[14px]' : 'text-[26px] sm:text-[30px]'}
             `}
           >
-            {compact ? 'Adjunta una o varias facturas' : 'Arrastra aqui tu factura'}
+            {compact ? 'Adjunta una o varias facturas' : 'Arrastra aquí tu factura'}
           </div>
 
           <div
             className={`
               leading-relaxed
-              text-slate-500
+              text-text-secondary
               ${compact ? 'text-[12px]' : 'text-[15px]'}
             `}
           >
             {compact ? (
-              'PDF, JPG o PNG · Max. 10MB por archivo'
+              'PDF, JPG o PNG - Max. 10MB por archivo'
             ) : (
               <>
                 o haz clic para seleccionarla
-                <span className="mt-2 block text-[13px] text-slate-500">
+                <span className="mt-2 block text-[13px] text-text-secondary">
                   PDF, JPG o PNG &middot; Max. 10MB por archivo
                 </span>
               </>

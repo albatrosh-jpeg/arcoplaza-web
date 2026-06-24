@@ -59,7 +59,7 @@ export default function Cases() {
           </h2>
 
           <p className="mt-6 max-w-2xl text-[16px] leading-relaxed text-text-secondary lg:text-[18px]">
-            Cada caso corresponde a un suministro distinto. Por eso mostramos los resultados de forma individual, sin mezclar ahorros que no son comparables entre sí.
+            Cada caso corresponde a un suministro distinto. Mostramos los resultados de forma individual, sin mezclar ahorros que no son comparables entre sí.
           </p>
         </div>
 

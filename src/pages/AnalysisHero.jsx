@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import Button from '../components/ui/Button'
+import FileUpload from '../components/ui/FileUpload'
 
 export default function AnalysisHero({
   eyebrow = 'ANÁLISIS ENERGÉTICO',
@@ -7,6 +9,7 @@ export default function AnalysisHero({
   image = '/quienessomos.gif',
   imageAlt = 'Análisis de facturas energéticas'
 }) {
+  const [fileName, setFileName] = useState('')
 
   return (
 
@@ -144,26 +147,12 @@ export default function AnalysisHero({
           "
         >
 
-          <div
-            className="
-              absolute
-              inset-8
-              rounded-[40px]
-              bg-white/70
-            "
-          />
-
-          <img
-            src={image}
-            alt={imageAlt}
-            className="
-              relative
-              z-10
-              w-full
-              max-w-[700px]
-              mx-auto
-            "
-          />
+          <div className="relative z-10 w-full max-w-[680px]">
+            <FileUpload
+              fileName={fileName}
+              setFileName={setFileName}
+            />
+          </div>
 
         </div>
 

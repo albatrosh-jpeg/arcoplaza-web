@@ -9,7 +9,7 @@ return (
   <Section>
 
     <CTASection
-      title="¿Revisamos tu suministro?"
+      title={<span className="text-white">¿Revisamos tu suministro?</span>}
       text="Analizamos tu factura y detectamos posibles oportunidades de optimización en luz, gas o autoconsumo."
       buttonText="Solicitar análisis gratuito"
       buttonClassName="

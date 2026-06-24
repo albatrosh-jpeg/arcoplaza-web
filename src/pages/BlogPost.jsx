@@ -610,6 +610,7 @@ return (
             <h1
               className="
                 heading-h1
+                article-title-white
                 w-full
                 !max-w-full
                 !text-[34px]

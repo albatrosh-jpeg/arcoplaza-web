@@ -221,7 +221,7 @@ const editorialSections =
                   font-bold
                   uppercase
                   tracking-[0.24em]
-                  text-[#B8D8C0]
+                  text-corporateGreen
                   md:text-base
                 "
               >
@@ -235,7 +235,7 @@ const editorialSections =
                   sm:!text-[48px]
                   lg:!text-[64px]
                   !leading-[1.02]
-                  text-white
+                  !text-white
                   max-w-[760px]
               "
               >
@@ -248,7 +248,7 @@ const editorialSections =
                   max-w-[680px]
                   text-lg
                   leading-8
-                  text-white/85
+                  text-white
                   md:text-xl
                   md:leading-9
                 "

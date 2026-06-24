@@ -37,7 +37,7 @@ export default function LandingVisualCards() {
           <h2
             className="
               heading-h2
-              text-white
+              !text-white
             "
           >
             Del dato técnico a una decisión clara
@@ -99,12 +99,13 @@ export default function LandingVisualCards() {
                   className="
                     mb-4
                     heading-h3
+                    text-corporate
                   "
                 >
                   {card.title}
                 </h3>
 
-                <p className="text-[15px] leading-[1.7] text-text-secondary lg:text-[16px]">
+                <p className="text-[15px] leading-[1.7] text-corporate lg:text-[16px]">
                   {card.text}
                 </p>
               </article>

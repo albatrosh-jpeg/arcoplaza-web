@@ -36,6 +36,7 @@ export default function Navbar() {
 
   const isLanding =
     location.pathname === '/analisis-factura-electrica' ||
+    location.pathname === '/analizar-factura' ||
     location.pathname.startsWith('/soluciones/')
 
   const simplifiedNavbar =

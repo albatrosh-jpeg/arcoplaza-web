@@ -25,6 +25,7 @@ import AnalysisPage from './pages/AnalysisPage'
 import PowerOptimizationPage from './pages/PowerOptimizationPage'
 import Contactoalvaro from './pages/Contactoalvaro'
 import Contactoenrique from './pages/Contactoenrique'
+import AnalyzeInvoice from './pages/AnalyzeInvoice'
 
 function ScrollToTop() {
   const {
@@ -110,6 +111,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route
           path="/analisis-factura-electrica"
           element={<AnalysisPage />}
+        />
+
+        <Route
+          path="/analizar-factura"
+          element={<AnalyzeInvoice />}
         />
 
         <Route

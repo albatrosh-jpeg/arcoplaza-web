@@ -2,16 +2,28 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 function localApiPlugin() {
+  const apiHandlers = {
+    '/api/getMarketData': {
+      modulePath: './api/getMarketData.js',
+      fallbackError: 'Error obteniendo datos de mercado'
+    },
+    '/api/analyze-invoice': {
+      modulePath: './api/analyze-invoice.js',
+      fallbackError: 'Error analizando factura'
+    }
+  }
+
   return {
     name: 'local-api-plugin',
     configureServer(server) {
-      server.middlewares.use(
-        '/api/getMarketData',
-        async (req, res) => {
+      Object.entries(apiHandlers).forEach(([path, api]) => {
+        server.middlewares.use(
+          path,
+          async (req, res) => {
           try {
             const {
               default: handler
-            } = await import('./api/getMarketData.js')
+            } = await import(api.modulePath)
 
             const response = {
               status(code) {
@@ -31,11 +43,12 @@ function localApiPlugin() {
             res.statusCode = 500
             res.setHeader('Content-Type', 'application/json')
             res.end(JSON.stringify({
-              error: 'Error obteniendo datos de mercado'
+              error: api.fallbackError
             }))
           }
-        }
-      )
+          }
+        )
+      })
     }
   }
 }

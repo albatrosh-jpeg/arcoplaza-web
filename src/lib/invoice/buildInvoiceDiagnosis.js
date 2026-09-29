@@ -70,6 +70,10 @@ function toPrudentObservation(observation) {
 
   const lower = text.toLowerCase()
 
+  if (lower.includes('no se detectan excesos de potencia')) {
+    return 'No se han identificado indicios de excesos de potencia en la lectura automatica.'
+  }
+
   if (lower.includes('excesos de potencia')) {
     return 'Posible punto revisable: aparecen indicios relacionados con excesos de potencia.'
   }

@@ -55,7 +55,7 @@ function ConfidenceBadge({
   return (
     <div className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold ${tone[confidence?.level] || tone.Baja}`}>
       <ShieldCheck size={16} />
-      Confianza {confidence?.level || 'Baja'} - {confidence?.score ?? 0}%
+      Cobertura de datos: {confidence?.level || 'Baja'}
     </div>
   )
 }

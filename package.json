@@ -8,6 +8,7 @@
     "prebuild": "npm run generate:sitemap",
     "build": "vite build",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
+    "test": "node --test",
     "preview": "vite preview"
   },
   "dependencies": {

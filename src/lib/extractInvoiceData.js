@@ -1,4 +1,4 @@
-import pdfParse from 'pdf-parse/lib/pdf-parse.js'
+import { extractInvoiceText } from './invoice/extractInvoiceText.js'
 
 const DATE_PATTERN = String.raw`\d{1,2}[\/.-]\d{1,2}[\/.-]\d{2,4}`
 const NUMBER_PATTERN = String.raw`\d+(?:[.,]\d+)?`
@@ -226,9 +226,9 @@ export function extractInvoiceDataFromText(text) {
 
 export default async function extractInvoiceData(buffer) {
   try {
-    const data = await pdfParse(buffer)
+    const text = await extractInvoiceText(buffer)
 
-    return extractInvoiceDataFromText(data.text)
+    return extractInvoiceDataFromText(text)
   }
   catch {
     return null

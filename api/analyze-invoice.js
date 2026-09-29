@@ -1,7 +1,13 @@
 import formidable from 'formidable'
 import fs from 'fs/promises'
-import extractInvoiceData from '../src/lib/extractInvoiceData.js'
+import { extractInvoiceDataFromText } from '../src/lib/extractInvoiceData.js'
 import { buildInvoiceDiagnosis } from '../src/lib/invoice/buildInvoiceDiagnosis.js'
+import { extractInvoiceText } from '../src/lib/invoice/extractInvoiceText.js'
+import { isUsableInvoiceText } from '../src/lib/invoice/isUsableInvoiceText.js'
+import {
+  OCR_REQUIRED,
+  ocrInvoice
+} from '../src/lib/invoice/ocrInvoice.js'
 
 export const config = {
   api: {
@@ -92,7 +98,11 @@ export default async function handler(req, res) {
     }
 
     const fileBuffer = await fs.readFile(uploadedFile.filepath)
-    const invoiceData = await extractInvoiceData(fileBuffer)
+    const extractedText = await extractInvoiceText(fileBuffer)
+    const invoiceText = isUsableInvoiceText(extractedText)
+      ? extractedText
+      : await ocrInvoice(fileBuffer)
+    const invoiceData = extractInvoiceDataFromText(invoiceText)
 
     if (!invoiceData) {
       return res.status(422).json({
@@ -108,6 +118,13 @@ export default async function handler(req, res) {
     })
   }
   catch (error) {
+    if (error?.code === OCR_REQUIRED) {
+      return res.status(422).json({
+        code: OCR_REQUIRED,
+        error: 'Esta factura parece estar escaneada. Todavia no podemos leer automaticamente este tipo de PDF.'
+      })
+    }
+
     const statusCode =
       error?.code === 'LIMIT_FILE_SIZE' ||
       error?.httpCode === 413
